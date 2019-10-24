@@ -1,0 +1,15 @@
+ARCHS[sdk=iphonesimulator*] = $(ARCHS_STANDARD_64_BIT)
+CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES
+CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE
+HEADER_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/IRFFMpeg/include"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/IRFFMpeg/lib"
+OTHER_LDFLAGS = $(inherited) -all_load -l"avcodec" -l"avdevice" -l"avfilter" -l"avformat" -l"avutil" -l"bz2" -l"iconv" -l"lzma" -l"swresample" -l"swscale" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CoreMedia" -framework "Foundation" -framework "UIKit" -framework "VideoToolbox"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/IRFFMpeg
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES
+USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/IRFFMpeg/include"
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

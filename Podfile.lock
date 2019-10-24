@@ -1,0 +1,22 @@
+PODS:
+  - IRFFMpeg (4.2.19):
+    - IRFFMpeg/FFMpegLib (= 4.2.19)
+  - IRFFMpeg/FFMpegLib (4.2.19)
+  - IRPlayer (0.3.2):
+    - IRFFMpeg
+
+DEPENDENCIES:
+  - IRPlayer
+
+SPEC REPOS:
+  trunk:
+    - IRFFMpeg
+    - IRPlayer
+
+SPEC CHECKSUMS:
+  IRFFMpeg: 50e159994f9c7c1136b19fc1dea96b4c903b1c9c
+  IRPlayer: 707f2b32c5fac623f82ba43ddbde3b9221377314
+
+PODFILE CHECKSUM: cfa7aeb80eab28b1c7779a1b8115c686b245b7d5
+
+COCOAPODS: 1.8.0.beta.2

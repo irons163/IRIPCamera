@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6A454E4A2179580F5CB3E4E3 /* Pods_IRIPCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 829BD77DFC63630B4AF697D7 /* Pods_IRIPCamera.framework */; };
+		8A2013832321EF0C00F8CAE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2013822321EF0C00F8CAE9 /* AppDelegate.m */; };
+		8A2013862321EF0C00F8CAE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2013852321EF0C00F8CAE9 /* ViewController.m */; };
+		8A2013892321EF0C00F8CAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2013872321EF0C00F8CAE9 /* Main.storyboard */; };
+		8A20138B2321EF0F00F8CAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A20138A2321EF0F00F8CAE9 /* Assets.xcassets */; };
+		8A20138E2321EF0F00F8CAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A20138C2321EF0F00F8CAE9 /* LaunchScreen.storyboard */; };
+		8A2013912321EF0F00F8CAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2013902321EF0F00F8CAE9 /* main.m */; };
+		8A5B92AC2361744500D292A7 /* IREditDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */; };
+		8A5B92AD2361744500D292A7 /* IREditDeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */; };
+		8A5B92B7236174E600D292A7 /* IRRTSPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */; };
+		8A5B92B8236174E600D292A7 /* IRRTSPSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */; };
+		8A5B92BC2361755D00D292A7 /* IRRTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */; };
+		8A5B92BD2361755D00D292A7 /* IRRTSPPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */; };
+		8A5B92C0236178F300D292A7 /* IRStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92BF236178F300D292A7 /* IRStreamController.m */; };
+		8A5B92C32361793C00D292A7 /* IRStreamControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92C22361793C00D292A7 /* IRStreamControllerFactory.m */; };
+		8A5B92C62361796A00D292A7 /* IRStreamConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92C52361796A00D292A7 /* IRStreamConnector.m */; };
+		8A5B92C9236179F300D292A7 /* IRCustomStreamConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92C8236179F300D292A7 /* IRCustomStreamConnector.m */; };
+		8A5B92CC23617A0300D292A7 /* IRStreamConnectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92CB23617A0300D292A7 /* IRStreamConnectionRequest.m */; };
+		8A5B92CF23617A2000D292A7 /* IRCustomStreamConnectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92CE23617A2000D292A7 /* IRCustomStreamConnectionRequest.m */; };
+		8A5B92D223617A3600D292A7 /* IRStreamConnectionRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92D123617A3600D292A7 /* IRStreamConnectionRequestFactory.m */; };
+		8A5B92D523617C1500D292A7 /* IRStreamConnectionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */; };
+		8A7739CA23601DB600C6233F /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739C823601DB500C6233F /* PlayerViewController.m */; };
+		8A7739CB23601DB600C6233F /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7739C923601DB600C6233F /* PlayerViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6512BCEFF82CD6EA23C56843 /* Pods-IRIPCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRIPCamera.release.xcconfig"; path = "Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera.release.xcconfig"; sourceTree = "<group>"; };
+		829BD77DFC63630B4AF697D7 /* Pods_IRIPCamera.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IRIPCamera.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A20137E2321EF0C00F8CAE9 /* IRIPCamera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRIPCamera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A2013812321EF0C00F8CAE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8A2013822321EF0C00F8CAE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8A2013842321EF0C00F8CAE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8A2013852321EF0C00F8CAE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8A2013882321EF0C00F8CAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8A20138A2321EF0F00F8CAE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8A20138D2321EF0F00F8CAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8A20138F2321EF0F00F8CAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A2013902321EF0F00F8CAE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8A5B92A92361744500D292A7 /* IREditDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IREditDeviceCell.h; sourceTree = "<group>"; };
+		8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IREditDeviceCell.m; sourceTree = "<group>"; };
+		8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IREditDeviceCell.xib; sourceTree = "<group>"; };
+		8A5B92B4236174E600D292A7 /* IRRTSPSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRRTSPSettingsViewController.h; sourceTree = "<group>"; };
+		8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRRTSPSettingsViewController.m; sourceTree = "<group>"; };
+		8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRRTSPSettingsViewController.xib; sourceTree = "<group>"; };
+		8A5B92B92361755D00D292A7 /* IRRTSPPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRRTSPPlayer.h; sourceTree = "<group>"; };
+		8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRRTSPPlayer.m; sourceTree = "<group>"; };
+		8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRRTSPPlayer.xib; sourceTree = "<group>"; };
+		8A5B92BE236178F300D292A7 /* IRStreamController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamController.h; sourceTree = "<group>"; };
+		8A5B92BF236178F300D292A7 /* IRStreamController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamController.m; sourceTree = "<group>"; };
+		8A5B92C12361793C00D292A7 /* IRStreamControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamControllerFactory.h; sourceTree = "<group>"; };
+		8A5B92C22361793C00D292A7 /* IRStreamControllerFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamControllerFactory.m; sourceTree = "<group>"; };
+		8A5B92C42361796A00D292A7 /* IRStreamConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnector.h; sourceTree = "<group>"; };
+		8A5B92C52361796A00D292A7 /* IRStreamConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnector.m; sourceTree = "<group>"; };
+		8A5B92C7236179F300D292A7 /* IRCustomStreamConnector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCustomStreamConnector.h; sourceTree = "<group>"; };
+		8A5B92C8236179F300D292A7 /* IRCustomStreamConnector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCustomStreamConnector.m; sourceTree = "<group>"; };
+		8A5B92CA23617A0300D292A7 /* IRStreamConnectionRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnectionRequest.h; sourceTree = "<group>"; };
+		8A5B92CB23617A0300D292A7 /* IRStreamConnectionRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionRequest.m; sourceTree = "<group>"; };
+		8A5B92CD23617A2000D292A7 /* IRCustomStreamConnectionRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRCustomStreamConnectionRequest.h; sourceTree = "<group>"; };
+		8A5B92CE23617A2000D292A7 /* IRCustomStreamConnectionRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRCustomStreamConnectionRequest.m; sourceTree = "<group>"; };
+		8A5B92D023617A3600D292A7 /* IRStreamConnectionRequestFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnectionRequestFactory.h; sourceTree = "<group>"; };
+		8A5B92D123617A3600D292A7 /* IRStreamConnectionRequestFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionRequestFactory.m; sourceTree = "<group>"; };
+		8A5B92D323617C1500D292A7 /* IRStreamConnectionResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnectionResponse.h; sourceTree = "<group>"; };
+		8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionResponse.m; sourceTree = "<group>"; };
+		8A7739C423601C8300C6233F /* google-help-vr.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "google-help-vr.mp4"; sourceTree = "<group>"; };
+		8A7739C523601C8300C6233F /* fisheye-demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fisheye-demo.mp4"; sourceTree = "<group>"; };
+		8A7739C623601C8400C6233F /* i-see-fire.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "i-see-fire.mp4"; sourceTree = "<group>"; };
+		8A7739C723601DB500C6233F /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		8A7739C823601DB500C6233F /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		8A7739C923601DB600C6233F /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		C418478BE07180B97FD90BF1 /* Pods-IRIPCamera.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRIPCamera.debug.xcconfig"; path = "Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8A20137B2321EF0C00F8CAE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A454E4A2179580F5CB3E4E3 /* Pods_IRIPCamera.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07B75BC1EEA47B326E0C4CB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C418478BE07180B97FD90BF1 /* Pods-IRIPCamera.debug.xcconfig */,
+				6512BCEFF82CD6EA23C56843 /* Pods-IRIPCamera.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		0D3A85DFE28E160331B0B59F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				829BD77DFC63630B4AF697D7 /* Pods_IRIPCamera.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A2013752321EF0C00F8CAE9 = {
+			isa = PBXGroup;
+			children = (
+				8A2013802321EF0C00F8CAE9 /* IRIPCamera */,
+				8A20137F2321EF0C00F8CAE9 /* Products */,
+				07B75BC1EEA47B326E0C4CB1 /* Pods */,
+				0D3A85DFE28E160331B0B59F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8A20137F2321EF0C00F8CAE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A20137E2321EF0C00F8CAE9 /* IRIPCamera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A2013802321EF0C00F8CAE9 /* IRIPCamera */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92A3236172F300D292A7 /* Class */,
+				8A7739C523601C8300C6233F /* fisheye-demo.mp4 */,
+				8A7739C423601C8300C6233F /* google-help-vr.mp4 */,
+				8A7739C623601C8400C6233F /* i-see-fire.mp4 */,
+				8A2013812321EF0C00F8CAE9 /* AppDelegate.h */,
+				8A2013822321EF0C00F8CAE9 /* AppDelegate.m */,
+				8A7739C723601DB500C6233F /* PlayerViewController.h */,
+				8A7739C823601DB500C6233F /* PlayerViewController.m */,
+				8A7739C923601DB600C6233F /* PlayerViewController.xib */,
+				8A2013842321EF0C00F8CAE9 /* ViewController.h */,
+				8A2013852321EF0C00F8CAE9 /* ViewController.m */,
+				8A2013872321EF0C00F8CAE9 /* Main.storyboard */,
+				8A20138A2321EF0F00F8CAE9 /* Assets.xcassets */,
+				8A20138C2321EF0F00F8CAE9 /* LaunchScreen.storyboard */,
+				8A20138F2321EF0F00F8CAE9 /* Info.plist */,
+				8A2013902321EF0F00F8CAE9 /* main.m */,
+			);
+			path = IRIPCamera;
+			sourceTree = "<group>";
+		};
+		8A5B92A3236172F300D292A7 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92A42361738300D292A7 /* UI */,
+				8A5B92A52361738900D292A7 /* Utility */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		8A5B92A42361738300D292A7 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92AE2361747400D292A7 /* Setting */,
+				8A5B92A7236173D400D292A7 /* Display */,
+				8A5B92A6236173C700D292A7 /* Connection */,
+				8A5B92BE236178F300D292A7 /* IRStreamController.h */,
+				8A5B92BF236178F300D292A7 /* IRStreamController.m */,
+				8A5B92C12361793C00D292A7 /* IRStreamControllerFactory.h */,
+				8A5B92C22361793C00D292A7 /* IRStreamControllerFactory.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8A5B92A52361738900D292A7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		8A5B92A6236173C700D292A7 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92C42361796A00D292A7 /* IRStreamConnector.h */,
+				8A5B92C52361796A00D292A7 /* IRStreamConnector.m */,
+				8A5B92C7236179F300D292A7 /* IRCustomStreamConnector.h */,
+				8A5B92C8236179F300D292A7 /* IRCustomStreamConnector.m */,
+				8A5B92CA23617A0300D292A7 /* IRStreamConnectionRequest.h */,
+				8A5B92CB23617A0300D292A7 /* IRStreamConnectionRequest.m */,
+				8A5B92CD23617A2000D292A7 /* IRCustomStreamConnectionRequest.h */,
+				8A5B92CE23617A2000D292A7 /* IRCustomStreamConnectionRequest.m */,
+				8A5B92D023617A3600D292A7 /* IRStreamConnectionRequestFactory.h */,
+				8A5B92D123617A3600D292A7 /* IRStreamConnectionRequestFactory.m */,
+				8A5B92D323617C1500D292A7 /* IRStreamConnectionResponse.h */,
+				8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		8A5B92A7236173D400D292A7 /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92B92361755D00D292A7 /* IRRTSPPlayer.h */,
+				8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */,
+				8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */,
+				8A5B92A8236173E500D292A7 /* View */,
+			);
+			path = Display;
+			sourceTree = "<group>";
+		};
+		8A5B92A8236173E500D292A7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92A92361744500D292A7 /* IREditDeviceCell.h */,
+				8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */,
+				8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A5B92AE2361747400D292A7 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92B4236174E600D292A7 /* IRRTSPSettingsViewController.h */,
+				8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */,
+				8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8A20137D2321EF0C00F8CAE9 /* IRIPCamera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A2013942321EF0F00F8CAE9 /* Build configuration list for PBXNativeTarget "IRIPCamera" */;
+			buildPhases = (
+				0DC2C7B2ACC3204E0F18104E /* [CP] Check Pods Manifest.lock */,
+				8A20137A2321EF0C00F8CAE9 /* Sources */,
+				8A20137B2321EF0C00F8CAE9 /* Frameworks */,
+				8A20137C2321EF0C00F8CAE9 /* Resources */,
+				4FCDC06E8FBAE6FAC66131FF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IRIPCamera;
+			productName = IRIPCamera;
+			productReference = 8A20137E2321EF0C00F8CAE9 /* IRIPCamera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8A2013762321EF0C00F8CAE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Phil;
+				TargetAttributes = {
+					8A20137D2321EF0C00F8CAE9 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 8A2013792321EF0C00F8CAE9 /* Build configuration list for PBXProject "IRIPCamera" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8A2013752321EF0C00F8CAE9;
+			productRefGroup = 8A20137F2321EF0C00F8CAE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8A20137D2321EF0C00F8CAE9 /* IRIPCamera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8A20137C2321EF0C00F8CAE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5B92B8236174E600D292A7 /* IRRTSPSettingsViewController.xib in Resources */,
+				8A20138E2321EF0F00F8CAE9 /* LaunchScreen.storyboard in Resources */,
+				8A7739CB23601DB600C6233F /* PlayerViewController.xib in Resources */,
+				8A5B92BD2361755D00D292A7 /* IRRTSPPlayer.xib in Resources */,
+				8A5B92AD2361744500D292A7 /* IREditDeviceCell.xib in Resources */,
+				8A20138B2321EF0F00F8CAE9 /* Assets.xcassets in Resources */,
+				8A2013892321EF0C00F8CAE9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0DC2C7B2ACC3204E0F18104E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IRIPCamera-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FCDC06E8FBAE6FAC66131FF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8A20137A2321EF0C00F8CAE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5B92C62361796A00D292A7 /* IRStreamConnector.m in Sources */,
+				8A5B92C9236179F300D292A7 /* IRCustomStreamConnector.m in Sources */,
+				8A5B92CC23617A0300D292A7 /* IRStreamConnectionRequest.m in Sources */,
+				8A5B92CF23617A2000D292A7 /* IRCustomStreamConnectionRequest.m in Sources */,
+				8A2013862321EF0C00F8CAE9 /* ViewController.m in Sources */,
+				8A7739CA23601DB600C6233F /* PlayerViewController.m in Sources */,
+				8A5B92C0236178F300D292A7 /* IRStreamController.m in Sources */,
+				8A5B92C32361793C00D292A7 /* IRStreamControllerFactory.m in Sources */,
+				8A2013912321EF0F00F8CAE9 /* main.m in Sources */,
+				8A5B92B7236174E600D292A7 /* IRRTSPSettingsViewController.m in Sources */,
+				8A5B92BC2361755D00D292A7 /* IRRTSPPlayer.m in Sources */,
+				8A5B92D523617C1500D292A7 /* IRStreamConnectionResponse.m in Sources */,
+				8A2013832321EF0C00F8CAE9 /* AppDelegate.m in Sources */,
+				8A5B92AC2361744500D292A7 /* IREditDeviceCell.m in Sources */,
+				8A5B92D223617A3600D292A7 /* IRStreamConnectionRequestFactory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8A2013872321EF0C00F8CAE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A2013882321EF0C00F8CAE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8A20138C2321EF0F00F8CAE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A20138D2321EF0F00F8CAE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8A2013922321EF0F00F8CAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		8A2013932321EF0F00F8CAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8A2013952321EF0F00F8CAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C418478BE07180B97FD90BF1 /* Pods-IRIPCamera.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F7AP32ZTM5;
+				INFOPLIST_FILE = IRIPCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8A2013962321EF0F00F8CAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6512BCEFF82CD6EA23C56843 /* Pods-IRIPCamera.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F7AP32ZTM5;
+				INFOPLIST_FILE = IRIPCamera/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8A2013792321EF0C00F8CAE9 /* Build configuration list for PBXProject "IRIPCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2013922321EF0F00F8CAE9 /* Debug */,
+				8A2013932321EF0F00F8CAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A2013942321EF0F00F8CAE9 /* Build configuration list for PBXNativeTarget "IRIPCamera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A2013952321EF0F00F8CAE9 /* Debug */,
+				8A2013962321EF0F00F8CAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8A2013762321EF0C00F8CAE9 /* Project object */;
+}

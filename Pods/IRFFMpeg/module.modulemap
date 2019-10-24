@@ -1,0 +1,6 @@
+framework module IRFFMpeg {
+  umbrella header "IRFFMpeg.h"
+
+  export *
+  module * { export * }
+}

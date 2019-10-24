@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera-frameworks.sh
+${BUILT_PRODUCTS_DIR}/IRFFMpeg/IRFFMpeg.framework
+${BUILT_PRODUCTS_DIR}/IRPlayer/IRPlayer.framework
