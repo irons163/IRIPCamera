@@ -1,0 +1,1702 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04A744E11957C88A008F280A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A744E01957C88A008F280A /* Foundation.framework */; };
+		04A744E61957C88A008F280A /* RTSPClientSession.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 04A744E51957C88A008F280A /* RTSPClientSession.h */; };
+		04A744E81957C88A008F280A /* RTSPClientSession.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A744E71957C88A008F280A /* RTSPClientSession.mm */; };
+		04A744EF1957C88A008F280A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A744EE1957C88A008F280A /* XCTest.framework */; };
+		04A744F01957C88A008F280A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A744E01957C88A008F280A /* Foundation.framework */; };
+		04A744F21957C88A008F280A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A744F11957C88A008F280A /* UIKit.framework */; };
+		04A744F51957C88A008F280A /* libRTSPClientSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A744DD1957C88A008F280A /* libRTSPClientSession.a */; };
+		04A744FB1957C88A008F280A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04A744F91957C88A008F280A /* InfoPlist.strings */; };
+		04A744FD1957C88A008F280A /* RTSPClientSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A744FC1957C88A008F280A /* RTSPClientSessionTests.m */; };
+		04A746851957C8CE008F280A /* BasicHashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745071957C8CD008F280A /* BasicHashTable.cpp */; };
+		04A746861957C8CE008F280A /* BasicTaskScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745081957C8CD008F280A /* BasicTaskScheduler.cpp */; };
+		04A746871957C8CE008F280A /* BasicTaskScheduler0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745091957C8CD008F280A /* BasicTaskScheduler0.cpp */; };
+		04A746881957C8CE008F280A /* BasicUsageEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7450A1957C8CD008F280A /* BasicUsageEnvironment.cpp */; };
+		04A746891957C8CE008F280A /* BasicUsageEnvironment0.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7450B1957C8CD008F280A /* BasicUsageEnvironment0.cpp */; };
+		04A7468A1957C8CE008F280A /* DelayQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7450D1957C8CD008F280A /* DelayQueue.cpp */; };
+		04A7468B1957C8CE008F280A /* GroupEId.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745191957C8CD008F280A /* GroupEId.cpp */; };
+		04A7468C1957C8CE008F280A /* Groupsock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7451A1957C8CD008F280A /* Groupsock.cpp */; };
+		04A7468D1957C8CE008F280A /* GroupsockHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7451B1957C8CD008F280A /* GroupsockHelper.cpp */; };
+		04A7468E1957C8CE008F280A /* inet.c in Sources */ = {isa = PBXBuildFile; fileRef = 04A745261957C8CD008F280A /* inet.c */; };
+		04A7468F1957C8CE008F280A /* IOHandlers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745271957C8CD008F280A /* IOHandlers.cpp */; };
+		04A746901957C8CE008F280A /* NetAddress.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7452A1957C8CD008F280A /* NetAddress.cpp */; };
+		04A746911957C8CE008F280A /* NetInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7452B1957C8CD008F280A /* NetInterface.cpp */; };
+		04A746921957C8CE008F280A /* AC3AudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7452D1957C8CD008F280A /* AC3AudioFileServerMediaSubsession.cpp */; };
+		04A746931957C8CE008F280A /* AC3AudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7452E1957C8CD008F280A /* AC3AudioRTPSink.cpp */; };
+		04A746941957C8CE008F280A /* AC3AudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7452F1957C8CD008F280A /* AC3AudioRTPSource.cpp */; };
+		04A746951957C8CE008F280A /* AC3AudioStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745301957C8CD008F280A /* AC3AudioStreamFramer.cpp */; };
+		04A746961957C8CE008F280A /* ADTSAudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745311957C8CD008F280A /* ADTSAudioFileServerMediaSubsession.cpp */; };
+		04A746971957C8CE008F280A /* ADTSAudioFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745321957C8CD008F280A /* ADTSAudioFileSource.cpp */; };
+		04A746981957C8CE008F280A /* AMRAudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745331957C8CD008F280A /* AMRAudioFileServerMediaSubsession.cpp */; };
+		04A746991957C8CE008F280A /* AMRAudioFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745341957C8CD008F280A /* AMRAudioFileSink.cpp */; };
+		04A7469A1957C8CE008F280A /* AMRAudioFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745351957C8CD008F280A /* AMRAudioFileSource.cpp */; };
+		04A7469B1957C8CE008F280A /* AMRAudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745361957C8CD008F280A /* AMRAudioRTPSink.cpp */; };
+		04A7469C1957C8CE008F280A /* AMRAudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745371957C8CD008F280A /* AMRAudioRTPSource.cpp */; };
+		04A7469D1957C8CE008F280A /* AMRAudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745381957C8CD008F280A /* AMRAudioSource.cpp */; };
+		04A7469E1957C8CE008F280A /* AudioInputDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745391957C8CD008F280A /* AudioInputDevice.cpp */; };
+		04A7469F1957C8CE008F280A /* AudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453A1957C8CD008F280A /* AudioRTPSink.cpp */; };
+		04A746A01957C8CE008F280A /* AVIFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453B1957C8CD008F280A /* AVIFileSink.cpp */; };
+		04A746A11957C8CE008F280A /* Base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453C1957C8CD008F280A /* Base64.cpp */; };
+		04A746A21957C8CE008F280A /* BasicUDPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453D1957C8CD008F280A /* BasicUDPSink.cpp */; };
+		04A746A31957C8CE008F280A /* BasicUDPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453E1957C8CD008F280A /* BasicUDPSource.cpp */; };
+		04A746A41957C8CE008F280A /* BitVector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7453F1957C8CD008F280A /* BitVector.cpp */; };
+		04A746A51957C8CE008F280A /* ByteStreamFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745401957C8CD008F280A /* ByteStreamFileSource.cpp */; };
+		04A746A61957C8CE008F280A /* ByteStreamMemoryBufferSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745411957C8CD008F280A /* ByteStreamMemoryBufferSource.cpp */; };
+		04A746A71957C8CE008F280A /* ByteStreamMultiFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745421957C8CD008F280A /* ByteStreamMultiFileSource.cpp */; };
+		04A746A91957C8CE008F280A /* DeviceSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745451957C8CD008F280A /* DeviceSource.cpp */; };
+		04A746AA1957C8CE008F280A /* DigestAuthentication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745461957C8CD008F280A /* DigestAuthentication.cpp */; };
+		04A746AB1957C8CE008F280A /* DVVideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745471957C8CD008F280A /* DVVideoFileServerMediaSubsession.cpp */; };
+		04A746AC1957C8CE008F280A /* DVVideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745481957C8CD008F280A /* DVVideoRTPSink.cpp */; };
+		04A746AD1957C8CE008F280A /* DVVideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745491957C8CD008F280A /* DVVideoRTPSource.cpp */; };
+		04A746AE1957C8CE008F280A /* DVVideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7454A1957C8CD008F280A /* DVVideoStreamFramer.cpp */; };
+		04A746AF1957C8CE008F280A /* EBMLNumber.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7454B1957C8CD008F280A /* EBMLNumber.cpp */; };
+		04A746B01957C8CE008F280A /* FileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7454D1957C8CD008F280A /* FileServerMediaSubsession.cpp */; };
+		04A746B11957C8CE008F280A /* FileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7454E1957C8CD008F280A /* FileSink.cpp */; };
+		04A746B21957C8CE008F280A /* FramedFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7454F1957C8CD008F280A /* FramedFileSource.cpp */; };
+		04A746B31957C8CE008F280A /* FramedFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745501957C8CD008F280A /* FramedFilter.cpp */; };
+		04A746B41957C8CE008F280A /* FramedSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745511957C8CD008F280A /* FramedSource.cpp */; };
+		04A746B51957C8CE008F280A /* GSMAudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745521957C8CD008F280A /* GSMAudioRTPSink.cpp */; };
+		04A746B61957C8CE008F280A /* H261VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745531957C8CD008F280A /* H261VideoRTPSource.cpp */; };
+		04A746B71957C8CE008F280A /* H263plusVideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745541957C8CD008F280A /* H263plusVideoFileServerMediaSubsession.cpp */; };
+		04A746B81957C8CE008F280A /* H263plusVideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745551957C8CD008F280A /* H263plusVideoRTPSink.cpp */; };
+		04A746B91957C8CE008F280A /* H263plusVideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745561957C8CD008F280A /* H263plusVideoRTPSource.cpp */; };
+		04A746BA1957C8CE008F280A /* H263plusVideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745571957C8CD008F280A /* H263plusVideoStreamFramer.cpp */; };
+		04A746BB1957C8CE008F280A /* H263plusVideoStreamParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745581957C8CD008F280A /* H263plusVideoStreamParser.cpp */; };
+		04A746BC1957C8CE008F280A /* H264or5VideoFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455A1957C8CD008F280A /* H264or5VideoFileSink.cpp */; };
+		04A746BD1957C8CE008F280A /* H264or5VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455B1957C8CD008F280A /* H264or5VideoRTPSink.cpp */; };
+		04A746BE1957C8CE008F280A /* H264or5VideoStreamDiscreteFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455C1957C8CD008F280A /* H264or5VideoStreamDiscreteFramer.cpp */; };
+		04A746BF1957C8CE008F280A /* H264or5VideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455D1957C8CD008F280A /* H264or5VideoStreamFramer.cpp */; };
+		04A746C01957C8CE008F280A /* H264VideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455E1957C8CD008F280A /* H264VideoFileServerMediaSubsession.cpp */; };
+		04A746C11957C8CE008F280A /* H264VideoFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7455F1957C8CD008F280A /* H264VideoFileSink.cpp */; };
+		04A746C21957C8CE008F280A /* H264VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745601957C8CD008F280A /* H264VideoRTPSink.cpp */; };
+		04A746C31957C8CE008F280A /* H264VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745611957C8CD008F280A /* H264VideoRTPSource.cpp */; };
+		04A746C41957C8CE008F280A /* H264VideoStreamDiscreteFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745621957C8CD008F280A /* H264VideoStreamDiscreteFramer.cpp */; };
+		04A746C51957C8CE008F280A /* H264VideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745631957C8CD008F280A /* H264VideoStreamFramer.cpp */; };
+		04A746C61957C8CE008F280A /* H265VideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745641957C8CD008F280A /* H265VideoFileServerMediaSubsession.cpp */; };
+		04A746C71957C8CE008F280A /* H265VideoFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745651957C8CD008F280A /* H265VideoFileSink.cpp */; };
+		04A746C81957C8CE008F280A /* H265VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745661957C8CD008F280A /* H265VideoRTPSink.cpp */; };
+		04A746C91957C8CE008F280A /* H265VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745671957C8CD008F280A /* H265VideoRTPSource.cpp */; };
+		04A746CA1957C8CE008F280A /* H265VideoStreamDiscreteFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745681957C8CD008F280A /* H265VideoStreamDiscreteFramer.cpp */; };
+		04A746CB1957C8CE008F280A /* H265VideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745691957C8CD008F280A /* H265VideoStreamFramer.cpp */; };
+		04A746CC1957C8CE008F280A /* InputFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A745FF1957C8CE008F280A /* InputFile.cpp */; };
+		04A746CD1957C8CE008F280A /* JPEGVideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746001957C8CE008F280A /* JPEGVideoRTPSink.cpp */; };
+		04A746CE1957C8CE008F280A /* JPEGVideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746011957C8CE008F280A /* JPEGVideoRTPSource.cpp */; };
+		04A746CF1957C8CE008F280A /* JPEGVideoSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746021957C8CE008F280A /* JPEGVideoSource.cpp */; };
+		04A746D01957C8CE008F280A /* Locale.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746031957C8CE008F280A /* Locale.cpp */; };
+		04A746D11957C8CE008F280A /* MatroskaDemuxedTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746061957C8CE008F280A /* MatroskaDemuxedTrack.cpp */; };
+		04A746D21957C8CE008F280A /* MatroskaFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746081957C8CE008F280A /* MatroskaFile.cpp */; };
+		04A746D31957C8CE008F280A /* MatroskaFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746091957C8CE008F280A /* MatroskaFileParser.cpp */; };
+		04A746D41957C8CE008F280A /* MatroskaFileServerDemux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7460B1957C8CE008F280A /* MatroskaFileServerDemux.cpp */; };
+		04A746D51957C8CE008F280A /* MatroskaFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7460C1957C8CE008F280A /* MatroskaFileServerMediaSubsession.cpp */; };
+		04A746D61957C8CE008F280A /* Media.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7460E1957C8CE008F280A /* Media.cpp */; };
+		04A746D71957C8CE008F280A /* MediaSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7460F1957C8CE008F280A /* MediaSession.cpp */; };
+		04A746D81957C8CE008F280A /* MediaSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746101957C8CE008F280A /* MediaSink.cpp */; };
+		04A746D91957C8CE008F280A /* MediaSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746111957C8CE008F280A /* MediaSource.cpp */; };
+		04A746DA1957C8CE008F280A /* MP3ADU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746121957C8CE008F280A /* MP3ADU.cpp */; };
+		04A746DB1957C8CE008F280A /* MP3ADUdescriptor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746131957C8CE008F280A /* MP3ADUdescriptor.cpp */; };
+		04A746DC1957C8CE008F280A /* MP3ADUinterleaving.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746151957C8CE008F280A /* MP3ADUinterleaving.cpp */; };
+		04A746DD1957C8CE008F280A /* MP3ADURTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746161957C8CE008F280A /* MP3ADURTPSink.cpp */; };
+		04A746DE1957C8CE008F280A /* MP3ADURTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746171957C8CE008F280A /* MP3ADURTPSource.cpp */; };
+		04A746DF1957C8CE008F280A /* MP3ADUTranscoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746181957C8CE008F280A /* MP3ADUTranscoder.cpp */; };
+		04A746E01957C8CE008F280A /* MP3AudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746191957C8CE008F280A /* MP3AudioFileServerMediaSubsession.cpp */; };
+		04A746E11957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7461A1957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.cpp */; };
+		04A746E21957C8CE008F280A /* MP3FileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7461C1957C8CE008F280A /* MP3FileSource.cpp */; };
+		04A746E31957C8CE008F280A /* MP3Internals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7461D1957C8CE008F280A /* MP3Internals.cpp */; };
+		04A746E41957C8CE008F280A /* MP3InternalsHuffman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7461F1957C8CE008F280A /* MP3InternalsHuffman.cpp */; };
+		04A746E51957C8CE008F280A /* MP3InternalsHuffmanTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746211957C8CE008F280A /* MP3InternalsHuffmanTable.cpp */; };
+		04A746E61957C8CE008F280A /* MP3StreamState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746221957C8CE008F280A /* MP3StreamState.cpp */; };
+		04A746E71957C8CE008F280A /* MP3Transcoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746241957C8CE008F280A /* MP3Transcoder.cpp */; };
+		04A746E81957C8CE008F280A /* MPEG1or2AudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746251957C8CE008F280A /* MPEG1or2AudioRTPSink.cpp */; };
+		04A746E91957C8CE008F280A /* MPEG1or2AudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746261957C8CE008F280A /* MPEG1or2AudioRTPSource.cpp */; };
+		04A746EA1957C8CE008F280A /* MPEG1or2AudioStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746271957C8CE008F280A /* MPEG1or2AudioStreamFramer.cpp */; };
+		04A746EB1957C8CE008F280A /* MPEG1or2Demux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746281957C8CE008F280A /* MPEG1or2Demux.cpp */; };
+		04A746EC1957C8CE008F280A /* MPEG1or2DemuxedElementaryStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746291957C8CE008F280A /* MPEG1or2DemuxedElementaryStream.cpp */; };
+		04A746ED1957C8CE008F280A /* MPEG1or2DemuxedServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462A1957C8CE008F280A /* MPEG1or2DemuxedServerMediaSubsession.cpp */; };
+		04A746EE1957C8CE008F280A /* MPEG1or2FileServerDemux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462B1957C8CE008F280A /* MPEG1or2FileServerDemux.cpp */; };
+		04A746EF1957C8CE008F280A /* MPEG1or2VideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462C1957C8CE008F280A /* MPEG1or2VideoFileServerMediaSubsession.cpp */; };
+		04A746F01957C8CE008F280A /* MPEG1or2VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462D1957C8CE008F280A /* MPEG1or2VideoRTPSink.cpp */; };
+		04A746F11957C8CE008F280A /* MPEG1or2VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462E1957C8CE008F280A /* MPEG1or2VideoRTPSource.cpp */; };
+		04A746F21957C8CE008F280A /* MPEG1or2VideoStreamDiscreteFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7462F1957C8CE008F280A /* MPEG1or2VideoStreamDiscreteFramer.cpp */; };
+		04A746F31957C8CE008F280A /* MPEG1or2VideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746301957C8CE008F280A /* MPEG1or2VideoStreamFramer.cpp */; };
+		04A746F41957C8CE008F280A /* MPEG2IndexFromTransportStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746311957C8CE008F280A /* MPEG2IndexFromTransportStream.cpp */; };
+		04A746F51957C8CE008F280A /* MPEG2TransportFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746321957C8CE008F280A /* MPEG2TransportFileServerMediaSubsession.cpp */; };
+		04A746F61957C8CE008F280A /* MPEG2TransportStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746331957C8CE008F280A /* MPEG2TransportStreamFramer.cpp */; };
+		04A746F71957C8CE008F280A /* MPEG2TransportStreamFromESSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746341957C8CE008F280A /* MPEG2TransportStreamFromESSource.cpp */; };
+		04A746F81957C8CE008F280A /* MPEG2TransportStreamFromPESSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746351957C8CE008F280A /* MPEG2TransportStreamFromPESSource.cpp */; };
+		04A746F91957C8CE008F280A /* MPEG2TransportStreamIndexFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746361957C8CE008F280A /* MPEG2TransportStreamIndexFile.cpp */; };
+		04A746FA1957C8CE008F280A /* MPEG2TransportStreamMultiplexor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746371957C8CE008F280A /* MPEG2TransportStreamMultiplexor.cpp */; };
+		04A746FB1957C8CE008F280A /* MPEG2TransportStreamTrickModeFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746381957C8CE008F280A /* MPEG2TransportStreamTrickModeFilter.cpp */; };
+		04A746FC1957C8CE008F280A /* MPEG2TransportUDPServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746391957C8CE008F280A /* MPEG2TransportUDPServerMediaSubsession.cpp */; };
+		04A746FD1957C8CE008F280A /* MPEG4ESVideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463A1957C8CE008F280A /* MPEG4ESVideoRTPSink.cpp */; };
+		04A746FE1957C8CE008F280A /* MPEG4ESVideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463B1957C8CE008F280A /* MPEG4ESVideoRTPSource.cpp */; };
+		04A746FF1957C8CE008F280A /* MPEG4GenericRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463C1957C8CE008F280A /* MPEG4GenericRTPSink.cpp */; };
+		04A747001957C8CE008F280A /* MPEG4GenericRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463D1957C8CE008F280A /* MPEG4GenericRTPSource.cpp */; };
+		04A747011957C8CE008F280A /* MPEG4LATMAudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463E1957C8CE008F280A /* MPEG4LATMAudioRTPSink.cpp */; };
+		04A747021957C8CE008F280A /* MPEG4LATMAudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7463F1957C8CE008F280A /* MPEG4LATMAudioRTPSource.cpp */; };
+		04A747031957C8CE008F280A /* MPEG4VideoFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746401957C8CE008F280A /* MPEG4VideoFileServerMediaSubsession.cpp */; };
+		04A747041957C8CE008F280A /* MPEG4VideoStreamDiscreteFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746411957C8CE008F280A /* MPEG4VideoStreamDiscreteFramer.cpp */; };
+		04A747051957C8CE008F280A /* MPEG4VideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746421957C8CE008F280A /* MPEG4VideoStreamFramer.cpp */; };
+		04A747061957C8CE008F280A /* MPEGVideoStreamFramer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746431957C8CE008F280A /* MPEGVideoStreamFramer.cpp */; };
+		04A747071957C8CE008F280A /* MPEGVideoStreamParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746441957C8CE008F280A /* MPEGVideoStreamParser.cpp */; };
+		04A747081957C8CE008F280A /* MultiFramedRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746461957C8CE008F280A /* MultiFramedRTPSink.cpp */; };
+		04A747091957C8CE008F280A /* MultiFramedRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746471957C8CE008F280A /* MultiFramedRTPSource.cpp */; };
+		04A7470A1957C8CE008F280A /* OggDemuxedTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746481957C8CE008F280A /* OggDemuxedTrack.cpp */; };
+		04A7470B1957C8CE008F280A /* OggFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7464A1957C8CE008F280A /* OggFile.cpp */; };
+		04A7470C1957C8CE008F280A /* OggFileParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7464B1957C8CE008F280A /* OggFileParser.cpp */; };
+		04A7470D1957C8CE008F280A /* OggFileServerDemux.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7464D1957C8CE008F280A /* OggFileServerDemux.cpp */; };
+		04A7470E1957C8CE008F280A /* OggFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7464E1957C8CE008F280A /* OggFileServerMediaSubsession.cpp */; };
+		04A7470F1957C8CE008F280A /* OggFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746501957C8CE008F280A /* OggFileSink.cpp */; };
+		04A747101957C8CE008F280A /* OnDemandServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746511957C8CE008F280A /* OnDemandServerMediaSubsession.cpp */; };
+		04A747111957C8CE008F280A /* ourMD5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746521957C8CE008F280A /* ourMD5.cpp */; };
+		04A747121957C8CE008F280A /* OutputFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746531957C8CE008F280A /* OutputFile.cpp */; };
+		04A747131957C8CE008F280A /* PassiveServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746541957C8CE008F280A /* PassiveServerMediaSubsession.cpp */; };
+		04A747141957C8CE008F280A /* ProxyServerMediaSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746551957C8CE008F280A /* ProxyServerMediaSession.cpp */; };
+		04A747151957C8CE008F280A /* QCELPAudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746561957C8CE008F280A /* QCELPAudioRTPSource.cpp */; };
+		04A747161957C8CE008F280A /* QuickTimeFileSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746571957C8CE008F280A /* QuickTimeFileSink.cpp */; };
+		04A747171957C8CE008F280A /* QuickTimeGenericRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746581957C8CE008F280A /* QuickTimeGenericRTPSource.cpp */; };
+		04A747181957C8CE008F280A /* RTCP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746591957C8CE008F280A /* RTCP.cpp */; };
+		04A747191957C8CE008F280A /* rtcp_from_spec.c in Sources */ = {isa = PBXBuildFile; fileRef = 04A7465A1957C8CE008F280A /* rtcp_from_spec.c */; };
+		04A7471A1957C8CE008F280A /* RTPInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7465C1957C8CE008F280A /* RTPInterface.cpp */; };
+		04A7471B1957C8CE008F280A /* RTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7465D1957C8CE008F280A /* RTPSink.cpp */; };
+		04A7471C1957C8CE008F280A /* RTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7465E1957C8CE008F280A /* RTPSource.cpp */; };
+		04A7471D1957C8CE008F280A /* RTSPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7465F1957C8CE008F280A /* RTSPClient.cpp */; };
+		04A7471E1957C8CE008F280A /* RTSPCommon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746601957C8CE008F280A /* RTSPCommon.cpp */; };
+		04A7471F1957C8CE008F280A /* RTSPRegisterSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746611957C8CE008F280A /* RTSPRegisterSender.cpp */; };
+		04A747201957C8CE008F280A /* RTSPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746621957C8CE008F280A /* RTSPServer.cpp */; };
+		04A747211957C8CE008F280A /* RTSPServerSupportingHTTPStreaming.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746631957C8CE008F280A /* RTSPServerSupportingHTTPStreaming.cpp */; };
+		04A747221957C8CE008F280A /* ServerMediaSession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746641957C8CE008F280A /* ServerMediaSession.cpp */; };
+		04A747231957C8CE008F280A /* SimpleRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746651957C8CE008F280A /* SimpleRTPSink.cpp */; };
+		04A747241957C8CE008F280A /* SimpleRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746661957C8CE008F280A /* SimpleRTPSource.cpp */; };
+		04A747251957C8CE008F280A /* SIPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746671957C8CE008F280A /* SIPClient.cpp */; };
+		04A747261957C8CE008F280A /* StreamParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746681957C8CE008F280A /* StreamParser.cpp */; };
+		04A747271957C8CE008F280A /* StreamReplicator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466A1957C8CE008F280A /* StreamReplicator.cpp */; };
+		04A747281957C8CE008F280A /* T140TextRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466B1957C8CE008F280A /* T140TextRTPSink.cpp */; };
+		04A747291957C8CE008F280A /* TCPStreamSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466C1957C8CE008F280A /* TCPStreamSink.cpp */; };
+		04A7472A1957C8CE008F280A /* TextRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466D1957C8CE008F280A /* TextRTPSink.cpp */; };
+		04A7472B1957C8CE008F280A /* TheoraVideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466E1957C8CE008F280A /* TheoraVideoRTPSink.cpp */; };
+		04A7472C1957C8CE008F280A /* TheoraVideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7466F1957C8CE008F280A /* TheoraVideoRTPSource.cpp */; };
+		04A7472D1957C8CE008F280A /* uLawAudioFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746701957C8CE008F280A /* uLawAudioFilter.cpp */; };
+		04A7472E1957C8CE008F280A /* VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746711957C8CE008F280A /* VideoRTPSink.cpp */; };
+		04A7472F1957C8CE008F280A /* VorbisAudioRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746721957C8CE008F280A /* VorbisAudioRTPSink.cpp */; };
+		04A747301957C8CE008F280A /* VorbisAudioRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746731957C8CE008F280A /* VorbisAudioRTPSource.cpp */; };
+		04A747311957C8CE008F280A /* VP8VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746741957C8CE008F280A /* VP8VideoRTPSink.cpp */; };
+		04A747321957C8CE008F280A /* VP8VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746751957C8CE008F280A /* VP8VideoRTPSource.cpp */; };
+		04A747331957C8CE008F280A /* WAVAudioFileServerMediaSubsession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746761957C8CE008F280A /* WAVAudioFileServerMediaSubsession.cpp */; };
+		04A747341957C8CE008F280A /* WAVAudioFileSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746771957C8CE008F280A /* WAVAudioFileSource.cpp */; };
+		04A747351957C8CE008F280A /* HashTable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A7467A1957C8CE008F280A /* HashTable.cpp */; };
+		04A747361957C8CE008F280A /* strDup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746831957C8CE008F280A /* strDup.cpp */; };
+		04A747371957C8CE008F280A /* UsageEnvironment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04A746841957C8CE008F280A /* UsageEnvironment.cpp */; };
+		69D1274D1B83194A0034F662 /* GenericMediaServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69D1274C1B83194A0034F662 /* GenericMediaServer.cpp */; };
+		69FBC5E11B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69FBC5E01B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp */; };
+		69FBC5E31B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69FBC5E21B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04A744F31957C88A008F280A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04A744D51957C88A008F280A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04A744DC1957C88A008F280A;
+			remoteInfo = RTSPClientSession;
+		};
+		8ACCD9B120B4149C00DED139 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04A60DF2193D658400879E75;
+			remoteInfo = pjTunnelLib;
+		};
+		8ACCD9B320B4149C00DED139 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04A60E02193D658400879E75;
+			remoteInfo = pjTunnelLibTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04A744DB1957C88A008F280A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				04A744E61957C88A008F280A /* RTSPClientSession.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04A744DD1957C88A008F280A /* libRTSPClientSession.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRTSPClientSession.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A744E01957C88A008F280A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		04A744E41957C88A008F280A /* RTSPClientSession-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RTSPClientSession-Prefix.pch"; sourceTree = "<group>"; };
+		04A744E51957C88A008F280A /* RTSPClientSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTSPClientSession.h; sourceTree = "<group>"; };
+		04A744E71957C88A008F280A /* RTSPClientSession.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RTSPClientSession.mm; sourceTree = "<group>"; };
+		04A744ED1957C88A008F280A /* RTSPClientSessionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTSPClientSessionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A744EE1957C88A008F280A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		04A744F11957C88A008F280A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		04A744F81957C88A008F280A /* RTSPClientSessionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RTSPClientSessionTests-Info.plist"; sourceTree = "<group>"; };
+		04A744FA1957C88A008F280A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		04A744FC1957C88A008F280A /* RTSPClientSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTSPClientSessionTests.m; sourceTree = "<group>"; };
+		04A745071957C8CD008F280A /* BasicHashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicHashTable.cpp; sourceTree = "<group>"; };
+		04A745081957C8CD008F280A /* BasicTaskScheduler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicTaskScheduler.cpp; sourceTree = "<group>"; };
+		04A745091957C8CD008F280A /* BasicTaskScheduler0.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicTaskScheduler0.cpp; sourceTree = "<group>"; };
+		04A7450A1957C8CD008F280A /* BasicUsageEnvironment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUsageEnvironment.cpp; sourceTree = "<group>"; };
+		04A7450B1957C8CD008F280A /* BasicUsageEnvironment0.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUsageEnvironment0.cpp; sourceTree = "<group>"; };
+		04A7450C1957C8CD008F280A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		04A7450D1957C8CD008F280A /* DelayQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayQueue.cpp; sourceTree = "<group>"; };
+		04A7450F1957C8CD008F280A /* BasicHashTable.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicHashTable.hh; sourceTree = "<group>"; };
+		04A745101957C8CD008F280A /* BasicUsageEnvironment.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicUsageEnvironment.hh; sourceTree = "<group>"; };
+		04A745111957C8CD008F280A /* BasicUsageEnvironment0.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicUsageEnvironment0.hh; sourceTree = "<group>"; };
+		04A745121957C8CD008F280A /* BasicUsageEnvironment_version.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicUsageEnvironment_version.hh; sourceTree = "<group>"; };
+		04A745131957C8CD008F280A /* DelayQueue.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelayQueue.hh; sourceTree = "<group>"; };
+		04A745141957C8CD008F280A /* HandlerSet.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HandlerSet.hh; sourceTree = "<group>"; };
+		04A745151957C8CD008F280A /* Makefile.head */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		04A745161957C8CD008F280A /* Makefile.tail */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		04A745181957C8CD008F280A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		04A745191957C8CD008F280A /* GroupEId.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupEId.cpp; sourceTree = "<group>"; };
+		04A7451A1957C8CD008F280A /* Groupsock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Groupsock.cpp; sourceTree = "<group>"; };
+		04A7451B1957C8CD008F280A /* GroupsockHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GroupsockHelper.cpp; sourceTree = "<group>"; };
+		04A7451D1957C8CD008F280A /* GroupEId.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GroupEId.hh; sourceTree = "<group>"; };
+		04A7451E1957C8CD008F280A /* Groupsock.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Groupsock.hh; sourceTree = "<group>"; };
+		04A7451F1957C8CD008F280A /* groupsock_version.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = groupsock_version.hh; sourceTree = "<group>"; };
+		04A745201957C8CD008F280A /* GroupsockHelper.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GroupsockHelper.hh; sourceTree = "<group>"; };
+		04A745211957C8CD008F280A /* IOHandlers.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IOHandlers.hh; sourceTree = "<group>"; };
+		04A745221957C8CD008F280A /* NetAddress.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetAddress.hh; sourceTree = "<group>"; };
+		04A745231957C8CD008F280A /* NetCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCommon.h; sourceTree = "<group>"; };
+		04A745241957C8CD008F280A /* NetInterface.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NetInterface.hh; sourceTree = "<group>"; };
+		04A745251957C8CD008F280A /* TunnelEncaps.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TunnelEncaps.hh; sourceTree = "<group>"; };
+		04A745261957C8CD008F280A /* inet.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inet.c; sourceTree = "<group>"; };
+		04A745271957C8CD008F280A /* IOHandlers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOHandlers.cpp; sourceTree = "<group>"; };
+		04A745281957C8CD008F280A /* Makefile.head */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		04A745291957C8CD008F280A /* Makefile.tail */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		04A7452A1957C8CD008F280A /* NetAddress.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetAddress.cpp; sourceTree = "<group>"; };
+		04A7452B1957C8CD008F280A /* NetInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NetInterface.cpp; sourceTree = "<group>"; };
+		04A7452D1957C8CD008F280A /* AC3AudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AC3AudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7452E1957C8CD008F280A /* AC3AudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AC3AudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A7452F1957C8CD008F280A /* AC3AudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AC3AudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A745301957C8CD008F280A /* AC3AudioStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AC3AudioStreamFramer.cpp; sourceTree = "<group>"; };
+		04A745311957C8CD008F280A /* ADTSAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A745321957C8CD008F280A /* ADTSAudioFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ADTSAudioFileSource.cpp; sourceTree = "<group>"; };
+		04A745331957C8CD008F280A /* AMRAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A745341957C8CD008F280A /* AMRAudioFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioFileSink.cpp; sourceTree = "<group>"; };
+		04A745351957C8CD008F280A /* AMRAudioFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioFileSource.cpp; sourceTree = "<group>"; };
+		04A745361957C8CD008F280A /* AMRAudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A745371957C8CD008F280A /* AMRAudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A745381957C8CD008F280A /* AMRAudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AMRAudioSource.cpp; sourceTree = "<group>"; };
+		04A745391957C8CD008F280A /* AudioInputDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioInputDevice.cpp; sourceTree = "<group>"; };
+		04A7453A1957C8CD008F280A /* AudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A7453B1957C8CD008F280A /* AVIFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AVIFileSink.cpp; sourceTree = "<group>"; };
+		04A7453C1957C8CD008F280A /* Base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Base64.cpp; sourceTree = "<group>"; };
+		04A7453D1957C8CD008F280A /* BasicUDPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUDPSink.cpp; sourceTree = "<group>"; };
+		04A7453E1957C8CD008F280A /* BasicUDPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicUDPSource.cpp; sourceTree = "<group>"; };
+		04A7453F1957C8CD008F280A /* BitVector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BitVector.cpp; sourceTree = "<group>"; };
+		04A745401957C8CD008F280A /* ByteStreamFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteStreamFileSource.cpp; sourceTree = "<group>"; };
+		04A745411957C8CD008F280A /* ByteStreamMemoryBufferSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteStreamMemoryBufferSource.cpp; sourceTree = "<group>"; };
+		04A745421957C8CD008F280A /* ByteStreamMultiFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ByteStreamMultiFileSource.cpp; sourceTree = "<group>"; };
+		04A745431957C8CD008F280A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		04A745451957C8CD008F280A /* DeviceSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DeviceSource.cpp; sourceTree = "<group>"; };
+		04A745461957C8CD008F280A /* DigestAuthentication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DigestAuthentication.cpp; sourceTree = "<group>"; };
+		04A745471957C8CD008F280A /* DVVideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DVVideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A745481957C8CD008F280A /* DVVideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DVVideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A745491957C8CD008F280A /* DVVideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DVVideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A7454A1957C8CD008F280A /* DVVideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DVVideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A7454B1957C8CD008F280A /* EBMLNumber.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EBMLNumber.cpp; sourceTree = "<group>"; };
+		04A7454C1957C8CD008F280A /* EBMLNumber.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EBMLNumber.hh; sourceTree = "<group>"; };
+		04A7454D1957C8CD008F280A /* FileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7454E1957C8CD008F280A /* FileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileSink.cpp; sourceTree = "<group>"; };
+		04A7454F1957C8CD008F280A /* FramedFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FramedFileSource.cpp; sourceTree = "<group>"; };
+		04A745501957C8CD008F280A /* FramedFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FramedFilter.cpp; sourceTree = "<group>"; };
+		04A745511957C8CD008F280A /* FramedSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FramedSource.cpp; sourceTree = "<group>"; };
+		04A745521957C8CD008F280A /* GSMAudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GSMAudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A745531957C8CD008F280A /* H261VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H261VideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A745541957C8CD008F280A /* H263plusVideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H263plusVideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A745551957C8CD008F280A /* H263plusVideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H263plusVideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A745561957C8CD008F280A /* H263plusVideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H263plusVideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A745571957C8CD008F280A /* H263plusVideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H263plusVideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A745581957C8CD008F280A /* H263plusVideoStreamParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H263plusVideoStreamParser.cpp; sourceTree = "<group>"; };
+		04A745591957C8CD008F280A /* H263plusVideoStreamParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H263plusVideoStreamParser.hh; sourceTree = "<group>"; };
+		04A7455A1957C8CD008F280A /* H264or5VideoFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264or5VideoFileSink.cpp; sourceTree = "<group>"; };
+		04A7455B1957C8CD008F280A /* H264or5VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264or5VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A7455C1957C8CD008F280A /* H264or5VideoStreamDiscreteFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264or5VideoStreamDiscreteFramer.cpp; sourceTree = "<group>"; };
+		04A7455D1957C8CD008F280A /* H264or5VideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264or5VideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A7455E1957C8CD008F280A /* H264VideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7455F1957C8CD008F280A /* H264VideoFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoFileSink.cpp; sourceTree = "<group>"; };
+		04A745601957C8CD008F280A /* H264VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A745611957C8CD008F280A /* H264VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A745621957C8CD008F280A /* H264VideoStreamDiscreteFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoStreamDiscreteFramer.cpp; sourceTree = "<group>"; };
+		04A745631957C8CD008F280A /* H264VideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H264VideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A745641957C8CD008F280A /* H265VideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A745651957C8CD008F280A /* H265VideoFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoFileSink.cpp; sourceTree = "<group>"; };
+		04A745661957C8CD008F280A /* H265VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A745671957C8CD008F280A /* H265VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A745681957C8CD008F280A /* H265VideoStreamDiscreteFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoStreamDiscreteFramer.cpp; sourceTree = "<group>"; };
+		04A745691957C8CD008F280A /* H265VideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = H265VideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A7456B1957C8CD008F280A /* AC3AudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AC3AudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A7456C1957C8CD008F280A /* AC3AudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AC3AudioRTPSink.hh; sourceTree = "<group>"; };
+		04A7456D1957C8CD008F280A /* AC3AudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AC3AudioRTPSource.hh; sourceTree = "<group>"; };
+		04A7456E1957C8CD008F280A /* AC3AudioStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AC3AudioStreamFramer.hh; sourceTree = "<group>"; };
+		04A7456F1957C8CD008F280A /* ADTSAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745701957C8CD008F280A /* ADTSAudioFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ADTSAudioFileSource.hh; sourceTree = "<group>"; };
+		04A745711957C8CD008F280A /* AMRAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745721957C8CD008F280A /* AMRAudioFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioFileSink.hh; sourceTree = "<group>"; };
+		04A745731957C8CD008F280A /* AMRAudioFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioFileSource.hh; sourceTree = "<group>"; };
+		04A745741957C8CD008F280A /* AMRAudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioRTPSink.hh; sourceTree = "<group>"; };
+		04A745751957C8CD008F280A /* AMRAudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioRTPSource.hh; sourceTree = "<group>"; };
+		04A745761957C8CD008F280A /* AMRAudioSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AMRAudioSource.hh; sourceTree = "<group>"; };
+		04A745771957C8CD008F280A /* AudioInputDevice.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioInputDevice.hh; sourceTree = "<group>"; };
+		04A745781957C8CD008F280A /* AudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AudioRTPSink.hh; sourceTree = "<group>"; };
+		04A745791957C8CD008F280A /* AVIFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AVIFileSink.hh; sourceTree = "<group>"; };
+		04A7457A1957C8CD008F280A /* Base64.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Base64.hh; sourceTree = "<group>"; };
+		04A7457B1957C8CD008F280A /* BasicUDPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicUDPSink.hh; sourceTree = "<group>"; };
+		04A7457C1957C8CD008F280A /* BasicUDPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BasicUDPSource.hh; sourceTree = "<group>"; };
+		04A7457D1957C8CD008F280A /* BitVector.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BitVector.hh; sourceTree = "<group>"; };
+		04A7457E1957C8CD008F280A /* ByteStreamFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteStreamFileSource.hh; sourceTree = "<group>"; };
+		04A7457F1957C8CD008F280A /* ByteStreamMemoryBufferSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteStreamMemoryBufferSource.hh; sourceTree = "<group>"; };
+		04A745801957C8CD008F280A /* ByteStreamMultiFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ByteStreamMultiFileSource.hh; sourceTree = "<group>"; };
+		04A745821957C8CD008F280A /* DeviceSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DeviceSource.hh; sourceTree = "<group>"; };
+		04A745831957C8CD008F280A /* DigestAuthentication.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DigestAuthentication.hh; sourceTree = "<group>"; };
+		04A745841957C8CD008F280A /* DVVideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DVVideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745851957C8CD008F280A /* DVVideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DVVideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745861957C8CD008F280A /* DVVideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DVVideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745871957C8CD008F280A /* DVVideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DVVideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745881957C8CD008F280A /* FileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745891957C8CD008F280A /* FileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FileSink.hh; sourceTree = "<group>"; };
+		04A7458A1957C8CD008F280A /* FramedFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FramedFileSource.hh; sourceTree = "<group>"; };
+		04A7458B1957C8CD008F280A /* FramedFilter.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FramedFilter.hh; sourceTree = "<group>"; };
+		04A7458C1957C8CD008F280A /* FramedSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FramedSource.hh; sourceTree = "<group>"; };
+		04A7458D1957C8CD008F280A /* GSMAudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GSMAudioRTPSink.hh; sourceTree = "<group>"; };
+		04A7458E1957C8CD008F280A /* H261VideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H261VideoRTPSource.hh; sourceTree = "<group>"; };
+		04A7458F1957C8CD008F280A /* H263plusVideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H263plusVideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745901957C8CD008F280A /* H263plusVideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H263plusVideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745911957C8CD008F280A /* H263plusVideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H263plusVideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745921957C8CD008F280A /* H263plusVideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H263plusVideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745931957C8CD008F280A /* H264or5VideoFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264or5VideoFileSink.hh; sourceTree = "<group>"; };
+		04A745941957C8CD008F280A /* H264or5VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264or5VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745951957C8CD008F280A /* H264or5VideoStreamDiscreteFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264or5VideoStreamDiscreteFramer.hh; sourceTree = "<group>"; };
+		04A745961957C8CD008F280A /* H264or5VideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264or5VideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745971957C8CD008F280A /* H264VideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745981957C8CD008F280A /* H264VideoFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoFileSink.hh; sourceTree = "<group>"; };
+		04A745991957C8CD008F280A /* H264VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A7459A1957C8CD008F280A /* H264VideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoRTPSource.hh; sourceTree = "<group>"; };
+		04A7459B1957C8CD008F280A /* H264VideoStreamDiscreteFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoStreamDiscreteFramer.hh; sourceTree = "<group>"; };
+		04A7459C1957C8CD008F280A /* H264VideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H264VideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A7459D1957C8CD008F280A /* H265VideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A7459E1957C8CD008F280A /* H265VideoFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoFileSink.hh; sourceTree = "<group>"; };
+		04A7459F1957C8CD008F280A /* H265VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745A01957C8CD008F280A /* H265VideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745A11957C8CD008F280A /* H265VideoStreamDiscreteFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoStreamDiscreteFramer.hh; sourceTree = "<group>"; };
+		04A745A21957C8CD008F280A /* H265VideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = H265VideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745A31957C8CD008F280A /* InputFile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputFile.hh; sourceTree = "<group>"; };
+		04A745A41957C8CD008F280A /* JPEGVideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JPEGVideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745A51957C8CD008F280A /* JPEGVideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JPEGVideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745A61957C8CD008F280A /* JPEGVideoSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = JPEGVideoSource.hh; sourceTree = "<group>"; };
+		04A745A71957C8CD008F280A /* liveMedia.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = liveMedia.hh; sourceTree = "<group>"; };
+		04A745A81957C8CD008F280A /* liveMedia_version.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = liveMedia_version.hh; sourceTree = "<group>"; };
+		04A745A91957C8CD008F280A /* Locale.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Locale.hh; sourceTree = "<group>"; };
+		04A745AA1957C8CD008F280A /* MatroskaFile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatroskaFile.hh; sourceTree = "<group>"; };
+		04A745AB1957C8CD008F280A /* MatroskaFileServerDemux.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatroskaFileServerDemux.hh; sourceTree = "<group>"; };
+		04A745AC1957C8CD008F280A /* Media.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Media.hh; sourceTree = "<group>"; };
+		04A745AD1957C8CD008F280A /* MediaSession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MediaSession.hh; sourceTree = "<group>"; };
+		04A745AE1957C8CD008F280A /* MediaSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MediaSink.hh; sourceTree = "<group>"; };
+		04A745AF1957C8CD008F280A /* MediaSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MediaSource.hh; sourceTree = "<group>"; };
+		04A745B01957C8CD008F280A /* MP3ADU.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADU.hh; sourceTree = "<group>"; };
+		04A745B11957C8CD008F280A /* MP3ADUinterleaving.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADUinterleaving.hh; sourceTree = "<group>"; };
+		04A745B21957C8CD008F280A /* MP3ADURTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADURTPSink.hh; sourceTree = "<group>"; };
+		04A745B31957C8CD008F280A /* MP3ADURTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADURTPSource.hh; sourceTree = "<group>"; };
+		04A745B41957C8CD008F280A /* MP3ADUTranscoder.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADUTranscoder.hh; sourceTree = "<group>"; };
+		04A745B51957C8CD008F280A /* MP3AudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3AudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745B61957C8CD008F280A /* MP3FileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3FileSource.hh; sourceTree = "<group>"; };
+		04A745B71957C8CD008F280A /* MP3Transcoder.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3Transcoder.hh; sourceTree = "<group>"; };
+		04A745B81957C8CD008F280A /* MPEG1or2AudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2AudioRTPSink.hh; sourceTree = "<group>"; };
+		04A745B91957C8CD008F280A /* MPEG1or2AudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2AudioRTPSource.hh; sourceTree = "<group>"; };
+		04A745BA1957C8CD008F280A /* MPEG1or2AudioStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2AudioStreamFramer.hh; sourceTree = "<group>"; };
+		04A745BB1957C8CD008F280A /* MPEG1or2Demux.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2Demux.hh; sourceTree = "<group>"; };
+		04A745BC1957C8CD008F280A /* MPEG1or2DemuxedElementaryStream.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2DemuxedElementaryStream.hh; sourceTree = "<group>"; };
+		04A745BD1957C8CD008F280A /* MPEG1or2DemuxedServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2DemuxedServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745BE1957C8CD008F280A /* MPEG1or2FileServerDemux.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2FileServerDemux.hh; sourceTree = "<group>"; };
+		04A745BF1957C8CD008F280A /* MPEG1or2VideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2VideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745C01957C8CD008F280A /* MPEG1or2VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745C11957C8CD008F280A /* MPEG1or2VideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2VideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745C21957C8CD008F280A /* MPEG1or2VideoStreamDiscreteFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2VideoStreamDiscreteFramer.hh; sourceTree = "<group>"; };
+		04A745C31957C8CD008F280A /* MPEG1or2VideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG1or2VideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745C41957C8CD008F280A /* MPEG2IndexFromTransportStream.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2IndexFromTransportStream.hh; sourceTree = "<group>"; };
+		04A745C51957C8CD008F280A /* MPEG2TransportFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745C61957C8CD008F280A /* MPEG2TransportStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamFramer.hh; sourceTree = "<group>"; };
+		04A745C71957C8CD008F280A /* MPEG2TransportStreamFromESSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamFromESSource.hh; sourceTree = "<group>"; };
+		04A745C81957C8CD008F280A /* MPEG2TransportStreamFromPESSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamFromPESSource.hh; sourceTree = "<group>"; };
+		04A745C91957C8CD008F280A /* MPEG2TransportStreamIndexFile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamIndexFile.hh; sourceTree = "<group>"; };
+		04A745CA1957C8CD008F280A /* MPEG2TransportStreamMultiplexor.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamMultiplexor.hh; sourceTree = "<group>"; };
+		04A745CB1957C8CD008F280A /* MPEG2TransportStreamTrickModeFilter.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportStreamTrickModeFilter.hh; sourceTree = "<group>"; };
+		04A745CC1957C8CD008F280A /* MPEG2TransportUDPServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG2TransportUDPServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745CD1957C8CD008F280A /* MPEG4ESVideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4ESVideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745CE1957C8CD008F280A /* MPEG4ESVideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4ESVideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745CF1957C8CD008F280A /* MPEG4GenericRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4GenericRTPSink.hh; sourceTree = "<group>"; };
+		04A745D01957C8CD008F280A /* MPEG4GenericRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4GenericRTPSource.hh; sourceTree = "<group>"; };
+		04A745D11957C8CD008F280A /* MPEG4LATMAudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4LATMAudioRTPSink.hh; sourceTree = "<group>"; };
+		04A745D21957C8CD008F280A /* MPEG4LATMAudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4LATMAudioRTPSource.hh; sourceTree = "<group>"; };
+		04A745D31957C8CD008F280A /* MPEG4VideoFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4VideoFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745D41957C8CD008F280A /* MPEG4VideoStreamDiscreteFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4VideoStreamDiscreteFramer.hh; sourceTree = "<group>"; };
+		04A745D51957C8CD008F280A /* MPEG4VideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEG4VideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745D61957C8CD008F280A /* MPEGVideoStreamFramer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEGVideoStreamFramer.hh; sourceTree = "<group>"; };
+		04A745D71957C8CD008F280A /* MultiFramedRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiFramedRTPSink.hh; sourceTree = "<group>"; };
+		04A745D81957C8CD008F280A /* MultiFramedRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MultiFramedRTPSource.hh; sourceTree = "<group>"; };
+		04A745D91957C8CD008F280A /* OggFile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggFile.hh; sourceTree = "<group>"; };
+		04A745DA1957C8CD008F280A /* OggFileServerDemux.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggFileServerDemux.hh; sourceTree = "<group>"; };
+		04A745DB1957C8CD008F280A /* OggFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggFileSink.hh; sourceTree = "<group>"; };
+		04A745DC1957C8CD008F280A /* OnDemandServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OnDemandServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745DD1957C8CD008F280A /* ourMD5.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ourMD5.hh; sourceTree = "<group>"; };
+		04A745DE1957C8CD008F280A /* OutputFile.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OutputFile.hh; sourceTree = "<group>"; };
+		04A745DF1957C8CD008F280A /* PassiveServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PassiveServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745E01957C8CD008F280A /* ProxyServerMediaSession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ProxyServerMediaSession.hh; sourceTree = "<group>"; };
+		04A745E11957C8CD008F280A /* QCELPAudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QCELPAudioRTPSource.hh; sourceTree = "<group>"; };
+		04A745E21957C8CD008F280A /* QuickTimeFileSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickTimeFileSink.hh; sourceTree = "<group>"; };
+		04A745E31957C8CD008F280A /* QuickTimeGenericRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = QuickTimeGenericRTPSource.hh; sourceTree = "<group>"; };
+		04A745E41957C8CD008F280A /* RTCP.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTCP.hh; sourceTree = "<group>"; };
+		04A745E51957C8CD008F280A /* RTPInterface.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTPInterface.hh; sourceTree = "<group>"; };
+		04A745E61957C8CD008F280A /* RTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTPSink.hh; sourceTree = "<group>"; };
+		04A745E71957C8CD008F280A /* RTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTPSource.hh; sourceTree = "<group>"; };
+		04A745E81957C8CD008F280A /* RTSPClient.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTSPClient.hh; sourceTree = "<group>"; };
+		04A745E91957C8CD008F280A /* RTSPCommon.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTSPCommon.hh; sourceTree = "<group>"; };
+		04A745EA1957C8CD008F280A /* RTSPRegisterSender.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTSPRegisterSender.hh; sourceTree = "<group>"; };
+		04A745EB1957C8CD008F280A /* RTSPServer.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTSPServer.hh; sourceTree = "<group>"; };
+		04A745EC1957C8CD008F280A /* RTSPServerSupportingHTTPStreaming.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RTSPServerSupportingHTTPStreaming.hh; sourceTree = "<group>"; };
+		04A745ED1957C8CD008F280A /* ServerMediaSession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ServerMediaSession.hh; sourceTree = "<group>"; };
+		04A745EE1957C8CD008F280A /* SimpleRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleRTPSink.hh; sourceTree = "<group>"; };
+		04A745EF1957C8CD008F280A /* SimpleRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleRTPSource.hh; sourceTree = "<group>"; };
+		04A745F01957C8CD008F280A /* SIPClient.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SIPClient.hh; sourceTree = "<group>"; };
+		04A745F11957C8CD008F280A /* StreamReplicator.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StreamReplicator.hh; sourceTree = "<group>"; };
+		04A745F21957C8CD008F280A /* T140TextRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = T140TextRTPSink.hh; sourceTree = "<group>"; };
+		04A745F31957C8CD008F280A /* TCPStreamSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TCPStreamSink.hh; sourceTree = "<group>"; };
+		04A745F41957C8CD008F280A /* TextRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TextRTPSink.hh; sourceTree = "<group>"; };
+		04A745F51957C8CD008F280A /* TheoraVideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TheoraVideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745F61957C8CD008F280A /* TheoraVideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TheoraVideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745F71957C8CD008F280A /* uLawAudioFilter.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = uLawAudioFilter.hh; sourceTree = "<group>"; };
+		04A745F81957C8CE008F280A /* VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745F91957C8CE008F280A /* VorbisAudioRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VorbisAudioRTPSink.hh; sourceTree = "<group>"; };
+		04A745FA1957C8CE008F280A /* VorbisAudioRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VorbisAudioRTPSource.hh; sourceTree = "<group>"; };
+		04A745FB1957C8CE008F280A /* VP8VideoRTPSink.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VP8VideoRTPSink.hh; sourceTree = "<group>"; };
+		04A745FC1957C8CE008F280A /* VP8VideoRTPSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = VP8VideoRTPSource.hh; sourceTree = "<group>"; };
+		04A745FD1957C8CE008F280A /* WAVAudioFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WAVAudioFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A745FE1957C8CE008F280A /* WAVAudioFileSource.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WAVAudioFileSource.hh; sourceTree = "<group>"; };
+		04A745FF1957C8CE008F280A /* InputFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputFile.cpp; sourceTree = "<group>"; };
+		04A746001957C8CE008F280A /* JPEGVideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPEGVideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A746011957C8CE008F280A /* JPEGVideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPEGVideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A746021957C8CE008F280A /* JPEGVideoSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JPEGVideoSource.cpp; sourceTree = "<group>"; };
+		04A746031957C8CE008F280A /* Locale.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Locale.cpp; sourceTree = "<group>"; };
+		04A746041957C8CE008F280A /* Makefile.head */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		04A746051957C8CE008F280A /* Makefile.tail */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		04A746061957C8CE008F280A /* MatroskaDemuxedTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatroskaDemuxedTrack.cpp; sourceTree = "<group>"; };
+		04A746071957C8CE008F280A /* MatroskaDemuxedTrack.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatroskaDemuxedTrack.hh; sourceTree = "<group>"; };
+		04A746081957C8CE008F280A /* MatroskaFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatroskaFile.cpp; sourceTree = "<group>"; };
+		04A746091957C8CE008F280A /* MatroskaFileParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatroskaFileParser.cpp; sourceTree = "<group>"; };
+		04A7460A1957C8CE008F280A /* MatroskaFileParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatroskaFileParser.hh; sourceTree = "<group>"; };
+		04A7460B1957C8CE008F280A /* MatroskaFileServerDemux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatroskaFileServerDemux.cpp; sourceTree = "<group>"; };
+		04A7460C1957C8CE008F280A /* MatroskaFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatroskaFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7460D1957C8CE008F280A /* MatroskaFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MatroskaFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A7460E1957C8CE008F280A /* Media.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Media.cpp; sourceTree = "<group>"; };
+		04A7460F1957C8CE008F280A /* MediaSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSession.cpp; sourceTree = "<group>"; };
+		04A746101957C8CE008F280A /* MediaSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSink.cpp; sourceTree = "<group>"; };
+		04A746111957C8CE008F280A /* MediaSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaSource.cpp; sourceTree = "<group>"; };
+		04A746121957C8CE008F280A /* MP3ADU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADU.cpp; sourceTree = "<group>"; };
+		04A746131957C8CE008F280A /* MP3ADUdescriptor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADUdescriptor.cpp; sourceTree = "<group>"; };
+		04A746141957C8CE008F280A /* MP3ADUdescriptor.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3ADUdescriptor.hh; sourceTree = "<group>"; };
+		04A746151957C8CE008F280A /* MP3ADUinterleaving.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADUinterleaving.cpp; sourceTree = "<group>"; };
+		04A746161957C8CE008F280A /* MP3ADURTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADURTPSink.cpp; sourceTree = "<group>"; };
+		04A746171957C8CE008F280A /* MP3ADURTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADURTPSource.cpp; sourceTree = "<group>"; };
+		04A746181957C8CE008F280A /* MP3ADUTranscoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3ADUTranscoder.cpp; sourceTree = "<group>"; };
+		04A746191957C8CE008F280A /* MP3AudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3AudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7461A1957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3AudioMatroskaFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7461B1957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3AudioMatroskaFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A7461C1957C8CE008F280A /* MP3FileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3FileSource.cpp; sourceTree = "<group>"; };
+		04A7461D1957C8CE008F280A /* MP3Internals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3Internals.cpp; sourceTree = "<group>"; };
+		04A7461E1957C8CE008F280A /* MP3Internals.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3Internals.hh; sourceTree = "<group>"; };
+		04A7461F1957C8CE008F280A /* MP3InternalsHuffman.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3InternalsHuffman.cpp; sourceTree = "<group>"; };
+		04A746201957C8CE008F280A /* MP3InternalsHuffman.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3InternalsHuffman.hh; sourceTree = "<group>"; };
+		04A746211957C8CE008F280A /* MP3InternalsHuffmanTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3InternalsHuffmanTable.cpp; sourceTree = "<group>"; };
+		04A746221957C8CE008F280A /* MP3StreamState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3StreamState.cpp; sourceTree = "<group>"; };
+		04A746231957C8CE008F280A /* MP3StreamState.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MP3StreamState.hh; sourceTree = "<group>"; };
+		04A746241957C8CE008F280A /* MP3Transcoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MP3Transcoder.cpp; sourceTree = "<group>"; };
+		04A746251957C8CE008F280A /* MPEG1or2AudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2AudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A746261957C8CE008F280A /* MPEG1or2AudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2AudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A746271957C8CE008F280A /* MPEG1or2AudioStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2AudioStreamFramer.cpp; sourceTree = "<group>"; };
+		04A746281957C8CE008F280A /* MPEG1or2Demux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2Demux.cpp; sourceTree = "<group>"; };
+		04A746291957C8CE008F280A /* MPEG1or2DemuxedElementaryStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2DemuxedElementaryStream.cpp; sourceTree = "<group>"; };
+		04A7462A1957C8CE008F280A /* MPEG1or2DemuxedServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2DemuxedServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7462B1957C8CE008F280A /* MPEG1or2FileServerDemux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2FileServerDemux.cpp; sourceTree = "<group>"; };
+		04A7462C1957C8CE008F280A /* MPEG1or2VideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2VideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7462D1957C8CE008F280A /* MPEG1or2VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A7462E1957C8CE008F280A /* MPEG1or2VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2VideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A7462F1957C8CE008F280A /* MPEG1or2VideoStreamDiscreteFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2VideoStreamDiscreteFramer.cpp; sourceTree = "<group>"; };
+		04A746301957C8CE008F280A /* MPEG1or2VideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG1or2VideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A746311957C8CE008F280A /* MPEG2IndexFromTransportStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2IndexFromTransportStream.cpp; sourceTree = "<group>"; };
+		04A746321957C8CE008F280A /* MPEG2TransportFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A746331957C8CE008F280A /* MPEG2TransportStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamFramer.cpp; sourceTree = "<group>"; };
+		04A746341957C8CE008F280A /* MPEG2TransportStreamFromESSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamFromESSource.cpp; sourceTree = "<group>"; };
+		04A746351957C8CE008F280A /* MPEG2TransportStreamFromPESSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamFromPESSource.cpp; sourceTree = "<group>"; };
+		04A746361957C8CE008F280A /* MPEG2TransportStreamIndexFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamIndexFile.cpp; sourceTree = "<group>"; };
+		04A746371957C8CE008F280A /* MPEG2TransportStreamMultiplexor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamMultiplexor.cpp; sourceTree = "<group>"; };
+		04A746381957C8CE008F280A /* MPEG2TransportStreamTrickModeFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportStreamTrickModeFilter.cpp; sourceTree = "<group>"; };
+		04A746391957C8CE008F280A /* MPEG2TransportUDPServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG2TransportUDPServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7463A1957C8CE008F280A /* MPEG4ESVideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4ESVideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A7463B1957C8CE008F280A /* MPEG4ESVideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4ESVideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A7463C1957C8CE008F280A /* MPEG4GenericRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4GenericRTPSink.cpp; sourceTree = "<group>"; };
+		04A7463D1957C8CE008F280A /* MPEG4GenericRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4GenericRTPSource.cpp; sourceTree = "<group>"; };
+		04A7463E1957C8CE008F280A /* MPEG4LATMAudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4LATMAudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A7463F1957C8CE008F280A /* MPEG4LATMAudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4LATMAudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A746401957C8CE008F280A /* MPEG4VideoFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4VideoFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A746411957C8CE008F280A /* MPEG4VideoStreamDiscreteFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4VideoStreamDiscreteFramer.cpp; sourceTree = "<group>"; };
+		04A746421957C8CE008F280A /* MPEG4VideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG4VideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A746431957C8CE008F280A /* MPEGVideoStreamFramer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGVideoStreamFramer.cpp; sourceTree = "<group>"; };
+		04A746441957C8CE008F280A /* MPEGVideoStreamParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGVideoStreamParser.cpp; sourceTree = "<group>"; };
+		04A746451957C8CE008F280A /* MPEGVideoStreamParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MPEGVideoStreamParser.hh; sourceTree = "<group>"; };
+		04A746461957C8CE008F280A /* MultiFramedRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiFramedRTPSink.cpp; sourceTree = "<group>"; };
+		04A746471957C8CE008F280A /* MultiFramedRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiFramedRTPSource.cpp; sourceTree = "<group>"; };
+		04A746481957C8CE008F280A /* OggDemuxedTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggDemuxedTrack.cpp; sourceTree = "<group>"; };
+		04A746491957C8CE008F280A /* OggDemuxedTrack.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggDemuxedTrack.hh; sourceTree = "<group>"; };
+		04A7464A1957C8CE008F280A /* OggFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggFile.cpp; sourceTree = "<group>"; };
+		04A7464B1957C8CE008F280A /* OggFileParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggFileParser.cpp; sourceTree = "<group>"; };
+		04A7464C1957C8CE008F280A /* OggFileParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggFileParser.hh; sourceTree = "<group>"; };
+		04A7464D1957C8CE008F280A /* OggFileServerDemux.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggFileServerDemux.cpp; sourceTree = "<group>"; };
+		04A7464E1957C8CE008F280A /* OggFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A7464F1957C8CE008F280A /* OggFileServerMediaSubsession.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = OggFileServerMediaSubsession.hh; sourceTree = "<group>"; };
+		04A746501957C8CE008F280A /* OggFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OggFileSink.cpp; sourceTree = "<group>"; };
+		04A746511957C8CE008F280A /* OnDemandServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OnDemandServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A746521957C8CE008F280A /* ourMD5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ourMD5.cpp; sourceTree = "<group>"; };
+		04A746531957C8CE008F280A /* OutputFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutputFile.cpp; sourceTree = "<group>"; };
+		04A746541957C8CE008F280A /* PassiveServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PassiveServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A746551957C8CE008F280A /* ProxyServerMediaSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProxyServerMediaSession.cpp; sourceTree = "<group>"; };
+		04A746561957C8CE008F280A /* QCELPAudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QCELPAudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A746571957C8CE008F280A /* QuickTimeFileSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickTimeFileSink.cpp; sourceTree = "<group>"; };
+		04A746581957C8CE008F280A /* QuickTimeGenericRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QuickTimeGenericRTPSource.cpp; sourceTree = "<group>"; };
+		04A746591957C8CE008F280A /* RTCP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTCP.cpp; sourceTree = "<group>"; };
+		04A7465A1957C8CE008F280A /* rtcp_from_spec.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rtcp_from_spec.c; sourceTree = "<group>"; };
+		04A7465B1957C8CE008F280A /* rtcp_from_spec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtcp_from_spec.h; sourceTree = "<group>"; };
+		04A7465C1957C8CE008F280A /* RTPInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTPInterface.cpp; sourceTree = "<group>"; };
+		04A7465D1957C8CE008F280A /* RTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTPSink.cpp; sourceTree = "<group>"; };
+		04A7465E1957C8CE008F280A /* RTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTPSource.cpp; sourceTree = "<group>"; };
+		04A7465F1957C8CE008F280A /* RTSPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTSPClient.cpp; sourceTree = "<group>"; };
+		04A746601957C8CE008F280A /* RTSPCommon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTSPCommon.cpp; sourceTree = "<group>"; };
+		04A746611957C8CE008F280A /* RTSPRegisterSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTSPRegisterSender.cpp; sourceTree = "<group>"; };
+		04A746621957C8CE008F280A /* RTSPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTSPServer.cpp; sourceTree = "<group>"; };
+		04A746631957C8CE008F280A /* RTSPServerSupportingHTTPStreaming.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RTSPServerSupportingHTTPStreaming.cpp; sourceTree = "<group>"; };
+		04A746641957C8CE008F280A /* ServerMediaSession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ServerMediaSession.cpp; sourceTree = "<group>"; };
+		04A746651957C8CE008F280A /* SimpleRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleRTPSink.cpp; sourceTree = "<group>"; };
+		04A746661957C8CE008F280A /* SimpleRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleRTPSource.cpp; sourceTree = "<group>"; };
+		04A746671957C8CE008F280A /* SIPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SIPClient.cpp; sourceTree = "<group>"; };
+		04A746681957C8CE008F280A /* StreamParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamParser.cpp; sourceTree = "<group>"; };
+		04A746691957C8CE008F280A /* StreamParser.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StreamParser.hh; sourceTree = "<group>"; };
+		04A7466A1957C8CE008F280A /* StreamReplicator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StreamReplicator.cpp; sourceTree = "<group>"; };
+		04A7466B1957C8CE008F280A /* T140TextRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = T140TextRTPSink.cpp; sourceTree = "<group>"; };
+		04A7466C1957C8CE008F280A /* TCPStreamSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPStreamSink.cpp; sourceTree = "<group>"; };
+		04A7466D1957C8CE008F280A /* TextRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextRTPSink.cpp; sourceTree = "<group>"; };
+		04A7466E1957C8CE008F280A /* TheoraVideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TheoraVideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A7466F1957C8CE008F280A /* TheoraVideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TheoraVideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A746701957C8CE008F280A /* uLawAudioFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = uLawAudioFilter.cpp; sourceTree = "<group>"; };
+		04A746711957C8CE008F280A /* VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A746721957C8CE008F280A /* VorbisAudioRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VorbisAudioRTPSink.cpp; sourceTree = "<group>"; };
+		04A746731957C8CE008F280A /* VorbisAudioRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VorbisAudioRTPSource.cpp; sourceTree = "<group>"; };
+		04A746741957C8CE008F280A /* VP8VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP8VideoRTPSink.cpp; sourceTree = "<group>"; };
+		04A746751957C8CE008F280A /* VP8VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP8VideoRTPSource.cpp; sourceTree = "<group>"; };
+		04A746761957C8CE008F280A /* WAVAudioFileServerMediaSubsession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WAVAudioFileServerMediaSubsession.cpp; sourceTree = "<group>"; };
+		04A746771957C8CE008F280A /* WAVAudioFileSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WAVAudioFileSource.cpp; sourceTree = "<group>"; };
+		04A746791957C8CE008F280A /* COPYING */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING; sourceTree = "<group>"; };
+		04A7467A1957C8CE008F280A /* HashTable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HashTable.cpp; sourceTree = "<group>"; };
+		04A7467C1957C8CE008F280A /* Boolean.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Boolean.hh; sourceTree = "<group>"; };
+		04A7467D1957C8CE008F280A /* HashTable.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = HashTable.hh; sourceTree = "<group>"; };
+		04A7467E1957C8CE008F280A /* strDup.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = strDup.hh; sourceTree = "<group>"; };
+		04A7467F1957C8CE008F280A /* UsageEnvironment.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UsageEnvironment.hh; sourceTree = "<group>"; };
+		04A746801957C8CE008F280A /* UsageEnvironment_version.hh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UsageEnvironment_version.hh; sourceTree = "<group>"; };
+		04A746811957C8CE008F280A /* Makefile.head */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.head; sourceTree = "<group>"; };
+		04A746821957C8CE008F280A /* Makefile.tail */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile.tail; sourceTree = "<group>"; };
+		04A746831957C8CE008F280A /* strDup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = strDup.cpp; sourceTree = "<group>"; };
+		04A746841957C8CE008F280A /* UsageEnvironment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UsageEnvironment.cpp; sourceTree = "<group>"; };
+		04A747A11957F4C2008F280A /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
+		04A747A819581211008F280A /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		69D1274B1B8317FE0034F662 /* GenericMediaServer.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GenericMediaServer.hh; sourceTree = "<group>"; };
+		69D1274C1B83194A0034F662 /* GenericMediaServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GenericMediaServer.cpp; sourceTree = "<group>"; };
+		69FBC5DE1B6B6B7400C60BAA /* VP9VideoRTPSink.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VP9VideoRTPSink.hh; sourceTree = "<group>"; };
+		69FBC5DF1B6B6B7C00C60BAA /* VP9VideoRTPSource.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VP9VideoRTPSource.hh; sourceTree = "<group>"; };
+		69FBC5E01B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP9VideoRTPSink.cpp; sourceTree = "<group>"; };
+		69FBC5E21B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP9VideoRTPSource.cpp; sourceTree = "<group>"; };
+		8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pjTunnelLib.xcodeproj; path = ../pjTunnelLib/pjTunnelLib.xcodeproj; sourceTree = "<group>"; };
+		8ACCDAD820BE44E400DED139 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04A744DA1957C88A008F280A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A744E11957C88A008F280A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A744EA1957C88A008F280A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A744F51957C88A008F280A /* libRTSPClientSession.a in Frameworks */,
+				04A744EF1957C88A008F280A /* XCTest.framework in Frameworks */,
+				04A744F21957C88A008F280A /* UIKit.framework in Frameworks */,
+				04A744F01957C88A008F280A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04A744D41957C88A008F280A = {
+			isa = PBXGroup;
+			children = (
+				8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */,
+				04A745061957C8CD008F280A /* BasicUsageEnvironment */,
+				04A745171957C8CD008F280A /* groupsock */,
+				04A7452C1957C8CD008F280A /* liveMedia */,
+				04A746781957C8CE008F280A /* UsageEnvironment */,
+				04A744E21957C88A008F280A /* RTSPClientSession */,
+				04A744F61957C88A008F280A /* RTSPClientSessionTests */,
+				04A744DF1957C88A008F280A /* Frameworks */,
+				04A744DE1957C88A008F280A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04A744DE1957C88A008F280A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04A744DD1957C88A008F280A /* libRTSPClientSession.a */,
+				04A744ED1957C88A008F280A /* RTSPClientSessionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04A744DF1957C88A008F280A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A747A819581211008F280A /* libstdc++.dylib */,
+				04A747A11957F4C2008F280A /* libstdc++.6.0.9.dylib */,
+				04A744E01957C88A008F280A /* Foundation.framework */,
+				04A744EE1957C88A008F280A /* XCTest.framework */,
+				04A744F11957C88A008F280A /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04A744E21957C88A008F280A /* RTSPClientSession */ = {
+			isa = PBXGroup;
+			children = (
+				04A744E51957C88A008F280A /* RTSPClientSession.h */,
+				04A744E71957C88A008F280A /* RTSPClientSession.mm */,
+				04A744E31957C88A008F280A /* Supporting Files */,
+			);
+			path = RTSPClientSession;
+			sourceTree = "<group>";
+		};
+		04A744E31957C88A008F280A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04A744E41957C88A008F280A /* RTSPClientSession-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04A744F61957C88A008F280A /* RTSPClientSessionTests */ = {
+			isa = PBXGroup;
+			children = (
+				04A744FC1957C88A008F280A /* RTSPClientSessionTests.m */,
+				04A744F71957C88A008F280A /* Supporting Files */,
+			);
+			path = RTSPClientSessionTests;
+			sourceTree = "<group>";
+		};
+		04A744F71957C88A008F280A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				04A744F81957C88A008F280A /* RTSPClientSessionTests-Info.plist */,
+				04A744F91957C88A008F280A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04A745061957C8CD008F280A /* BasicUsageEnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				04A745071957C8CD008F280A /* BasicHashTable.cpp */,
+				04A745081957C8CD008F280A /* BasicTaskScheduler.cpp */,
+				04A745091957C8CD008F280A /* BasicTaskScheduler0.cpp */,
+				04A7450A1957C8CD008F280A /* BasicUsageEnvironment.cpp */,
+				04A7450B1957C8CD008F280A /* BasicUsageEnvironment0.cpp */,
+				04A7450C1957C8CD008F280A /* COPYING */,
+				04A7450D1957C8CD008F280A /* DelayQueue.cpp */,
+				04A7450E1957C8CD008F280A /* include */,
+				04A745151957C8CD008F280A /* Makefile.head */,
+				04A745161957C8CD008F280A /* Makefile.tail */,
+			);
+			name = BasicUsageEnvironment;
+			path = live/BasicUsageEnvironment;
+			sourceTree = "<group>";
+		};
+		04A7450E1957C8CD008F280A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04A7450F1957C8CD008F280A /* BasicHashTable.hh */,
+				04A745101957C8CD008F280A /* BasicUsageEnvironment.hh */,
+				04A745111957C8CD008F280A /* BasicUsageEnvironment0.hh */,
+				04A745121957C8CD008F280A /* BasicUsageEnvironment_version.hh */,
+				04A745131957C8CD008F280A /* DelayQueue.hh */,
+				04A745141957C8CD008F280A /* HandlerSet.hh */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		04A745171957C8CD008F280A /* groupsock */ = {
+			isa = PBXGroup;
+			children = (
+				04A745181957C8CD008F280A /* COPYING */,
+				04A745191957C8CD008F280A /* GroupEId.cpp */,
+				04A7451A1957C8CD008F280A /* Groupsock.cpp */,
+				04A7451B1957C8CD008F280A /* GroupsockHelper.cpp */,
+				04A7451C1957C8CD008F280A /* include */,
+				04A745261957C8CD008F280A /* inet.c */,
+				04A745271957C8CD008F280A /* IOHandlers.cpp */,
+				04A745281957C8CD008F280A /* Makefile.head */,
+				04A745291957C8CD008F280A /* Makefile.tail */,
+				04A7452A1957C8CD008F280A /* NetAddress.cpp */,
+				04A7452B1957C8CD008F280A /* NetInterface.cpp */,
+			);
+			name = groupsock;
+			path = live/groupsock;
+			sourceTree = "<group>";
+		};
+		04A7451C1957C8CD008F280A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04A7451D1957C8CD008F280A /* GroupEId.hh */,
+				04A7451E1957C8CD008F280A /* Groupsock.hh */,
+				04A7451F1957C8CD008F280A /* groupsock_version.hh */,
+				04A745201957C8CD008F280A /* GroupsockHelper.hh */,
+				04A745211957C8CD008F280A /* IOHandlers.hh */,
+				04A745221957C8CD008F280A /* NetAddress.hh */,
+				04A745231957C8CD008F280A /* NetCommon.h */,
+				04A745241957C8CD008F280A /* NetInterface.hh */,
+				04A745251957C8CD008F280A /* TunnelEncaps.hh */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		04A7452C1957C8CD008F280A /* liveMedia */ = {
+			isa = PBXGroup;
+			children = (
+				04A7452D1957C8CD008F280A /* AC3AudioFileServerMediaSubsession.cpp */,
+				04A7452E1957C8CD008F280A /* AC3AudioRTPSink.cpp */,
+				04A7452F1957C8CD008F280A /* AC3AudioRTPSource.cpp */,
+				04A745301957C8CD008F280A /* AC3AudioStreamFramer.cpp */,
+				04A745311957C8CD008F280A /* ADTSAudioFileServerMediaSubsession.cpp */,
+				04A745321957C8CD008F280A /* ADTSAudioFileSource.cpp */,
+				04A745331957C8CD008F280A /* AMRAudioFileServerMediaSubsession.cpp */,
+				04A745341957C8CD008F280A /* AMRAudioFileSink.cpp */,
+				04A745351957C8CD008F280A /* AMRAudioFileSource.cpp */,
+				04A745361957C8CD008F280A /* AMRAudioRTPSink.cpp */,
+				04A745371957C8CD008F280A /* AMRAudioRTPSource.cpp */,
+				04A745381957C8CD008F280A /* AMRAudioSource.cpp */,
+				04A745391957C8CD008F280A /* AudioInputDevice.cpp */,
+				04A7453A1957C8CD008F280A /* AudioRTPSink.cpp */,
+				04A7453B1957C8CD008F280A /* AVIFileSink.cpp */,
+				04A7453C1957C8CD008F280A /* Base64.cpp */,
+				04A7453D1957C8CD008F280A /* BasicUDPSink.cpp */,
+				04A7453E1957C8CD008F280A /* BasicUDPSource.cpp */,
+				04A7453F1957C8CD008F280A /* BitVector.cpp */,
+				04A745401957C8CD008F280A /* ByteStreamFileSource.cpp */,
+				04A745411957C8CD008F280A /* ByteStreamMemoryBufferSource.cpp */,
+				04A745421957C8CD008F280A /* ByteStreamMultiFileSource.cpp */,
+				04A745431957C8CD008F280A /* COPYING */,
+				04A745451957C8CD008F280A /* DeviceSource.cpp */,
+				04A745461957C8CD008F280A /* DigestAuthentication.cpp */,
+				04A745471957C8CD008F280A /* DVVideoFileServerMediaSubsession.cpp */,
+				04A745481957C8CD008F280A /* DVVideoRTPSink.cpp */,
+				04A745491957C8CD008F280A /* DVVideoRTPSource.cpp */,
+				04A7454A1957C8CD008F280A /* DVVideoStreamFramer.cpp */,
+				04A7454B1957C8CD008F280A /* EBMLNumber.cpp */,
+				04A7454C1957C8CD008F280A /* EBMLNumber.hh */,
+				04A7454D1957C8CD008F280A /* FileServerMediaSubsession.cpp */,
+				04A7454E1957C8CD008F280A /* FileSink.cpp */,
+				04A7454F1957C8CD008F280A /* FramedFileSource.cpp */,
+				04A745501957C8CD008F280A /* FramedFilter.cpp */,
+				04A745511957C8CD008F280A /* FramedSource.cpp */,
+				69D1274C1B83194A0034F662 /* GenericMediaServer.cpp */,
+				04A745521957C8CD008F280A /* GSMAudioRTPSink.cpp */,
+				04A745531957C8CD008F280A /* H261VideoRTPSource.cpp */,
+				04A745541957C8CD008F280A /* H263plusVideoFileServerMediaSubsession.cpp */,
+				04A745551957C8CD008F280A /* H263plusVideoRTPSink.cpp */,
+				04A745561957C8CD008F280A /* H263plusVideoRTPSource.cpp */,
+				04A745571957C8CD008F280A /* H263plusVideoStreamFramer.cpp */,
+				04A745581957C8CD008F280A /* H263plusVideoStreamParser.cpp */,
+				04A745591957C8CD008F280A /* H263plusVideoStreamParser.hh */,
+				04A7455A1957C8CD008F280A /* H264or5VideoFileSink.cpp */,
+				04A7455B1957C8CD008F280A /* H264or5VideoRTPSink.cpp */,
+				04A7455C1957C8CD008F280A /* H264or5VideoStreamDiscreteFramer.cpp */,
+				04A7455D1957C8CD008F280A /* H264or5VideoStreamFramer.cpp */,
+				04A7455E1957C8CD008F280A /* H264VideoFileServerMediaSubsession.cpp */,
+				04A7455F1957C8CD008F280A /* H264VideoFileSink.cpp */,
+				04A745601957C8CD008F280A /* H264VideoRTPSink.cpp */,
+				04A745611957C8CD008F280A /* H264VideoRTPSource.cpp */,
+				04A745621957C8CD008F280A /* H264VideoStreamDiscreteFramer.cpp */,
+				04A745631957C8CD008F280A /* H264VideoStreamFramer.cpp */,
+				04A745641957C8CD008F280A /* H265VideoFileServerMediaSubsession.cpp */,
+				04A745651957C8CD008F280A /* H265VideoFileSink.cpp */,
+				04A745661957C8CD008F280A /* H265VideoRTPSink.cpp */,
+				04A745671957C8CD008F280A /* H265VideoRTPSource.cpp */,
+				04A745681957C8CD008F280A /* H265VideoStreamDiscreteFramer.cpp */,
+				04A745691957C8CD008F280A /* H265VideoStreamFramer.cpp */,
+				04A7456A1957C8CD008F280A /* include */,
+				04A745FF1957C8CE008F280A /* InputFile.cpp */,
+				04A746001957C8CE008F280A /* JPEGVideoRTPSink.cpp */,
+				04A746011957C8CE008F280A /* JPEGVideoRTPSource.cpp */,
+				04A746021957C8CE008F280A /* JPEGVideoSource.cpp */,
+				04A746031957C8CE008F280A /* Locale.cpp */,
+				04A746041957C8CE008F280A /* Makefile.head */,
+				04A746051957C8CE008F280A /* Makefile.tail */,
+				04A746061957C8CE008F280A /* MatroskaDemuxedTrack.cpp */,
+				04A746071957C8CE008F280A /* MatroskaDemuxedTrack.hh */,
+				04A746081957C8CE008F280A /* MatroskaFile.cpp */,
+				04A746091957C8CE008F280A /* MatroskaFileParser.cpp */,
+				04A7460A1957C8CE008F280A /* MatroskaFileParser.hh */,
+				04A7460B1957C8CE008F280A /* MatroskaFileServerDemux.cpp */,
+				04A7460C1957C8CE008F280A /* MatroskaFileServerMediaSubsession.cpp */,
+				04A7460D1957C8CE008F280A /* MatroskaFileServerMediaSubsession.hh */,
+				04A7460E1957C8CE008F280A /* Media.cpp */,
+				04A7460F1957C8CE008F280A /* MediaSession.cpp */,
+				04A746101957C8CE008F280A /* MediaSink.cpp */,
+				04A746111957C8CE008F280A /* MediaSource.cpp */,
+				04A746121957C8CE008F280A /* MP3ADU.cpp */,
+				04A746131957C8CE008F280A /* MP3ADUdescriptor.cpp */,
+				04A746141957C8CE008F280A /* MP3ADUdescriptor.hh */,
+				04A746151957C8CE008F280A /* MP3ADUinterleaving.cpp */,
+				04A746161957C8CE008F280A /* MP3ADURTPSink.cpp */,
+				04A746171957C8CE008F280A /* MP3ADURTPSource.cpp */,
+				04A746181957C8CE008F280A /* MP3ADUTranscoder.cpp */,
+				04A746191957C8CE008F280A /* MP3AudioFileServerMediaSubsession.cpp */,
+				04A7461A1957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.cpp */,
+				04A7461B1957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.hh */,
+				04A7461C1957C8CE008F280A /* MP3FileSource.cpp */,
+				04A7461D1957C8CE008F280A /* MP3Internals.cpp */,
+				04A7461E1957C8CE008F280A /* MP3Internals.hh */,
+				04A7461F1957C8CE008F280A /* MP3InternalsHuffman.cpp */,
+				04A746201957C8CE008F280A /* MP3InternalsHuffman.hh */,
+				04A746211957C8CE008F280A /* MP3InternalsHuffmanTable.cpp */,
+				04A746221957C8CE008F280A /* MP3StreamState.cpp */,
+				04A746231957C8CE008F280A /* MP3StreamState.hh */,
+				04A746241957C8CE008F280A /* MP3Transcoder.cpp */,
+				04A746251957C8CE008F280A /* MPEG1or2AudioRTPSink.cpp */,
+				04A746261957C8CE008F280A /* MPEG1or2AudioRTPSource.cpp */,
+				04A746271957C8CE008F280A /* MPEG1or2AudioStreamFramer.cpp */,
+				04A746281957C8CE008F280A /* MPEG1or2Demux.cpp */,
+				04A746291957C8CE008F280A /* MPEG1or2DemuxedElementaryStream.cpp */,
+				04A7462A1957C8CE008F280A /* MPEG1or2DemuxedServerMediaSubsession.cpp */,
+				04A7462B1957C8CE008F280A /* MPEG1or2FileServerDemux.cpp */,
+				04A7462C1957C8CE008F280A /* MPEG1or2VideoFileServerMediaSubsession.cpp */,
+				04A7462D1957C8CE008F280A /* MPEG1or2VideoRTPSink.cpp */,
+				04A7462E1957C8CE008F280A /* MPEG1or2VideoRTPSource.cpp */,
+				04A7462F1957C8CE008F280A /* MPEG1or2VideoStreamDiscreteFramer.cpp */,
+				04A746301957C8CE008F280A /* MPEG1or2VideoStreamFramer.cpp */,
+				04A746311957C8CE008F280A /* MPEG2IndexFromTransportStream.cpp */,
+				04A746321957C8CE008F280A /* MPEG2TransportFileServerMediaSubsession.cpp */,
+				04A746331957C8CE008F280A /* MPEG2TransportStreamFramer.cpp */,
+				04A746341957C8CE008F280A /* MPEG2TransportStreamFromESSource.cpp */,
+				04A746351957C8CE008F280A /* MPEG2TransportStreamFromPESSource.cpp */,
+				04A746361957C8CE008F280A /* MPEG2TransportStreamIndexFile.cpp */,
+				04A746371957C8CE008F280A /* MPEG2TransportStreamMultiplexor.cpp */,
+				04A746381957C8CE008F280A /* MPEG2TransportStreamTrickModeFilter.cpp */,
+				04A746391957C8CE008F280A /* MPEG2TransportUDPServerMediaSubsession.cpp */,
+				04A7463A1957C8CE008F280A /* MPEG4ESVideoRTPSink.cpp */,
+				04A7463B1957C8CE008F280A /* MPEG4ESVideoRTPSource.cpp */,
+				04A7463C1957C8CE008F280A /* MPEG4GenericRTPSink.cpp */,
+				04A7463D1957C8CE008F280A /* MPEG4GenericRTPSource.cpp */,
+				04A7463E1957C8CE008F280A /* MPEG4LATMAudioRTPSink.cpp */,
+				04A7463F1957C8CE008F280A /* MPEG4LATMAudioRTPSource.cpp */,
+				04A746401957C8CE008F280A /* MPEG4VideoFileServerMediaSubsession.cpp */,
+				04A746411957C8CE008F280A /* MPEG4VideoStreamDiscreteFramer.cpp */,
+				04A746421957C8CE008F280A /* MPEG4VideoStreamFramer.cpp */,
+				04A746431957C8CE008F280A /* MPEGVideoStreamFramer.cpp */,
+				04A746441957C8CE008F280A /* MPEGVideoStreamParser.cpp */,
+				04A746451957C8CE008F280A /* MPEGVideoStreamParser.hh */,
+				04A746461957C8CE008F280A /* MultiFramedRTPSink.cpp */,
+				04A746471957C8CE008F280A /* MultiFramedRTPSource.cpp */,
+				04A746481957C8CE008F280A /* OggDemuxedTrack.cpp */,
+				04A746491957C8CE008F280A /* OggDemuxedTrack.hh */,
+				04A7464A1957C8CE008F280A /* OggFile.cpp */,
+				04A7464B1957C8CE008F280A /* OggFileParser.cpp */,
+				04A7464C1957C8CE008F280A /* OggFileParser.hh */,
+				04A7464D1957C8CE008F280A /* OggFileServerDemux.cpp */,
+				04A7464E1957C8CE008F280A /* OggFileServerMediaSubsession.cpp */,
+				04A7464F1957C8CE008F280A /* OggFileServerMediaSubsession.hh */,
+				04A746501957C8CE008F280A /* OggFileSink.cpp */,
+				04A746511957C8CE008F280A /* OnDemandServerMediaSubsession.cpp */,
+				04A746521957C8CE008F280A /* ourMD5.cpp */,
+				04A746531957C8CE008F280A /* OutputFile.cpp */,
+				04A746541957C8CE008F280A /* PassiveServerMediaSubsession.cpp */,
+				04A746551957C8CE008F280A /* ProxyServerMediaSession.cpp */,
+				04A746561957C8CE008F280A /* QCELPAudioRTPSource.cpp */,
+				04A746571957C8CE008F280A /* QuickTimeFileSink.cpp */,
+				04A746581957C8CE008F280A /* QuickTimeGenericRTPSource.cpp */,
+				04A746591957C8CE008F280A /* RTCP.cpp */,
+				04A7465A1957C8CE008F280A /* rtcp_from_spec.c */,
+				04A7465B1957C8CE008F280A /* rtcp_from_spec.h */,
+				04A7465C1957C8CE008F280A /* RTPInterface.cpp */,
+				04A7465D1957C8CE008F280A /* RTPSink.cpp */,
+				04A7465E1957C8CE008F280A /* RTPSource.cpp */,
+				04A7465F1957C8CE008F280A /* RTSPClient.cpp */,
+				04A746601957C8CE008F280A /* RTSPCommon.cpp */,
+				04A746611957C8CE008F280A /* RTSPRegisterSender.cpp */,
+				04A746621957C8CE008F280A /* RTSPServer.cpp */,
+				04A746631957C8CE008F280A /* RTSPServerSupportingHTTPStreaming.cpp */,
+				04A746641957C8CE008F280A /* ServerMediaSession.cpp */,
+				04A746651957C8CE008F280A /* SimpleRTPSink.cpp */,
+				04A746661957C8CE008F280A /* SimpleRTPSource.cpp */,
+				04A746671957C8CE008F280A /* SIPClient.cpp */,
+				04A746681957C8CE008F280A /* StreamParser.cpp */,
+				04A746691957C8CE008F280A /* StreamParser.hh */,
+				04A7466A1957C8CE008F280A /* StreamReplicator.cpp */,
+				04A7466B1957C8CE008F280A /* T140TextRTPSink.cpp */,
+				04A7466C1957C8CE008F280A /* TCPStreamSink.cpp */,
+				04A7466D1957C8CE008F280A /* TextRTPSink.cpp */,
+				04A7466E1957C8CE008F280A /* TheoraVideoRTPSink.cpp */,
+				04A7466F1957C8CE008F280A /* TheoraVideoRTPSource.cpp */,
+				04A746701957C8CE008F280A /* uLawAudioFilter.cpp */,
+				04A746711957C8CE008F280A /* VideoRTPSink.cpp */,
+				04A746721957C8CE008F280A /* VorbisAudioRTPSink.cpp */,
+				04A746731957C8CE008F280A /* VorbisAudioRTPSource.cpp */,
+				04A746741957C8CE008F280A /* VP8VideoRTPSink.cpp */,
+				04A746751957C8CE008F280A /* VP8VideoRTPSource.cpp */,
+				69FBC5E01B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp */,
+				69FBC5E21B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp */,
+				04A746761957C8CE008F280A /* WAVAudioFileServerMediaSubsession.cpp */,
+				04A746771957C8CE008F280A /* WAVAudioFileSource.cpp */,
+			);
+			name = liveMedia;
+			path = live/liveMedia;
+			sourceTree = "<group>";
+		};
+		04A7456A1957C8CD008F280A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04A7456B1957C8CD008F280A /* AC3AudioFileServerMediaSubsession.hh */,
+				04A7456C1957C8CD008F280A /* AC3AudioRTPSink.hh */,
+				04A7456D1957C8CD008F280A /* AC3AudioRTPSource.hh */,
+				04A7456E1957C8CD008F280A /* AC3AudioStreamFramer.hh */,
+				04A7456F1957C8CD008F280A /* ADTSAudioFileServerMediaSubsession.hh */,
+				04A745701957C8CD008F280A /* ADTSAudioFileSource.hh */,
+				04A745711957C8CD008F280A /* AMRAudioFileServerMediaSubsession.hh */,
+				04A745721957C8CD008F280A /* AMRAudioFileSink.hh */,
+				04A745731957C8CD008F280A /* AMRAudioFileSource.hh */,
+				04A745741957C8CD008F280A /* AMRAudioRTPSink.hh */,
+				04A745751957C8CD008F280A /* AMRAudioRTPSource.hh */,
+				04A745761957C8CD008F280A /* AMRAudioSource.hh */,
+				04A745771957C8CD008F280A /* AudioInputDevice.hh */,
+				04A745781957C8CD008F280A /* AudioRTPSink.hh */,
+				04A745791957C8CD008F280A /* AVIFileSink.hh */,
+				04A7457A1957C8CD008F280A /* Base64.hh */,
+				04A7457B1957C8CD008F280A /* BasicUDPSink.hh */,
+				04A7457C1957C8CD008F280A /* BasicUDPSource.hh */,
+				04A7457D1957C8CD008F280A /* BitVector.hh */,
+				04A7457E1957C8CD008F280A /* ByteStreamFileSource.hh */,
+				04A7457F1957C8CD008F280A /* ByteStreamMemoryBufferSource.hh */,
+				04A745801957C8CD008F280A /* ByteStreamMultiFileSource.hh */,
+				04A745821957C8CD008F280A /* DeviceSource.hh */,
+				04A745831957C8CD008F280A /* DigestAuthentication.hh */,
+				04A745841957C8CD008F280A /* DVVideoFileServerMediaSubsession.hh */,
+				04A745851957C8CD008F280A /* DVVideoRTPSink.hh */,
+				04A745861957C8CD008F280A /* DVVideoRTPSource.hh */,
+				04A745871957C8CD008F280A /* DVVideoStreamFramer.hh */,
+				04A745881957C8CD008F280A /* FileServerMediaSubsession.hh */,
+				04A745891957C8CD008F280A /* FileSink.hh */,
+				04A7458A1957C8CD008F280A /* FramedFileSource.hh */,
+				04A7458B1957C8CD008F280A /* FramedFilter.hh */,
+				04A7458C1957C8CD008F280A /* FramedSource.hh */,
+				69D1274B1B8317FE0034F662 /* GenericMediaServer.hh */,
+				04A7458D1957C8CD008F280A /* GSMAudioRTPSink.hh */,
+				04A7458E1957C8CD008F280A /* H261VideoRTPSource.hh */,
+				04A7458F1957C8CD008F280A /* H263plusVideoFileServerMediaSubsession.hh */,
+				04A745901957C8CD008F280A /* H263plusVideoRTPSink.hh */,
+				04A745911957C8CD008F280A /* H263plusVideoRTPSource.hh */,
+				04A745921957C8CD008F280A /* H263plusVideoStreamFramer.hh */,
+				04A745931957C8CD008F280A /* H264or5VideoFileSink.hh */,
+				04A745941957C8CD008F280A /* H264or5VideoRTPSink.hh */,
+				04A745951957C8CD008F280A /* H264or5VideoStreamDiscreteFramer.hh */,
+				04A745961957C8CD008F280A /* H264or5VideoStreamFramer.hh */,
+				04A745971957C8CD008F280A /* H264VideoFileServerMediaSubsession.hh */,
+				04A745981957C8CD008F280A /* H264VideoFileSink.hh */,
+				04A745991957C8CD008F280A /* H264VideoRTPSink.hh */,
+				04A7459A1957C8CD008F280A /* H264VideoRTPSource.hh */,
+				04A7459B1957C8CD008F280A /* H264VideoStreamDiscreteFramer.hh */,
+				04A7459C1957C8CD008F280A /* H264VideoStreamFramer.hh */,
+				04A7459D1957C8CD008F280A /* H265VideoFileServerMediaSubsession.hh */,
+				04A7459E1957C8CD008F280A /* H265VideoFileSink.hh */,
+				04A7459F1957C8CD008F280A /* H265VideoRTPSink.hh */,
+				04A745A01957C8CD008F280A /* H265VideoRTPSource.hh */,
+				04A745A11957C8CD008F280A /* H265VideoStreamDiscreteFramer.hh */,
+				04A745A21957C8CD008F280A /* H265VideoStreamFramer.hh */,
+				04A745A31957C8CD008F280A /* InputFile.hh */,
+				04A745A41957C8CD008F280A /* JPEGVideoRTPSink.hh */,
+				04A745A51957C8CD008F280A /* JPEGVideoRTPSource.hh */,
+				04A745A61957C8CD008F280A /* JPEGVideoSource.hh */,
+				04A745A71957C8CD008F280A /* liveMedia.hh */,
+				04A745A81957C8CD008F280A /* liveMedia_version.hh */,
+				04A745A91957C8CD008F280A /* Locale.hh */,
+				04A745AA1957C8CD008F280A /* MatroskaFile.hh */,
+				04A745AB1957C8CD008F280A /* MatroskaFileServerDemux.hh */,
+				04A745AC1957C8CD008F280A /* Media.hh */,
+				04A745AD1957C8CD008F280A /* MediaSession.hh */,
+				04A745AE1957C8CD008F280A /* MediaSink.hh */,
+				04A745AF1957C8CD008F280A /* MediaSource.hh */,
+				04A745B01957C8CD008F280A /* MP3ADU.hh */,
+				04A745B11957C8CD008F280A /* MP3ADUinterleaving.hh */,
+				04A745B21957C8CD008F280A /* MP3ADURTPSink.hh */,
+				04A745B31957C8CD008F280A /* MP3ADURTPSource.hh */,
+				04A745B41957C8CD008F280A /* MP3ADUTranscoder.hh */,
+				04A745B51957C8CD008F280A /* MP3AudioFileServerMediaSubsession.hh */,
+				04A745B61957C8CD008F280A /* MP3FileSource.hh */,
+				04A745B71957C8CD008F280A /* MP3Transcoder.hh */,
+				04A745B81957C8CD008F280A /* MPEG1or2AudioRTPSink.hh */,
+				04A745B91957C8CD008F280A /* MPEG1or2AudioRTPSource.hh */,
+				04A745BA1957C8CD008F280A /* MPEG1or2AudioStreamFramer.hh */,
+				04A745BB1957C8CD008F280A /* MPEG1or2Demux.hh */,
+				04A745BC1957C8CD008F280A /* MPEG1or2DemuxedElementaryStream.hh */,
+				04A745BD1957C8CD008F280A /* MPEG1or2DemuxedServerMediaSubsession.hh */,
+				04A745BE1957C8CD008F280A /* MPEG1or2FileServerDemux.hh */,
+				04A745BF1957C8CD008F280A /* MPEG1or2VideoFileServerMediaSubsession.hh */,
+				04A745C01957C8CD008F280A /* MPEG1or2VideoRTPSink.hh */,
+				04A745C11957C8CD008F280A /* MPEG1or2VideoRTPSource.hh */,
+				04A745C21957C8CD008F280A /* MPEG1or2VideoStreamDiscreteFramer.hh */,
+				04A745C31957C8CD008F280A /* MPEG1or2VideoStreamFramer.hh */,
+				04A745C41957C8CD008F280A /* MPEG2IndexFromTransportStream.hh */,
+				04A745C51957C8CD008F280A /* MPEG2TransportFileServerMediaSubsession.hh */,
+				04A745C61957C8CD008F280A /* MPEG2TransportStreamFramer.hh */,
+				04A745C71957C8CD008F280A /* MPEG2TransportStreamFromESSource.hh */,
+				04A745C81957C8CD008F280A /* MPEG2TransportStreamFromPESSource.hh */,
+				04A745C91957C8CD008F280A /* MPEG2TransportStreamIndexFile.hh */,
+				04A745CA1957C8CD008F280A /* MPEG2TransportStreamMultiplexor.hh */,
+				04A745CB1957C8CD008F280A /* MPEG2TransportStreamTrickModeFilter.hh */,
+				04A745CC1957C8CD008F280A /* MPEG2TransportUDPServerMediaSubsession.hh */,
+				04A745CD1957C8CD008F280A /* MPEG4ESVideoRTPSink.hh */,
+				04A745CE1957C8CD008F280A /* MPEG4ESVideoRTPSource.hh */,
+				04A745CF1957C8CD008F280A /* MPEG4GenericRTPSink.hh */,
+				04A745D01957C8CD008F280A /* MPEG4GenericRTPSource.hh */,
+				04A745D11957C8CD008F280A /* MPEG4LATMAudioRTPSink.hh */,
+				04A745D21957C8CD008F280A /* MPEG4LATMAudioRTPSource.hh */,
+				04A745D31957C8CD008F280A /* MPEG4VideoFileServerMediaSubsession.hh */,
+				04A745D41957C8CD008F280A /* MPEG4VideoStreamDiscreteFramer.hh */,
+				04A745D51957C8CD008F280A /* MPEG4VideoStreamFramer.hh */,
+				04A745D61957C8CD008F280A /* MPEGVideoStreamFramer.hh */,
+				04A745D71957C8CD008F280A /* MultiFramedRTPSink.hh */,
+				04A745D81957C8CD008F280A /* MultiFramedRTPSource.hh */,
+				04A745D91957C8CD008F280A /* OggFile.hh */,
+				04A745DA1957C8CD008F280A /* OggFileServerDemux.hh */,
+				04A745DB1957C8CD008F280A /* OggFileSink.hh */,
+				04A745DC1957C8CD008F280A /* OnDemandServerMediaSubsession.hh */,
+				04A745DD1957C8CD008F280A /* ourMD5.hh */,
+				04A745DE1957C8CD008F280A /* OutputFile.hh */,
+				04A745DF1957C8CD008F280A /* PassiveServerMediaSubsession.hh */,
+				04A745E01957C8CD008F280A /* ProxyServerMediaSession.hh */,
+				04A745E11957C8CD008F280A /* QCELPAudioRTPSource.hh */,
+				04A745E21957C8CD008F280A /* QuickTimeFileSink.hh */,
+				04A745E31957C8CD008F280A /* QuickTimeGenericRTPSource.hh */,
+				04A745E41957C8CD008F280A /* RTCP.hh */,
+				04A745E51957C8CD008F280A /* RTPInterface.hh */,
+				04A745E61957C8CD008F280A /* RTPSink.hh */,
+				04A745E71957C8CD008F280A /* RTPSource.hh */,
+				04A745E81957C8CD008F280A /* RTSPClient.hh */,
+				04A745E91957C8CD008F280A /* RTSPCommon.hh */,
+				04A745EA1957C8CD008F280A /* RTSPRegisterSender.hh */,
+				04A745EB1957C8CD008F280A /* RTSPServer.hh */,
+				04A745EC1957C8CD008F280A /* RTSPServerSupportingHTTPStreaming.hh */,
+				04A745ED1957C8CD008F280A /* ServerMediaSession.hh */,
+				04A745EE1957C8CD008F280A /* SimpleRTPSink.hh */,
+				04A745EF1957C8CD008F280A /* SimpleRTPSource.hh */,
+				04A745F01957C8CD008F280A /* SIPClient.hh */,
+				04A745F11957C8CD008F280A /* StreamReplicator.hh */,
+				04A745F21957C8CD008F280A /* T140TextRTPSink.hh */,
+				04A745F31957C8CD008F280A /* TCPStreamSink.hh */,
+				04A745F41957C8CD008F280A /* TextRTPSink.hh */,
+				04A745F51957C8CD008F280A /* TheoraVideoRTPSink.hh */,
+				04A745F61957C8CD008F280A /* TheoraVideoRTPSource.hh */,
+				04A745F71957C8CD008F280A /* uLawAudioFilter.hh */,
+				04A745F81957C8CE008F280A /* VideoRTPSink.hh */,
+				04A745F91957C8CE008F280A /* VorbisAudioRTPSink.hh */,
+				04A745FA1957C8CE008F280A /* VorbisAudioRTPSource.hh */,
+				04A745FB1957C8CE008F280A /* VP8VideoRTPSink.hh */,
+				04A745FC1957C8CE008F280A /* VP8VideoRTPSource.hh */,
+				69FBC5DE1B6B6B7400C60BAA /* VP9VideoRTPSink.hh */,
+				69FBC5DF1B6B6B7C00C60BAA /* VP9VideoRTPSource.hh */,
+				04A745FD1957C8CE008F280A /* WAVAudioFileServerMediaSubsession.hh */,
+				04A745FE1957C8CE008F280A /* WAVAudioFileSource.hh */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		04A746781957C8CE008F280A /* UsageEnvironment */ = {
+			isa = PBXGroup;
+			children = (
+				04A746791957C8CE008F280A /* COPYING */,
+				04A7467A1957C8CE008F280A /* HashTable.cpp */,
+				04A7467B1957C8CE008F280A /* include */,
+				04A746811957C8CE008F280A /* Makefile.head */,
+				04A746821957C8CE008F280A /* Makefile.tail */,
+				04A746831957C8CE008F280A /* strDup.cpp */,
+				04A746841957C8CE008F280A /* UsageEnvironment.cpp */,
+			);
+			name = UsageEnvironment;
+			path = live/UsageEnvironment;
+			sourceTree = "<group>";
+		};
+		04A7467B1957C8CE008F280A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				04A7467C1957C8CE008F280A /* Boolean.hh */,
+				04A7467D1957C8CE008F280A /* HashTable.hh */,
+				04A7467E1957C8CE008F280A /* strDup.hh */,
+				04A7467F1957C8CE008F280A /* UsageEnvironment.hh */,
+				04A746801957C8CE008F280A /* UsageEnvironment_version.hh */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		8ACCD9AD20B4149C00DED139 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8ACCD9B220B4149C00DED139 /* libpjTunnelLib.a */,
+				8ACCD9B420B4149C00DED139 /* pjTunnelLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04A744DC1957C88A008F280A /* RTSPClientSession */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A745001957C88A008F280A /* Build configuration list for PBXNativeTarget "RTSPClientSession" */;
+			buildPhases = (
+				04A744D91957C88A008F280A /* Sources */,
+				04A744DA1957C88A008F280A /* Frameworks */,
+				04A744DB1957C88A008F280A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RTSPClientSession;
+			productName = RTSPClientSession;
+			productReference = 04A744DD1957C88A008F280A /* libRTSPClientSession.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		04A744EC1957C88A008F280A /* RTSPClientSessionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04A745031957C88A008F280A /* Build configuration list for PBXNativeTarget "RTSPClientSessionTests" */;
+			buildPhases = (
+				04A744E91957C88A008F280A /* Sources */,
+				04A744EA1957C88A008F280A /* Frameworks */,
+				04A744EB1957C88A008F280A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04A744F41957C88A008F280A /* PBXTargetDependency */,
+			);
+			name = RTSPClientSessionTests;
+			productName = RTSPClientSessionTests;
+			productReference = 04A744ED1957C88A008F280A /* RTSPClientSessionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04A744D51957C88A008F280A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Robert;
+			};
+			buildConfigurationList = 04A744D81957C88A008F280A /* Build configuration list for PBXProject "RTSPClientSession" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				"zh-Hant",
+			);
+			mainGroup = 04A744D41957C88A008F280A;
+			productRefGroup = 04A744DE1957C88A008F280A /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8ACCD9AD20B4149C00DED139 /* Products */;
+					ProjectRef = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				04A744DC1957C88A008F280A /* RTSPClientSession */,
+				04A744EC1957C88A008F280A /* RTSPClientSessionTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8ACCD9B220B4149C00DED139 /* libpjTunnelLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libpjTunnelLib.a;
+			remoteRef = 8ACCD9B120B4149C00DED139 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8ACCD9B420B4149C00DED139 /* pjTunnelLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = pjTunnelLibTests.xctest;
+			remoteRef = 8ACCD9B320B4149C00DED139 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04A744EB1957C88A008F280A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A744FB1957C88A008F280A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04A744D91957C88A008F280A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A747361957C8CE008F280A /* strDup.cpp in Sources */,
+				04A746D21957C8CE008F280A /* MatroskaFile.cpp in Sources */,
+				04A746DA1957C8CE008F280A /* MP3ADU.cpp in Sources */,
+				04A746C51957C8CE008F280A /* H264VideoStreamFramer.cpp in Sources */,
+				04A7471D1957C8CE008F280A /* RTSPClient.cpp in Sources */,
+				04A746A41957C8CE008F280A /* BitVector.cpp in Sources */,
+				04A746EF1957C8CE008F280A /* MPEG1or2VideoFileServerMediaSubsession.cpp in Sources */,
+				04A746B21957C8CE008F280A /* FramedFileSource.cpp in Sources */,
+				04A747021957C8CE008F280A /* MPEG4LATMAudioRTPSource.cpp in Sources */,
+				04A7471B1957C8CE008F280A /* RTPSink.cpp in Sources */,
+				04A746F71957C8CE008F280A /* MPEG2TransportStreamFromESSource.cpp in Sources */,
+				04A7471C1957C8CE008F280A /* RTPSource.cpp in Sources */,
+				04A7468F1957C8CE008F280A /* IOHandlers.cpp in Sources */,
+				04A7472A1957C8CE008F280A /* TextRTPSink.cpp in Sources */,
+				04A746C61957C8CE008F280A /* H265VideoFileServerMediaSubsession.cpp in Sources */,
+				04A746AA1957C8CE008F280A /* DigestAuthentication.cpp in Sources */,
+				04A7470C1957C8CE008F280A /* OggFileParser.cpp in Sources */,
+				04A746BA1957C8CE008F280A /* H263plusVideoStreamFramer.cpp in Sources */,
+				04A746A61957C8CE008F280A /* ByteStreamMemoryBufferSource.cpp in Sources */,
+				04A7470F1957C8CE008F280A /* OggFileSink.cpp in Sources */,
+				04A746D71957C8CE008F280A /* MediaSession.cpp in Sources */,
+				04A746951957C8CE008F280A /* AC3AudioStreamFramer.cpp in Sources */,
+				04A746E21957C8CE008F280A /* MP3FileSource.cpp in Sources */,
+				04A746C01957C8CE008F280A /* H264VideoFileServerMediaSubsession.cpp in Sources */,
+				04A747281957C8CE008F280A /* T140TextRTPSink.cpp in Sources */,
+				04A746B31957C8CE008F280A /* FramedFilter.cpp in Sources */,
+				04A746EE1957C8CE008F280A /* MPEG1or2FileServerDemux.cpp in Sources */,
+				04A746C31957C8CE008F280A /* H264VideoRTPSource.cpp in Sources */,
+				04A747331957C8CE008F280A /* WAVAudioFileServerMediaSubsession.cpp in Sources */,
+				04A747201957C8CE008F280A /* RTSPServer.cpp in Sources */,
+				04A746E61957C8CE008F280A /* MP3StreamState.cpp in Sources */,
+				04A7470D1957C8CE008F280A /* OggFileServerDemux.cpp in Sources */,
+				04A746EA1957C8CE008F280A /* MPEG1or2AudioStreamFramer.cpp in Sources */,
+				04A746E11957C8CE008F280A /* MP3AudioMatroskaFileServerMediaSubsession.cpp in Sources */,
+				04A747271957C8CE008F280A /* StreamReplicator.cpp in Sources */,
+				04A747151957C8CE008F280A /* QCELPAudioRTPSource.cpp in Sources */,
+				04A746B41957C8CE008F280A /* FramedSource.cpp in Sources */,
+				04A746AC1957C8CE008F280A /* DVVideoRTPSink.cpp in Sources */,
+				04A746F41957C8CE008F280A /* MPEG2IndexFromTransportStream.cpp in Sources */,
+				04A746EC1957C8CE008F280A /* MPEG1or2DemuxedElementaryStream.cpp in Sources */,
+				04A746A21957C8CE008F280A /* BasicUDPSink.cpp in Sources */,
+				04A7471E1957C8CE008F280A /* RTSPCommon.cpp in Sources */,
+				04A746FA1957C8CE008F280A /* MPEG2TransportStreamMultiplexor.cpp in Sources */,
+				69FBC5E31B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp in Sources */,
+				04A747011957C8CE008F280A /* MPEG4LATMAudioRTPSink.cpp in Sources */,
+				04A746BF1957C8CE008F280A /* H264or5VideoStreamFramer.cpp in Sources */,
+				04A747131957C8CE008F280A /* PassiveServerMediaSubsession.cpp in Sources */,
+				04A7472E1957C8CE008F280A /* VideoRTPSink.cpp in Sources */,
+				04A747321957C8CE008F280A /* VP8VideoRTPSource.cpp in Sources */,
+				04A747071957C8CE008F280A /* MPEGVideoStreamParser.cpp in Sources */,
+				04A746871957C8CE008F280A /* BasicTaskScheduler0.cpp in Sources */,
+				04A746F61957C8CE008F280A /* MPEG2TransportStreamFramer.cpp in Sources */,
+				04A746F31957C8CE008F280A /* MPEG1or2VideoStreamFramer.cpp in Sources */,
+				04A746A91957C8CE008F280A /* DeviceSource.cpp in Sources */,
+				04A7468E1957C8CE008F280A /* inet.c in Sources */,
+				04A746DB1957C8CE008F280A /* MP3ADUdescriptor.cpp in Sources */,
+				04A7469D1957C8CE008F280A /* AMRAudioSource.cpp in Sources */,
+				04A746E81957C8CE008F280A /* MPEG1or2AudioRTPSink.cpp in Sources */,
+				04A746FD1957C8CE008F280A /* MPEG4ESVideoRTPSink.cpp in Sources */,
+				04A746C41957C8CE008F280A /* H264VideoStreamDiscreteFramer.cpp in Sources */,
+				04A746991957C8CE008F280A /* AMRAudioFileSink.cpp in Sources */,
+				04A7472C1957C8CE008F280A /* TheoraVideoRTPSource.cpp in Sources */,
+				04A746AB1957C8CE008F280A /* DVVideoFileServerMediaSubsession.cpp in Sources */,
+				04A746DE1957C8CE008F280A /* MP3ADURTPSource.cpp in Sources */,
+				04A746BC1957C8CE008F280A /* H264or5VideoFileSink.cpp in Sources */,
+				04A746961957C8CE008F280A /* ADTSAudioFileServerMediaSubsession.cpp in Sources */,
+				04A746A71957C8CE008F280A /* ByteStreamMultiFileSource.cpp in Sources */,
+				04A746FF1957C8CE008F280A /* MPEG4GenericRTPSink.cpp in Sources */,
+				04A7468A1957C8CE008F280A /* DelayQueue.cpp in Sources */,
+				04A7472F1957C8CE008F280A /* VorbisAudioRTPSink.cpp in Sources */,
+				69FBC5E11B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp in Sources */,
+				04A746CE1957C8CE008F280A /* JPEGVideoRTPSource.cpp in Sources */,
+				04A744E81957C88A008F280A /* RTSPClientSession.mm in Sources */,
+				04A7468D1957C8CE008F280A /* GroupsockHelper.cpp in Sources */,
+				04A746851957C8CE008F280A /* BasicHashTable.cpp in Sources */,
+				69D1274D1B83194A0034F662 /* GenericMediaServer.cpp in Sources */,
+				04A746B11957C8CE008F280A /* FileSink.cpp in Sources */,
+				04A746901957C8CE008F280A /* NetAddress.cpp in Sources */,
+				04A747301957C8CE008F280A /* VorbisAudioRTPSource.cpp in Sources */,
+				04A746A11957C8CE008F280A /* Base64.cpp in Sources */,
+				04A746931957C8CE008F280A /* AC3AudioRTPSink.cpp in Sources */,
+				04A7468B1957C8CE008F280A /* GroupEId.cpp in Sources */,
+				04A747041957C8CE008F280A /* MPEG4VideoStreamDiscreteFramer.cpp in Sources */,
+				04A746E01957C8CE008F280A /* MP3AudioFileServerMediaSubsession.cpp in Sources */,
+				04A747061957C8CE008F280A /* MPEGVideoStreamFramer.cpp in Sources */,
+				04A746D31957C8CE008F280A /* MatroskaFileParser.cpp in Sources */,
+				04A746941957C8CE008F280A /* AC3AudioRTPSource.cpp in Sources */,
+				04A7469E1957C8CE008F280A /* AudioInputDevice.cpp in Sources */,
+				04A746C11957C8CE008F280A /* H264VideoFileSink.cpp in Sources */,
+				04A746CB1957C8CE008F280A /* H265VideoStreamFramer.cpp in Sources */,
+				04A746861957C8CE008F280A /* BasicTaskScheduler.cpp in Sources */,
+				04A746B61957C8CE008F280A /* H261VideoRTPSource.cpp in Sources */,
+				04A746D01957C8CE008F280A /* Locale.cpp in Sources */,
+				04A746D91957C8CE008F280A /* MediaSource.cpp in Sources */,
+				04A746CC1957C8CE008F280A /* InputFile.cpp in Sources */,
+				04A747221957C8CE008F280A /* ServerMediaSession.cpp in Sources */,
+				04A747261957C8CE008F280A /* StreamParser.cpp in Sources */,
+				04A746E41957C8CE008F280A /* MP3InternalsHuffman.cpp in Sources */,
+				04A747121957C8CE008F280A /* OutputFile.cpp in Sources */,
+				04A746D51957C8CE008F280A /* MatroskaFileServerMediaSubsession.cpp in Sources */,
+				04A7470E1957C8CE008F280A /* OggFileServerMediaSubsession.cpp in Sources */,
+				04A7472B1957C8CE008F280A /* TheoraVideoRTPSink.cpp in Sources */,
+				04A747101957C8CE008F280A /* OnDemandServerMediaSubsession.cpp in Sources */,
+				04A747311957C8CE008F280A /* VP8VideoRTPSink.cpp in Sources */,
+				04A746AE1957C8CE008F280A /* DVVideoStreamFramer.cpp in Sources */,
+				04A746C91957C8CE008F280A /* H265VideoRTPSource.cpp in Sources */,
+				04A747141957C8CE008F280A /* ProxyServerMediaSession.cpp in Sources */,
+				04A746B81957C8CE008F280A /* H263plusVideoRTPSink.cpp in Sources */,
+				04A746F91957C8CE008F280A /* MPEG2TransportStreamIndexFile.cpp in Sources */,
+				04A746D41957C8CE008F280A /* MatroskaFileServerDemux.cpp in Sources */,
+				04A7470A1957C8CE008F280A /* OggDemuxedTrack.cpp in Sources */,
+				04A746C71957C8CE008F280A /* H265VideoFileSink.cpp in Sources */,
+				04A747241957C8CE008F280A /* SimpleRTPSource.cpp in Sources */,
+				04A7471A1957C8CE008F280A /* RTPInterface.cpp in Sources */,
+				04A747341957C8CE008F280A /* WAVAudioFileSource.cpp in Sources */,
+				04A746F21957C8CE008F280A /* MPEG1or2VideoStreamDiscreteFramer.cpp in Sources */,
+				04A747001957C8CE008F280A /* MPEG4GenericRTPSource.cpp in Sources */,
+				04A746FE1957C8CE008F280A /* MPEG4ESVideoRTPSource.cpp in Sources */,
+				04A746F11957C8CE008F280A /* MPEG1or2VideoRTPSource.cpp in Sources */,
+				04A7468C1957C8CE008F280A /* Groupsock.cpp in Sources */,
+				04A746F51957C8CE008F280A /* MPEG2TransportFileServerMediaSubsession.cpp in Sources */,
+				04A747251957C8CE008F280A /* SIPClient.cpp in Sources */,
+				04A746981957C8CE008F280A /* AMRAudioFileServerMediaSubsession.cpp in Sources */,
+				04A746D61957C8CE008F280A /* Media.cpp in Sources */,
+				04A746BB1957C8CE008F280A /* H263plusVideoStreamParser.cpp in Sources */,
+				04A746E31957C8CE008F280A /* MP3Internals.cpp in Sources */,
+				04A746CA1957C8CE008F280A /* H265VideoStreamDiscreteFramer.cpp in Sources */,
+				04A747051957C8CE008F280A /* MPEG4VideoStreamFramer.cpp in Sources */,
+				04A747191957C8CE008F280A /* rtcp_from_spec.c in Sources */,
+				04A746A51957C8CE008F280A /* ByteStreamFileSource.cpp in Sources */,
+				04A746F01957C8CE008F280A /* MPEG1or2VideoRTPSink.cpp in Sources */,
+				04A746A01957C8CE008F280A /* AVIFileSink.cpp in Sources */,
+				04A746C81957C8CE008F280A /* H265VideoRTPSink.cpp in Sources */,
+				04A746F81957C8CE008F280A /* MPEG2TransportStreamFromPESSource.cpp in Sources */,
+				04A746D11957C8CE008F280A /* MatroskaDemuxedTrack.cpp in Sources */,
+				04A7469C1957C8CE008F280A /* AMRAudioRTPSource.cpp in Sources */,
+				04A746BE1957C8CE008F280A /* H264or5VideoStreamDiscreteFramer.cpp in Sources */,
+				04A746B71957C8CE008F280A /* H263plusVideoFileServerMediaSubsession.cpp in Sources */,
+				04A7469B1957C8CE008F280A /* AMRAudioRTPSink.cpp in Sources */,
+				04A7472D1957C8CE008F280A /* uLawAudioFilter.cpp in Sources */,
+				04A747081957C8CE008F280A /* MultiFramedRTPSink.cpp in Sources */,
+				04A747371957C8CE008F280A /* UsageEnvironment.cpp in Sources */,
+				04A7470B1957C8CE008F280A /* OggFile.cpp in Sources */,
+				04A747291957C8CE008F280A /* TCPStreamSink.cpp in Sources */,
+				04A746D81957C8CE008F280A /* MediaSink.cpp in Sources */,
+				04A746E91957C8CE008F280A /* MPEG1or2AudioRTPSource.cpp in Sources */,
+				04A746BD1957C8CE008F280A /* H264or5VideoRTPSink.cpp in Sources */,
+				04A746971957C8CE008F280A /* ADTSAudioFileSource.cpp in Sources */,
+				04A747181957C8CE008F280A /* RTCP.cpp in Sources */,
+				04A746881957C8CE008F280A /* BasicUsageEnvironment.cpp in Sources */,
+				04A746E51957C8CE008F280A /* MP3InternalsHuffmanTable.cpp in Sources */,
+				04A746B51957C8CE008F280A /* GSMAudioRTPSink.cpp in Sources */,
+				04A747171957C8CE008F280A /* QuickTimeGenericRTPSource.cpp in Sources */,
+				04A746B01957C8CE008F280A /* FileServerMediaSubsession.cpp in Sources */,
+				04A746AF1957C8CE008F280A /* EBMLNumber.cpp in Sources */,
+				04A746891957C8CE008F280A /* BasicUsageEnvironment0.cpp in Sources */,
+				04A747091957C8CE008F280A /* MultiFramedRTPSource.cpp in Sources */,
+				04A7469A1957C8CE008F280A /* AMRAudioFileSource.cpp in Sources */,
+				04A746ED1957C8CE008F280A /* MPEG1or2DemuxedServerMediaSubsession.cpp in Sources */,
+				04A746C21957C8CE008F280A /* H264VideoRTPSink.cpp in Sources */,
+				04A746AD1957C8CE008F280A /* DVVideoRTPSource.cpp in Sources */,
+				04A7471F1957C8CE008F280A /* RTSPRegisterSender.cpp in Sources */,
+				04A747031957C8CE008F280A /* MPEG4VideoFileServerMediaSubsession.cpp in Sources */,
+				04A747111957C8CE008F280A /* ourMD5.cpp in Sources */,
+				04A746911957C8CE008F280A /* NetInterface.cpp in Sources */,
+				04A746FB1957C8CE008F280A /* MPEG2TransportStreamTrickModeFilter.cpp in Sources */,
+				04A746CF1957C8CE008F280A /* JPEGVideoSource.cpp in Sources */,
+				04A747211957C8CE008F280A /* RTSPServerSupportingHTTPStreaming.cpp in Sources */,
+				04A746E71957C8CE008F280A /* MP3Transcoder.cpp in Sources */,
+				04A746CD1957C8CE008F280A /* JPEGVideoRTPSink.cpp in Sources */,
+				04A746DC1957C8CE008F280A /* MP3ADUinterleaving.cpp in Sources */,
+				04A746DD1957C8CE008F280A /* MP3ADURTPSink.cpp in Sources */,
+				04A747231957C8CE008F280A /* SimpleRTPSink.cpp in Sources */,
+				04A746EB1957C8CE008F280A /* MPEG1or2Demux.cpp in Sources */,
+				04A747351957C8CE008F280A /* HashTable.cpp in Sources */,
+				04A747161957C8CE008F280A /* QuickTimeFileSink.cpp in Sources */,
+				04A7469F1957C8CE008F280A /* AudioRTPSink.cpp in Sources */,
+				04A746DF1957C8CE008F280A /* MP3ADUTranscoder.cpp in Sources */,
+				04A746FC1957C8CE008F280A /* MPEG2TransportUDPServerMediaSubsession.cpp in Sources */,
+				04A746921957C8CE008F280A /* AC3AudioFileServerMediaSubsession.cpp in Sources */,
+				04A746B91957C8CE008F280A /* H263plusVideoRTPSource.cpp in Sources */,
+				04A746A31957C8CE008F280A /* BasicUDPSource.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04A744E91957C88A008F280A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04A744FD1957C88A008F280A /* RTSPClientSessionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04A744F41957C88A008F280A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04A744DC1957C88A008F280A /* RTSPClientSession */;
+			targetProxy = 04A744F31957C88A008F280A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04A744F91957C88A008F280A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04A744FA1957C88A008F280A /* en */,
+				8ACCDAD820BE44E400DED139 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04A744FE1957C88A008F280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "arm64 armv7";
+			};
+			name = Debug;
+		};
+		04A744FF1957C88A008F280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 armv7";
+			};
+			name = Release;
+		};
+		04A745011957C88A008F280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/RTSPClientSession.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RTSPClientSession/RTSPClientSession-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"BSD=1",
+					"HAVE_SOCKADDR_LEN=1",
+					"SOCKLEN_T=socklen_t",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/live/BasicUsageEnvironment\"/**",
+					"\"$(SRCROOT)/live/groupsock\"/**",
+					"\"$(SRCROOT)/live/liveMedia\"/**",
+					"\"$(SRCROOT)/live/UsageEnvironment\"/**",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 arm64";
+			};
+			name = Debug;
+		};
+		04A745021957C88A008F280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/RTSPClientSession.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RTSPClientSession/RTSPClientSession-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"BSD=1",
+					"HAVE_SOCKADDR_LEN=1",
+					"SOCKLEN_T=socklen_t",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"\"$(SRCROOT)/live/BasicUsageEnvironment\"/**",
+					"\"$(SRCROOT)/live/groupsock\"/**",
+					"\"$(SRCROOT)/live/liveMedia\"/**",
+					"\"$(SRCROOT)/live/UsageEnvironment\"/**",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "armv7 arm64";
+			};
+			name = Release;
+		};
+		04A745041957C88A008F280A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RTSPClientSession/RTSPClientSession-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RTSPClientSessionTests/RTSPClientSessionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		04A745051957C88A008F280A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RTSPClientSession/RTSPClientSession-Prefix.pch";
+				INFOPLIST_FILE = "RTSPClientSessionTests/RTSPClientSessionTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04A744D81957C88A008F280A /* Build configuration list for PBXProject "RTSPClientSession" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A744FE1957C88A008F280A /* Debug */,
+				04A744FF1957C88A008F280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04A745001957C88A008F280A /* Build configuration list for PBXNativeTarget "RTSPClientSession" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A745011957C88A008F280A /* Debug */,
+				04A745021957C88A008F280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04A745031957C88A008F280A /* Build configuration list for PBXNativeTarget "RTSPClientSessionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04A745041957C88A008F280A /* Debug */,
+				04A745051957C88A008F280A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 04A744D51957C88A008F280A /* Project object */;
+}

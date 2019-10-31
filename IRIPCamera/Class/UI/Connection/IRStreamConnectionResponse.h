@@ -12,6 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IRStreamConnectionResponse : NSObject
 
+@property NSString *rtspURL;
+@property NSString *deviceModelName;
+@property NSArray *streamsInfo;
+//@property MediaParameter *mediaParameter;
+
 @end
 
 NS_ASSUME_NONNULL_END

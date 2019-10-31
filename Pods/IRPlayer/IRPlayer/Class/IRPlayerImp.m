@@ -76,6 +76,39 @@
 {
     self.error = nil;
     self.contentURL = contentURL;
+    self.videoInput = nil;
+    self.decoderType = [self.decoder decoderTypeForContentURL:self.contentURL];
+    self.videoType = videoType;
+    
+    switch (self.decoderType) {
+        case IRDecoderTypeAVPlayer:
+            if (_ffPlayer) {
+                [self.ffPlayer stop];
+            }
+            [self.avPlayer replaceVideo];
+            break;
+        case IRDecoderTypeFFmpeg:
+            if (_avPlayer) {
+                [self.avPlayer stop];
+            }
+            [self.ffPlayer replaceVideo];
+            break;
+        case IRDecoderTypeError:
+            if (_avPlayer) {
+                [self.avPlayer stop];
+            }
+            if (_ffPlayer) {
+                [self.ffPlayer stop];
+            }
+            break;
+    }
+}
+
+- (void)replaceVideoWithInput:(nullable IRFFVideoInput *)videoInput videoType:(IRVideoType)videoType
+{
+    self.error = nil;
+    self.contentURL = [[NSURL alloc] init];
+    self.videoInput = videoInput;
     self.decoderType = [self.decoder decoderTypeForContentURL:self.contentURL];
     self.videoType = videoType;
     
@@ -180,10 +213,12 @@
             if (self.displayMode == IRDisplayModeNormal) {
                 IRGLRenderMode *mode = [IRGLRenderModeFactory createVRModeWithParameter:nil];
                 [mode setDefaultScale:1.5f];
+                mode.aspect = 16.0 / 9.0;
                 [self.displayView setRenderModes:@[mode]];
             } else if (self.displayMode == IRDisplayModeBox) {
                 IRGLRenderMode *mode = [IRGLRenderModeFactory createDistortionModeWithParameter:nil];
                 [mode setDefaultScale:1.5f];
+                mode.aspect = 16.0 / 9.0;
                 [self.displayView setRenderModes:@[mode]];
                 [_gestureControl removeGestureToView:self.displayView];
                 _sensor = [[IRSensor alloc] init];
@@ -191,7 +226,6 @@
                 _sensor.smoothScroll = _gestureControl.smoothScroll;
                 [_sensor resetUnit];
             }
-            self.displayView.aspect = 16.0 / 9.0;
             [self setViewGravityMode:IRGravityModeResizeAspect];
             _gestureControl.currentMode = [self.displayView getCurrentRenderMode];
             break;
@@ -200,8 +234,8 @@
             _videoType = videoType;
             IRGLRenderMode *mode = [IRGLRenderModeFactory createFisheyeModeWithParameter:[[IRFisheyeParameter alloc] initWithWidth:0 height:0 up:NO rx:0 ry:0 cx:0 cy:0 latmax:80]];
             [mode setDefaultScale:1.5f];
+            mode.aspect = 16.0 / 9.0;
             [self.displayView setRenderModes:@[mode]];
-            self.displayView.aspect = 16.0 / 9.0;
             [self setViewGravityMode:IRGravityModeResizeAspect];
             _gestureControl.currentMode = [self.displayView getCurrentRenderMode];
             break;
@@ -412,6 +446,10 @@
         [self.view addConstraint:left];
         [self.view addConstraint:right];
     }
+}
+
+- (void)setVideoInput:(IRFFVideoInput * _Nullable)videoInput {
+    _videoInput = videoInput;
 }
 
 - (void)setError:(IRError * _Nullable)error

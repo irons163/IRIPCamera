@@ -7,7 +7,19 @@
 //
 
 #import "IRStreamControllerFactory.h"
+#import "IRCustomStreamConnectionRequest.h"
 
 @implementation IRStreamControllerFactory
+
++ (IRStreamController *)createStreamControllerByRequset:(IRStreamConnectionRequest*)request{
+    IRStreamController *streamController = nil;
+    if([request isKindOfClass:[IRCustomStreamConnectionRequest class]]){
+        streamController = [[IRStreamController alloc] initWithDevice:((IRCustomStreamConnectionRequest*)request).device];
+    }else{
+        streamController = [[IRStreamController alloc] initWithRtspUrl:request.rtspUrl];
+    }
+    
+    return streamController;
+}
 
 @end

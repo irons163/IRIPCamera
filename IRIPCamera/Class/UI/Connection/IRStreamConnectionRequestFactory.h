@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IRStreamConnectionRequest.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface IRStreamConnectionRequestFactory : NSObject
+
++(NSArray<IRStreamConnectionRequest*> *)createStreamConnectionRequest;
 
 @end
 

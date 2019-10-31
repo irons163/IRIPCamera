@@ -6,11 +6,14 @@
 //  Copyright © 2019 Phil. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "IRStreamConnectionRequest.h"
+#import "deviceClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IRCustomStreamConnectionRequest : NSObject
+@interface IRCustomStreamConnectionRequest : IRStreamConnectionRequest
+
+@property deviceClass *device;
 
 @end
 

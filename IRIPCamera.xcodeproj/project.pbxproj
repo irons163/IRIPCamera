@@ -14,12 +14,10 @@
 		8A20138B2321EF0F00F8CAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A20138A2321EF0F00F8CAE9 /* Assets.xcassets */; };
 		8A20138E2321EF0F00F8CAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A20138C2321EF0F00F8CAE9 /* LaunchScreen.storyboard */; };
 		8A2013912321EF0F00F8CAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2013902321EF0F00F8CAE9 /* main.m */; };
-		8A5B92AC2361744500D292A7 /* IREditDeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */; };
-		8A5B92AD2361744500D292A7 /* IREditDeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */; };
+		8A48F5082367E944003F022F /* NSLayoutConstraint+Multiplier.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A48F5062367E942003F022F /* NSLayoutConstraint+Multiplier.m */; };
+		8A48F50A2367EB69003F022F /* IRRTSPMediaView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A48F5092367EB69003F022F /* IRRTSPMediaView.xib */; };
 		8A5B92B7236174E600D292A7 /* IRRTSPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */; };
-		8A5B92B8236174E600D292A7 /* IRRTSPSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */; };
 		8A5B92BC2361755D00D292A7 /* IRRTSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */; };
-		8A5B92BD2361755D00D292A7 /* IRRTSPPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */; };
 		8A5B92C0236178F300D292A7 /* IRStreamController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92BF236178F300D292A7 /* IRStreamController.m */; };
 		8A5B92C32361793C00D292A7 /* IRStreamControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92C22361793C00D292A7 /* IRStreamControllerFactory.m */; };
 		8A5B92C62361796A00D292A7 /* IRStreamConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92C52361796A00D292A7 /* IRStreamConnector.m */; };
@@ -28,9 +26,60 @@
 		8A5B92CF23617A2000D292A7 /* IRCustomStreamConnectionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92CE23617A2000D292A7 /* IRCustomStreamConnectionRequest.m */; };
 		8A5B92D223617A3600D292A7 /* IRStreamConnectionRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92D123617A3600D292A7 /* IRStreamConnectionRequestFactory.m */; };
 		8A5B92D523617C1500D292A7 /* IRStreamConnectionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */; };
+		8A5B930B236186CF00D292A7 /* VideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E5236186CF00D292A7 /* VideoDecoder.m */; };
+		8A5B930C236186CF00D292A7 /* RTSPReceiver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */; };
+		8A5B930D236186CF00D292A7 /* Receiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E7236186CF00D292A7 /* Receiver.m */; };
+		8A5B930F236186CF00D292A7 /* httpAudioSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EA236186CF00D292A7 /* httpAudioSender.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8A5B9310236186CF00D292A7 /* AudioInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EC236186CF00D292A7 /* AudioInput.m */; };
+		8A5B9311236186CF00D292A7 /* NSStreamAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8A5B9312236186CF00D292A7 /* AudioFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F1236186CF00D292A7 /* AudioFrame.m */; };
+		8A5B9313236186CF00D292A7 /* AudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */; };
+		8A5B9314236186CF00D292A7 /* VideoFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */; };
+		8A5B9315236186CF00D292A7 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F7236186CF00D292A7 /* Sound.m */; };
+		8A5B9317236186CF00D292A7 /* VideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92FB236186CF00D292A7 /* VideoFrame.m */; };
+		8A5B9318236186CF00D292A7 /* AudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92FF236186CF00D292A7 /* AudioDecoder.m */; };
+		8A5B9319236186CF00D292A7 /* deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9304236186CF00D292A7 /* deviceInfo.m */; };
+		8A5B931A236186CF00D292A7 /* VideoRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9305236186CF00D292A7 /* VideoRender.m */; };
+		8A5B931B236186CF00D292A7 /* FrameBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9307236186CF00D292A7 /* FrameBaseClass.m */; };
+		8A5B931C236186CF00D292A7 /* AudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9309236186CF00D292A7 /* AudioOutput.m */; };
+		8A5B93252361884700D292A7 /* StaticHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93242361884700D292A7 /* StaticHttpRequest.m */; };
+		8A5B933A2361887C00D292A7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B932E2361887B00D292A7 /* AFURLResponseSerialization.m */; };
+		8A5B933B2361887C00D292A7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B932F2361887B00D292A7 /* AFHTTPSessionManager.m */; };
+		8A5B933C2361887C00D292A7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93302361887B00D292A7 /* AFURLConnectionOperation.m */; };
+		8A5B933D2361887C00D292A7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93322361887B00D292A7 /* AFURLSessionManager.m */; };
+		8A5B933E2361887C00D292A7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93332361887B00D292A7 /* AFHTTPRequestOperationManager.m */; };
+		8A5B933F2361887C00D292A7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93342361887B00D292A7 /* AFURLRequestSerialization.m */; };
+		8A5B93402361887C00D292A7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93352361887B00D292A7 /* AFHTTPRequestOperation.m */; };
+		8A5B93412361887C00D292A7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93372361887B00D292A7 /* AFNetworkReachabilityManager.m */; };
+		8A5B93422361887C00D292A7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93382361887B00D292A7 /* AFSecurityPolicy.m */; };
+		8A5B9345236188A200D292A7 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9344236188A200D292A7 /* AudioPlayer.m */; };
+		8A5B934923618A0E00D292A7 /* StaticLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B934723618A0E00D292A7 /* StaticLanguage.m */; };
+		8A5B935F23618FC200D292A7 /* deviceClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B935E23618FC200D292A7 /* deviceClass.m */; };
+		8A5B93702361907F00D292A7 /* HttpAPICommander.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93652361907F00D292A7 /* HttpAPICommander.m */; };
+		8A5B93712361907F00D292A7 /* deviceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93662361907F00D292A7 /* deviceConnector.m */; };
+		8A5B93732361907F00D292A7 /* addressConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B936D2361907F00D292A7 /* addressConnector.m */; };
+		8A68F1942366950D00A74E47 /* libRTSPClientSession.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5B92DE2361863400D292A7 /* libRTSPClientSession.a */; };
+		8A68F19B23669C6500A74E47 /* IRRTSPMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A68F19A23669C6500A74E47 /* IRRTSPMediaView.m */; };
 		8A7739CA23601DB600C6233F /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A7739C823601DB500C6233F /* PlayerViewController.m */; };
 		8A7739CB23601DB600C6233F /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A7739C923601DB600C6233F /* PlayerViewController.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A5B92DD2361863400D292A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04A744DD1957C88A008F280A;
+			remoteInfo = RTSPClientSession;
+		};
+		8A5B92DF2361863400D292A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 04A744ED1957C88A008F280A;
+			remoteInfo = RTSPClientSessionTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6512BCEFF82CD6EA23C56843 /* Pods-IRIPCamera.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IRIPCamera.release.xcconfig"; path = "Target Support Files/Pods-IRIPCamera/Pods-IRIPCamera.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,15 +94,13 @@
 		8A20138D2321EF0F00F8CAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A20138F2321EF0F00F8CAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A2013902321EF0F00F8CAE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8A5B92A92361744500D292A7 /* IREditDeviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IREditDeviceCell.h; sourceTree = "<group>"; };
-		8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IREditDeviceCell.m; sourceTree = "<group>"; };
-		8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IREditDeviceCell.xib; sourceTree = "<group>"; };
+		8A48F5062367E942003F022F /* NSLayoutConstraint+Multiplier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+Multiplier.m"; sourceTree = "<group>"; };
+		8A48F5072367E943003F022F /* NSLayoutConstraint+Multiplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+Multiplier.h"; sourceTree = "<group>"; };
+		8A48F5092367EB69003F022F /* IRRTSPMediaView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRRTSPMediaView.xib; sourceTree = "<group>"; };
 		8A5B92B4236174E600D292A7 /* IRRTSPSettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRRTSPSettingsViewController.h; sourceTree = "<group>"; };
 		8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRRTSPSettingsViewController.m; sourceTree = "<group>"; };
-		8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRRTSPSettingsViewController.xib; sourceTree = "<group>"; };
 		8A5B92B92361755D00D292A7 /* IRRTSPPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRRTSPPlayer.h; sourceTree = "<group>"; };
 		8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRRTSPPlayer.m; sourceTree = "<group>"; };
-		8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IRRTSPPlayer.xib; sourceTree = "<group>"; };
 		8A5B92BE236178F300D292A7 /* IRStreamController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamController.h; sourceTree = "<group>"; };
 		8A5B92BF236178F300D292A7 /* IRStreamController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamController.m; sourceTree = "<group>"; };
 		8A5B92C12361793C00D292A7 /* IRStreamControllerFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamControllerFactory.h; sourceTree = "<group>"; };
@@ -70,6 +117,78 @@
 		8A5B92D123617A3600D292A7 /* IRStreamConnectionRequestFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionRequestFactory.m; sourceTree = "<group>"; };
 		8A5B92D323617C1500D292A7 /* IRStreamConnectionResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnectionResponse.h; sourceTree = "<group>"; };
 		8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionResponse.m; sourceTree = "<group>"; };
+		8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RTSPClientSession.xcodeproj; path = RTSPClientSession/RTSPClientSession.xcodeproj; sourceTree = "<group>"; };
+		8A5B92E2236186CF00D292A7 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		8A5B92E4236186CF00D292A7 /* VideoFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrameBuffer.h; sourceTree = "<group>"; };
+		8A5B92E5236186CF00D292A7 /* VideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDecoder.m; sourceTree = "<group>"; };
+		8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTSPReceiver.mm; sourceTree = "<group>"; };
+		8A5B92E7236186CF00D292A7 /* Receiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receiver.m; sourceTree = "<group>"; };
+		8A5B92E8236186CF00D292A7 /* AudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDecoder.h; sourceTree = "<group>"; };
+		8A5B92EA236186CF00D292A7 /* httpAudioSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httpAudioSender.m; sourceTree = "<group>"; };
+		8A5B92EB236186CF00D292A7 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
+		8A5B92EC236186CF00D292A7 /* AudioInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioInput.m; sourceTree = "<group>"; };
+		8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStreamAdditions.m; sourceTree = "<group>"; };
+		8A5B92EF236186CF00D292A7 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
+		8A5B92F0236186CF00D292A7 /* FrameBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameBaseClass.h; sourceTree = "<group>"; };
+		8A5B92F1236186CF00D292A7 /* AudioFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFrame.m; sourceTree = "<group>"; };
+		8A5B92F2236186CF00D292A7 /* VideoRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRender.h; sourceTree = "<group>"; };
+		8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQueuePlayer.m; sourceTree = "<group>"; };
+		8A5B92F4236186CF00D292A7 /* deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceInfo.h; sourceTree = "<group>"; };
+		8A5B92F5236186CF00D292A7 /* VideoDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDecoder.h; sourceTree = "<group>"; };
+		8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrameBuffer.m; sourceTree = "<group>"; };
+		8A5B92F7236186CF00D292A7 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		8A5B92F8236186CF00D292A7 /* RTSPReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPReceiver.h; sourceTree = "<group>"; };
+		8A5B92FA236186CF00D292A7 /* AudioInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioInput.h; sourceTree = "<group>"; };
+		8A5B92FB236186CF00D292A7 /* VideoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrame.m; sourceTree = "<group>"; };
+		8A5B92FE236186CF00D292A7 /* httpAudioSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpAudioSender.h; sourceTree = "<group>"; };
+		8A5B92FF236186CF00D292A7 /* AudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDecoder.m; sourceTree = "<group>"; };
+		8A5B9300236186CF00D292A7 /* Receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receiver.h; sourceTree = "<group>"; };
+		8A5B9301236186CF00D292A7 /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
+		8A5B9302236186CF00D292A7 /* errorCodeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errorCodeDefine.h; sourceTree = "<group>"; };
+		8A5B9303236186CF00D292A7 /* AudioQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueuePlayer.h; sourceTree = "<group>"; };
+		8A5B9304236186CF00D292A7 /* deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceInfo.m; sourceTree = "<group>"; };
+		8A5B9305236186CF00D292A7 /* VideoRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRender.m; sourceTree = "<group>"; };
+		8A5B9306236186CF00D292A7 /* AudioFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFrame.h; sourceTree = "<group>"; };
+		8A5B9307236186CF00D292A7 /* FrameBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameBaseClass.m; sourceTree = "<group>"; };
+		8A5B9308236186CF00D292A7 /* ES_Descriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES_Descriptor.h; sourceTree = "<group>"; };
+		8A5B9309236186CF00D292A7 /* AudioOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOutput.m; sourceTree = "<group>"; };
+		8A5B93232361884700D292A7 /* StaticHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticHttpRequest.h; sourceTree = "<group>"; };
+		8A5B93242361884700D292A7 /* StaticHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticHttpRequest.m; sourceTree = "<group>"; };
+		8A5B93272361887B00D292A7 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		8A5B93282361887B00D292A7 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		8A5B93292361887B00D292A7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		8A5B932A2361887B00D292A7 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		8A5B932B2361887B00D292A7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		8A5B932C2361887B00D292A7 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		8A5B932D2361887B00D292A7 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		8A5B932E2361887B00D292A7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		8A5B932F2361887B00D292A7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		8A5B93302361887B00D292A7 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		8A5B93312361887B00D292A7 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		8A5B93322361887B00D292A7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		8A5B93332361887B00D292A7 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		8A5B93342361887B00D292A7 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		8A5B93352361887B00D292A7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		8A5B93362361887B00D292A7 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		8A5B93372361887B00D292A7 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		8A5B93382361887B00D292A7 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		8A5B93392361887B00D292A7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		8A5B9343236188A100D292A7 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
+		8A5B9344236188A200D292A7 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
+		8A5B9346236188C500D292A7 /* dataDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dataDefine.h; sourceTree = "<group>"; };
+		8A5B934723618A0E00D292A7 /* StaticLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticLanguage.m; sourceTree = "<group>"; };
+		8A5B934823618A0E00D292A7 /* StaticLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticLanguage.h; sourceTree = "<group>"; };
+		8A5B935D23618FC100D292A7 /* deviceClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceClass.h; sourceTree = "<group>"; };
+		8A5B935E23618FC200D292A7 /* deviceClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceClass.m; sourceTree = "<group>"; };
+		8A5B93652361907F00D292A7 /* HttpAPICommander.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpAPICommander.m; sourceTree = "<group>"; };
+		8A5B93662361907F00D292A7 /* deviceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceConnector.m; sourceTree = "<group>"; };
+		8A5B93672361907F00D292A7 /* addressConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressConnector.h; sourceTree = "<group>"; };
+		8A5B936A2361907F00D292A7 /* deviceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceConnector.h; sourceTree = "<group>"; };
+		8A5B936B2361907F00D292A7 /* HttpAPICommander.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpAPICommander.h; sourceTree = "<group>"; };
+		8A5B936D2361907F00D292A7 /* addressConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressConnector.m; sourceTree = "<group>"; };
+		8A5B937B2361978F00D292A7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		8A68F19923669C6500A74E47 /* IRRTSPMediaView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRRTSPMediaView.h; sourceTree = "<group>"; };
+		8A68F19A23669C6500A74E47 /* IRRTSPMediaView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRRTSPMediaView.m; sourceTree = "<group>"; };
 		8A7739C423601C8300C6233F /* google-help-vr.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "google-help-vr.mp4"; sourceTree = "<group>"; };
 		8A7739C523601C8300C6233F /* fisheye-demo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fisheye-demo.mp4"; sourceTree = "<group>"; };
 		8A7739C623601C8400C6233F /* i-see-fire.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "i-see-fire.mp4"; sourceTree = "<group>"; };
@@ -84,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A68F1942366950D00A74E47 /* libRTSPClientSession.a in Frameworks */,
 				6A454E4A2179580F5CB3E4E3 /* Pods_IRIPCamera.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +223,7 @@
 		0D3A85DFE28E160331B0B59F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B937B2361978F00D292A7 /* CoreFoundation.framework */,
 				829BD77DFC63630B4AF697D7 /* Pods_IRIPCamera.framework */,
 			);
 			name = Frameworks;
@@ -129,6 +250,7 @@
 		8A2013802321EF0C00F8CAE9 /* IRIPCamera */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B92D62361823700D292A7 /* ThirdParty */,
 				8A5B92A3236172F300D292A7 /* Class */,
 				8A7739C523601C8300C6233F /* fisheye-demo.mp4 */,
 				8A7739C423601C8300C6233F /* google-help-vr.mp4 */,
@@ -161,6 +283,7 @@
 		8A5B92A42361738300D292A7 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B92E1236186CF00D292A7 /* Streaming */,
 				8A5B92AE2361747400D292A7 /* Setting */,
 				8A5B92A7236173D400D292A7 /* Display */,
 				8A5B92A6236173C700D292A7 /* Connection */,
@@ -175,6 +298,18 @@
 		8A5B92A52361738900D292A7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B93612361907F00D292A7 /* HttpCommander */,
+				8A5B935D23618FC100D292A7 /* deviceClass.h */,
+				8A5B935E23618FC200D292A7 /* deviceClass.m */,
+				8A5B9346236188C500D292A7 /* dataDefine.h */,
+				8A5B9343236188A100D292A7 /* AudioPlayer.h */,
+				8A5B9344236188A200D292A7 /* AudioPlayer.m */,
+				8A5B93232361884700D292A7 /* StaticHttpRequest.h */,
+				8A5B93242361884700D292A7 /* StaticHttpRequest.m */,
+				8A5B934823618A0E00D292A7 /* StaticLanguage.h */,
+				8A5B934723618A0E00D292A7 /* StaticLanguage.m */,
+				8A48F5072367E943003F022F /* NSLayoutConstraint+Multiplier.h */,
+				8A48F5062367E942003F022F /* NSLayoutConstraint+Multiplier.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -203,7 +338,6 @@
 			children = (
 				8A5B92B92361755D00D292A7 /* IRRTSPPlayer.h */,
 				8A5B92BA2361755D00D292A7 /* IRRTSPPlayer.m */,
-				8A5B92BB2361755D00D292A7 /* IRRTSPPlayer.xib */,
 				8A5B92A8236173E500D292A7 /* View */,
 			);
 			path = Display;
@@ -212,9 +346,9 @@
 		8A5B92A8236173E500D292A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8A5B92A92361744500D292A7 /* IREditDeviceCell.h */,
-				8A5B92AA2361744500D292A7 /* IREditDeviceCell.m */,
-				8A5B92AB2361744500D292A7 /* IREditDeviceCell.xib */,
+				8A68F19923669C6500A74E47 /* IRRTSPMediaView.h */,
+				8A68F19A23669C6500A74E47 /* IRRTSPMediaView.m */,
+				8A48F5092367EB69003F022F /* IRRTSPMediaView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -224,9 +358,106 @@
 			children = (
 				8A5B92B4236174E600D292A7 /* IRRTSPSettingsViewController.h */,
 				8A5B92B5236174E600D292A7 /* IRRTSPSettingsViewController.m */,
-				8A5B92B6236174E600D292A7 /* IRRTSPSettingsViewController.xib */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		8A5B92D62361823700D292A7 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B93262361887B00D292A7 /* AFNetworking */,
+				8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		8A5B92D82361863300D292A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92DE2361863400D292A7 /* libRTSPClientSession.a */,
+				8A5B92E02361863400D292A7 /* RTSPClientSessionTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A5B92E1236186CF00D292A7 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B92E2236186CF00D292A7 /* Sound.h */,
+				8A5B92E4236186CF00D292A7 /* VideoFrameBuffer.h */,
+				8A5B92E5236186CF00D292A7 /* VideoDecoder.m */,
+				8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */,
+				8A5B92E7236186CF00D292A7 /* Receiver.m */,
+				8A5B92E8236186CF00D292A7 /* AudioDecoder.h */,
+				8A5B92EA236186CF00D292A7 /* httpAudioSender.m */,
+				8A5B92EB236186CF00D292A7 /* VideoFrame.h */,
+				8A5B92EC236186CF00D292A7 /* AudioInput.m */,
+				8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */,
+				8A5B92EF236186CF00D292A7 /* AudioOutput.h */,
+				8A5B92F0236186CF00D292A7 /* FrameBaseClass.h */,
+				8A5B92F1236186CF00D292A7 /* AudioFrame.m */,
+				8A5B92F2236186CF00D292A7 /* VideoRender.h */,
+				8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */,
+				8A5B92F4236186CF00D292A7 /* deviceInfo.h */,
+				8A5B92F5236186CF00D292A7 /* VideoDecoder.h */,
+				8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */,
+				8A5B92F7236186CF00D292A7 /* Sound.m */,
+				8A5B92F8236186CF00D292A7 /* RTSPReceiver.h */,
+				8A5B92FA236186CF00D292A7 /* AudioInput.h */,
+				8A5B92FB236186CF00D292A7 /* VideoFrame.m */,
+				8A5B92FE236186CF00D292A7 /* httpAudioSender.h */,
+				8A5B92FF236186CF00D292A7 /* AudioDecoder.m */,
+				8A5B9300236186CF00D292A7 /* Receiver.h */,
+				8A5B9301236186CF00D292A7 /* NSStreamAdditions.h */,
+				8A5B9302236186CF00D292A7 /* errorCodeDefine.h */,
+				8A5B9303236186CF00D292A7 /* AudioQueuePlayer.h */,
+				8A5B9304236186CF00D292A7 /* deviceInfo.m */,
+				8A5B9305236186CF00D292A7 /* VideoRender.m */,
+				8A5B9306236186CF00D292A7 /* AudioFrame.h */,
+				8A5B9307236186CF00D292A7 /* FrameBaseClass.m */,
+				8A5B9308236186CF00D292A7 /* ES_Descriptor.h */,
+				8A5B9309236186CF00D292A7 /* AudioOutput.m */,
+			);
+			path = Streaming;
+			sourceTree = "<group>";
+		};
+		8A5B93262361887B00D292A7 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B93272361887B00D292A7 /* AFSecurityPolicy.h */,
+				8A5B93282361887B00D292A7 /* AFNetworkReachabilityManager.h */,
+				8A5B93292361887B00D292A7 /* AFHTTPRequestOperation.h */,
+				8A5B932A2361887B00D292A7 /* AFHTTPRequestOperationManager.h */,
+				8A5B932B2361887B00D292A7 /* AFURLSessionManager.h */,
+				8A5B932C2361887B00D292A7 /* AFURLRequestSerialization.h */,
+				8A5B932D2361887B00D292A7 /* AFURLConnectionOperation.h */,
+				8A5B932E2361887B00D292A7 /* AFURLResponseSerialization.m */,
+				8A5B932F2361887B00D292A7 /* AFHTTPSessionManager.m */,
+				8A5B93302361887B00D292A7 /* AFURLConnectionOperation.m */,
+				8A5B93312361887B00D292A7 /* AFURLResponseSerialization.h */,
+				8A5B93322361887B00D292A7 /* AFURLSessionManager.m */,
+				8A5B93332361887B00D292A7 /* AFHTTPRequestOperationManager.m */,
+				8A5B93342361887B00D292A7 /* AFURLRequestSerialization.m */,
+				8A5B93352361887B00D292A7 /* AFHTTPRequestOperation.m */,
+				8A5B93362361887B00D292A7 /* AFNetworking.h */,
+				8A5B93372361887B00D292A7 /* AFNetworkReachabilityManager.m */,
+				8A5B93382361887B00D292A7 /* AFSecurityPolicy.m */,
+				8A5B93392361887B00D292A7 /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		8A5B93612361907F00D292A7 /* HttpCommander */ = {
+			isa = PBXGroup;
+			children = (
+				8A5B93652361907F00D292A7 /* HttpAPICommander.m */,
+				8A5B93662361907F00D292A7 /* deviceConnector.m */,
+				8A5B93672361907F00D292A7 /* addressConnector.h */,
+				8A5B936A2361907F00D292A7 /* deviceConnector.h */,
+				8A5B936B2361907F00D292A7 /* HttpAPICommander.h */,
+				8A5B936D2361907F00D292A7 /* addressConnector.m */,
+			);
+			path = HttpCommander;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +471,7 @@
 				8A20137A2321EF0C00F8CAE9 /* Sources */,
 				8A20137B2321EF0C00F8CAE9 /* Frameworks */,
 				8A20137C2321EF0C00F8CAE9 /* Resources */,
-				4FCDC06E8FBAE6FAC66131FF /* [CP] Embed Pods Frameworks */,
+				ED8A1A07B88254E12FF8D808 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,6 +507,12 @@
 			mainGroup = 8A2013752321EF0C00F8CAE9;
 			productRefGroup = 8A20137F2321EF0C00F8CAE9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8A5B92D82361863300D292A7 /* Products */;
+					ProjectRef = 8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8A20137D2321EF0C00F8CAE9 /* IRIPCamera */,
@@ -283,16 +520,31 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		8A5B92DE2361863400D292A7 /* libRTSPClientSession.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRTSPClientSession.a;
+			remoteRef = 8A5B92DD2361863400D292A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A5B92E02361863400D292A7 /* RTSPClientSessionTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RTSPClientSessionTests.xctest;
+			remoteRef = 8A5B92DF2361863400D292A7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		8A20137C2321EF0C00F8CAE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A5B92B8236174E600D292A7 /* IRRTSPSettingsViewController.xib in Resources */,
 				8A20138E2321EF0F00F8CAE9 /* LaunchScreen.storyboard in Resources */,
 				8A7739CB23601DB600C6233F /* PlayerViewController.xib in Resources */,
-				8A5B92BD2361755D00D292A7 /* IRRTSPPlayer.xib in Resources */,
-				8A5B92AD2361744500D292A7 /* IREditDeviceCell.xib in Resources */,
+				8A48F50A2367EB69003F022F /* IRRTSPMediaView.xib in Resources */,
 				8A20138B2321EF0F00F8CAE9 /* Assets.xcassets in Resources */,
 				8A2013892321EF0C00F8CAE9 /* Main.storyboard in Resources */,
 			);
@@ -323,7 +575,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4FCDC06E8FBAE6FAC66131FF /* [CP] Embed Pods Frameworks */ = {
+		ED8A1A07B88254E12FF8D808 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -347,21 +599,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A48F5082367E944003F022F /* NSLayoutConstraint+Multiplier.m in Sources */,
 				8A5B92C62361796A00D292A7 /* IRStreamConnector.m in Sources */,
+				8A5B930B236186CF00D292A7 /* VideoDecoder.m in Sources */,
+				8A5B935F23618FC200D292A7 /* deviceClass.m in Sources */,
+				8A5B933F2361887C00D292A7 /* AFURLRequestSerialization.m in Sources */,
+				8A5B9318236186CF00D292A7 /* AudioDecoder.m in Sources */,
+				8A5B933C2361887C00D292A7 /* AFURLConnectionOperation.m in Sources */,
+				8A5B93402361887C00D292A7 /* AFHTTPRequestOperation.m in Sources */,
 				8A5B92C9236179F300D292A7 /* IRCustomStreamConnector.m in Sources */,
+				8A5B93702361907F00D292A7 /* HttpAPICommander.m in Sources */,
+				8A5B9312236186CF00D292A7 /* AudioFrame.m in Sources */,
+				8A5B9319236186CF00D292A7 /* deviceInfo.m in Sources */,
 				8A5B92CC23617A0300D292A7 /* IRStreamConnectionRequest.m in Sources */,
 				8A5B92CF23617A2000D292A7 /* IRCustomStreamConnectionRequest.m in Sources */,
+				8A5B93412361887C00D292A7 /* AFNetworkReachabilityManager.m in Sources */,
 				8A2013862321EF0C00F8CAE9 /* ViewController.m in Sources */,
+				8A5B933A2361887C00D292A7 /* AFURLResponseSerialization.m in Sources */,
 				8A7739CA23601DB600C6233F /* PlayerViewController.m in Sources */,
 				8A5B92C0236178F300D292A7 /* IRStreamController.m in Sources */,
+				8A5B9311236186CF00D292A7 /* NSStreamAdditions.m in Sources */,
+				8A5B930D236186CF00D292A7 /* Receiver.m in Sources */,
+				8A5B9313236186CF00D292A7 /* AudioQueuePlayer.m in Sources */,
+				8A5B93422361887C00D292A7 /* AFSecurityPolicy.m in Sources */,
+				8A5B9317236186CF00D292A7 /* VideoFrame.m in Sources */,
+				8A5B9314236186CF00D292A7 /* VideoFrameBuffer.m in Sources */,
 				8A5B92C32361793C00D292A7 /* IRStreamControllerFactory.m in Sources */,
+				8A5B930C236186CF00D292A7 /* RTSPReceiver.mm in Sources */,
+				8A5B931B236186CF00D292A7 /* FrameBaseClass.m in Sources */,
+				8A5B933E2361887C00D292A7 /* AFHTTPRequestOperationManager.m in Sources */,
+				8A5B93252361884700D292A7 /* StaticHttpRequest.m in Sources */,
+				8A5B933D2361887C00D292A7 /* AFURLSessionManager.m in Sources */,
+				8A5B931C236186CF00D292A7 /* AudioOutput.m in Sources */,
+				8A5B93712361907F00D292A7 /* deviceConnector.m in Sources */,
 				8A2013912321EF0F00F8CAE9 /* main.m in Sources */,
 				8A5B92B7236174E600D292A7 /* IRRTSPSettingsViewController.m in Sources */,
+				8A5B930F236186CF00D292A7 /* httpAudioSender.m in Sources */,
+				8A5B93732361907F00D292A7 /* addressConnector.m in Sources */,
 				8A5B92BC2361755D00D292A7 /* IRRTSPPlayer.m in Sources */,
+				8A5B9315236186CF00D292A7 /* Sound.m in Sources */,
+				8A5B9345236188A200D292A7 /* AudioPlayer.m in Sources */,
 				8A5B92D523617C1500D292A7 /* IRStreamConnectionResponse.m in Sources */,
+				8A68F19B23669C6500A74E47 /* IRRTSPMediaView.m in Sources */,
 				8A2013832321EF0C00F8CAE9 /* AppDelegate.m in Sources */,
-				8A5B92AC2361744500D292A7 /* IREditDeviceCell.m in Sources */,
 				8A5B92D223617A3600D292A7 /* IRStreamConnectionRequestFactory.m in Sources */,
+				8A5B9310236186CF00D292A7 /* AudioInput.m in Sources */,
+				8A5B933B2361887C00D292A7 /* AFHTTPSessionManager.m in Sources */,
+				8A5B931A236186CF00D292A7 /* VideoRender.m in Sources */,
+				8A5B934923618A0E00D292A7 /* StaticLanguage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,14 +791,33 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7AP32ZTM5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRPlayer/IRPlayer.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"/**",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/RTSPClientSession//RTSPClientSession",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/include",
+				);
 				INFOPLIST_FILE = IRIPCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/IRFFMpeg/lib\"",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/lib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/ffmpeg/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/CommonTools",
+				);
 			};
 			name = Debug;
 		};
@@ -524,14 +828,33 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F7AP32ZTM5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRPlayer/IRPlayer.framework/Headers\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"/**",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/RTSPClientSession//RTSPClientSession",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/include",
+				);
 				INFOPLIST_FILE = IRIPCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/IRFFMpeg/lib\"",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/lib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/ffmpeg/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib",
+					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/CommonTools",
+				);
 			};
 			name = Release;
 		};
