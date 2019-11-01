@@ -306,7 +306,7 @@
     
 }
 
--(void)updatedSettings:(deviceClass *)device{
+-(void)updatedSettings:(DeviceClass *)device{
     m_aryDevices = [NSMutableArray arrayWithArray:[IRStreamConnectionRequestFactory createStreamConnectionRequest]];
     
     [self startStreamConnectionByDeviceIndex:0];

@@ -7,17 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "deviceClass.h"
+#import "DeviceClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IRRTSPSettingsViewControllerDelegate <NSObject>
--(void) updatedSettings:(deviceClass*)device;
+-(void) updatedSettings:(DeviceClass*)device;
 @end
 
 @interface IRRTSPSettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 {
-    deviceClass *m_deviceInfo;
+    DeviceClass *m_deviceInfo;
     NSInteger m_iCurrentMode;               //Current mode use to display Select mode(if open from ViewEditView) or View Mode
     BOOL m_blnNeedCheckOnLine;
 @private
@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property (weak) id<IRRTSPSettingsViewControllerDelegate> delegate;
-@property (retain, nonatomic) deviceClass *m_deviceInfo;
+@property (retain, nonatomic) DeviceClass *m_deviceInfo;
 @property (weak, nonatomic) IBOutlet UISwitch *streamConnectionTypeSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *rtspUrlTextfield;
 - (IBAction)streamConnectionTypeChanged:(id)sender;

@@ -12,7 +12,7 @@
 #import "RTSPReceiver.h"
 #import "StaticHttpRequest.h"
 #import "deviceConnector.h"
-#import "deviceClass.h"
+#import "DeviceClass.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
     
     NSString *m_currentURL;
     NSInteger m_currentIPRatio;
-    deviceClass *m_deviceInfo;
+    DeviceClass *m_deviceInfo;
     
     NSString* m_Token;
     
@@ -85,7 +85,7 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
 @property (weak) IRPlayerImp *m_videoView;
 
 -(instancetype)initWithRtspUrl:(NSString*)rtspURL;
--(instancetype)initWithDevice:(deviceClass*)device;
+-(instancetype)initWithDevice:(DeviceClass*)device;
 -(void) startStreamConnection;
 -(NSInteger) stopStreaming:(BOOL)_blnStopForever;
 -(void) changeStream :(NSInteger) _stream;

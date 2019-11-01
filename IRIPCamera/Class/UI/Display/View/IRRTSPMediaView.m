@@ -7,24 +7,9 @@
 //
 
 #import "IRRTSPMediaView.h"
-#import "deviceClass.h"
-#import "dataDefine.h"
+#import "DeviceClass.h"
 #import "AppDelegate.h"
 #import "IRStreamControllerFactory.h"
-
-#define LOGIN_IPCAM_CALLBACK    0X0001
-#define GET_RTSPINFO_CALLBACK   0X0010
-#define GET_AUDIOOUT_CALLBACK   0X0100
-#define GET_FISHEYE_CENTER_CALLBACK 0X1000
-
-#define MinZoomScale 1.0
-#define RangeY 20.0
-
-#define Login_Failed_via_UID 18
-#define Login_Failed_via_Direct_Access 19
-#define Login_Failed_via_IP 20
-
-#define ERROR_DEVICE_NOT_ONLINE -3
 
 @implementation IRRTSPMediaView {
     IRStreamController *streamController;
@@ -102,7 +87,7 @@
     [self startStreamConnection];
 }
 
-- (void)startStreamConnectionWithDevice:(deviceClass*)device {
+- (void)startStreamConnectionWithDevice:(DeviceClass*)device {
     if(streamController){
         [streamController stopStreaming:YES];
         streamController = nil;
@@ -125,22 +110,6 @@
     [streamController stopStreaming:_blnStopForever];
     
     return iRtn;
-}
-
-- (void)updateTimeLabelByTime:(double)time {
-    if (time <= 0) {
-        self.m_relayTimerBackground.hidden = YES;
-    }else{
-#if (defined Relay_Limit) || (defined DEV)
-        self.m_relayTimerBackground.hidden = NO;
-#endif
-        NSTimeInterval aTimer = time - [[NSDate date] timeIntervalSince1970];
-        int minute = (int)(aTimer/60);
-        int second = aTimer - minute*60;
-        
-        NSString* timeString = [NSString stringWithFormat:@"%02d:%02d",minute,second];
-        self.m_RelayTimerTitle.text = [NSString stringWithFormat:_(@"RelayTimeOut"),timeString];
-    }
 }
 
 - (BOOL)IsStopStreaming {
@@ -167,8 +136,10 @@
 }
 
 - (void)showErrorMessage:(NSString *)msg {
-    [self.m_InfoLabel setText:msg];
-    [self.m_InfoLabel setHidden:NO];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.m_InfoLabel setText:msg];
+        [self.m_InfoLabel setHidden:NO];
+    });   
 }
 
 - (void)streamControllerStatusChanged:(IRStreamControllerStatus)status {

@@ -19,7 +19,7 @@
         request.rtspUrl = [userDefaults objectForKey:RTSP_URL_KEY];
         [m_aryDevices addObject:request];
     }else{
-        deviceClass *device = [[deviceClass alloc] init];
+        DeviceClass *device = [[DeviceClass alloc] init];
         IRCustomStreamConnectionRequest *request = [[IRCustomStreamConnectionRequest alloc] init];
         request.device = device;
         [m_aryDevices addObject:request];

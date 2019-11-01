@@ -1,49 +1,56 @@
 ![Build Status](https://img.shields.io/badge/build-%20passing%20-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-%20iOS%20-blue.svg)
 
-# IRSingleButtonGroup 
+# IRIPCamera 
 
-- IRSingleButtonGroup is a powerful buttons group framework for iOS.
+- IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS.
 
 ## Features
+- Support Rtsp streaming.
+- Support for customize connection to your streaming device or IPCam.
+- Support demo mode.
 
-- Single Button Selection.
-- Single Button Selection Demo: Deselect able.
-- Multi Buttons Selection.
+## Future
+- Support Multi viewer.
+- More powerful custom settings.
 
 ## Install
+### Git
+- Git clone this project.
+
 ### Cocoapods
-- Add `pod 'IRSingleButtonGroup'`  in the `Podfile`
-- `pod install`
+- Not support yet.
 
 ## Usage
 
-- more examples in the demo applications.
-
 ### Basic
-
-```obj-c
-
-IRSingleButtonGroup* singleButtonGroup = [[IRSingleButtonGroup alloc] init];
-singleButtonGroup.buttons = @[self.button1, self.button2, self.button3];
-singleButtonGroup.delegate = self;
-
-#pragma mark - SingleButtonGroupDelegate
-- (void)didSelectedButton:(UIButton *)button {
-    NSLog(@"Button%ld", button.tag);
-}
-
-- (void)didDeselectedButton:(UIButton *)button {
-    NSLog(@"Button%ld", button.tag);
-}
-```
+- Goto `Setting` Page, then key in the URL in the textfield.
+- OR, you can key in `demo` in the textfiled, if you want use demo rtsp url.
+- Press `Done` button, then the program will try to connect and play it.
 
 ### Advanced settings
+- Make your custom network connector.
 ```obj-c
-singleButtonGroup.canMultiSelected = NO;
-singleButtonGroup.canSelectWhenSelected = YES;
-[singleButtonGroup setInitSelected:0];
+@interface IRCustomStreamConnector : IRStreamConnector
+@end
 ```
 
+- Make your custom network request.
+```obj-c
+@interface IRCustomStreamConnectionRequest : IRStreamConnectionRequest
+@end
+```
+
+- Make your custome network response.
+```obj-c
+@interface IRCustomConnectionResponse : IRStreamConnectionResponse
+@end
+```
+
+- There are already some codes for custome network connection like IP Cam in this project.
+See how the `IRCustomStreamConnector` + `IRCustomStreamConnectionRequest` + `IRStreamConnectionResponse` + `DeviceClass` work.
+- The codes for how you connection your IP Cam are not implement(Login, Query, etc...). You need to customize it.
+
 ## Screenshots
-![Demo](./demo/ScreenShots/demo1.png)
+![Demo](./ScreenShots/demo1.png)
+![Demo](./ScreenShots/demo2.png)

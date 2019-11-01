@@ -20,7 +20,7 @@
 #define ADDICONMARGIN 7.0f
 #define DEVICE_DATACOUNT 6
 
-@interface IRRTSPSettingsViewController ()
+@interface IRRTSPSettingsViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -83,7 +83,7 @@
     [self useRtspURL:[[userDefaults objectForKey:ENABLE_RTSP_URL_KEY] boolValue]];
     self.rtspUrlTextfield.text = [userDefaults objectForKey:RTSP_URL_KEY];
     
-    self.m_deviceInfo = [[deviceClass alloc] init];
+    self.m_deviceInfo = [[DeviceClass alloc] init];
     
     [self setNavigationBarItems];
     
@@ -272,23 +272,14 @@
 {
     self.title = _(@"SettingsTitle");
     
-    UIImage *image = [UIImage imageNamed:@"btn_Nav_back.png"];
-    CGRect buttonFrame = CGRectMake(0, image.size.height/2/2, image.size.width/2, image.size.height/2);
-    
-    UIButton *button = [[UIButton alloc] initWithFrame:buttonFrame];
-    UIButton *txtBtn = [[UIButton alloc] initWithFrame:CGRectMake(image.size.width - 10, 0, 50, 44)];
-    [txtBtn setTitle:_(@"ButtonTextBack") forState:UIControlStateNormal];
-    [txtBtn.titleLabel setFont:[UIFont systemFontOfSize:21.0f]];
-    UIView *btnLeft = [[UIView alloc] initWithFrame:CGRectMake(0, 0, image.size.width + 40, 44)];
-    [btnLeft addSubview:button];
-    [btnLeft addSubview: txtBtn];
-    [button addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchDown];
-    [txtBtn addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchDown];
-    [button setImage:image forState:UIControlStateNormal];
+    UIButton *btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 44)];
+    [btnLeft setTitle:_(@"ButtonTextBack") forState:UIControlStateNormal];
+    [btnLeft setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btnLeft addTarget:self action:@selector(backButtonPressed) forControlEvents:UIControlEventTouchDown];
     
     UIButton *btnRight = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 44)];
     [btnRight setTitle:_(@"ButtonTextDone") forState:UIControlStateNormal];
-    [btnRight.titleLabel setFont:[UIFont systemFontOfSize:21.0f]];
+    [btnRight setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [btnRight addTarget:self action:@selector(doneButtonPress) forControlEvents:UIControlEventTouchDown];
     
     UIBarButtonItem *leftitem = [[UIBarButtonItem alloc] initWithCustomView:btnLeft];
@@ -296,13 +287,6 @@
     
     self.navigationItem.leftBarButtonItem =leftitem;
     self.navigationItem.rightBarButtonItem =rightitem;
-    
-    button = nil;
-    txtBtn = nil;
-    btnLeft = nil;
-    btnRight = nil;
-    leftitem = nil;
-    rightitem = nil;
 }
 
 -(void) doneButtonPress
@@ -317,6 +301,8 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if(self.streamConnectionTypeSwitch.isOn){
         [userDefaults setBool:self.streamConnectionTypeSwitch.isOn forKey:ENABLE_RTSP_URL_KEY];
+        if([self.rtspUrlTextfield.text isEqualToString:@"demo"])
+            self.rtspUrlTextfield.text = @"rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
         [userDefaults setObject:self.rtspUrlTextfield.text forKey:RTSP_URL_KEY];
         [userDefaults synchronize];
         [self.delegate updatedSettings:m_deviceInfo];
@@ -387,9 +373,13 @@
 
 }
 
--(void) handleWillShowNotification:(NSNotification *)pNotification
-{
+-(void) handleWillShowNotification:(NSNotification *)pNotification {
     [self performSelectorOnMainThread:@selector(adjustUI) withObject:nil waitUntilDone:NO];
+}
+
+#pragma mark - Wide Functions
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return [textField resignFirstResponder];
 }
 
 @end

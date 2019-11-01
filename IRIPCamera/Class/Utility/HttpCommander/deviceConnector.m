@@ -7,7 +7,7 @@
 //
 
 #import "deviceConnector.h"
-#import "deviceClass.h"
+#import "DeviceClass.h"
 
 @interface deviceConnector(Private)
 -(void) startLoginToDevice;

@@ -18,7 +18,7 @@
 
 @import CoreMotion;
 
-@class deviceClass;
+@class DeviceClass;
 
 @protocol IRStreamConnectorDelegate <NSObject>
 //-(void) connectSuccessWithDeviceInfo:(StreamConnectionResponse *) response;

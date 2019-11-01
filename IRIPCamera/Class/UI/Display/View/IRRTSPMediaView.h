@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @import CoreMotion;
 
-@class deviceClass;
+@class DeviceClass;
 
 @interface IRRTSPMediaView : UIView<IRStreamControllerDelegate>
 {

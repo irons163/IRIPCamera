@@ -2,24 +2,21 @@ PODS:
   - IRFFMpeg (4.2.19):
     - IRFFMpeg/FFMpegLib (= 4.2.19)
   - IRFFMpeg/FFMpegLib (4.2.19)
-  - IRPlayer (0.3.4):
+  - IRPlayer (0.3.5):
     - IRFFMpeg
 
 DEPENDENCIES:
-  - IRPlayer (from `../IRPlayer/IRPlayer/IRPlayer_dev.podspec`)
+  - IRPlayer
 
 SPEC REPOS:
   trunk:
     - IRFFMpeg
-
-EXTERNAL SOURCES:
-  IRPlayer:
-    :path: "../IRPlayer/IRPlayer/IRPlayer_dev.podspec"
+    - IRPlayer
 
 SPEC CHECKSUMS:
   IRFFMpeg: 50e159994f9c7c1136b19fc1dea96b4c903b1c9c
-  IRPlayer: 9b4b3917bbff6fe934fbf2dd1539a2c7ad3fe110
+  IRPlayer: 1448253d7c87c9cbdd7bd288d8a0edbdd17494a6
 
-PODFILE CHECKSUM: 1dcaee0516bff722d2bba1c8e80a305188c85ac7
+PODFILE CHECKSUM: a00179cef3877fe03e533390d029ebe7f60b2bd2
 
 COCOAPODS: 1.8.0.beta.2

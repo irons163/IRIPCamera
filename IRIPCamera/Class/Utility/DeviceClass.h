@@ -1,5 +1,5 @@
 //
-//  deviceClass.h
+//  DeviceClass.h
 //  IRIPCamera
 //
 //  Created by sniApp on 12/10/23.
@@ -10,15 +10,15 @@
 #import <Foundation/Foundation.h>
 #import "deviceConnector.h"
 
-@class deviceClass;
+@class DeviceClass;
 
 @protocol deviceClassDelegate <NSObject>
 @optional
--(void) didDeviceStatusFinish:(deviceClass*) _device;
+-(void) didDeviceStatusFinish:(DeviceClass*) _device;
 
 @end
 
-@interface deviceClass : NSObject<NSCopying,deviceConnectorDelegate,StaticHttpRequestDelegate>
+@interface DeviceClass : NSObject<NSCopying,deviceConnectorDelegate,StaticHttpRequestDelegate>
 
 @property (nonatomic,retain) deviceConnector *m_connector;
 @property (nonatomic) connectorState m_currentState;

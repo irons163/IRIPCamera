@@ -7,23 +7,8 @@
 //
 
 #import "IRStreamConnector.h"
-#import "deviceClass.h"
-#import "dataDefine.h"
+#import "DeviceClass.h"
 #import "AppDelegate.h"
-
-#define LOGIN_IPCAM_CALLBACK    0X0001
-#define GET_RTSPINFO_CALLBACK   0X0010
-#define GET_AUDIOOUT_CALLBACK   0X0100
-#define GET_FISHEYE_CENTER_CALLBACK 0X1000
-
-#define MinZoomScale 1.0
-#define RangeY 20.0
-
-#define Login_Failed_via_UID 18
-#define Login_Failed_via_Direct_Access 19
-#define Login_Failed_via_IP 20
-
-#define ERROR_DEVICE_NOT_ONLINE -3
 
 @interface IRStreamConnector(PrivateMethod)
 @end

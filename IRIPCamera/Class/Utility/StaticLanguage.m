@@ -7,7 +7,7 @@
 //
 
 #import "StaticLanguage.h"
-#import "dataDefine.h"
+#import "DataDefine.h"
 
 static id master = nil;
 

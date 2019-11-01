@@ -7,9 +7,8 @@
 //
 
 #import "StaticHttpRequest.h"
-#import "dataDefine.h"
 #import "AppDelegate.h"
-#import "deviceClass.h"
+#import "DeviceClass.h"
 
 #define TIMEOUT_INTERVAL 15
 

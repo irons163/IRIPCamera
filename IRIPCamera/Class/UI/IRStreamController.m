@@ -57,7 +57,7 @@
     return self;
 }
 
--(instancetype)initWithDevice:(deviceClass*)device{
+-(instancetype)initWithDevice:(DeviceClass*)device{
     if(self = [self init]){
         streamConnector = [[IRCustomStreamConnector alloc] init];
         streamConnector.delegate = self;
@@ -149,7 +149,7 @@
         streamingQueue = dispatch_queue_create("streaming.queue", DISPATCH_QUEUE_SERIAL);
 }
 
-- (void)setDeviceClass:(deviceClass*) _deviceInfo ch:(NSInteger)_ch
+- (void)setDeviceClass:(DeviceClass*) _deviceInfo ch:(NSInteger)_ch
 {
     m_deviceInfo = _deviceInfo;
     m_deviceInfo.m_strStreamInfo = nil;
@@ -448,30 +448,12 @@
     
     int errorCode = -99999;
     
-    if(_iType == UnderUnknowNAT)
-    {
-        errorCode = [self getErrorCode];
-        strShow = _(@"ConnectErrorErrorNAT");
-    }else if(_iType == UnderLocalSymmetricNAT)
-    {
-        errorCode = [self getErrorCode];
-        strShow = _(@"ConnectLocalSymmNAT");
-    }else if(_iType == UnderRemoteSymmetricNAT)
-    {
-        errorCode = [self getErrorCode];
-        strShow = _(@"ConnectRemoteSymmNAT");
-    }else if(_iType == RelayTimeout)
-    {
-        strShow = _(@"ConnectionClosed");
-    }else if (_iType == AuthorizationError)
+    if (_iType == AuthorizationError)
     {
         strShow = _(@"loginFail");
     }else if (_iType == NotSupported)
     {
         strShow = _(@"DEVCE_NOT_SUPPORTED");
-    }else if (_iType == NeedFWUpdate)
-    {
-        strShow = _(@"NeedFWUpdate");
     }
     else if (_iType == -2 && [m_errorMsg length] > 0)
     {
@@ -483,8 +465,6 @@
         strShow = _(@"ConnectFail");
     }
     
-    if(errorCode != -99999)
-        strShow = [NSString stringWithFormat:@"%@(%ld)", _(@"UIDConnectError"), (long)errorCode];
     [self.eventDelegate showErrorMessage:strShow];
     
     [self showHideLoading:NO MicSupport:NO SpeakerSupport:NO];
@@ -493,7 +473,7 @@
 -(void) showStreamingFailByType:(NSInteger)_iType{
     NSString *strShow = _(@"ReconnectStreamConnectFail");
     
-    strShow = [NSString stringWithFormat:@"%@(%ld)", _(@"UIDConnectError"), (long)_iType];
+    strShow = [NSString stringWithFormat:@"%@(%ld)", strShow, (long)_iType];
     [self.eventDelegate showErrorMessage:strShow];
     
     [self showHideLoading:NO MicSupport:NO SpeakerSupport:NO];

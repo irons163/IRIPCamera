@@ -1,16 +1,15 @@
 //
-//  deviceClass.m
+//  DeviceClass.m
 //  IRIPCamera
 //
 //  Created by sniApp on 12/10/23.
 //  Copyright (c) 2012年 sniApp. All rights reserved.
 //
 
-#import "deviceClass.h"
-#import "dataDefine.h"
+#import "DeviceClass.h"
 #import "AppDelegate.h"
 
-@implementation deviceClass
+@implementation DeviceClass
 
 - (void) didfinishLoginActionByResultType:(NSInteger) _resultCode deviceInfo:(NSDictionary *) _deviceInfo errorDesc :(NSString *) _strErrorDesc address:(NSString *) _strAddress port:(MultiPort) _commandPort
 {

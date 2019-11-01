@@ -19,7 +19,7 @@
 
 @import CoreMotion;
 
-@class deviceClass;
+@class DeviceClass;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 @property deviceConnector *m_deviceConnector;
-@property deviceClass *m_deviceInfo;
+@property DeviceClass *m_deviceInfo;
 @property BOOL m_blnStopforever;
 
 -(void)startStreamConnection;

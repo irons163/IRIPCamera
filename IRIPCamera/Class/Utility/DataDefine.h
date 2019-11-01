@@ -1,27 +1,17 @@
 //
-//  dataDefine.h
+//  DataDefine.h
 //  IRIPCamera
 //
-//  Created by sniApp on 12/10/23.
-//  Copyright (c) 2012年 sniApp. All rights reserved.
+//  Created by Phil on 2019/11/1.
+//  Copyright © 2019 Phil. All rights reserved.
 //
 
 #import "StaticLanguage.h"
 
-#ifndef dataDefine_h
-#define dataDefine_h
-
-#define DEVICE_LIST @"device_list"
-#define VIEW_LIST   @"view_list"
-#define VIEW_DETAIL @"view_detail"
-
-#define CREATE_DEVICE_LIST @"(device_id INTEGER PRIMARY KEY AUTOINCREMENT ,device_name text ,device_address text ,user_name text ,password text ,http_port int,streamNo int ,create_date numberic ,router_id int ,mac_addr text, model_name text, device_uid text, scheme text, new_http_port int);"
-
-#define CREATE_VIEW_LIST    @"(view_id INTEGER PRIMARY KEY AUTOINCREMENT,view_name text ,create_date numberic);"
-#define CREATE_VIEW_DETAIL  @"(view_detail_id INTEGER PRIMARY KEY ,view_id int ,device_id int);"
+#ifndef DataDefine_h
+#define DataDefine_h
 
 #define GET_STREAM_SETTINGS     @"GetVideoStreamSettings"
-
 #define GET_AUDIOOUT_INFO       @"GetTwowayAudioInfo"
 
 #define GET_FISHEYE_CENTER_TAG              @"GetFishEyeCenterResult"
@@ -39,9 +29,6 @@
 #define _(str)  [[StaticLanguage sharedInstance] stringFor:str]
 
 #define MAX_RETRY_TIMES 3
-#define STATUS_BAR_HEIGHT 20.0
-#define NAVI_BAR_HEGHT 44.0
-#define REFRESH_DISTANCE 30
 
 #define HTTPS_APP_COMMAND_PORT 9091
 #define HTTP_APP_COMMAND_PORT  9090
@@ -50,4 +37,4 @@
 #define NORMAL_PORT            8080
 #define DOWNLOAD_PORT          9000
 
-#endif
+#endif /* DataDefine_h */

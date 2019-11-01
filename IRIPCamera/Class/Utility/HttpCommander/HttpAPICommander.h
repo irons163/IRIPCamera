@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-
 #import "StaticHttpRequest.h"
-#import "dataDefine.h"
+#import "DataDefine.h"
 
 /* MultiPort */
 struct MultiPort{
@@ -121,12 +120,7 @@ typedef enum
 typedef enum {
     AuthorizationError
     ,ConnectionTimeOut
-    ,UnderUnknowNAT
-    ,UnderLocalSymmetricNAT
-    ,UnderRemoteSymmetricNAT
-    ,RelayTimeout
     ,NotSupported
-    ,NeedFWUpdate
 } ConnectorErrorType;
 
 @class HttpAPICommander;

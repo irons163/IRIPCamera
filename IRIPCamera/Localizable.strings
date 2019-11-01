@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  IRIPCamera
+
+  Created by Phil on 2019/11/1.
+  Copyright © 2019 Phil. All rights reserved.
+*/
+
+"ButtonTextDone"="Done";
+"ButtonTextOk"="OK";
+"ButtonTextBack"="Back";
+
+"SettingsTitle"="Settings";
+"ModifySaveError"="Save Failed";
+"LinkFailTitle"="Connection closed";
+"ReconnectStreamConnectFail"="Fail to enable Video streaming. Please check IP Camera setting.";
+"loginFail"="Login Fail Please Check Username/passowrd";
+"DEVCE_NOT_SUPPORTED"="Not supported";
+"ConnectFail"="Connection quality is poor, please retry it later.";
+
+"ModifyDeviceError_Address"="Please check URL format";
+"ModifyDeviceError_DeviceName"="Please type Camera Name.";
+"ModifyDeviceError_HttpPort"="Please check 'Http Port'";
+"ModifyDeviceError_UserName"="The Username is not valid. Please retype the Username.";
+"ModifyDeviceError_Password"="The Password is not valid. Please retype the password.";

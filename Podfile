@@ -6,6 +6,6 @@ target 'IRIPCamera' do
   use_frameworks!
 
   # Pods for IRIPCamera
-#  pod 'IRPlayer'
-  pod 'IRPlayer', :path => '../IRPlayer/IRPlayer/IRPlayer_dev.podspec'
+  pod 'IRPlayer'
+#  pod 'IRPlayer', :path => '../IRPlayer/IRPlayer/IRPlayer_dev.podspec'
 end
