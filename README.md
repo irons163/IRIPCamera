@@ -24,8 +24,9 @@
 ## Usage
 
 ### Basic
-- Goto `Setting` Page, then key in the URL in the textfield.
-- OR, you can key in `demo` in the textfiled, if you want use demo rtsp url.
+- Goto `Setting` Page, then type the URL in the textfield.
+- OR, you can type `demo` in the textfiled, if you want use demo rtsp url.
+  - Demo RTSP URL:rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
 - Press `Done` button, then the program will try to connect and play it.
 
 ### Advanced settings
@@ -52,5 +53,6 @@ See how the `IRCustomStreamConnector` + `IRCustomStreamConnectionRequest` + `IRS
 - The codes for how you connection your IP Cam are not implement(Login, Query, etc...). You need to customize it.
 
 ## Screenshots
-![Demo](./ScreenShots/demo1.png)
-![Demo](./ScreenShots/demo2.png)
+|Display|Setting|
+|---|---|
+|![Demo](./ScreenShots/demo1.png)|![Demo](./ScreenShots/demo2.png)|
