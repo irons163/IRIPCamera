@@ -9,7 +9,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 #define AQ_BUFFER_NUMBER	2    //too large : will dealy too long time;too small : will have some unknow noise
-#define AQ_BUFFER_SIZE		2048
+#define AQ_BUFFER_SIZE		4096
 
 
 @interface AudioPlayer : NSObject
@@ -26,7 +26,7 @@
 
 // codec
 - (id)initWithSampleRate:(int) _sampleRate;
-- (void)playAudio:(Byte *)pInAudio length:(int)length;
+- (void)playAudio:(float *)pInAudio length:(int)length;
 - (BOOL)start;
 - (void)stop;
 

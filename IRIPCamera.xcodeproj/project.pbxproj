@@ -30,19 +30,10 @@
 		8A5B930B236186CF00D292A7 /* VideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E5236186CF00D292A7 /* VideoDecoder.m */; };
 		8A5B930C236186CF00D292A7 /* RTSPReceiver.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */; };
 		8A5B930D236186CF00D292A7 /* Receiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92E7236186CF00D292A7 /* Receiver.m */; };
-		8A5B930F236186CF00D292A7 /* httpAudioSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EA236186CF00D292A7 /* httpAudioSender.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8A5B9310236186CF00D292A7 /* AudioInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EC236186CF00D292A7 /* AudioInput.m */; };
-		8A5B9311236186CF00D292A7 /* NSStreamAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8A5B9312236186CF00D292A7 /* AudioFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F1236186CF00D292A7 /* AudioFrame.m */; };
-		8A5B9313236186CF00D292A7 /* AudioQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */; };
 		8A5B9314236186CF00D292A7 /* VideoFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */; };
-		8A5B9315236186CF00D292A7 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92F7236186CF00D292A7 /* Sound.m */; };
 		8A5B9317236186CF00D292A7 /* VideoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92FB236186CF00D292A7 /* VideoFrame.m */; };
 		8A5B9318236186CF00D292A7 /* AudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B92FF236186CF00D292A7 /* AudioDecoder.m */; };
-		8A5B9319236186CF00D292A7 /* deviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9304236186CF00D292A7 /* deviceInfo.m */; };
-		8A5B931A236186CF00D292A7 /* VideoRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9305236186CF00D292A7 /* VideoRender.m */; };
 		8A5B931B236186CF00D292A7 /* FrameBaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9307236186CF00D292A7 /* FrameBaseClass.m */; };
-		8A5B931C236186CF00D292A7 /* AudioOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B9309236186CF00D292A7 /* AudioOutput.m */; };
 		8A5B93252361884700D292A7 /* StaticHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B93242361884700D292A7 /* StaticHttpRequest.m */; };
 		8A5B933A2361887C00D292A7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B932E2361887B00D292A7 /* AFURLResponseSerialization.m */; };
 		8A5B933B2361887C00D292A7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5B932F2361887B00D292A7 /* AFHTTPSessionManager.m */; };
@@ -121,40 +112,21 @@
 		8A5B92D323617C1500D292A7 /* IRStreamConnectionResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRStreamConnectionResponse.h; sourceTree = "<group>"; };
 		8A5B92D423617C1500D292A7 /* IRStreamConnectionResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IRStreamConnectionResponse.m; sourceTree = "<group>"; };
 		8A5B92D72361863300D292A7 /* RTSPClientSession.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RTSPClientSession.xcodeproj; path = RTSPClientSession/RTSPClientSession.xcodeproj; sourceTree = "<group>"; };
-		8A5B92E2236186CF00D292A7 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
 		8A5B92E4236186CF00D292A7 /* VideoFrameBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrameBuffer.h; sourceTree = "<group>"; };
 		8A5B92E5236186CF00D292A7 /* VideoDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDecoder.m; sourceTree = "<group>"; };
 		8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RTSPReceiver.mm; sourceTree = "<group>"; };
 		8A5B92E7236186CF00D292A7 /* Receiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Receiver.m; sourceTree = "<group>"; };
 		8A5B92E8236186CF00D292A7 /* AudioDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDecoder.h; sourceTree = "<group>"; };
-		8A5B92EA236186CF00D292A7 /* httpAudioSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = httpAudioSender.m; sourceTree = "<group>"; };
 		8A5B92EB236186CF00D292A7 /* VideoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrame.h; sourceTree = "<group>"; };
-		8A5B92EC236186CF00D292A7 /* AudioInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioInput.m; sourceTree = "<group>"; };
-		8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStreamAdditions.m; sourceTree = "<group>"; };
-		8A5B92EF236186CF00D292A7 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
 		8A5B92F0236186CF00D292A7 /* FrameBaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameBaseClass.h; sourceTree = "<group>"; };
-		8A5B92F1236186CF00D292A7 /* AudioFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioFrame.m; sourceTree = "<group>"; };
-		8A5B92F2236186CF00D292A7 /* VideoRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRender.h; sourceTree = "<group>"; };
-		8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioQueuePlayer.m; sourceTree = "<group>"; };
-		8A5B92F4236186CF00D292A7 /* deviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deviceInfo.h; sourceTree = "<group>"; };
 		8A5B92F5236186CF00D292A7 /* VideoDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDecoder.h; sourceTree = "<group>"; };
 		8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrameBuffer.m; sourceTree = "<group>"; };
-		8A5B92F7236186CF00D292A7 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
 		8A5B92F8236186CF00D292A7 /* RTSPReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSPReceiver.h; sourceTree = "<group>"; };
-		8A5B92FA236186CF00D292A7 /* AudioInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioInput.h; sourceTree = "<group>"; };
 		8A5B92FB236186CF00D292A7 /* VideoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrame.m; sourceTree = "<group>"; };
-		8A5B92FE236186CF00D292A7 /* httpAudioSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = httpAudioSender.h; sourceTree = "<group>"; };
 		8A5B92FF236186CF00D292A7 /* AudioDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioDecoder.m; sourceTree = "<group>"; };
 		8A5B9300236186CF00D292A7 /* Receiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Receiver.h; sourceTree = "<group>"; };
-		8A5B9301236186CF00D292A7 /* NSStreamAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamAdditions.h; sourceTree = "<group>"; };
 		8A5B9302236186CF00D292A7 /* errorCodeDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = errorCodeDefine.h; sourceTree = "<group>"; };
-		8A5B9303236186CF00D292A7 /* AudioQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioQueuePlayer.h; sourceTree = "<group>"; };
-		8A5B9304236186CF00D292A7 /* deviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deviceInfo.m; sourceTree = "<group>"; };
-		8A5B9305236186CF00D292A7 /* VideoRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRender.m; sourceTree = "<group>"; };
-		8A5B9306236186CF00D292A7 /* AudioFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFrame.h; sourceTree = "<group>"; };
 		8A5B9307236186CF00D292A7 /* FrameBaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameBaseClass.m; sourceTree = "<group>"; };
-		8A5B9308236186CF00D292A7 /* ES_Descriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ES_Descriptor.h; sourceTree = "<group>"; };
-		8A5B9309236186CF00D292A7 /* AudioOutput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOutput.m; sourceTree = "<group>"; };
 		8A5B93232361884700D292A7 /* StaticHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticHttpRequest.h; sourceTree = "<group>"; };
 		8A5B93242361884700D292A7 /* StaticHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticHttpRequest.m; sourceTree = "<group>"; };
 		8A5B93272361887B00D292A7 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
@@ -386,40 +358,21 @@
 		8A5B92E1236186CF00D292A7 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				8A5B92E2236186CF00D292A7 /* Sound.h */,
-				8A5B92E4236186CF00D292A7 /* VideoFrameBuffer.h */,
-				8A5B92E5236186CF00D292A7 /* VideoDecoder.m */,
+				8A5B92F8236186CF00D292A7 /* RTSPReceiver.h */,
 				8A5B92E6236186CF00D292A7 /* RTSPReceiver.mm */,
+				8A5B92E4236186CF00D292A7 /* VideoFrameBuffer.h */,
+				8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */,
+				8A5B92F5236186CF00D292A7 /* VideoDecoder.h */,
+				8A5B92E5236186CF00D292A7 /* VideoDecoder.m */,
+				8A5B9300236186CF00D292A7 /* Receiver.h */,
 				8A5B92E7236186CF00D292A7 /* Receiver.m */,
 				8A5B92E8236186CF00D292A7 /* AudioDecoder.h */,
-				8A5B92EA236186CF00D292A7 /* httpAudioSender.m */,
-				8A5B92EB236186CF00D292A7 /* VideoFrame.h */,
-				8A5B92EC236186CF00D292A7 /* AudioInput.m */,
-				8A5B92EE236186CF00D292A7 /* NSStreamAdditions.m */,
-				8A5B92EF236186CF00D292A7 /* AudioOutput.h */,
-				8A5B92F0236186CF00D292A7 /* FrameBaseClass.h */,
-				8A5B92F1236186CF00D292A7 /* AudioFrame.m */,
-				8A5B92F2236186CF00D292A7 /* VideoRender.h */,
-				8A5B92F3236186CF00D292A7 /* AudioQueuePlayer.m */,
-				8A5B92F4236186CF00D292A7 /* deviceInfo.h */,
-				8A5B92F5236186CF00D292A7 /* VideoDecoder.h */,
-				8A5B92F6236186CF00D292A7 /* VideoFrameBuffer.m */,
-				8A5B92F7236186CF00D292A7 /* Sound.m */,
-				8A5B92F8236186CF00D292A7 /* RTSPReceiver.h */,
-				8A5B92FA236186CF00D292A7 /* AudioInput.h */,
-				8A5B92FB236186CF00D292A7 /* VideoFrame.m */,
-				8A5B92FE236186CF00D292A7 /* httpAudioSender.h */,
 				8A5B92FF236186CF00D292A7 /* AudioDecoder.m */,
-				8A5B9300236186CF00D292A7 /* Receiver.h */,
-				8A5B9301236186CF00D292A7 /* NSStreamAdditions.h */,
-				8A5B9302236186CF00D292A7 /* errorCodeDefine.h */,
-				8A5B9303236186CF00D292A7 /* AudioQueuePlayer.h */,
-				8A5B9304236186CF00D292A7 /* deviceInfo.m */,
-				8A5B9305236186CF00D292A7 /* VideoRender.m */,
-				8A5B9306236186CF00D292A7 /* AudioFrame.h */,
+				8A5B92EB236186CF00D292A7 /* VideoFrame.h */,
+				8A5B92FB236186CF00D292A7 /* VideoFrame.m */,
+				8A5B92F0236186CF00D292A7 /* FrameBaseClass.h */,
 				8A5B9307236186CF00D292A7 /* FrameBaseClass.m */,
-				8A5B9308236186CF00D292A7 /* ES_Descriptor.h */,
-				8A5B9309236186CF00D292A7 /* AudioOutput.m */,
+				8A5B9302236186CF00D292A7 /* errorCodeDefine.h */,
 			);
 			path = Streaming;
 			sourceTree = "<group>";
@@ -613,8 +566,6 @@
 				8A5B93402361887C00D292A7 /* AFHTTPRequestOperation.m in Sources */,
 				8A5B92C9236179F300D292A7 /* IRCustomStreamConnector.m in Sources */,
 				8A5B93702361907F00D292A7 /* HttpAPICommander.m in Sources */,
-				8A5B9312236186CF00D292A7 /* AudioFrame.m in Sources */,
-				8A5B9319236186CF00D292A7 /* deviceInfo.m in Sources */,
 				8A5B92CC23617A0300D292A7 /* IRStreamConnectionRequest.m in Sources */,
 				8A5B92CF23617A2000D292A7 /* IRCustomStreamConnectionRequest.m in Sources */,
 				8A5B93412361887C00D292A7 /* AFNetworkReachabilityManager.m in Sources */,
@@ -622,9 +573,7 @@
 				8A5B933A2361887C00D292A7 /* AFURLResponseSerialization.m in Sources */,
 				8A7739CA23601DB600C6233F /* PlayerViewController.m in Sources */,
 				8A5B92C0236178F300D292A7 /* IRStreamController.m in Sources */,
-				8A5B9311236186CF00D292A7 /* NSStreamAdditions.m in Sources */,
 				8A5B930D236186CF00D292A7 /* Receiver.m in Sources */,
-				8A5B9313236186CF00D292A7 /* AudioQueuePlayer.m in Sources */,
 				8A5B93422361887C00D292A7 /* AFSecurityPolicy.m in Sources */,
 				8A5B9317236186CF00D292A7 /* VideoFrame.m in Sources */,
 				8A5B9314236186CF00D292A7 /* VideoFrameBuffer.m in Sources */,
@@ -634,22 +583,17 @@
 				8A5B933E2361887C00D292A7 /* AFHTTPRequestOperationManager.m in Sources */,
 				8A5B93252361884700D292A7 /* StaticHttpRequest.m in Sources */,
 				8A5B933D2361887C00D292A7 /* AFURLSessionManager.m in Sources */,
-				8A5B931C236186CF00D292A7 /* AudioOutput.m in Sources */,
 				8A5B93712361907F00D292A7 /* deviceConnector.m in Sources */,
 				8A2013912321EF0F00F8CAE9 /* main.m in Sources */,
 				8A5B92B7236174E600D292A7 /* IRRTSPSettingsViewController.m in Sources */,
-				8A5B930F236186CF00D292A7 /* httpAudioSender.m in Sources */,
 				8A5B93732361907F00D292A7 /* addressConnector.m in Sources */,
 				8A5B92BC2361755D00D292A7 /* IRRTSPPlayer.m in Sources */,
-				8A5B9315236186CF00D292A7 /* Sound.m in Sources */,
 				8A5B9345236188A200D292A7 /* AudioPlayer.m in Sources */,
 				8A5B92D523617C1500D292A7 /* IRStreamConnectionResponse.m in Sources */,
 				8A68F19B23669C6500A74E47 /* IRRTSPMediaView.m in Sources */,
 				8A2013832321EF0C00F8CAE9 /* AppDelegate.m in Sources */,
 				8A5B92D223617A3600D292A7 /* IRStreamConnectionRequestFactory.m in Sources */,
-				8A5B9310236186CF00D292A7 /* AudioInput.m in Sources */,
 				8A5B933B2361887C00D292A7 /* AFHTTPSessionManager.m in Sources */,
-				8A5B931A236186CF00D292A7 /* VideoRender.m in Sources */,
 				8A5B934923618A0E00D292A7 /* StaticLanguage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -800,9 +744,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRPlayer/IRPlayer.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"/**",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib",
 					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/RTSPClientSession//RTSPClientSession",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/include",
 				);
 				INFOPLIST_FILE = IRIPCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -812,16 +754,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/IRFFMpeg/lib\"",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/lib",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/ffmpeg/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/CommonTools",
-				);
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -837,9 +774,7 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRPlayer/IRPlayer.framework/Headers\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers\"/**",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib",
 					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/RTSPClientSession//RTSPClientSession",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/include",
 				);
 				INFOPLIST_FILE = IRIPCamera/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -849,16 +784,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/IRFFMpeg/lib\"",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib/pjTunnelLib/PjTunnelLibrary/OpenSSL/lib",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/ffmpeg/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = irons163.IRIPCamera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/pjTunnelLib",
-					"$(PROJECT_DIR)/IRIPCamera/ThirdParty/CommonTools",
-				);
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

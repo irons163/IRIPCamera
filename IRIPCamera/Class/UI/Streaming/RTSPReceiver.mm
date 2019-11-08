@@ -9,7 +9,6 @@
 #import "RTSPReceiver.h"
 #import "FrameBaseClass.h"
 #import "VideoFrame.h"
-#import "AudioFrame.h"
 #import "errorCodeDefine.h"
 #import "StaticHttpRequest.h"
 
@@ -206,7 +205,7 @@ BOOL back = NO;
         memset(p_AudioExtra, 0, i_AudioExtra);
         memcpy(p_AudioExtra, (uint8_t*)[_extra bytes], i_AudioExtra);
         [self.m_audioDecoder setExtraData:[_extra length] extraData:(uint8_t*)[_extra bytes]];
-        _ch = 1;// for GM SOHO unknow why
+//        _ch = 1;// for GM SOHO unknow why
     }
     
     [self.m_audioDecoder setAudioDecodeSampleRate:_sampleRate channels:_ch];
@@ -332,196 +331,9 @@ BOOL back = NO;
 
 -(void)HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration
 {
-    //
-    ////@synchronized(self.m_VideoDecoder.m_FrameBuffer.self)
-    //{
-    //    m_FPS = 30;
-    //    do {
-    ////        if(frameData[0] == 0x65)
-    ////            NSLog(@"%02X:%d",frameData[0], frameDataLength);
-    //        int iType = frameData[0] & 0x1f;
-    //
-    //        if(iType == 0X1 && frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice
-    //            iType = 0x5;
-    //
-    //
-    //        NSString *tmpType = @"";
-    //        VideoFrame *tmpVideoFrame=nil;
-    ////        NSLog(@"%02X",iType);
-    //        if(iType == 0X7)//SPS
-    //        {
-    ////            m_blnReceiveFirstIFrame = NO;
-    //            tmpType = @"SPS";
-    //            if(m_SPSFrame.m_pRawData != NULL)
-    //            {
-    //                free(m_SPSFrame.m_pRawData);
-    //                m_SPSFrame.m_pRawData = NULL;
-    //            }
-    //
-    //            m_SPSFrame.m_intFrameType = SPS_FRAME;
-    //            m_SPSFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode);
-    //            m_SPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength);
-    //            memcpy(m_SPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
-    //            memcpy(m_SPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
-    ////            NSLog(@"[%02X%02X%02X%02X]SPS length = %d", frameData[0], frameData[1], frameData[2], frameData[3],frameDataLength);
-    //            [self.m_VideoDecoder setSPSFrame:m_SPSFrame];
-    //            break;
-    //        }
-    //        else if(iType == 0X8)//pps
-    //        {
-    //            tmpType = @"PPS";
-    //            if(m_PPSFrame.m_pRawData != NULL)
-    //            {
-    //                free(m_PPSFrame.m_pRawData);
-    //                m_PPSFrame.m_pRawData = NULL;
-    //            }
-    //
-    //            m_PPSFrame.m_intFrameType = SPS_FRAME;
-    //            m_PPSFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode);
-    //            m_PPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength);
-    //            memcpy(m_PPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
-    //            memcpy(m_PPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
-    ////            NSLog(@"PPS length = %d",frameDataLength);
-    //            [self.m_VideoDecoder setPPSFrame:m_PPSFrame];
-    //            break;
-    //        }
-    //        else if(iType == 0X5)//I-Frame
-    //        {
-    //            if(m_PPSFrame.m_pRawData == NULL || m_SPSFrame.m_pRawData == NULL)
-    //                break;
-    //
-    //            tmpVideoFrame = [[VideoFrame alloc] init];
-    //            tmpType = @"I-frame";
-    //            pCount = 0;
-    //            int iPreheaderTotal = (int)(m_SPSFrame.m_uintFrameLenth + m_PPSFrame.m_uintFrameLenth);
-    //
-    //            tmpVideoFrame.m_pRawData = (uint8_t*)malloc(frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal );
-    //            tmpVideoFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal  ;
-    //            tmpVideoFrame.m_intFrameSEQ = pCount;
-    //            tmpVideoFrame.m_intFrameType = VIDEO_I_FRAME;
-    //            memcpy(tmpVideoFrame.m_pRawData, m_SPSFrame.m_pRawData, (int)m_SPSFrame.m_uintFrameLenth);
-    //            memcpy((tmpVideoFrame.m_pRawData + (int)m_SPSFrame.m_uintFrameLenth), m_PPSFrame.m_pRawData, (int)m_PPSFrame.m_uintFrameLenth);
-    //
-    //            memcpy((tmpVideoFrame.m_pRawData + iPreheaderTotal), m_aryH264StartCode, sizeof(m_aryH264StartCode));
-    //            memcpy(tmpVideoFrame.m_pRawData + iPreheaderTotal + sizeof(m_aryH264StartCode) , frameData, frameDataLength);
-    //
-    //            if(!self.m_blnReceiveFirstIFrame)
-    //               [self.eventDelegate connectSuccess:self];
-    //
-    //            self.m_blnReceiveFirstIFrame = YES;
-    //
-    //        }
-    //        else if(iType == 0X1)//P-Frame
-    //        {
-    //
-    //
-    //            pCount++;
-    //            if(pCount >= m_FPS)
-    //            {
-    ////                NSLog(@"fps=%d pCount =%d",m_FPS ,pCount);
-    //                break;//add by robert hsu 2013.10.29
-    //            }
-    //
-    //            tmpVideoFrame = [[VideoFrame alloc] init];
-    //            tmpType = @"P-frame";
-    //
-    //
-    //            if (!m_blnReceiveFirstIFrame)
-    //            {
-    //                break;
-    //            }
-    //
-    //            tmpVideoFrame.m_intFrameSEQ = pCount ;
-    //            tmpVideoFrame.m_intFrameType = VIDEO_P_FRAME;
-    //            tmpVideoFrame.m_uintFrameLenth = sizeof(m_aryH264StartCode) + frameDataLength ;
-    //            tmpVideoFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength );
-    //            if(tmpVideoFrame.m_pRawData)
-    //            {
-    //                memcpy(tmpVideoFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
-    //                memcpy(tmpVideoFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
-    //            }
-    //
-    //        }
-    //        self.m_blnReceiving = YES;
-    //
-    //
-    //        if(self.m_VideoDecoder.m_FrameBuffer && tmpVideoFrame && frameData && self.m_blnReceiving)
-    //            if ([self.m_VideoDecoder.m_FrameBuffer respondsToSelector:@selector(addFrameIntoBuffer:)])
-    //            {
-    //                tmpVideoFrame.m_uintVideoTimeSec = presentationTime.tv_sec;
-    //                tmpVideoFrame.m_uintVideoTimeUSec = presentationTime.tv_usec;
-    //
-    ////                NSLog(@"pFrame Count = %d",pCount);
-    //
-    //
-    //                [self.m_VideoDecoder.m_FrameBuffer addFrameIntoBuffer:tmpVideoFrame];
-    //
-    //
-    //
-    //                int jumpStartCode = sizeof(m_aryH264StartCode);
-    //                int iJump = 4;
-    //
-    //                if(iType == 0X5)
-    //                    iJump += m_SPSFrame.m_uintFrameLenth + m_PPSFrame.m_uintFrameLenth ;
-    //
-    //
-    //                if(self.m_blnIsRecording)
-    //                {
-    ////                    if(iType == 0X5)
-    //                    {
-    //                        if([self.m_Recorder getVideoExtensionRef] == nil)
-    //                        {
-    //                            NSData *spsData = nil;
-    //                            NSData *ppsData = nil;
-    //
-    //                            uint8_t *tmpSPS = (uint8_t*)malloc(m_SPSFrame.m_uintFrameLenth  - jumpStartCode);
-    //                            uint8_t *tmpPPS = (uint8_t*)malloc(m_PPSFrame.m_uintFrameLenth  - jumpStartCode);
-    //                            memcpy(tmpSPS, m_SPSFrame.m_pRawData + jumpStartCode, m_SPSFrame.m_uintFrameLenth - jumpStartCode);
-    //                            memcpy(tmpPPS, m_PPSFrame.m_pRawData + jumpStartCode, m_PPSFrame.m_uintFrameLenth - jumpStartCode);
-    //                            spsData = [[NSData alloc] initWithBytes:tmpSPS length:m_SPSFrame.m_uintFrameLenth - jumpStartCode];
-    //                            ppsData = [[NSData alloc] initWithBytes:tmpPPS length:m_PPSFrame.m_uintFrameLenth - jumpStartCode];
-    //                            free(tmpSPS);
-    //                            free(tmpPPS);
-    //
-    //                            [self.m_Recorder setH264VideoExtensionRefBySPS:spsData PPS:ppsData];
-    //
-    //                            if(spsData)
-    //                                spsData = nil;
-    //
-    //                            if(ppsData)
-    //                                ppsData = nil;
-    //                        }
-    //
-    //
-    //                        NSData *tmpData ;
-    //                        Byte *tmpIframe = (Byte*)malloc(frameDataLength + sizeof(int));
-    //                        int tmpSize = 0;
-    //
-    //                        //video
-    //                        tmpSize = CFSwapInt32HostToBig(frameDataLength);
-    //                        memcpy(tmpIframe, &tmpSize, sizeof(int));
-    //                        memcpy(tmpIframe + sizeof(int), frameData, frameDataLength);
-    //                        tmpData = [[NSData alloc] initWithBytes:tmpIframe length:frameDataLength + 4];
-    //
-    //                        [self.m_Recorder appendVideoToFileWithCodec:m_VideoCodec width:(int)m_VideoWidth height:(int)m_VideoHeight data:tmpData presentationTime:presentationTime isIframe:iType == 0x5];
-    //
-    //                        free(tmpIframe);
-    //                        tmpData = nil;
-    //                    }
-    //                }
-    //            }
-    //
-    //        tmpVideoFrame = nil;
-    //
-    //    } while (0);
-    //}
-    
-    
     // For VideoToolBox(NV12)
     m_FPS = 30;
     do {
-        //        if(frameData[0] == 0x65)
-        //            NSLog(@"%02X:%d",frameData[0], frameDataLength);
         int iType = frameData[0] & 0x1f;
         
         if(iType == 0X1 && frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice
@@ -530,29 +342,18 @@ BOOL back = NO;
         
         NSString *tmpType = @"";
         VideoFrame *tmpVideoFrame=nil;
-        //                    NSLog(@"VideoFrame to nil");
-        //        NSLog(@"%02X",iType);
         if(iType == 0X7)//SPS
         {
-            //            m_blnReceiveFirstIFrame = NO;
             if(m_SPSFrame.m_pRawData != NULL) // just need once
                 break;
             
             tmpType = @"SPS";
-            //            if(m_SPSFrame.m_pRawData != NULL)
-            //            {
-            //                free(m_SPSFrame.m_pRawData);
-            //                m_SPSFrame.m_pRawData = NULL;
-            //            }
             
             m_SPSFrame.m_intFrameType = SPS_FRAME;
             m_SPSFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode);
             m_SPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength);
             memcpy(m_SPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
             memcpy(m_SPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
-            //            NSLog(@"[%02X%02X%02X%02X]SPS length = %d", frameData[0], frameData[1], frameData[2], frameData[3],frameDataLength);
-            
-            //                [self.m_VideoDecoder setExtraData:m_SPSFrame.m_uintFrameLenth extraData:m_SPSFrame.m_pRawData];
             [self.m_VideoDecoder setSPSFrame:m_SPSFrame];
             break;
         }
@@ -561,18 +362,12 @@ BOOL back = NO;
             if(m_PPSFrame.m_pRawData != NULL) // just need once
                 break;
             tmpType = @"PPS";
-            //            if(m_PPSFrame.m_pRawData != NULL)
-            //            {
-            //                free(m_PPSFrame.m_pRawData);
-            //                m_PPSFrame.m_pRawData = NULL;
-            //            }
             
             m_PPSFrame.m_intFrameType = SPS_FRAME;
             m_PPSFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode);
             m_PPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength);
             memcpy(m_PPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
             memcpy(m_PPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
-            //            NSLog(@"PPS length = %d",frameDataLength);
             [self.m_VideoDecoder setPPSFrame:m_PPSFrame];
             break;
         }
@@ -584,31 +379,6 @@ BOOL back = NO;
             tmpVideoFrame = [[VideoFrame alloc] init];
             tmpType = @"I-frame";
             pCount = 0;
-            
-            
-            //                if(!self.m_blnReceiveFirstIFrame){
-            //                    int iPreheaderTotal = (int)(m_SPSFrame.m_uintFrameLenth + m_PPSFrame.m_uintFrameLenth);
-            //
-            //                    tmpVideoFrame.m_pRawData = (uint8_t*)malloc(frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal );
-            //                    tmpVideoFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal  ;
-            //                    tmpVideoFrame.m_intFrameSEQ = pCount;
-            //                    tmpVideoFrame.m_intFrameType = VIDEO_I_FRAME;
-            //                    memcpy(tmpVideoFrame.m_pRawData, m_SPSFrame.m_pRawData, (int)m_SPSFrame.m_uintFrameLenth);
-            //                    memcpy((tmpVideoFrame.m_pRawData + (int)m_SPSFrame.m_uintFrameLenth), m_PPSFrame.m_pRawData, (int)m_PPSFrame.m_uintFrameLenth);
-            //                    memcpy((tmpVideoFrame.m_pRawData + iPreheaderTotal), m_aryH264StartCode, sizeof(m_aryH264StartCode));
-            //                    memcpy(tmpVideoFrame.m_pRawData + iPreheaderTotal + sizeof(m_aryH264StartCode) , frameData, frameDataLength);
-            //                }
-            //                else{
-            //                    int iPreheaderTotal = 0;
-            //
-            //                    tmpVideoFrame.m_pRawData = (uint8_t*)malloc(frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal );
-            //                    tmpVideoFrame.m_uintFrameLenth = frameDataLength + sizeof(m_aryH264StartCode) + iPreheaderTotal  ;
-            //                    tmpVideoFrame.m_intFrameSEQ = pCount;
-            //                    tmpVideoFrame.m_intFrameType = VIDEO_I_FRAME;
-            //                    memcpy((tmpVideoFrame.m_pRawData + iPreheaderTotal), m_aryH264StartCode, sizeof(m_aryH264StartCode));
-            //                    memcpy(tmpVideoFrame.m_pRawData + iPreheaderTotal + sizeof(m_aryH264StartCode) , frameData, frameDataLength);
-            //                }
-            
             
             //For VideoToolBox(NV12), not need to insert the sps and pps into begin of the video frame.
             int iPreheaderTotal = 0;
@@ -628,21 +398,10 @@ BOOL back = NO;
         }
         else if(iType == 0X1)//P-Frame
         {
-            
-            
             pCount++;
-            
-            /* //unknow behavior, it make the some frames lost if(pCount >= m_FPS).
-             if(pCount >= m_FPS)
-             {
-             //                NSLog(@"fps=%d pCount =%d",m_FPS ,pCount);
-             break;//add by robert hsu 2013.10.29z
-             }
-             */
-            
+
             tmpVideoFrame = [[VideoFrame alloc] init];
             tmpType = @"P-frame";
-            
             
             if (!m_blnReceiveFirstIFrame)
             {
@@ -687,13 +446,8 @@ BOOL back = NO;
             }
         
         tmpVideoFrame = nil;
-        //            NSLog(@"VideoFrame to nil");
         
     } while (0);
-    
-    //        pthread_mutex_unlock(&mtx);
-    //    dispatch_semaphore_signal(fd_sema);
-    
 }
 
 - (void) checkLastReceiveTime

@@ -13,7 +13,7 @@
 //#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 //#import "IRMovieDecoder.h"
 //#import "IRMovieGLView.h"
-#import "CommonTools.h"
+//#import "CommonTools.h"
 #include "libavcodec/videotoolbox.h"
 //#import <IRPlayer/IRPlayer.h>
 

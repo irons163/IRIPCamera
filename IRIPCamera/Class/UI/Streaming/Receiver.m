@@ -141,7 +141,7 @@
 -(void) setAudioCodecWithCodecString:(NSString*) strCodec
 {
     [self.m_audioDecoder setCodecWithCodecString:strCodec];
-    [self.m_audioDecoder setAudioDecodeSampleRate:8000 channels:1];
+//    [self.m_audioDecoder setAudioDecodeSampleRate:8000 channels:1];
     
 }
 

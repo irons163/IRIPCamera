@@ -7,12 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-//#include "ffmpeg/include/libavcodec/avcodec.h"
-//#include "avcodec.h"
 #include<AudioToolbox/AudioToolbox.h>
 #import <OpenAL/al.h>
 #import <OpenAL/alc.h>
-#import "Sound.h"
 //#import "AudioOutput.h"
 #import "AudioPlayer.h"
 //#include "swresample.h"
@@ -38,7 +35,6 @@
     NSFileHandle *myHandle;
      NSString* filenameStr;
     
-    Sound *mySound;
 //    AudioOutput *mPlayer;
     AudioPlayer *mPlayer;
     AVCodecContext *context;
