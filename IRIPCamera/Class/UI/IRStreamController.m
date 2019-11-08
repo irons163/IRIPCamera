@@ -118,7 +118,7 @@
             
             [self->m_RTSPStreamer setChannel:self->m_Channel];
             [self->m_RTSPStreamer.m_audioDecoder setDelegate:self.AudioDelegate];
-            //        m_RTSPStreamer.m_blnPlayingAudio = blnPlayingAudio;
+            [self->m_RTSPStreamer setPlayAudio:YES];
             [self->m_RTSPStreamer startConnection];
             
             self->m_blnStopStreaming = NO;

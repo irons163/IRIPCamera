@@ -207,20 +207,6 @@
 			remoteGlobalIDString = 04A744DC1957C88A008F280A;
 			remoteInfo = RTSPClientSession;
 		};
-		8ACCD9B120B4149C00DED139 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 04A60DF2193D658400879E75;
-			remoteInfo = pjTunnelLib;
-		};
-		8ACCD9B320B4149C00DED139 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 04A60E02193D658400879E75;
-			remoteInfo = pjTunnelLibTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -629,7 +615,6 @@
 		69FBC5DF1B6B6B7C00C60BAA /* VP9VideoRTPSource.hh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = VP9VideoRTPSource.hh; sourceTree = "<group>"; };
 		69FBC5E01B6B6BAC00C60BAA /* VP9VideoRTPSink.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP9VideoRTPSink.cpp; sourceTree = "<group>"; };
 		69FBC5E21B6B6BBC00C60BAA /* VP9VideoRTPSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VP9VideoRTPSource.cpp; sourceTree = "<group>"; };
-		8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pjTunnelLib.xcodeproj; path = ../pjTunnelLib/pjTunnelLib.xcodeproj; sourceTree = "<group>"; };
 		8ACCDAD820BE44E400DED139 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -659,7 +644,6 @@
 		04A744D41957C88A008F280A = {
 			isa = PBXGroup;
 			children = (
-				8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */,
 				04A745061957C8CD008F280A /* BasicUsageEnvironment */,
 				04A745171957C8CD008F280A /* groupsock */,
 				04A7452C1957C8CD008F280A /* liveMedia */,
@@ -1171,15 +1155,6 @@
 			path = include;
 			sourceTree = "<group>";
 		};
-		8ACCD9AD20B4149C00DED139 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8ACCD9B220B4149C00DED139 /* libpjTunnelLib.a */,
-				8ACCD9B420B4149C00DED139 /* pjTunnelLibTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1239,12 +1214,6 @@
 			mainGroup = 04A744D41957C88A008F280A;
 			productRefGroup = 04A744DE1957C88A008F280A /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 8ACCD9AD20B4149C00DED139 /* Products */;
-					ProjectRef = 8ACCD9AC20B4149C00DED139 /* pjTunnelLib.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				04A744DC1957C88A008F280A /* RTSPClientSession */,
@@ -1252,23 +1221,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		8ACCD9B220B4149C00DED139 /* libpjTunnelLib.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libpjTunnelLib.a;
-			remoteRef = 8ACCD9B120B4149C00DED139 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		8ACCD9B420B4149C00DED139 /* pjTunnelLibTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = pjTunnelLibTests.xctest;
-			remoteRef = 8ACCD9B320B4149C00DED139 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		04A744EB1957C88A008F280A /* Resources */ = {

@@ -8,6 +8,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "AudioDecoder.h"
 #import "errorCodeDefine.h"
+#import <Accelerate/Accelerate.h>
+
 #define INBUF_SIZE 4096
 #define AUDIO_INBUF_SIZE 20480
 #define AUDIO_REFILL_THRESH 4096
@@ -92,8 +94,8 @@
         }
         
         context->codec_type = AVMEDIA_TYPE_AUDIO;
-        context->sample_rate = 8000;
-        context->channels = 1;
+        context->sample_rate = 12000;
+        context->channels = 2;
         
 
 //        context->bits_per_coded_sample = 16;
@@ -112,15 +114,24 @@
         //Fix AAC issue 160115
         if(context->channel_layout!=0)
         {
-            pSwrCtx = swr_alloc_set_opts(pSwrCtx,
-                                         context->channel_layout,
-                                         AV_SAMPLE_FMT_S16,
-                                         context->sample_rate,
-                                         context->channel_layout,
-                                         context->sample_fmt,
-                                         context->sample_rate,
-                                         0,
-                                         0);
+//            pSwrCtx = swr_alloc_set_opts(pSwrCtx,
+//                                         av_get_default_channel_layout(1),
+//                                         AV_SAMPLE_FMT_S16,
+//                                         8000,
+//                                         av_get_default_channel_layout(context->channels),
+//                                         context->sample_fmt,
+//                                         context->sample_rate,
+//                                         0,
+//                                         0);
+            pSwrCtx = swr_alloc_set_opts(NULL,  // we're allocating a new context
+                                   AV_CH_LAYOUT_MONO,  // out_ch_layout
+                                   AV_SAMPLE_FMT_S16,    // out_sample_fmt
+                                   12000,                // out_sample_rate
+                                   AV_CH_LAYOUT_STEREO, // in_ch_layout
+                                   AV_SAMPLE_FMT_FLTP,   // in_sample_fmt
+                                   12000,                // in_sample_rate
+                                   0,                    // log_offset
+                                   NULL);                // log_ctx
         }
         else
         {
@@ -222,130 +233,190 @@
     memcpy(avpkt.data, audioData, length);
     avpkt.size = length;
     
-    context->block_align = length;
-    context->frame_size = length;
+//    context->block_align = length;
+//    context->frame_size = length;
     
     
 //    NSData *tmpdata = [NSData dataWithBytes:audioData length:length];
 //    [myHandle seekToEndOfFile];
 //    [myHandle writeData:tmpdata];
 
-    int i_got_frame = AVCODEC_MAX_AUDIO_FRAME_SIZE;
+    if (avpkt.data == NULL) return;
     
-    if (pSwrCtx)
-    {
-        len = avcodec_decode_audio4(context, decoded_frame, &i_got_frame, &avpkt);
-        if(i_got_frame && len >= 0)
+    int result = avcodec_send_packet(context, &avpkt);
+    if (result < 0 && result != AVERROR(EAGAIN) && result != AVERROR_EOF) {
+        return;
+    }
+    
+    while (result >= 0) {
+        result = avcodec_receive_frame(context, decoded_frame);
+        if (result < 0) {
+            if (result != AVERROR(EAGAIN) && result != AVERROR_EOF) {
+                return;
+            }
+            break;
+        }
+        @autoreleasepool
         {
+//            int data_size = av_samples_get_buffer_size(NULL, 2, decoded_frame->nb_samples, AV_SAMPLE_FMT_FLTP, 0);
+//            Byte* tmpData = (Byte*)malloc(data_size);
+//            memcpy(tmpData, decoded_frame->extended_data, data_size);
+//            [mPlayer playAudio:tmpData length:data_size];
+//            if(tmpData != NULL)
+//            {
+//                free(tmpData);
+//                tmpData = NULL;
+//            }
             
-//            NSLog(@"bits_per_coded_sample=%d ,sample_rate=%d",context->bits_per_coded_sample ,context->sample_rate);
-//            NSLog(@"decode siez=%d",i_got_frame);
-            if(i_got_frame > 0)
-            {
-                int outCount=0;
-                int data_size = av_samples_get_buffer_size(decoded_frame->linesize, context->channels,
-                                                           decoded_frame->nb_samples,AV_SAMPLE_FMT_S16, 0);
-                Byte* tmpData = (Byte*)malloc(data_size);
-                
-                uint8_t pTemp[data_size];
-                uint8_t *pOut = (uint8_t *)&pTemp;
-                int in_samples = decoded_frame->nb_samples;
-                outCount = swr_convert(pSwrCtx,
-                                       (uint8_t **)(&pOut),
-                                       in_samples,
-                                       (const uint8_t **)decoded_frame->extended_data,
-                                       in_samples);
-                memcpy(tmpData, pOut, data_size);
-                
-                
-                
-                
-                if(mPlayer){
-                    [mPlayer playAudio:tmpData length:data_size];
+            const NSUInteger sizeOfS16 = 2;
+            const int numChannels = 1;
+            int ratio = MAX(1, 12000 / context->sample_rate) * MAX(1, numChannels / context->channels) * 2;
+            const int bufSize = av_samples_get_buffer_size(NULL,
+                    numChannels,
+                    decoded_frame->nb_samples * ratio,
+                    AV_SAMPLE_FMT_S16,
+                    1);
+            
+            int numFrames = bufSize / (sizeOfS16 * numChannels);
+
+            SInt16 *s16p = (SInt16 *) decoded_frame->data[0];
+
+            int _swrBufferSize = 0;
+            void * _swrBuffer = NULL;
+            
+            if (pSwrCtx) {
+                if (!_swrBuffer || _swrBufferSize < (bufSize * 2)) {
+                    _swrBufferSize = bufSize * 2;
+                    _swrBuffer = realloc(_swrBuffer, _swrBufferSize);
                 }
-                
-                if(tmpData != NULL)
-                {
-                    free(tmpData);
-                    tmpData = NULL;
+
+                Byte *outbuf[2] = {_swrBuffer, 0};
+
+                numFrames = swr_convert(pSwrCtx,
+                    outbuf,
+                    decoded_frame->nb_samples * 2,
+                    (const uint8_t **) decoded_frame->data,
+                    decoded_frame->nb_samples);
+
+                if (numFrames < 0) {
+                    NSLog(@"fail resample audio");
+                    continue;
                 }
+
+                s16p = _swrBuffer;
             }
+
+            const NSUInteger numElements = numFrames * numChannels;
+//            NSMutableData *data = [NSMutableData dataWithLength:numElements * sizeof(float)];
+            
+            NSUInteger data_size = numElements * sizeof(float);
+            float* tmpData = (float*)malloc(data_size);
+//            memcpy(tmpData, s16p, data_size);
+            vDSP_vflt16(s16p, 1, tmpData, 1, numElements);
+            float scale = 1.0 / (float) INT16_MAX;
+            vDSP_vsmul(tmpData, 1, &scale, tmpData, 1, numElements);
+            [mPlayer playAudio:tmpData length:data_size];
+            if(tmpData != NULL)
+            {
+                free(tmpData);
+                tmpData = NULL;
+            }
+            
+//            int outCount=0;
+//            int ratio = MAX(1, 8000 / context->sample_rate) * MAX(1, 1 / context->channels) * 2;
+//            int data_size = av_samples_get_buffer_size(NULL, 1,
+//                                                       decoded_frame->nb_samples * ratio, AV_SAMPLE_FMT_S16, 0);
+//            Byte* tmpData = (Byte*)malloc(data_size);
+//
+//            uint8_t pTemp[data_size];
+//            uint8_t *pOut = (uint8_t *)&pTemp;
+//            int in_samples = decoded_frame->nb_samples;
+//            outCount = swr_convert(pSwrCtx,
+//                                   (uint8_t **)(&pOut),
+//                                   in_samples * ratio,
+//                                   (const uint8_t **)decoded_frame->data,
+//                                   in_samples);
+//            memcpy(tmpData, pOut, data_size);
+            
+            
+//            int numberOfFrames;
+//            void * audioDataBuffer;
+//
+//            if (pSwrCtx) {
+////                    const int ratio = MAX(1, _samplingRate / _codec_context->sample_rate) * MAX(1, _channelCount / _codec_context->channels) * 2;
+//                int outCount=0;
+//                int ratio = MAX(1, 8000 / context->sample_rate) * MAX(1, 1 / context->channels) * 2;
+//                int data_size = av_samples_get_buffer_size(NULL, 1,
+//                                                           decoded_frame->nb_samples * ratio, AV_SAMPLE_FMT_S16, 0);
+//                Byte* tmpData = (Byte*)malloc(data_size);
+//
+//                uint8_t pTemp[data_size];
+//                uint8_t *pOut = (uint8_t *)&pTemp;
+//                int in_samples = decoded_frame->nb_samples;
+//                outCount = swr_convert(pSwrCtx,
+//                                       (uint8_t **)(&pOut),
+//                                       in_samples * ratio,
+//                                       (const uint8_t **)decoded_frame->data,
+//                                       in_samples);
+//                memcpy(tmpData, pOut, data_size);
+//
+//                if(mPlayer){
+////                    int frameNumber = data_size / 2;
+////                //    int frameNumber = *dataSize;
+////                    for(int frameIndex = 0; frameIndex < frameNumber; frameIndex++){
+////                        //        float f = (((SignedByte)((Byte *)*data)[frameIndex]) * 3.5);
+////                        //        f = (1.5 * f) - 0.5 * f * f * f;
+////                        //        Byte newSampleByte = (f < 0) ? 0 : (f > 255) ? 255 : f;
+////
+////                        float f = (((SInt16)((UInt16 *)tmpData)[frameIndex]) / 32767.0);
+////                        f *= 15.0;
+////                        f = (f < -1.0) ? -1.0 : (f > 1.0) ? 1.0 : f;
+////                        f = (1.5 * f) - 0.5 * f * f * f;
+////                        UInt16 newSampleByte = f * 32767.0;
+////
+////                        ((UInt16 *)tmpData)[frameIndex] = newSampleByte;
+////                    }
+//
+//                    [mPlayer playAudio:tmpData length:data_size];
+//                }
+//
+//                if(tmpData != NULL)
+//                {
+//                    free(tmpData);
+//                    tmpData = NULL;
+//                }
+//            } else {
+//                audioDataBuffer = decoded_frame->data[0];
+//                numberOfFrames = decoded_frame->nb_samples;
+//            }
         }
     }
-    else{
-        int16_t result[AVCODEC_MAX_AUDIO_FRAME_SIZE] = {0};
-        if(context->codec)
-            len = avcodec_decode_audio4(context, result, &i_got_frame, &avpkt);
-        
-        if(i_got_frame && len >= 0)
-        {
-            if(i_got_frame > 0)
-            {
-                Byte* tmpData = (Byte*)malloc(i_got_frame);
-                memcpy(tmpData, result, i_got_frame);
-                //            if(mySound)
-                //                [mySound openAudioFromQueue:(unsigned char*)result dataSize:i_got_frame];
-                if(mPlayer){
-                    [mPlayer playAudio:tmpData length:i_got_frame];
-                }
-                
-                //            [delegate playAudio:(unsigned char*)tmpData dataSize:i_got_frame];
-                
-                if(tmpData != NULL)
-                {
-                    free(tmpData);
-                    tmpData = NULL;
-                }
-            }
-        }
-    }
+    av_packet_unref(&avpkt);
     
-/*
-
-//    int i_got_frame = AVCODEC_MAX_AUDIO_FRAME_SIZE;
-//    int16_t decoded_Data[192000];
-//    len = avcodec_decode_audio3(context, (int16_t *)decoded_Data, &i_got_frame, &avpkt);
-//    [mySound openAudioFromQueue:(unsigned char*)decoded_Data dataSize:i_got_frame];
-//    NSLog(@"%d ,%d",i_got_frame ,len);
-    
-
-//    [mySound openAudioFromQueue:(unsigned char*)decoded_Data dataSize:i_got_frame];
-//
-//    if(decoded_Data != NULL)
-//    {
-//        free(decoded_Data);
-//        decoded_Data = NULL;
-//    }
-//   decoded_frame->data
-//    NSData *tmpdata = [NSData dataWithBytes:decoded_frame->data length:length*2];
-//    [myHandle seekToEndOfFile];
-//    [myHandle writeData:tmpdata];
-//
-//    if(len != 0 )
-//    {
-//        alBufferi(outputBuffer, AL_FREQUENCY, 44100);
-//        alBufferi(outputBuffer, AL_CHANNELS, 2);
-//        alBufferi(outputBuffer, AL_SIZE, length*2);
-//        alBufferi(outputBuffer, AL_BITS, 16);
-//        alBufferData(outputBuffer, AL_FORMAT_STEREO16, decoded_frame->data, length*2, 44100);
-////        NSLog(@"Decode frame out size = %d",len);
-//        alSourcei(outputSource, AL_BUFFER, outputBuffer);
-//        alSourcePlay(outputSource);
-//        
-//    }
-//    
-//
-//
-//    av_free(decoded_frame);
-//    av_free(context);
-    
-*/
     if (decoded_frame)
-//        avcodec_free_frame(&decoded_frame);
         av_frame_free(&decoded_frame);
-//    av_free_packet(&avpkt);
     av_packet_unref(&avpkt);
 }
+
+////setup_array函数摘自ffmpeg例程
+//static void setup_array(uint8_t* out[SWR_CH_MAX], AVFrame* in_frame, int format, int samples)
+//{
+//    if (av_sample_fmt_is_planar((AVSampleFormat)format))
+//    {
+//        int i;
+//        int plane_size = av_get_bytes_per_sample((AVSampleFormat)(format & 0xFF)) * samples;
+//        format &= 0xFF;
+//        //从decoder出来的frame中的data数据不是连续分布的，所以不能这样写：in_frame->data[0]+i*plane_size;
+//        for (i = 0; i < in_frame->channels; i++)
+//        {
+//            out[i] = in_frame->data[i];
+//        }
+//    }
+//    else
+//    {
+//        out[0] = in_frame->data[0];
+//    }
+//}
 
 -(void) stopDecode
 {
@@ -364,8 +435,6 @@
 
 -(void) dealloc
 {
-    [mySound stopSound];
-    [mySound cleanUpOpenAL];
     if (context) {
         avcodec_free_context(&context);
         context = NULL;
