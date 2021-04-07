@@ -23,7 +23,7 @@ static id master = nil;
     return master;
 }
 
--(id)init{
+- (id)init {
     if ((self = [super init])) {
         currentLanguage = nil;
         currentLanguageBundle = nil;
@@ -42,14 +42,14 @@ static id master = nil;
     return self;
 }
 
--(void)setLanguage:(NSString *)languageName{
+- (void)setLanguage:(NSString *)languageName {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *path = [self getPathWithLanguage:languageName];
     if (path) {
         currentLanguageBundle = [NSBundle bundleWithPath:path];
         currentLanguage = languageName;
         [userDefaults setObject:languageName forKey:SETTING_LANGUALE_KEY];
-    }else{
+    } else {
         currentLanguage = nil;
         currentLanguageBundle = nil;
         [userDefaults removeObjectForKey:SETTING_LANGUALE_KEY];
@@ -57,7 +57,7 @@ static id master = nil;
     [userDefaults synchronize];
 }
 
--(NSString*)stringFor:(NSString *)srcString{
+- (NSString*)stringFor:(NSString *)srcString {
     
     if (currentLanguageBundle) {
         return NSLocalizedStringFromTableInBundle(srcString, nil, currentLanguageBundle, nil);
@@ -65,7 +65,7 @@ static id master = nil;
     return NSLocalizedString(srcString, nil);
 }
 
--(NSString *)getLanguageIDWithLanguageName:(NSString *)languageName{
+- (NSString *)getLanguageIDWithLanguageName:(NSString *)languageName {
     if ([languageName isEqualToString:NSLocalizedString(@"LANGUAGE_EN", nil)])
     {
         return LANGUAGE_ENGLISH_SHORT_ID;
@@ -81,7 +81,7 @@ static id master = nil;
     return nil; //is Auto
 }
 
--(NSString*)getPathWithLanguage:(NSString *)languageName{
+- (NSString *)getPathWithLanguage:(NSString *)languageName {
     NSString* languageID = [self getLanguageIDWithLanguageName:languageName];
     if (languageID) {
         return [[NSBundle mainBundle] pathForResource:languageID ofType:@"lproj"];

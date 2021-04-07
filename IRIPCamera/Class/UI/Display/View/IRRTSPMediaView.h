@@ -17,11 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class DeviceClass;
 
-@interface IRRTSPMediaView : UIView<IRStreamControllerDelegate>
+@interface IRRTSPMediaView : UIView <IRStreamControllerDelegate>
 {
     UIImageView *imageView;
     BOOL m_blnStopStreaming;
-
+    
 }
 @property (weak, nonatomic) IBOutlet UIView *m_titleBackground;
 @property (weak, nonatomic) IBOutlet UILabel *m_lblTitle;

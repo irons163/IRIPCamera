@@ -10,7 +10,7 @@
 
 @implementation NSLayoutConstraint (Multiplier)
 
--(instancetype)updateMultiplier:(CGFloat)multiplier {
+- (instancetype)updateMultiplier:(CGFloat)multiplier {
     
     [NSLayoutConstraint deactivateConstraints:[NSArray arrayWithObjects:self, nil]];
     
@@ -24,4 +24,5 @@
     //NSLayoutConstraint.activateConstraints([newConstraint])
     return newConstraint;
 }
+
 @end

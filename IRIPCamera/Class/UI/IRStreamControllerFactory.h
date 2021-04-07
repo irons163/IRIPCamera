@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IRStreamControllerFactory : NSObject
 
-+ (IRStreamController*)createStreamControllerByRequset:(IRStreamConnectionRequest*)request;
++ (IRStreamController *)createStreamControllerByRequset:(IRStreamConnectionRequest *)request;
 
 @end
 

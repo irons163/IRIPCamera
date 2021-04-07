@@ -10,6 +10,6 @@
 
 @interface addressConnector : HttpAPICommander<StaticHttpRequestDelegate>
 
-
 -(void) startLoginToDeviceWithGetStringInfo:(BOOL) _blnGetStreamInfo IgnoreLoginCache:(BOOL)_blnIgnoreLoginCache;
+
 @end

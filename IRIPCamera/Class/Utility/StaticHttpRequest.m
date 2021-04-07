@@ -35,12 +35,12 @@ static dispatch_once_t p = 0;
 
 +(id)sharedInstance
 {
-//    if (!master) {
-//        master = [self alloc];
-//        master = [master init];
-//        NSLog(@"StaticHttpRequest Got New!!");
-//    }
-//    return master;
+    //    if (!master) {
+    //        master = [self alloc];
+    //        master = [master init];
+    //        NSLog(@"StaticHttpRequest Got New!!");
+    //    }
+    //    return master;
     dispatch_once(&p, ^{
         master = [[self alloc] init];
     });
@@ -116,13 +116,13 @@ static dispatch_once_t p = 0;
                                   target:_target];
     }else{
         [self doJsonHttpsRequestWithToken:_token
-                            externalLink:_externalLink
-                                     Url:URL
-                                  method:_method
-                                postData:_postData
-                              callbackID:_callback
-                                  Scheme:@"https"
-                                  target:_target];
+                             externalLink:_externalLink
+                                      Url:URL
+                                   method:_method
+                                 postData:_postData
+                               callbackID:_callback
+                                   Scheme:@"https"
+                                   target:_target];
     }
     
 }
@@ -180,13 +180,13 @@ static dispatch_once_t p = 0;
             [connection cancel];
             connection = nil;
             [self doJsonHttpsRequestWithToken:_token
-                                externalLink:_externalLink
-                                         Url:[redirectURL absoluteString]
-                                      method:_method
-                                    postData:_postData
-                                  callbackID:_callback
-                                      Scheme:_scheme
-                                      target:_target];
+                                 externalLink:_externalLink
+                                          Url:[redirectURL absoluteString]
+                                       method:_method
+                                     postData:_postData
+                                   callbackID:_callback
+                                       Scheme:_scheme
+                                       target:_target];
             return nil;
         }
         return request;
@@ -365,7 +365,7 @@ static dispatch_once_t p = 0;
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-
+    
 }
 
 @end

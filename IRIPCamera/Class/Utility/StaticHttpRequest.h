@@ -56,12 +56,12 @@ typedef enum _deviceType
 //                         target:(id<StaticHttpRequestDelegate>)_target;
 
 -(void)doJsonRequestWithToken:(NSString*)_token
-                     externalLink:(NSString*)_externalLink
-                              Url:(NSString *)_url
-                           method:(NSString *)_method
-                         postData:(NSData *)_postData
-                       callbackID:(NSUInteger)_callback
-                           target:(id<StaticHttpRequestDelegate>)_target;
+                 externalLink:(NSString*)_externalLink
+                          Url:(NSString *)_url
+                       method:(NSString *)_method
+                     postData:(NSData *)_postData
+                   callbackID:(NSUInteger)_callback
+                       target:(id<StaticHttpRequestDelegate>)_target;
 
 -(void)doDownloadtoPath:(NSString*)_path
                     url:(NSString*)_url

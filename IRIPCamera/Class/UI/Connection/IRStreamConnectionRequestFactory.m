@@ -11,14 +11,14 @@
 
 @implementation IRStreamConnectionRequestFactory
 
-+(NSArray<IRStreamConnectionRequest*> *)createStreamConnectionRequest{
++ (NSArray<IRStreamConnectionRequest *> *)createStreamConnectionRequest {
     NSMutableArray *m_aryDevices = [NSMutableArray array];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if([[userDefaults objectForKey:ENABLE_RTSP_URL_KEY] boolValue]){
+    if ([[userDefaults objectForKey:ENABLE_RTSP_URL_KEY] boolValue]) {
         IRStreamConnectionRequest *request = [[IRStreamConnectionRequest alloc] init];
         request.rtspUrl = [userDefaults objectForKey:RTSP_URL_KEY];
         [m_aryDevices addObject:request];
-    }else{
+    } else {
         DeviceClass *device = [[DeviceClass alloc] init];
         IRCustomStreamConnectionRequest *request = [[IRCustomStreamConnectionRequest alloc] init];
         request.device = device;

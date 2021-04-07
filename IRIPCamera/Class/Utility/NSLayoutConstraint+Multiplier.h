@@ -10,5 +10,6 @@
 
 @interface NSLayoutConstraint (Multiplier)
 
--(instancetype)updateMultiplier:(CGFloat)multiplier;
+- (instancetype)updateMultiplier:(CGFloat)multiplier;
+
 @end

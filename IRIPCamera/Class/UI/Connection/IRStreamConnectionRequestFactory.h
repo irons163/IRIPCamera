@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface IRStreamConnectionRequestFactory : NSObject
 
-+(NSArray<IRStreamConnectionRequest*> *)createStreamConnectionRequest;
++ (NSArray<IRStreamConnectionRequest *> *)createStreamConnectionRequest;
 
 @end
 
