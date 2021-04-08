@@ -22,13 +22,16 @@ BOOL back = NO;
 @interface RTSPReceiver(privatemethod)
 - (void) HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration;
 - (void) HandleForMPEG4Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration;
-- (void) handleForAudio:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration;
+-(void) handleForAudio:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration;
 - (void) checkLastReceiveTime;
 
+-(void)handleNotification:(NSNotification *)pNotification;
+-(void)handleNotification1:(NSNotification *)pNotification;
 @end
 
 @implementation RTSPReceiver
-- (void)dealloc {
+-(void) dealloc
+{
     if(p_VideoExtra != NULL)
         free(p_VideoExtra);
     
@@ -46,7 +49,8 @@ BOOL back = NO;
     }
 }
 
-- (NSUInteger)startConnection {
+-(NSUInteger) startConnection
+{
     
     m_blnReceiveFirstIFrame = NO;
     self.m_blnPlaySuccess = NO;
@@ -65,6 +69,10 @@ BOOL back = NO;
     if(!m_PPSFrame)
         m_PPSFrame = [[FrameBaseClass alloc] init];
     
+    //    m_strDeviceIP = @"rtsp://192.168.3.100:554/live/ch01_0"; //GM SOHO
+    //    m_strDeviceIP = @"rtsp://192.168.1.100:554/live/ch01_0"; //GM SOHO
+    //    m_FPS = 30;
+    
     m_strURL = [NSString stringWithFormat:@"%@",m_strDeviceIP];
     
     NSURL *tmpURL = [NSURL URLWithString:m_strURL];
@@ -77,19 +85,27 @@ BOOL back = NO;
     i_AudioExtra = 0;
     p_AudioExtra = NULL;
     
-    do {
-        if (m_RTSPClient == nil) {
+    //    if(!m_blnPlayingAudio)
+    //        m_blnPlayingAudio = NO;//default close auction function
+    
+    do
+    {
+        if(m_RTSPClient == nil)
+        {
             UintRtn = INIT_RTSPCLIENT_SESSION_FAIL;
             break;
         }
         
-        if (![m_RTSPClient setupWithTCP:self.m_blnUseTCP]) {
+        if(! [m_RTSPClient setupWithTCP:self.m_blnUseTCP])
+            //        if(! [m_RTSPClient setupWithTCP:YES])
+        {
             UintRtn = SETUP_RTSPCLIENT_SESSION_FAIL;
             break;
         }
     } while (0);
     
-    if (m_RTSPClient) {
+    if(m_RTSPClient)
+    {
         m_RTSPClient = nil;
     }
     //    [super stopConnection:back];
@@ -97,7 +113,8 @@ BOOL back = NO;
     return UintRtn;
 }
 
-- (BOOL) stopConnection:(BOOL) _blnForever {
+-(BOOL) stopConnection:(BOOL) _blnForever
+{
     signal(SIGPIPE, SIG_IGN);
     if(self.m_blnReceiving)
     {
@@ -109,15 +126,18 @@ BOOL back = NO;
             }
     }
     
+    
     [m_RTSPClient shutdownStream];
-
+    //    [[StaticHttpRequest sharedInstance] sleepWithTimeInterval:5.0f];
     back = _blnForever;
     
     [super stopConnection:_blnForever];
     int icount = 0;
-    if (self.m_blnPlaySuccess) {
-        while (m_RTSPClient) {
-            if (icount >= 100) // Total wait == 0.01 * 100
+    if(self.m_blnPlaySuccess)
+    {
+        while(m_RTSPClient)
+        {
+            if(icount >=100)
                 break;
             signal(SIGPIPE, SIG_IGN);
             [[StaticHttpRequest sharedInstance] sleepWithTimeInterval:0.01f Function:__func__ Line:__LINE__ File:(char*)__FILE__];
@@ -128,13 +148,23 @@ BOOL back = NO;
     return YES;
 }
 
-- (void)startHandleStream {
+
+-(void) stopHandleStream
+{
+    [self.m_VideoDecoder setShowImageOrNot:NO];
+    m_blnProcessData = NO;
+    m_blnReceiveFirstIFrame = NO;
+}
+-(void) startHandleStream
+{
     [self.m_VideoDecoder setShowImageOrNot:YES];
     m_blnProcessData = YES;
 }
 
+
 #pragma RTSPClientSession delegate
-- (void)tearDownCallback {
+-(void) tearDownCallback
+{
     if(m_RTSPClient)
     {
         m_RTSPClient = nil;
@@ -142,10 +172,13 @@ BOOL back = NO;
     //    [super stopConnection:back];
 }
 
-- (void)videoCallbackByCodec:(NSString *)_codec extraData:(NSData *)_extra {
+-(void) videoCallbackByCodec:(NSString *)_codec extraData:(NSData *)_extra
+{
     m_VideoCodec = [NSString stringWithFormat:@"%@",_codec];
+    
     [self setVideoCodecWithCodecString:_codec];
-    if ([m_VideoCodec isEqualToString:@"MP4V-ES"]) {
+    if ([m_VideoCodec isEqualToString:@"MP4V-ES"])
+    {
         i_VideoExtra = (unsigned int)[_extra length];
         p_VideoExtra = (uint8_t*)malloc([_extra length]);
         memset(p_VideoExtra, 0, i_VideoExtra);
@@ -154,26 +187,32 @@ BOOL back = NO;
     }
     
     [self.m_VideoDecoder startDecode];
+    
 }
 
-- (void)audioCallbackByCodec:(NSString *)_codec sampleRate:(int)_sampleRate ch:(int)_ch extraData:(NSData *)_extra {
+-(void) audioCallbackByCodec:(NSString *)_codec sampleRate:(int)_sampleRate ch:(int)_ch extraData:(NSData *)_extra
+{
     m_AudioCodec = [NSString stringWithFormat:@"%@",_codec];
+    //    NSLog(@"%@",m_AudioCodec);
     self.m_SampleRate = _sampleRate;
     self.m_Channel = _ch;
     [self setAudioCodecWithCodecString:m_AudioCodec];
     
-    if ([m_AudioCodec isEqualToString:@"MPEG4-GENERIC"]) {
+    if ([m_AudioCodec isEqualToString:@"MPEG4-GENERIC"])
+    {
         i_AudioExtra = (unsigned int)[_extra length];
         p_AudioExtra = (uint8_t*)malloc([_extra length]);
         memset(p_AudioExtra, 0, i_AudioExtra);
         memcpy(p_AudioExtra, (uint8_t*)[_extra bytes], i_AudioExtra);
         [self.m_audioDecoder setExtraData:[_extra length] extraData:(uint8_t*)[_extra bytes]];
+//        _ch = 1;// for GM SOHO unknow why
     }
     
     [self.m_audioDecoder setAudioDecodeSampleRate:_sampleRate channels:_ch];
 }
 
-- (void)startPlayCallback {
+-(void) startPlayCallback
+{
     self.m_blnPlaySuccess = YES;
     if(!self.m_blnReceiving)
     {
@@ -184,9 +223,11 @@ BOOL back = NO;
     }
 }
 
-- (void)rtspFailCallbackByErrorCode:(int)_code msg:(NSString *)_strmsg {
+-(void) rtspFailCallbackByErrorCode:(int)_code msg:(NSString *)_strmsg
+{
     [self.eventDelegate videoLoss:self  ErrorCode:_code msg:[NSString stringWithFormat:@"%@",_strmsg]];
 }
+
 
 -(void) didReceiveFrame:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration codecName:(NSString *)_codecName
 
@@ -241,40 +282,55 @@ BOOL back = NO;
 
 @implementation RTSPReceiver(privatemethod)
 
-- (void)handleForAudio:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration {
+-(void) handleForAudio:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration
+{
     
     if(self.m_blnPlayingAudio && iFlag == 1 && self.m_audioDecoder)
         [self.m_audioDecoder decodeAudioFromSource:frameData length:frameDataLength];
+    
+    //    NSLog(@"self.m_blnPlayingAudio=%d, iFlag=%d", self.m_blnPlayingAudio , iFlag);
 }
 
-- (void)HandleForMPEG4Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration {
-    VideoFrame *tmpVideoFrame = [[VideoFrame alloc] init];
-    tmpVideoFrame.m_uintFrameLenth = frameDataLength + AV_INPUT_BUFFER_PADDING_SIZE;
-    
-    if (frameData[0] == 0x00 && frameData[1] ==0x00 && frameData[2] == 0x01) {
-        if ((frameData[4] & 0x40) == 0x00) {
-            tmpVideoFrame.m_intFrameType = VIDEO_I_FRAME;
-            if(!self.m_blnReceiveFirstIFrame)
-                [self.eventDelegate connectSuccess:self];
-            m_blnReceiveFirstIFrame = YES;
-            pCount = 0;
-        } else if ((frameData[4] & 0x40) == 0x40) {
-            tmpVideoFrame.m_intFrameType = VIDEO_P_FRAME;
-            pCount++;
-        }
+- (void) HandleForMPEG4Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration
+{
+    //    @synchronized(self.m_VideoDecoder.m_FrameBuffer.self)
+    {
+        VideoFrame *tmpVideoFrame = [[VideoFrame alloc] init];
+        tmpVideoFrame.m_uintFrameLenth = frameDataLength + AV_INPUT_BUFFER_PADDING_SIZE;
         
-        tmpVideoFrame.m_pRawData = (uint8_t *)malloc(frameDataLength + AV_INPUT_BUFFER_PADDING_SIZE);
-        tmpVideoFrame.m_intFrameSEQ = pCount;
-        memcpy(tmpVideoFrame.m_pRawData, frameData, (int)frameDataLength);
-        
-        if (m_blnReceiveFirstIFrame) {
-            [self.m_VideoDecoder.m_FrameBuffer addFrameIntoBuffer:tmpVideoFrame];
+        //        if(frameData[0] == 0x00 && frameData[1] ==0x00 && frameData[2] == 0x01 && frameData[3] == 0xB6)
+        if(frameData[0] == 0x00 && frameData[1] ==0x00 && frameData[2] == 0x01)
+        {
+            if((frameData[4] & 0x40) == 0x00)
+            {
+                tmpVideoFrame.m_intFrameType = VIDEO_I_FRAME;
+                if(!self.m_blnReceiveFirstIFrame)
+                    [self.eventDelegate connectSuccess:self];
+                m_blnReceiveFirstIFrame = YES;
+                pCount = 0;
+            }
+            else if ((frameData[4] & 0x40) == 0x40)
+            {
+                tmpVideoFrame.m_intFrameType = VIDEO_P_FRAME;
+                pCount++;
+            }
+            
+            tmpVideoFrame.m_pRawData = (uint8_t *)malloc(frameDataLength + AV_INPUT_BUFFER_PADDING_SIZE);
+            tmpVideoFrame.m_intFrameSEQ = pCount;
+            memcpy(tmpVideoFrame.m_pRawData, frameData, (int)frameDataLength);
+            
+            if (m_blnReceiveFirstIFrame)
+            {
+                [self.m_VideoDecoder.m_FrameBuffer addFrameIntoBuffer:tmpVideoFrame];
+            }
+            tmpVideoFrame = nil;
         }
-        tmpVideoFrame = nil;
     }
 }
 
-- (void)HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration {
+
+-(void)HandleForH264Video:(const uint8_t *)frameData frameDataLength:(int)frameDataLength presentationTime:(struct timeval)presentationTime durationInMicroseconds:(unsigned int)duration
+{
     // For VideoToolBox(NV12)
     m_FPS = 30;
     do {
@@ -283,9 +339,11 @@ BOOL back = NO;
         if(iType == 0X1 && frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice
             iType = 0x5;
         
+        
         NSString *tmpType = @"";
         VideoFrame *tmpVideoFrame=nil;
-        if (iType == 0X7) { //SPS
+        if(iType == 0X7)//SPS
+        {
             if(m_SPSFrame.m_pRawData != NULL) // just need once
                 break;
             
@@ -298,8 +356,10 @@ BOOL back = NO;
             memcpy(m_SPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
             [self.m_VideoDecoder setSPSFrame:m_SPSFrame];
             break;
-        } else if (iType == 0X8) { //pps
-            if (m_PPSFrame.m_pRawData != NULL) // just need once
+        }
+        else if(iType == 0X8)//pps
+        {
+            if(m_PPSFrame.m_pRawData != NULL) // just need once
                 break;
             tmpType = @"PPS";
             
@@ -310,7 +370,9 @@ BOOL back = NO;
             memcpy(m_PPSFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
             [self.m_VideoDecoder setPPSFrame:m_PPSFrame];
             break;
-        } else if (iType == 0X5) { //I-Frame
+        }
+        else if(iType == 0X5)//I-Frame
+        {
             if(m_PPSFrame.m_pRawData == NULL || m_SPSFrame.m_pRawData == NULL)
                 break;
             
@@ -332,13 +394,17 @@ BOOL back = NO;
                 [self.eventDelegate connectSuccess:self];
             
             self.m_blnReceiveFirstIFrame = YES;
-        } else if (iType == 0X1) { //P-Frame
-            pCount++;
             
+        }
+        else if(iType == 0X1)//P-Frame
+        {
+            pCount++;
+
             tmpVideoFrame = [[VideoFrame alloc] init];
             tmpType = @"P-frame";
             
-            if (!m_blnReceiveFirstIFrame) {
+            if (!m_blnReceiveFirstIFrame)
+            {
                 break;
             }
             
@@ -346,26 +412,37 @@ BOOL back = NO;
             tmpVideoFrame.m_intFrameType = VIDEO_P_FRAME;
             tmpVideoFrame.m_uintFrameLenth = sizeof(m_aryH264StartCode) + frameDataLength ;
             tmpVideoFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + frameDataLength );
-            if (tmpVideoFrame.m_pRawData) {
+            if(tmpVideoFrame.m_pRawData)
+            {
                 memcpy(tmpVideoFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
                 memcpy(tmpVideoFrame.m_pRawData + sizeof(m_aryH264StartCode), frameData, frameDataLength);
             }
+            
         }
-        
         self.m_blnReceiving = YES;
         
-        if (self.m_VideoDecoder.m_FrameBuffer && tmpVideoFrame && frameData && self.m_blnReceiving)
-            if ([self.m_VideoDecoder.m_FrameBuffer respondsToSelector:@selector(addFrameIntoBuffer:)]) {
+        
+        if(self.m_VideoDecoder.m_FrameBuffer && tmpVideoFrame && frameData && self.m_blnReceiving)
+            if ([self.m_VideoDecoder.m_FrameBuffer respondsToSelector:@selector(addFrameIntoBuffer:)])
+            {
+                
                 tmpVideoFrame.m_uintVideoTimeSec = presentationTime.tv_sec;
                 tmpVideoFrame.m_uintVideoTimeUSec = presentationTime.tv_usec;
                 
+                //                NSLog(@"pFrame Count = %d",pCount);
+                
+                
                 [self.m_VideoDecoder.m_FrameBuffer addFrameIntoBuffer:tmpVideoFrame];
-
+                
+                
+                
                 int jumpStartCode = sizeof(m_aryH264StartCode);
                 int iJump = 4;
                 
                 if(iType == 0X5)
                     iJump += m_SPSFrame.m_uintFrameLenth + m_PPSFrame.m_uintFrameLenth ;
+                
+                
             }
         
         tmpVideoFrame = nil;
@@ -373,7 +450,8 @@ BOOL back = NO;
     } while (0);
 }
 
-- (void) checkLastReceiveTime {
+- (void) checkLastReceiveTime
+{
     NSDate *currentTime;
     CGFloat fWaitingTime = WAITTING_TIME;
     self.m_blnReceiving = YES;
@@ -381,15 +459,18 @@ BOOL back = NO;
     if(!self.m_blnUseTCP)
         fWaitingTime = WAITTING_TIME;
     
-    while (self.m_blnReceiving) {
+    while (self.m_blnReceiving)
+    {
         currentTime = [NSDate date];
+        //       NSLog(@"last receive time%f",[currentTime timeIntervalSince1970] -m_LastReceivetime);
         CGFloat waittingTime = [currentTime timeIntervalSince1970] -m_LastReceivetime;
         
         if (waittingTime > 1.0) {
             NSLog(@"Waiting Time : %f",waittingTime);
         }
         
-        if (waittingTime > fWaitingTime) {
+        if(waittingTime > fWaitingTime)
+        {
             [eventDelegate videoLoss:self  ErrorCode:-99 msg:@"Waiting Time Out."];
             
         }
@@ -397,4 +478,42 @@ BOOL back = NO;
     }
 }
 
+
+-(void)handleNotification:(NSNotification *)pNotification
+{
+    [self stopHandleStream];
+    iFlag = 0;
+    //    if(m_blnPlayingAudio)
+    {
+        //        m_blnPlayingAudio = NO;
+        
+        if(self.m_audioDecoder )
+        {
+            //        [m_audioDecoder stopDecode];
+            self.m_audioDecoder = nil;
+            
+        }
+        else
+        {
+            NSLog(@"m_audioDecoder error");
+        }
+    }
+    
+    
+}
+
+-(void)handleNotification1:(NSNotification *)pNotification
+{
+    [self startHandleStream];
+    
+    if(!iFlag )
+    {
+        self.m_audioDecoder = [[AudioDecoder alloc] initAudioDecode];
+        
+        [self setAudioCodecWithCodecString:m_AudioCodec];
+        [self.m_audioDecoder setAudioDecodeSampleRate:m_SampleRate  channels:m_Channel];
+        //        m_blnPlayingAudio = YES;
+    }
+    iFlag = 1;
+}
 @end
