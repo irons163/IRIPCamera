@@ -40,10 +40,6 @@
         m_blnUseTCP = YES;
         m_blnStopforever = NO;
         m_blnShowAuthorityAlert = NO;
-        
-        m_connected = NO;
-        m_micSupport = NO;
-        m_speakerSupport = NO;
     }
     return self;
 }
@@ -69,7 +65,7 @@
 }
 
 - (void)startStreamingWithResponse:(IRStreamConnectionResponse *)response {
-    if (modes == nil && ([response.deviceModelName isEqualToString:@"EWS1255"] || [response.deviceModelName isEqualToString:@"EWS1255CAM"])) {
+    if (modes == nil && [response.deviceModelName isEqualToString:@"FisheyeCAM"]) {
         if(!parameter)
             parameter = [[IRFisheyeParameter alloc] initWithWidth:1440 height:1024 up:NO rx:510 ry:510 cx:680 cy:524 latmax:75];
         modes = [self createFisheyeModesWithParameter:parameter];
@@ -77,7 +73,6 @@
             [self.eventDelegate updatedVideoModes];
         }
     } else if (modes == nil) {
-        //        modes = [KxMovieGLRenderModeFactory createNormalModesWithParameter:parameter];
         if(self.eventDelegate && [self.eventDelegate respondsToSelector:@selector(updatedVideoModes)]){
             [self.eventDelegate updatedVideoModes];
         }
@@ -109,9 +104,8 @@
             
             [self->m_RTSPStreamer setEventDelegate:self];
             
-            if(!self->m_RTSPStreamer.m_VideoDecoder.showView)
-            {
-                [self->m_RTSPStreamer setDisplayUIImageView:self.m_videoView.videoInput activityLoading:nil];
+            if (!self->m_RTSPStreamer.m_VideoDecoder.showView) {
+                [self->m_RTSPStreamer setDisplayUIImageView:self.m_videoView.videoInput];
             }
             
             [self->m_RTSPStreamer setChannel:self->m_Channel];
@@ -164,47 +158,31 @@
     
     if (m_RTSPStreamer)
     {
-        //        dispatch_async(streamingQueue, ^{
+        //dispatch_async(streamingQueue, ^{
         [m_RTSPStreamer stopConnection:_blnStopForever];
-        //        });
+        //});
     }
     
     return [streamConnector stopStreaming:_blnStopForever];
 }
 
 - (void)dealloc {
-    if(m_RTSPStreamer)
-    {
+    if (m_RTSPStreamer) {
         [m_RTSPStreamer stopConnection:YES];
         m_RTSPStreamer = nil;
     }
-    
-    //    [((KxMovieGLView*)self.m_videoView) closeGLView];
 }
 
 - (void)videoLossWithErrorCode:(int)_code msg:(NSString *)_strmsg {
     NSLog(@"videoLossWithErrorCode: %d msg: %@",_code,_strmsg);
     
-    if(m_deviceInfo.m_httpCMDAddress) {
-        if(!m_blnStopStreaming && !m_blnStopforever) {
-            //            if (m_blnUseTCP == NO)
-            //            {
-            //                m_blnUseTCP = YES;
-            //            }
-            
-            //            dispatch_async(streamingQueue, ^{
-            //            [m_RTSPStreamer stopConnection:NO];
-            //            });
-            
+    if (m_deviceInfo.m_httpCMDAddress) {
+        if (!m_blnStopStreaming && !m_blnStopforever) {
             [streamConnector stopStreaming:m_blnStopforever];
             
-            if(m_ReconnectTimes < MAX_RETRY_TIMES)
-            {
+            if (m_ReconnectTimes < MAX_RETRY_TIMES) {
                 [self performSelectorOnMainThread:@selector(reconnectToDevice) withObject:nil waitUntilDone:NO];
-            }
-            else
-            {
-                //                [self performSelectorOnMainThread:@selector(showReconnectFailByType:) withObject:[NSNumber numberWithInt:_code] waitUntilDone:NO];
+            } else {
                 dispatch_async(dispatch_get_main_queue(), ^(void) {
                     [self showStreamingFailByType:_code];
                 });
@@ -227,7 +205,7 @@
     NSLog(@"Video connect success");
     m_ReconnectTimes = 0;
     m_blnStopStreaming = NO;
-    [self showHideLoading:YES MicSupport:m_micSupport SpeakerSupport:m_speakerSupport];
+    [self showHideLoading:YES];
 }
 
 - (void)onResolutionChange {
@@ -330,18 +308,6 @@
     return m_deviceInfo.m_streamNO;
 }
 
-- (BOOL)CheckConnectStatus {
-    return m_connected;
-}
-
-- (BOOL)CheckMicSupport {
-    return m_micSupport;
-}
-
-- (BOOL)CheckSpeakerSupport {
-    return m_speakerSupport;
-}
-
 - (NSArray<IRGLRenderMode *> *)getRenderModes {
     return [self.m_videoView renderModes];
 }
@@ -374,12 +340,10 @@
     
 }
 
-- (void)showHideLoading:(BOOL)_connected MicSupport:(BOOL)_micSupport SpeakerSupport:(BOOL)_speakerSupport {
+- (void)showHideLoading:(BOOL)_connected {
     dispatch_async(dispatch_get_main_queue(), ^(void) {
-        m_connected = _connected;
         if (_connected) {
-            [self.eventDelegate connectReslt:self Connection:YES MicSupport:_micSupport SpeakerSupport:_speakerSupport];
-            
+            [self.eventDelegate connectReslt:self Connection:YES MicSupport:NO SpeakerSupport:NO];
         }else{
             [self.eventDelegate connectReslt:self Connection:NO MicSupport:NO SpeakerSupport:NO];
         }
@@ -441,7 +405,7 @@
     
     [self.eventDelegate showErrorMessage:strShow];
     
-    [self showHideLoading:NO MicSupport:NO SpeakerSupport:NO];
+    [self showHideLoading:NO];
 }
 
 - (void)showStreamingFailByType:(NSInteger)_iType {
@@ -450,7 +414,7 @@
     strShow = [NSString stringWithFormat:@"%@(%ld)", strShow, (long)_iType];
     [self.eventDelegate showErrorMessage:strShow];
     
-    [self showHideLoading:NO MicSupport:NO SpeakerSupport:NO];
+    [self showHideLoading:NO];
 }
 
 - (int)getErrorCode {

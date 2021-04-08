@@ -15,9 +15,6 @@
 #define DEVICE_USER_EMPTY           0X10
 #define DEVICE_PWD_EMPTY            0x20
 
-#define ICON_PADDING 8.0f
-#define TABLE_TOP_PADDING 14.0f
-#define ADDICONMARGIN 7.0f
 #define DEVICE_DATACOUNT 6
 
 @interface IRRTSPSettingsViewController ()<UITextFieldDelegate>
@@ -25,29 +22,29 @@
 @end
 
 @interface IRRTSPSettingsViewController (Private)
--(void) showMessageByTitle:(NSString *) _AlertViewtitle message:(NSString *) _message;
--(NSInteger) checkEditData;
--(void) setNavigationBarItems;
--(void) handleWillShowNotification:(NSNotification *)pNotification;
--(void) backButtonPressed;
--(void) doneButtonPress;
--(void) adjustUI;
+
+- (void)showMessageByTitle:(NSString *)_AlertViewtitle message:(NSString *)_message;
+- (NSInteger)checkEditData;
+- (void)setNavigationBarItems;
+- (void)backButtonPressed;
+- (void)doneButtonPress;
+
 @end
 
 @implementation IRRTSPSettingsViewController
+
 @synthesize m_scrolltoIndex;
 @synthesize m_deviceInfo;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
 
-- (CGRect)getScreenSize{
+- (CGRect)getScreenSize {
     CGRect rtnRect;
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -57,8 +54,7 @@
     CGFloat setWidth = screenWidth;
     
     if([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeLeft
-       || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeRight)
-    {//if landscape mode , switch width and height
+       || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationLandscapeRight) {
         setHeight = screenWidth;
         setWidth = screenHeight;
     }
@@ -67,15 +63,8 @@
     return rtnRect;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(handleWillShowNotification:)
-     name:@"applicationWillEnterForeground"
-     object:nil];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
@@ -87,29 +76,22 @@
     
     [self setNavigationBarItems];
     
-    NSLog(@"device address111:%@", self.m_deviceInfo.m_deviceAddress);
     m_blnNeedCheckOnLine = NO;
-    
-    [self adjustUI];
     
     m_screenSize = [self getScreenSize];
 }
 
--(void) viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [self.navigationController.navigationBar setHidden:NO];
     
-    if(m_deviceInfo)
-    {
-        if([m_deviceInfo.m_deviceAddress length] > 0)
-        {
+    if (m_deviceInfo) {
+        if ([m_deviceInfo.m_deviceAddress length] > 0) {
             NSLog(@"m_deviceInfo.m_deviceAddress=%@", m_deviceInfo.m_strMAC);
         }
     }
 }
 
--(void) viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     CGRect tmpRect = self.view.frame;
     tmpRect.size.height = m_screenSize.size.height;
     [self.view setFrame:tmpRect];
@@ -117,25 +99,18 @@
     [self keyboardWillHide:nil];
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+- (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
     [self.navigationController.navigationBar setHidden:YES];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
--(void)keyboardWillHide:(NSNotification *)aNotification
-{
+- (void)keyboardWillHide:(NSNotification *)aNotification {
     mKeyboardHeight = 0;
     
     CGRect viewrect = self.view.frame;
@@ -147,37 +122,33 @@
     [self useRtspURL:sender.isOn];
 }
 
--(void)useRtspURL:(BOOL)useRtspURL{
+- (void)useRtspURL:(BOOL)useRtspURL {
     if(useRtspURL){
         self.rtspUrlTextfield.alpha = 1.0f;
         self.rtspUrlTextfield.userInteractionEnabled = YES;
-//        self.m_tbDevice.alpha = 0.3f;
-//        self.m_tbDevice.userInteractionEnabled = NO;
+        //        self.m_tbDevice.alpha = 0.3f;
+        //        self.m_tbDevice.userInteractionEnabled = NO;
     }else{
         self.rtspUrlTextfield.alpha = 0.3f;
         self.rtspUrlTextfield.userInteractionEnabled = NO;
-//        self.m_tbDevice.alpha = 1.0f;
-//        self.m_tbDevice.userInteractionEnabled = YES;
+        //        self.m_tbDevice.alpha = 1.0f;
+        //        self.m_tbDevice.userInteractionEnabled = YES;
     }
 }
 
 @end
 
+@implementation IRRTSPSettingsViewController (Private)
 
-@implementation IRRTSPSettingsViewController(Private)
-
--(void) showMessageByTitle:(NSString *) _AlertViewtitle message:(NSString *) _message
-{
+- (void)showMessageByTitle:(NSString *)_AlertViewtitle message:(NSString *)_message {
     NSString *strCancelBtn = _(@"ButtonTextOk");
     UIAlertView *tmpAlert = [[UIAlertView alloc] initWithTitle:_AlertViewtitle message:_message
                                                       delegate:nil cancelButtonTitle:strCancelBtn
                                              otherButtonTitles:nil, nil ];
-    
     [tmpAlert show];
 }
 
--(NSInteger) checkEditData
-{
+- (NSInteger)checkEditData {
     int iRtn = 0;
     BOOL blnNameEmpty = NO;
     BOOL blnAddressEmpty = NO;
@@ -263,13 +234,10 @@
     if(blnPassowrdEmpty)
         iRtn += DEVICE_PWD_EMPTY;
     
-    
     return iRtn;
 }
 
-
--(void) setNavigationBarItems
-{
+- (void)setNavigationBarItems {
     self.title = _(@"SettingsTitle");
     
     UIButton *btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 55, 44)];
@@ -289,8 +257,7 @@
     self.navigationItem.rightBarButtonItem =rightitem;
 }
 
--(void) doneButtonPress
-{
+- (void)doneButtonPress {
     NSInteger iCheck = 0;
     NSString *strMsg = @"";
     NSString *strTitle = [NSString stringWithFormat:@"%@" ,_(@"ModifySaveError")];
@@ -310,71 +277,45 @@
         return;
     }
     
-    
-    if((iCheck = [self checkEditData]) == 0)
-    {
+    if ((iCheck = [self checkEditData]) == 0) {
         [userDefaults setBool:self.streamConnectionTypeSwitch.isOn forKey:ENABLE_RTSP_URL_KEY];
         [userDefaults setObject:self.rtspUrlTextfield.text forKey:RTSP_URL_KEY];
         [userDefaults synchronize];
         [self.delegate updatedSettings:m_deviceInfo];
         [self.navigationController popViewControllerAnimated:YES];
         strMsg = @"DB Error.";
-        [self showMessageByTitle:(NSString *) strTitle message:(NSString *) strMsg];
-    }
-    else
-    {
-        
+        [self showMessageByTitle:strTitle message:strMsg];
+    } else {
         if(iCheck & DEVICE_NAME_EMPTY)
         {
             strMsg = [strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_DeviceName")];
         }
         
-            if (iCheck & DEVICE_ADDRESS_EMPTY) {
-                strMsg=[strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_Address")];
-            }
-            
-            if(iCheck & DEVICE_HTTPPORT_EMPTY)
-            {
-                strMsg=[strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_HttpPort")];
-            }
+        if (iCheck & DEVICE_ADDRESS_EMPTY) {
+            strMsg=[strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_Address")];
+        }
         
-        if(iCheck & DEVICE_USER_EMPTY)
-        {
+        if (iCheck & DEVICE_HTTPPORT_EMPTY) {
+            strMsg=[strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_HttpPort")];
+        }
+        
+        if (iCheck & DEVICE_USER_EMPTY) {
             strMsg = [strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_UserName")];
         }
         
-        if(iCheck & DEVICE_PWD_EMPTY)
-        {
+        if (iCheck & DEVICE_PWD_EMPTY) {
             strMsg = [strMsg stringByAppendingFormat:@"%@\n",_(@"ModifyDeviceError_Password")];
         }
         
-        [self showMessageByTitle:(NSString *) strTitle message:(NSString *) strMsg];
+        [self showMessageByTitle:strTitle message:strMsg];
     }
-    
 }
 
--(void) backButtonPressed
-{
+- (void)backButtonPressed {
     if(m_currentText)
         [m_currentText resignFirstResponder];
     
-//    UIViewController *firstViewController = [self.navigationController.viewControllers objectAtIndex:0];
-//
-//
-//        [self.navigationController popToViewController:firstViewController animated:YES];
-
-//        [self dismissViewControllerAnimated:YES completion:nil];
-
     [self.navigationController popViewControllerAnimated:YES];
-}
-
--(void) adjustUI
-{
-
-}
-
--(void) handleWillShowNotification:(NSNotification *)pNotification {
-    [self performSelectorOnMainThread:@selector(adjustUI) withObject:nil waitUntilDone:NO];
 }
 
 #pragma mark - Wide Functions

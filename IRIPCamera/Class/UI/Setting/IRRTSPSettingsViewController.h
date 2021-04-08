@@ -12,27 +12,30 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol IRRTSPSettingsViewControllerDelegate <NSObject>
--(void) updatedSettings:(DeviceClass*)device;
+
+- (void)updatedSettings:(DeviceClass *)device;
+
 @end
 
-@interface IRRTSPSettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
-{
+@interface IRRTSPSettingsViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     DeviceClass *m_deviceInfo;
-    NSInteger m_iCurrentMode;               //Current mode use to display Select mode(if open from ViewEditView) or View Mode
+    NSInteger m_iCurrentMode;
     BOOL m_blnNeedCheckOnLine;
 @private
-    UITextField* m_currentText;
+    UITextField *m_currentText;
     CGRect m_screenSize;
     CGFloat mKeyboardHeight;
 }
 
 @property (weak) id<IRRTSPSettingsViewControllerDelegate> delegate;
 @property (retain, nonatomic) DeviceClass *m_deviceInfo;
+@property (nonatomic) NSInteger m_scrolltoIndex;
+
 @property (weak, nonatomic) IBOutlet UISwitch *streamConnectionTypeSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *rtspUrlTextfield;
+
 - (IBAction)streamConnectionTypeChanged:(id)sender;
 
-@property (nonatomic) NSInteger m_scrolltoIndex;
 @end
 
 NS_ASSUME_NONNULL_END

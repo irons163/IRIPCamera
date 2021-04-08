@@ -27,8 +27,8 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus) {
 @protocol IRStreamControllerDelegate <NSObject>
 
 - (void)connectReslt:(id)_videoView Connection:(BOOL)connection MicSupport:(BOOL)_micSupport SpeakerSupport:(BOOL)_speakerSupport;
-- (void)recordingFailedWithErrorCode:(NSInteger) _code desc:(NSString *) _desc;
-- (void)finishRecordingWithShowLoadingIcon:(BOOL) _blnShow;
+- (void)recordingFailedWithErrorCode:(NSInteger)_code desc:(NSString *)_desc;
+- (void)finishRecordingWithShowLoadingIcon:(BOOL)_blnShow;
 - (void)showErrorMessage:(NSString*)msg;
 - (void)streamControllerStatusChanged:(IRStreamControllerStatus)status;
 #ifdef DEV
@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus) {
 #endif
 @optional
 - (void)updatedVideoModes;
+
 @end
 
 @interface IRStreamController : NSObject {
@@ -61,14 +62,6 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus) {
     NSString* m_Token;
     
     NSString* m_errorMsg;
-    NSInteger videoRetry;
-    
-    BOOL m_connected;
-    BOOL m_micSupport;
-    BOOL m_speakerSupport;
-    
-    double tagTime;
-    double useRelayTime;
     
     NSArray *modes;
     

@@ -11,17 +11,13 @@
 #import "errorCodeDefine.h"
 @class FrameBaseClass;
 
-@interface RTSPReceiver : Receiver <RTSPClientSessionDelegate>
-{
+@interface RTSPReceiver : Receiver <RTSPClientSessionDelegate> {
     RTSPClientSession *m_RTSPClient;
     FrameBaseClass  *m_SPSFrame;
     FrameBaseClass  *m_PPSFrame;
     
-    
     BOOL m_blnProcessData;
     NSString *m_strURL;
-    
-    
     NSInteger pCount;
     char exit;
     
@@ -34,14 +30,10 @@
     NSInteger m_clientPort;
     double m_LastReceivetime;
     
-    //    NSFileHandle *myHandle;
-    //    NSString* filenameStr;
-    
     uint64_t m_preSeconds;
     uint64_t m_processSec;
-    
 }
 
--(void) stopHandleStream;
 -(void) startHandleStream;
+
 @end

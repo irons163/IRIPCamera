@@ -12,15 +12,16 @@
 //#import "FisheyeParameter.h"
 
 @protocol ReceiverDelegate <NSObject>
--(void) videoLoss:(id) _sender ErrorCode:(int)_code msg:(NSString *)_strmsg;
--(void) connectSuccess:(id) _sender;
--(void) recordingSuccessWithStatusCode : (NSInteger) _statusCode clientData:(id) _sender;
--(void) recordingFailWithStatusCode :(NSInteger) _statusCode err:(NSError *) _err clientData:(id) _sender;
--(void) onResolutionChange;
+
+- (void)videoLoss:(id) _sender ErrorCode:(int)_code msg:(NSString *)_strmsg;
+- (void)connectSuccess:(id) _sender;
+- (void)recordingSuccessWithStatusCode : (NSInteger) _statusCode clientData:(id) _sender;
+- (void)recordingFailWithStatusCode :(NSInteger) _statusCode err:(NSError *) _err clientData:(id) _sender;
+- (void)onResolutionChange;
+
 @end
 
-@interface Receiver : NSObject<VideoDecoderDelegate>
-{
+@interface Receiver : NSObject <VideoDecoderDelegate> {
     NSString    *m_strUserName;
     NSString    *m_strPassword;
     NSString    *m_strDeviceIP;
@@ -44,7 +45,6 @@
     VideoDecoder *m_VideoDecoder;
     AudioDecoder *m_audioDecoder;
     UIInterfaceOrientation m_currentOrientation;
-    UIActivityIndicatorView *m_loadingActivity;
     
     NSInteger m_Channel;
     NSInteger m_SampleRate;
@@ -83,17 +83,19 @@
 @property BOOL          m_blnReceiveFirstIFrame;
 @property BOOL        m_blnReceiveFrameFinish;
 @property BOOL        m_blnPlaySuccess;
--(id) initDeviceWithUserName:(NSString *)strUserName password:(NSString *)strPassword IP:(NSString *)strIPAddress port:(NSInteger)port useTCP:(BOOL) _useTCP FPS:(NSInteger) _ipratio;
--(void) setDeviceWithUserName:(NSString *)strUserName password:(NSString *)strPassword IP:(NSString *)strIPAddress port:(NSInteger)port;
--(void) setDisplayUIImageView:(IRFFVideoInput*) tmpView activityLoading:(UIActivityIndicatorView*) _loading;
--(NSUInteger) startConnection;
--(BOOL) stopConnection:(BOOL) _blnForever;
--(void) setCurrentOrientation:(UIInterfaceOrientation)currentOrientation;
--(void) setVideoCodecWithCodecString:(NSString*) strCodec;
--(void) setAudioCodecWithCodecString:(NSString*) strCodec;
--(void) setExtraData:(NSInteger) _iLen extraData:(uint8_t *) _extraData;
--(void) setRunLoad:(BOOL) _blnRun;
--(void) setPlayAudio:(BOOL) _blnPlay;
--(void) setChannel :(NSInteger) _ch;
--(NSInteger) getChannel;
+
+- (id) initDeviceWithUserName:(NSString *)strUserName password:(NSString *)strPassword IP:(NSString *)strIPAddress port:(NSInteger)port useTCP:(BOOL) _useTCP FPS:(NSInteger) _ipratio;
+
+- (void) setDeviceWithUserName:(NSString *)strUserName password:(NSString *)strPassword IP:(NSString *)strIPAddress port:(NSInteger)port;
+- (void) setDisplayUIImageView:(IRFFVideoInput *)tmpView;
+- (NSUInteger) startConnection;
+- (BOOL) stopConnection:(BOOL) _blnForever;
+- (void) setCurrentOrientation:(UIInterfaceOrientation)currentOrientation;
+- (void) setVideoCodecWithCodecString:(NSString*) strCodec;
+- (void) setAudioCodecWithCodecString:(NSString*) strCodec;
+- (void) setExtraData:(NSInteger) _iLen extraData:(uint8_t *) _extraData;
+- (void) setPlayAudio:(BOOL) _blnPlay;
+- (void) setChannel :(NSInteger) _ch;
+- (NSInteger) getChannel;
+
 @end
