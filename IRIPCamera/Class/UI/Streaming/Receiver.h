@@ -41,7 +41,6 @@
     BOOL        m_blnPlaySuccess;
     u_int8_t m_aryH264StartCode[4];
     
-    
     VideoDecoder *m_VideoDecoder;
     AudioDecoder *m_audioDecoder;
     UIInterfaceOrientation m_currentOrientation;
@@ -96,6 +95,5 @@
 - (void) setExtraData:(NSInteger) _iLen extraData:(uint8_t *) _extraData;
 - (void) setPlayAudio:(BOOL) _blnPlay;
 - (void) setChannel :(NSInteger) _ch;
-- (NSInteger) getChannel;
 
 @end

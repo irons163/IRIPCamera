@@ -33,11 +33,6 @@
     
     CGFloat m_ImageWidth;
     CGFloat m_ImageHeight;
-    //    CGFloat m_ViewWidth;
-    //    CGFloat m_ViewHeight;
-    
-    AVPicture m_DispPicture;
-    AVFrame *m_DecodeFrame;
     
     UIImage *m_imgShow;
     UIImage *snapImage;

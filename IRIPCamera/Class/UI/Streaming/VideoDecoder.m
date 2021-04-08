@@ -10,22 +10,15 @@
 #import "VideoDecoder.h"
 #import "errorCodeDefine.h"
 #import "StaticHttpRequest.h"
-//#import "ALAssetsLibrary+CustomPhotoAlbum.h"
-//#import "IRMovieDecoder.h"
-//#import "IRMovieGLView.h"
-//#import "CommonTools.h"
 #include "libavcodec/videotoolbox.h"
-//#import <IRPlayer/IRPlayer.h>
 
-@interface VideoDecoder(Private)
+@interface VideoDecoder (Private)
+
 -(void) startDecoding;
 -(UIImage *)imageFromAVPicture:(AVPicture)picture width:(int) width height:(int) height bitsPerPixel:(NSInteger)_bits;
--(void) changeContainerSize;
 -(NSUInteger) getCodecByCodecString:(NSString*) strCodec;
--(void) setScaler;
--(void) freeFFMPEG;
--(void) releaseDecoder;
 -(CGFloat) presentVideoFrame:(IRFFVideoFrame *) frame;
+
 @end
 
 @implementation VideoDecoder{
@@ -37,6 +30,7 @@
     FrameBaseClass* sps, *pps;
     CIContext *temporaryContext;
 }
+
 @synthesize m_FrameBuffer ,showView;
 @synthesize m_currentOrientation;
 @synthesize m_blnChangeOrientation;
@@ -48,18 +42,14 @@
 @synthesize m_ImageHeight;
 @synthesize m_ImageWidth;
 @synthesize delegate;
--(void) dealloc
-{
-    
+
+- (void)dealloc {
     [self stopDecode];
 }
 
--(id) initDecoder
-{
+- (id)initDecoder {
     m_ImageWidth = 0.0f;
     m_ImageHeight = 0.0f;
-//    m_ViewWidth = 0.0f;
-//    m_ViewHeight = 0.0f;
     
     m_blnDecoding = NO;
     m_decodeContext = NULL;
@@ -84,7 +74,6 @@
 -(void) setDisplayUIView:(IRFFVideoInput *)imageView
 {
     showView = imageView;
-    [self changeContainerSize];
 }
 
 -(void) startDecode
@@ -166,10 +155,6 @@
                 break;
             }
         } while (0);
-        
-        m_DecodeFrame = av_frame_alloc();
-        
-//        [(IRGLView*)showView setDecoder:self]; //set video decoder to GLView
     }
     
     return iRtn;
@@ -381,16 +366,6 @@
     
     if (m_decodeContext)
     {
-        // Free scaler
-        sws_freeContext(m_ScaleContext);
-        m_ScaleContext = NULL;
-        
-        // Free RGB picture
-        avpicture_free(&m_DispPicture);
-        
-        // Free the YUV frame
-        av_free(m_DecodeFrame);
-        
         do {
             [[StaticHttpRequest sharedInstance] sleepWithTimeInterval:0.3f*m_channel Function:__func__ Line:__LINE__ File:__FILE__];
             if (m_decodeContext)
@@ -525,174 +500,84 @@ void didDecompress( void *decompressionOutputRefCon, void *sourceFrameRefCon, OS
 }
 @end
 
+@implementation VideoDecoder (Private)
 
-@implementation VideoDecoder(Private)
--(NSUInteger) getCodecByCodecString:(NSString *)strCodec
-{
+- (NSUInteger)getCodecByCodecString:(NSString *)strCodec {
     NSUInteger iRtn = 0;
     
-    if([strCodec isEqualToString:@"MPV"])
-    {
+    if ([strCodec isEqualToString:@"MPV"]) {
         iRtn = AV_CODEC_ID_MPEG2VIDEO;
-    }
-    else if ([strCodec isEqualToString:@"H264"])
-    {
+    } else if ([strCodec isEqualToString:@"H264"]) {
         iRtn = AV_CODEC_ID_H264;
-    }
-    else if ([strCodec isEqualToString:@"MP4V-ES"])
-    {
+    } else if ([strCodec isEqualToString:@"MP4V-ES"]) {
         iRtn = AV_CODEC_ID_MPEG4;
-    }
-    else if ([strCodec isEqualToString:@"JPEG"])
-    {
+    } else if ([strCodec isEqualToString:@"JPEG"]) {
         iRtn = AV_CODEC_ID_MJPEG;
     }
     
-    //    NSLog(@"channel:%d[%@] codec id=[%d]",m_channel ,strCodec ,iRtn);
     return iRtn;
 }
 
-
-
--(void) startDecoding
-{
-    int i_got_picture = 0;
+- (void)startDecoding {
     m_blnStopDecodeing = NO;
-    //               NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    while (m_blnDecoding)
-    {
-        @autoreleasepool
-        {
-//            if( self.m_FrameBuffer && m_blnShowImage)
-            if(m_blnShowImage && self.m_FrameBuffer)
-            {
+    
+    while (m_blnDecoding) {
+        @autoreleasepool {
+            if (m_blnShowImage && self.m_FrameBuffer) {
                 VideoFrame *tmpFrame = (VideoFrame*)[self.m_FrameBuffer getOneFrame] ;
                 
-                if(tmpFrame != nil && tmpFrame.m_uintFrameLenth > 0)
-                {
-                    if(showView){
-                        
-                    }
-                    
-                    if(m_decodeContext)
-                    {
-                        
+                if (tmpFrame != nil && tmpFrame.m_uintFrameLenth > 0) {
+                    if (m_decodeContext) {
                         double decodeS = [NSDate timeIntervalSinceReferenceDate] * 1000;
                         AVPacket tmpPacket;         //source frame
                         av_init_packet(&tmpPacket);
                         
-                        if(tmpFrame.m_pRawData != NULL)
-                        {
+                        if (tmpFrame.m_pRawData != NULL) {
                             self.m_blnDecodeFinish = NO;
                             tmpPacket.data = tmpFrame.m_pRawData;
                             tmpPacket.size = tmpFrame.m_uintFrameLenth;
                     
                             [self iOS8HWDecode:m_decodeContext packet:tmpPacket];
                             
-                            int iRet = 1;
-                            if(iRet > 0)
-                            {
-//                                CGSize videoSize = CGSizeMake(showView.bounds.size.width, showView.bounds.size.height);
-                                
-                                if(m_blnChangeOrientation)
-                                {
-//                                    CGRect tmpRect = showView.frame;
-//                                    videoSize = CGSizeMake(tmpRect.size.height, tmpRect.size.width);
-                                    [self changeContainerSize];
-                                    m_blnChangeOrientation = NO;
-                                }
-                                
-                                if(m_ImageWidth != m_decodeContext->width || m_ImageHeight != m_decodeContext->height)
-                                {
-//                                    if (m_ImageHeight != 0) {
-//                                        NSLog(@"ch[%d] m_Image[w,h]=[%f ,%f] m_decodeContext[w,h]=[%d,%d]",m_channel,m_ImageWidth ,m_ImageHeight
-//                                              ,m_decodeContext->width ,m_decodeContext->height);
-//                                        free(tmpFrame.m_pRawData);
-//                                        tmpFrame.m_pRawData = NULL;
-//                                        
-//                                        tmpFrame = nil;
-//                                        continue;
-//                                    }
-//                                    else
-                                    {
-                                        m_ImageWidth = m_decodeContext->width;
-                                        m_ImageHeight = m_decodeContext->height;
-                                        
-                                        NSLog(@"ch[%d] m_Image[w,h]=[%f ,%f] m_decodeContext[w,h]=[%d,%d]",m_channel,m_ImageWidth ,m_ImageHeight,m_decodeContext->width ,m_decodeContext->height);
-                                        
-                                        if(self.delegate)
-                                        {
-                                            [self.delegate videoChangeWidth:m_ImageWidth height:m_ImageHeight];
-                                            [self setScaler];
-                                        }
-                                        else
-                                            break;
-                                    }
-                                    
-                                    
-                                    
-                                }
-                                
-//                                [self presentFrame:[self handleVideoFrame:m_DecodeFrame]]; //use opengl render
-                                
+                            if (m_blnChangeOrientation) {
+                                m_blnChangeOrientation = NO;
                             }
-                            else
-                            {
-                                NSLog(@"error code = %d",iRet);
+                            
+                            if (m_ImageWidth != m_decodeContext->width || m_ImageHeight != m_decodeContext->height) {
+                                m_ImageWidth = m_decodeContext->width;
+                                m_ImageHeight = m_decodeContext->height;
+                                
+                                if (self.delegate) {
+                                    [self.delegate videoChangeWidth:m_ImageWidth height:m_ImageHeight];
+                                }
+                                else
+                                    break;
                             }
                         }
-                        
-                        
                         
                         if(&tmpPacket)
                             av_free_packet(&tmpPacket);
                         
                         self.m_blnDecodeFinish = YES;
-                    }
-                    else
-                    {
-                        
-                        if(DisplayJPEG != nil)
-                        {
+                    } else {
+                        if (DisplayJPEG != nil) {
                             DisplayJPEG = nil;
                         }
                     }
 
                     tmpFrame = nil;
                 }
-                else
-                {
-                    if(m_blnDecoding)
-                    {
-                        //2015/1/13
-                        //[[StaticHttpRequest sharedInstance] sleepWithTimeInterval:1.0f/100.0f Function:__func__ Line:__LINE__ File:__FILE__];
-                    }
-                    
-                }
-                
             }//end of if(m_decodeContext != NULL && self.m_FrameBuffer)
         }//end of @autoreleasepool
         
     }//end of while(m_blnDecoding)
-    //NSLog(@"stop***************[%d]",self.m_channel);
     
-    [self freeFFMPEG];
     [self releaseDecoder];
-//    [showView setImage:[UIImage imageNamed:@"landscape_1.png"]];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        showView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"landscape_1.png"]];
-//        UIImage *imageLoadingStream = [UIImage imageNamed:@"landscape_1.png"];
-//        imageLoadingStream = [CommonTools imageWithImage:imageLoadingStream scaledToSize:[self imageSizeAfterAspectFit:showView originImageSize:imageLoadingStream.size]];
-//        showView.backgroundColor = [UIColor colorWithPatternImage:imageLoadingStream];
-//    });
+
     m_blnStopDecodeing = YES;
-    
 }
 
-
--(UIImage *)imageFromAVPicture:(AVPicture)picture width:(int) width height:(int) height bitsPerPixel:(NSInteger)_bits
-{
-    
+- (UIImage *)imageFromAVPicture:(AVPicture)picture width:(int)width height:(int)height bitsPerPixel:(NSInteger)_bits {
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
     CFDataRef data = CFDataCreateWithBytesNoCopy(kCFAllocatorDefault, picture.data[0], picture.linesize[0] * height, kCFAllocatorNull);
     CGDataProviderRef provider = CGDataProviderCreateWithCFData(data);
@@ -708,151 +593,21 @@ void didDecompress( void *decompressionOutputRefCon, void *sourceFrameRefCon, OS
     UIImage *rtnImage = nil;
     rtnImage = [UIImage imageWithCGImage:cgImage];
     
-    
     CGColorSpaceRelease(colorSpace);
-    
     
     CGImageRelease(cgImage);
     CGDataProviderRelease(provider);
     CFRelease(data);
     
-    
     return rtnImage;
     
 }
 
--(void) changeContainerSize
-{
-//    m_ViewWidth = showView.frame.size.width;
-//    m_ViewHeight = showView.frame.size.height;
-}
-
--(void) setScaler
-{
-    //this code made app crash if use VideoToolBox(NV12)
-//    // Release old picture and scaler
-//    avpicture_free(&m_DispPicture);
-//    sws_freeContext(m_ScaleContext);
-//    
-//    // Setup scaler
-//    static int sws_flags = SWS_BILINEAR;
-//    avpicture_alloc(&m_DispPicture, PIX_FMT_RGB24, m_decodeContext->width, m_decodeContext->height);
-//    m_ScaleContext = sws_getContext(m_decodeContext->width
-//                                    , m_decodeContext->height
-//                                    , m_decodeContext->pix_fmt
-//                                    , m_decodeContext->width
-//                                    , m_decodeContext->height
-//                                    , PIX_FMT_RGB24, sws_flags, NULL, NULL, NULL);
-}
-
--(void) freeFFMPEG
-{
-    //    avpicture_free(&m_DispPicture);
-    //    if(m_DecodeFrame)
-    //        av_free(m_DecodeFrame);
-    //    sws_freeContext(m_ScaleContext);
-    //    
-    //    
-    //    if(m_decodeContext)
-    //    {
-    //        do
-    //        {
-    ////                        [NSThread sleepWithTimeInterval:5.1f*m_channel Function:__func__ Line:__LINE__ File:__FILE__];
-    //            NSLog(@"channel:%d stop codec",m_channel);
-    //            
-    ////            if(avcodec_is_open(m_decodeContext))
-    //                avcodec_close(m_decodeContext);
-    //            
-    //
-    //        }//keep try stop avcodec until stop codec
-    ////        while (avcodec_is_open(m_decodeContext));
-    //          while (0);
-    //
-    //    }
-    //    
-    
-}
-
 #pragma mark - use opengl render
-
-static UInt8 * copyFrameData(UInt8 *src, int linesize, int width, int height)
-{
-    width = MIN(linesize, width);
-    NSMutableData *md = [NSMutableData dataWithLength: width * height];
-    Byte *dst = md.mutableBytes;
-    for (NSUInteger i = 0; i < height; ++i) {
-        memcpy(dst, src, width);
-        dst += width;
-        src += linesize;
-    }
-    return dst;
-}
-
-- (IRFFVideoFrame *) handleVideoFrame:(AVFrame *) _videoFrame;
-{
-    if (!_videoFrame->data[0])
-        return nil;
-    
-    IRFFVideoFrame *frame;
-//    IRPixelFormat _videoFrameFormat = YUV_IRPixelFormat;
-    
-//    if (_videoFrameFormat == IRVideoFrameFormatYUV) {
-        
-        IRFFAVYUVVideoFrame * yuvFrame = [[IRFFAVYUVVideoFrame alloc] init];
-        
-        yuvFrame.luma = copyFrameData(_videoFrame->data[0],
-                                      _videoFrame->linesize[0],
-                                      m_decodeContext->width,
-                                      m_decodeContext->height);
-        
-        yuvFrame.chromaB = copyFrameData(_videoFrame->data[1],
-                                         _videoFrame->linesize[1],
-                                         m_decodeContext->width / 2,
-                                         m_decodeContext->height / 2);
-        
-        yuvFrame.chromaR = copyFrameData(_videoFrame->data[2],
-                                         _videoFrame->linesize[2],
-                                         m_decodeContext->width / 2,
-                                         m_decodeContext->height / 2);
-        
-        frame = yuvFrame;
-        
-//    }
-    
-    frame.width = m_decodeContext->width;
-    frame.height = m_decodeContext->height;
-    
-    return frame;
-}
-
-- (CGFloat) presentFrame:(IRFFVideoFrame*) frame
-{
-    CGFloat interval = 0;
-    
-    if (frame)
-        interval = [self presentVideoFrame:frame];
-    
-    return interval;
-}
-
-- (CGFloat) presentVideoFrame: (IRFFVideoFrame *) frame
-{
-    //    dispatch_sync(dispatch_get_main_queue(), ^{
+- (CGFloat)presentVideoFrame:(IRFFVideoFrame *)frame {
     [showView updateFrame:frame];
-    //    });
     
-//    return frame.duration;
     return 0;
 }
-
-//- (NSUInteger) frameWidth
-//{
-//    return m_decodeContext ? m_decodeContext->width : 0;
-//}
-//
-//- (NSUInteger) frameHeight
-//{
-//    return m_decodeContext ? m_decodeContext->height : 0;
-//}
 
 @end
