@@ -37,7 +37,7 @@
         m_aryIPRatio = [[NSMutableArray alloc] init];
         
         m_blnStopStreaming = NO;
-        m_blnUseTCP = YES;
+        m_blnUseTCP = NO;
         m_blnStopforever = NO;
         m_blnShowAuthorityAlert = NO;
     }

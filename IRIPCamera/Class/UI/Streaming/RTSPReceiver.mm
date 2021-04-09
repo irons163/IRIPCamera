@@ -276,6 +276,43 @@ BOOL back = NO;
         if(iType == 0X1 && frameData[1] == 0x88)//if nal type is non-idr but frame slice is i or si slice
             iType = 0x5;
         
+        if ([m_RTSPClient getSDP] && (m_SPSFrame.m_pRawData == NULL || m_PPSFrame.m_pRawData == NULL)) { // just need once
+            NSString *sdp = [m_RTSPClient getSDP];
+            
+            NSArray *aryTmp = [sdp componentsSeparatedByString:@"sprop-parameter-sets="];
+            
+            if (aryTmp.count == 2) {
+                NSString *sprop = [aryTmp objectAtIndex:1];
+                
+                NSArray *spsAndppsWithBase64 = [sprop componentsSeparatedByString:@","];
+                
+                if (spsAndppsWithBase64.count == 2) {
+                    NSData *spsData = [m_RTSPClient getBase64DecodeString:[spsAndppsWithBase64 objectAtIndex:0]];
+                    NSData *ppsData = [m_RTSPClient getBase64DecodeString:[spsAndppsWithBase64 objectAtIndex:1]];
+                    NSInteger spsLen = spsData.length;
+                    NSInteger ppsLen = ppsData.length;
+                    
+                    NSLog(@"%@",spsData);
+            
+                    NSLog(@"%@",ppsData);
+                    
+                    m_SPSFrame.m_intFrameType = SPS_FRAME;
+                    m_SPSFrame.m_uintFrameLenth = spsLen + sizeof(m_aryH264StartCode);
+                    m_SPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + spsLen);
+                    memcpy(m_SPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
+                    memcpy(m_SPSFrame.m_pRawData + sizeof(m_aryH264StartCode), spsData.bytes, spsLen);
+                    [self.m_VideoDecoder setSPSFrame:m_SPSFrame];
+                    
+                    m_PPSFrame.m_intFrameType = SPS_FRAME;
+                    m_PPSFrame.m_uintFrameLenth = ppsLen + sizeof(m_aryH264StartCode);
+                    m_PPSFrame.m_pRawData = (unsigned char*)malloc(sizeof(m_aryH264StartCode) + ppsLen);
+                    memcpy(m_PPSFrame.m_pRawData, m_aryH264StartCode, sizeof(m_aryH264StartCode));
+                    memcpy(m_PPSFrame.m_pRawData + sizeof(m_aryH264StartCode), ppsData.bytes, ppsLen);
+                    [self.m_VideoDecoder setPPSFrame:m_PPSFrame];
+                }
+            }
+        }
+        
         NSString *tmpType = @"";
         VideoFrame *tmpVideoFrame=nil;
         if (iType == 0X7) { //SPS
