@@ -8,11 +8,21 @@
 ## Features
 - Support Rtsp streaming.
 - Support for customize connection to your streaming device or IPCam.
-- Support demo mode.
+- Provide a demo.
 
 ## Future
 - Support Multi viewer.
 - More powerful custom settings.
+
+## How it works?
+- Basically, it works by `IRPlayer` + `Live555` + iOS Native API.
+    - [IRPlayer](https://github.com/irons163/IRPlayer)
+    - [Live555](http://www.live555.com/)
+- `Live555` can make a connection with a rtsp server/streaming.
+- Decoding the frames by iOS VideoToolbox. The pixel format is NV12.
+- `IRPlayer` is the video player which can receive the frames and play it.
+    - If you are interested in this part, you can see how it works in `IRFFVideoInput`.
+- Playing the audio by iOS AudioToolbox.
 
 ## Install
 ### Git
@@ -26,19 +36,9 @@
 ### Basic
 - Goto `Setting` Page, then type the URL in the textfield.
     - EX: `rtsp://192.168.2.218`
-- OR, you can type `demo` in the textfiled, if you want use demo rtsp url.
-  - Demo RTSP URL: `rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov`
-- Press `Done` button, then the program will try to connect and play it.
-
-#### How it works?
-- Basically, it works by `IRPlayer` + `Live555` + iOS Native API.
-    - [IRPlayer](https://github.com/irons163/IRPlayer)
-    - [Live555](http://www.live555.com/)
-- `Live555` can make a connection with a rtsp server/streaming.
-- Decoding the frames by iOS VideoToolbox. The pixel format is NV12.
-- `IRPlayer` is the video player which can receive the frames and play it.
-    - If you are interested in this part, you can see how it works in `IRFFVideoInput`.
-- Playing the audio by iOS AudioToolbox.
+- OR, you can simply just type `demo` in the textfiled, if you want to use the demo rtsp url.
+  - Full Demo RTSP URL: `rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov`
+- Pressing `Done` button, then the program will try to connect and play it.
 
 ### Advanced settings
 - Make your custom network connector.
