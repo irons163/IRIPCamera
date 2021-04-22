@@ -5,15 +5,6 @@
 
 - IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS.
 
-## Features
-- Support Rtsp streaming.
-- Support for customize connection to your streaming device or IPCam.
-- Provide a demo.
-
-## Future
-- Support Multi viewer.
-- More powerful custom settings.
-
 ## How it works?
 - Basically, it works by `IRPlayer` + `Live555` + iOS Native API.
     - [IRPlayer](https://github.com/irons163/IRPlayer)
@@ -23,6 +14,22 @@
 - `IRPlayer` is the video player which can receive the frames and play it.
     - If you are interested in this part, you can see how it works in `IRFFVideoInput`.
 - Playing the audio by iOS AudioToolbox.
+
+## Features
+- Support Rtsp streaming.
+- Support for customize connection to your streaming device or IPCam.
+- Provide a demo that using `H264-RTSP-Server-iOS` as a RTSP IPCamera and `IRIPCamera` as a RTSP Player.
+    - See [H264-RTSP-Server-iOS](https://github.com/irons163/H264-RTSP-Server-iOS).
+
+## How the demo works?
+- Prepare 2 iPhones, connecting them in the same network.
+- Run [H264-RTSP-Server-iOS](https://github.com/irons163/H264-RTSP-Server-iOS) in an iPhone, it would show the local IP in the top of the screen.
+- Run this project in the other iPhone, type the RTSP Url into the setting page.
+- Enjoy your personal iPhoneCam : )
+
+## Future
+- Support Multi viewer.
+- More powerful custom settings.
 
 ## Install
 ### Git
