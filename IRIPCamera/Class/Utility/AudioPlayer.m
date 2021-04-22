@@ -61,7 +61,7 @@ void audioRouteChangeListenerCallback (
 	if ([self initAudioQueue]) {
 		AudioQueueSetParameter(m_AudioQueue, kAudioQueueParam_Volume, 1.0f);
         UInt32 category = kAudioSessionCategory_PlayAndRecord;
-        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
+        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryEnableBluetoothInput, sizeof(category), &category);
         
         UInt32 audioRouteOverride = [self hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
         AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);

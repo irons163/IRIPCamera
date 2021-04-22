@@ -19,12 +19,12 @@
         frameDataLength:(int)frameDataLength
        presentationTime:(struct timeval)presentationTime
  durationInMicroseconds:(unsigned)duration
-              codecName:(NSString *) _codecName;
-- (void)videoCallbackByCodec:(NSString *) _codec extraData:(NSData *) _extra;
-- (void)audioCallbackByCodec:(NSString *) _codec sampleRate:(int)_sampleRate ch:(int)_ch extraData:(NSData *) _extra;
+              codecName:(NSString *)_codecName;
+- (void)videoCallbackByCodec:(NSString *)_codec extraData:(NSData *)_extra;
+- (void)audioCallbackByCodec:(NSString *)_codec sampleRate:(int)_sampleRate ch:(int)_ch extraData:(NSData *)_extra;
 - (void)startPlayCallback;
 - (void)tearDownCallback;
-- (void)rtspFailCallbackByErrorCode:(int) _code msg:(NSString *) _strmsg;
+- (void)rtspFailCallbackByErrorCode:(int)_code msg:(NSString *)_strmsg;
 
 @end
 
@@ -55,12 +55,12 @@
 @property BOOL m_blnUseTCP;
 
 - (id)initWithURL:(NSURL*)url delegate:(id) _delegate;
-- (id)initWithURL:(NSURL*)url username:(NSString*)username password:(NSString*)password;
+- (id)initWithURL:(NSURL*)url username:(NSString *)username password:(NSString *)password;
 - (BOOL)setupWithTCP:(BOOL) _blnUseTCP;
 - (NSArray *)getSubsessions;
 - (BOOL)shutdownStream;
-- (NSString*)getLastErrorString;
-- (NSString*)getSDP;
+- (NSString *)getLastErrorString;
+- (NSString *)getSDP;
 - (int)getSocket;
 - (NSData *)getBase64DecodeString :(NSString *) strEncoded;
 
@@ -89,8 +89,8 @@
 - (void)increaseReceiveBufferTo:(NSUInteger)size;
 - (void)setPacketReorderingThresholdTime:(NSUInteger)uSeconds;
 - (BOOL)timeIsSynchronized;
-- (int) getExtraData:(unsigned int *)i_extra extradata:(uint8_t **) p_extra;
-- (void) setReceiver:(RTSPReceiver *) _RTSPReceiver;
+- (int)getExtraData:(unsigned int *)i_extra extradata:(uint8_t **)p_extra;
+- (void)setReceiver:(RTSPReceiver *)_RTSPReceiver;
 
 @property (assign, nonatomic) id <RTSPSubsessionDelegate> delegate;
 
@@ -102,7 +102,7 @@
         frameDataLength:(int)frameDataLength
        presentationTime:(struct timeval)presentationTime
  durationInMicroseconds:(unsigned)duration
-             subsession:(RTSPSubsession*)subsession
+             subsession:(RTSPSubsession *)subsession
                 channel:(int)_channelID;
 
 @end
