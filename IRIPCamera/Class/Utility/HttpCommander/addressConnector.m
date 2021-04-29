@@ -70,12 +70,12 @@
         {
             NSString *strRTSP = [tmpStreamInfo objectForKey:@"URL"];
             NSURLComponents * components = [NSURLComponents componentsWithString:strRTSP];
-           
+            
             components.host = self.m_strAddress;
             components.port = [NSNumber numberWithInteger:self.m_CommandPort.videoPort];
             NSURL* strRTSPURL = [components URL];
             [self.delegage didGetRtspURLByChannel:0 msg:nil ch:_channel url:[strRTSPURL absoluteString] ipRatio:[[tmpStreamInfo objectForKey:@"FPS"] integerValue]];
-
+            
             iRtn = 0;
             break;
         }
@@ -188,12 +188,12 @@
     
     self.m_ASIHTTPSender = [StaticHttpRequest sharedInstance];
     [self.m_ASIHTTPSender doJsonRequestWithToken:self.m_strToken
-                                        externalLink:[self getLocalIPInfo].currentInterfaceIP
-                                                 Url:strCmd
-                                              method:@"GET"
-                                            postData:nil
-                                          callbackID:GetVideoInfo
-                                              target:self];
+                                    externalLink:[self getLocalIPInfo].currentInterfaceIP
+                                             Url:strCmd
+                                          method:@"GET"
+                                        postData:nil
+                                      callbackID:GetVideoInfo
+                                          target:self];
 }
 
 - (void)getTwoWayAudioInfoWithToken:(NSString *)_strToken
@@ -218,12 +218,12 @@
     
     self.m_ASIHTTPSender = [StaticHttpRequest sharedInstance];
     [self.m_ASIHTTPSender doJsonRequestWithToken:self.m_strToken
-                                        externalLink:[self getLocalIPInfo].currentInterfaceIP
-                                                 Url:strCmd
-                                              method:@"GET"
-                                            postData:nil
-                                          callbackID:GetTwoWayAudioInfo
-                                              target:self];
+                                    externalLink:[self getLocalIPInfo].currentInterfaceIP
+                                             Url:strCmd
+                                          method:@"GET"
+                                        postData:nil
+                                      callbackID:GetTwoWayAudioInfo
+                                          target:self];
     
 }
 

@@ -406,11 +406,11 @@
 		8A5B93612361907F00D292A7 /* HttpCommander */ = {
 			isa = PBXGroup;
 			children = (
+				8A5B936B2361907F00D292A7 /* HttpAPICommander.h */,
 				8A5B93652361907F00D292A7 /* HttpAPICommander.m */,
+				8A5B936A2361907F00D292A7 /* deviceConnector.h */,
 				8A5B93662361907F00D292A7 /* deviceConnector.m */,
 				8A5B93672361907F00D292A7 /* addressConnector.h */,
-				8A5B936A2361907F00D292A7 /* deviceConnector.h */,
-				8A5B936B2361907F00D292A7 /* HttpAPICommander.h */,
 				8A5B936D2361907F00D292A7 /* addressConnector.m */,
 			);
 			path = HttpCommander;

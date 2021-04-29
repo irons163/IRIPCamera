@@ -10,37 +10,29 @@
 #include <AudioToolbox/AudioToolbox.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "VideoFrameBuffer.h"
-//#include "libavcodec/avcodec.h"
-//#import <libavcodec/avcodec.h>
 #import <IRPlayer/IRPlayer.h>
 #import <IRPlayer/IRFFTools.h>
-#include <libswscale/swscale.h>
 
 @protocol VideoDecoderDelegate
+
 - (void)videoChangeWidth:(NSInteger) _width height:(NSInteger) _height;
+
 @end
 
-@interface VideoDecoder : NSObject
-{
+@interface VideoDecoder : NSObject {
     VideoFrameBuffer *m_FrameBuffer;
     BOOL m_blnDecoding;
     IRFFVideoInput *showView;
     UIInterfaceOrientation m_currentOrientation;
     BOOL m_blnChangeOrientation;
     AVCodecContext *m_decodeContext;
-
+    
     NSInteger m_channel;
     
     NSFileHandle *myHandle;
     
     CGFloat m_ImageWidth;
     CGFloat m_ImageHeight;
-//    CGFloat m_ViewWidth;
-//    CGFloat m_ViewHeight;
-    
-    struct SwsContext *m_ScaleContext;
-    AVPicture m_DispPicture;
-    AVFrame *m_DecodeFrame;
     
     UIImage *m_imgShow;
     UIImage *snapImage;
@@ -49,8 +41,9 @@
     
     BOOL m_blnShowImage;
     BOOL m_blnStopDecodeing;
-    __unsafe_unretained id<VideoDecoderDelegate>    delegate;
+    __unsafe_unretained id<VideoDecoderDelegate> delegate;
 }
+
 @property (nonatomic ,retain) VideoFrameBuffer *m_FrameBuffer;
 @property (nonatomic) BOOL m_blnDecoding;
 @property (nonatomic ,retain) IRFFVideoInput *showView;
@@ -66,17 +59,19 @@
 @property (nonatomic) CGFloat m_ImageHeight;
 @property (assign) id <VideoDecoderDelegate> delegate;
 
--(id) initDecoder;
--(id) initDecoderWithUIImageView:(IRFFVideoInput*)imageView;
--(void) setDisplayUIView:(IRFFVideoInput*)imageView;
--(NSUInteger) setCodecWithCodecString:(NSString*) strCodec;
--(void) startDecode;
--(void) stopDecode;
--(void) setExtraData:(NSInteger) _iLen extraData:(uint8_t *) _extradata;
--(void) setChannel:(NSInteger) _ch;
--(void) setShowImageOrNot:(BOOL) _blnShow;
+- (id)initDecoder;
+- (id)initDecoderWithUIImageView:(IRFFVideoInput *)imageView;
+- (void)setDisplayUIView:(IRFFVideoInput *)imageView;
+- (NSUInteger)setCodecWithCodecString:(NSString*) strCodec;
+- (void)startDecode;
+- (void)stopDecode;
+- (void)setExtraData:(NSInteger)_iLen extraData:(uint8_t *)_extradata;
+- (void)setChannel:(NSInteger)_ch;
+- (void)setShowImageOrNot:(BOOL)_blnShow;
+
 // For VideoToolBox(NV12)
--(void)setSPSFrame:(FrameBaseClass*)sps_frame;
--(void)setPPSFrame:(FrameBaseClass*)pps_frame;
-- (void) iOS8HWDecode:(AVCodecContext*)pCodecCtx packet:(AVPacket)packet;
+- (void)setSPSFrame:(FrameBaseClass *)sps_frame;
+- (void)setPPSFrame:(FrameBaseClass *)pps_frame;
+- (void)iOS8HWDecode:(AVCodecContext *)pCodecCtx packet:(AVPacket)packet;
+
 @end

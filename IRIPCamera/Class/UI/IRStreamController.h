@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
+typedef NS_ENUM(NSInteger, IRStreamControllerStatus) {
     IRStreamControllerStatus_None,
     IRStreamControllerStatus_PreparingToPlay,
     IRStreamControllerStatus_ReadyToPlay,
@@ -26,16 +26,17 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
 
 @protocol IRStreamControllerDelegate <NSObject>
 
--(void) connectReslt:(id)_videoView Connection:(BOOL)connection MicSupport:(BOOL)_micSupport SpeakerSupport:(BOOL)_speakerSupport;
--(void) recordingFailedWithErrorCode:(NSInteger) _code desc:(NSString *) _desc;
--(void) finishRecordingWithShowLoadingIcon:(BOOL) _blnShow;
--(void) showErrorMessage:(NSString*)msg;
--(void) streamControllerStatusChanged:(IRStreamControllerStatus)status;
+- (void)connectReslt:(id)_videoView Connection:(BOOL)connection MicSupport:(BOOL)_micSupport SpeakerSupport:(BOOL)_speakerSupport;
+- (void)recordingFailedWithErrorCode:(NSInteger)_code desc:(NSString *)_desc;
+- (void)finishRecordingWithShowLoadingIcon:(BOOL)_blnShow;
+- (void)showErrorMessage:(NSString*)msg;
+- (void)streamControllerStatusChanged:(IRStreamControllerStatus)status;
 #ifdef DEV
--(BOOL) checkIsAutoLiveOn;
+- (BOOL)checkIsAutoLiveOn;
 #endif
 @optional
--(void) updatedVideoModes;
+- (void)updatedVideoModes;
+
 @end
 
 @interface IRStreamController : NSObject {
@@ -61,14 +62,6 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
     NSString* m_Token;
     
     NSString* m_errorMsg;
-    NSInteger videoRetry;
-    
-    BOOL m_connected;
-    BOOL m_micSupport;
-    BOOL m_speakerSupport;
-    
-    double tagTime;
-    double useRelayTime;
     
     NSArray *modes;
     
@@ -84,11 +77,12 @@ typedef NS_ENUM(NSInteger, IRStreamControllerStatus){
 @property (weak) id<IRStreamControllerDelegate> eventDelegate;
 @property (weak) IRPlayerImp *m_videoView;
 
--(instancetype)initWithRtspUrl:(NSString*)rtspURL;
--(instancetype)initWithDevice:(DeviceClass*)device;
--(void) startStreamConnection;
--(NSInteger) stopStreaming:(BOOL)_blnStopForever;
--(void) changeStream :(NSInteger) _stream;
+- (instancetype)initWithRtspUrl:(NSString *)rtspURL;
+- (instancetype)initWithDevice:(DeviceClass *)device;
+- (void)startStreamConnection;
+- (NSInteger)stopStreaming:(BOOL)_blnStopForever;
+- (void)changeStream:(NSInteger)_stream;
+
 @end
 
 

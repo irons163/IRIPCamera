@@ -11,7 +11,7 @@
 
 @implementation IRStreamControllerFactory
 
-+ (IRStreamController *)createStreamControllerByRequset:(IRStreamConnectionRequest*)request{
++ (IRStreamController *)createStreamControllerByRequset:(IRStreamConnectionRequest *)request{
     IRStreamController *streamController = nil;
     if([request isKindOfClass:[IRCustomStreamConnectionRequest class]]){
         streamController = [[IRStreamController alloc] initWithDevice:((IRCustomStreamConnectionRequest*)request).device];

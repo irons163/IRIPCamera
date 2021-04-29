@@ -8,23 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import "RTSPReceiver.h"
 #import "StaticHttpRequest.h"
 #import "deviceConnector.h"
-//#import "KxMovieGLRenderMode.h"
-//#import "KxMovieGLView.h"
-//#import "MediaParameter.h"
 #import "IRStreamConnectionResponse.h"
 #import "IRStreamConnector.h"
 
 @import CoreMotion;
-
 @class DeviceClass;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface IRCustomStreamConnector : IRStreamConnector<UIAlertViewDelegate, deviceConnectorDelegate>
-{
+@interface IRCustomStreamConnector : IRStreamConnector <UIAlertViewDelegate, deviceConnectorDelegate> {
 @private
     StaticHttpRequest *m_httpRequest;
     NSMutableArray *m_aryStreamInfo;
@@ -34,10 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property DeviceClass *m_deviceInfo;
 @property BOOL m_blnStopforever;
 
--(void)startStreamConnection;
--(NSInteger) stopStreaming:(BOOL)_blnStopForever;
--(void) changeStream :(NSInteger) _stream;
--(int)getErrorCode;
+- (void)startStreamConnection;
+- (NSInteger)stopStreaming:(BOOL)_blnStopForever;
+- (void)changeStream :(NSInteger) _stream;
+- (int)getErrorCode;
+
 @end
 
 

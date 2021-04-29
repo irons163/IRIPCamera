@@ -27,8 +27,7 @@ void audioRouteChangeListenerCallback (
 
 @implementation AudioPlayer
 
-- (id)initWithSampleRate:(int) _sampleRate
-{
+- (id)initWithSampleRate:(int)_sampleRate {
 	if (!(self=[super init])) return nil;
 
 	// player
@@ -41,15 +40,6 @@ void audioRouteChangeListenerCallback (
 	audioDesc.mChannelsPerFrame	= 1;
 	audioDesc.mBitsPerChannel	= 16;
 	audioDesc.mReserved			= 0;
-//    audioDesc.mSampleRate        = 12000;
-//    audioDesc.mFormatID            = kAudioFormatLinearPCM;
-//    audioDesc.mFormatFlags        = kAudioFormatFlagIsFloat|kAudioFormatFlagIsPacked;
-//    audioDesc.mBytesPerPacket    = 4;
-//    audioDesc.mFramesPerPacket    = 1;
-//    audioDesc.mBytesPerFrame    = 4;
-//    audioDesc.mChannelsPerFrame    = 2;
-//    audioDesc.mBitsPerChannel    = 32;
-//    audioDesc.mReserved            = 0;
     
 	m_AudioQueue = nil;
     
@@ -60,24 +50,19 @@ void audioRouteChangeListenerCallback (
 	return self;
 }
 
-
-- (BOOL) start
-{
+- (BOOL)start {
     OSStatus error = 0;
     
-	if (m_AudioQueue!=nil)
-    {
+	if (m_AudioQueue != nil) {
         return YES;
     }
     
 	// create audio queue
-	if ([self initAudioQueue])
-    {
+	if ([self initAudioQueue]) {
 		AudioQueueSetParameter(m_AudioQueue, kAudioQueueParam_Volume, 1.0f);
         UInt32 category = kAudioSessionCategory_PlayAndRecord;
-        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(category), &category);
+        AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryEnableBluetoothInput, sizeof(category), &category);
         
-//        UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
         UInt32 audioRouteOverride = [self hasHeadset] ? kAudioSessionOverrideAudioRoute_None : kAudioSessionOverrideAudioRoute_Speaker;
         AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
         
@@ -87,8 +72,7 @@ void audioRouteChangeListenerCallback (
         
         error = AudioQueueStart(m_AudioQueue, NULL);
         
-		if (error)
-		{
+		if (error) {
 			NSLog(@"AudioQueueStart failed %ld", error);
 			
 			[self stop];
@@ -96,26 +80,23 @@ void audioRouteChangeListenerCallback (
 		}
 			
 		return YES;
-	}
-	else
-    {
+	} else {
 		[self stop];
 		return NO;
 	}
 }
 
-- (void)playAudio:(float *)pInAudio length:(int)length
-{
-    
+- (void)playAudio:(float *)pInAudio length:(int)length {
     NSData *tmpAudio = [[NSData alloc] initWithBytes:pInAudio length:length];
     [m_AudioData addObject:tmpAudio];
     tmpAudio = nil;
 }
 
-- (void)stop
-{
-    signal(SIGPIPE, SIG_IGN);// 
-	if (m_AudioQueue==nil) return;
+- (void)stop {
+    signal(SIGPIPE, SIG_IGN);
+	
+    if (m_AudioQueue==nil) return;
+    
     [m_AudioData removeAllObjects];
     AudioQueueSetParameter(m_AudioQueue, kAudioQueueParam_Volume, 0.0f);
     AudioQueueReset(m_AudioQueue);
@@ -125,31 +106,27 @@ void audioRouteChangeListenerCallback (
     AudioSessionRemovePropertyListenerWithUserData(kAudioSessionProperty_AudioRouteChange, audioRouteChangeListenerCallback, (__bridge void *)(self));
 }
 
-- (void)dealloc
-{	
+- (void)dealloc {
 	[self stop];
+    
     m_AudioData = nil;
     free(m_emptyData);
     m_emptyData = NULL;
 }
 
-- (BOOL)initAudioQueue
-{
+- (BOOL)initAudioQueue {
 	OSStatus error;
 	
 	// create a new audio queue output
 	error = AudioQueueNewOutput(&audioDesc, AudioQueueCallback, (__bridge void *)(self), NULL, NULL, 0, &m_AudioQueue);
-	if (error)
-	{
+	if (error) {
 		NSLog(@"AudioQueueNewOutput failed %ld", error);
 		return NO;
 	}
     
     UInt32 bufferByteSize = AQ_BUFFER_SIZE;
     
-	for (UInt32 i = 0; i < AQ_BUFFER_NUMBER; i++)
-    {	
-//		error = AudioQueueAllocateBuffer(m_AudioQueue, bufferByteSize, m_AudioBuffer+i);
+	for (UInt32 i = 0; i < AQ_BUFFER_NUMBER; i++) {
         error = AudioQueueAllocateBuffer(m_AudioQueue, bufferByteSize, &m_AudioBuffer[i]);
 		if (error)
 		{
@@ -165,13 +142,11 @@ void audioRouteChangeListenerCallback (
 	return YES;
 }
 
-- (void)fillAudioToBuffer: (AudioQueueRef)_audioQueue buffer: (AudioQueueBufferRef) _audioBuffer
-{	
+- (void)fillAudioToBuffer:(AudioQueueRef)_audioQueue buffer:(AudioQueueBufferRef)_audioBuffer {
 	UInt32 bytesToFill = _audioBuffer->mAudioDataBytesCapacity;
 	UInt8* fillPtr = (UInt8*)_audioBuffer->mAudioData;
     
-    if([m_AudioData count] >0)
-    {
+    if ([m_AudioData count] > 0) {
         NSData *tmpAudio = [m_AudioData objectAtIndex:0];
 
         float scale = (float)INT16_MAX;
@@ -188,23 +163,18 @@ void audioRouteChangeListenerCallback (
         AudioQueueEnqueueBuffer(_audioQueue, _audioBuffer, 0, NULL);
         tmpAudio = nil;
         [m_AudioData removeObjectAtIndex:0];
-    }
-    else
-    {// if no audio data fill white noise to audio queue
+    } else { // if no audio data fill white noise to audio queue
         memcpy(fillPtr, m_emptyData, bytesToFill);
         _audioBuffer->mAudioDataByteSize = bytesToFill/2;
         AudioQueueEnqueueBuffer(_audioQueue, _audioBuffer, 0, NULL);
     }
 }
 
-- (void)mute
-{
+- (void)mute {
 	AudioQueueSetParameter(m_AudioQueue, kAudioQueueParam_Volume, 0.0f);
 }
 
-
-- (void)play
-{
+- (void)play {
 	AudioQueueSetParameter(m_AudioQueue, kAudioQueueParam_Volume, 1.0f);
 }
 
@@ -225,8 +195,7 @@ void audioRouteChangeListenerCallback (
 }
 @end
 
-static void AudioQueueCallback(void *caller, AudioQueueRef _audioQueue, AudioQueueBufferRef _audioBufferBuffer)
-{
+static void AudioQueueCallback(void *caller, AudioQueueRef _audioQueue, AudioQueueBufferRef _audioBufferBuffer) {
 	AudioPlayer* player = (__bridge AudioPlayer*)caller;
 	[player fillAudioToBuffer:_audioQueue buffer:_audioBufferBuffer];
 }
@@ -255,5 +224,4 @@ void audioRouteChangeListenerCallback (
             [_self start];
         }
     }
-    
 }

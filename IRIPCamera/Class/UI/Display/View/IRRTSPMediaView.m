@@ -17,11 +17,6 @@
     IRMediaParameter* parameter;
 }
 
-- (void)dealloc {
-    [self stopStreaming:YES];
-//    [((KxMovieGLView*)self.m_videoView) closeGLView];
-}
-
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -34,45 +29,43 @@
         NSArray *nibObjects = [[NSBundle mainBundle] loadNibNamed:@"IRRTSPMediaView" owner:self options:nil];
         UIView *m_loadVew = [nibObjects objectAtIndex:0];
         [m_loadVew setFrame:frame];
+        [self addSubview:m_loadVew];
         
-        [self addSubview:m_loadVew];//add xib file into subview
-        
-        
-        [self.m_LoadingActivity setColor:[UIColor colorWithRed:56.0f/255.0f green:100.0f/255.0f blue:0.0f alpha:1.0f]];
+        [self.loadingActivity setColor:[UIColor colorWithRed:56.0f/255.0f green:100.0f/255.0f blue:0.0f alpha:1.0f]];
     }
     return self;
 }
 
-- (void)setM_player:(IRPlayerImp *)m_player {
-    _m_player = m_player;
+- (void)dealloc {
+    [self stopStreaming:YES];
+}
+
+- (void)setPlayer:(IRPlayerImp *)player {
+    _player = player;
     
-//    self.m_player.view.frame = self.frame;
-            
-    //        ((KxMovieGLView*)self.m_videoView).delegate = self;
-            
-    imageView = [[UIImageView alloc] initWithFrame:self.m_player.view.frame];
-    [self.m_player.view addSubview:imageView];
-    [self.m_videoView insertSubview:self.m_player.view atIndex:0];
+    imageView = [[UIImageView alloc] initWithFrame:self.player.view.frame];
+    [self.player.view addSubview:imageView];
+    [self.videoView insertSubview:self.player.view atIndex:0];
     
-    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-    NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:imageView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
     top.active = YES;
     bottom.active = YES;
     left.active = YES;
     right.active = YES;
     imageView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    top = [NSLayoutConstraint constraintWithItem:self.m_player.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-    bottom = [NSLayoutConstraint constraintWithItem:self.m_player.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-    left = [NSLayoutConstraint constraintWithItem:self.m_player.view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-    right = [NSLayoutConstraint constraintWithItem:self.m_player.view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.m_videoView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
+    top = [NSLayoutConstraint constraintWithItem:self.player.view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    bottom = [NSLayoutConstraint constraintWithItem:self.player.view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    left = [NSLayoutConstraint constraintWithItem:self.player.view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
+    right = [NSLayoutConstraint constraintWithItem:self.player.view attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.videoView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
     top.active = YES;
     bottom.active = YES;
     left.active = YES;
     right.active = YES;
-    self.m_player.view.translatesAutoresizingMaskIntoConstraints = NO;
+    self.player.view.translatesAutoresizingMaskIntoConstraints = NO;
 }
 
 - (void)startStreamConnectionWithRequest:(IRStreamConnectionRequest*)request {
@@ -100,14 +93,14 @@
 }
 
 - (void)startStreamConnection {
-    streamController.m_videoView = self.m_player;
+    streamController.m_videoView = self.player;
     [streamController startStreamConnection];
 }
 
-- (NSInteger)stopStreaming:(BOOL)_blnStopForever {
+- (NSInteger)stopStreaming:(BOOL)stopForever {
     NSInteger iRtn = 0;
-
-    [streamController stopStreaming:_blnStopForever];
+    
+    [streamController stopStreaming:stopForever];
     
     return iRtn;
 }
@@ -117,10 +110,9 @@
 }
 
 - (void)connectReslt:(id)_videoView Connection:(BOOL)connection MicSupport:(BOOL)_micSupport SpeakerSupport:(BOOL)_speakerSupport {
-    [self.m_LoadingActivity stopAnimating];
+    [self.loadingActivity stopAnimating];
     
     if(!connection){
-//        [((KxMovieGLView*)self.m_videoView) clearCanvas];
         [imageView setImage:[UIImage imageNamed:@"landscape_linkfail.png"]];
         [imageView setHidden:NO];
         return;
@@ -129,26 +121,26 @@
     [imageView setImage:[UIImage imageNamed:@"landscape_1.png"]];
     [imageView setHidden:YES];
     
-    if([[self.m_player renderModes] count] == 0){
-        [self.m_player setRenderModes:modes];
-        [self.m_player selectRenderMode:modes[0]];
+    if([[self.player renderModes] count] == 0){
+        [self.player setRenderModes:modes];
+        [self.player selectRenderMode:modes[0]];
     }
 }
 
 - (void)showErrorMessage:(NSString *)msg {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.m_InfoLabel setText:msg];
-        [self.m_InfoLabel setHidden:NO];
-    });   
+        [self.infoLabel setText:msg];
+        [self.infoLabel setHidden:NO];
+    });
 }
 
 - (void)streamControllerStatusChanged:(IRStreamControllerStatus)status {
     switch (status) {
         case IRStreamControllerStatus_PreparingToPlay:
-            [self.m_LoadingActivity startAnimating];
+            [self.loadingActivity startAnimating];
             [imageView setImage:[UIImage imageNamed:@"landscape_1.png"]];
             [imageView setHidden:NO];
-            [self.m_InfoLabel setHidden:YES];
+            [self.infoLabel setHidden:YES];
             break;
             
         default:
@@ -156,12 +148,12 @@
     }
 }
 
-- (void)finishRecordingWithShowLoadingIcon:(BOOL)_blnShow {
+- (void)finishRecordingWithShowLoadingIcon:(BOOL)show {
     
 }
 
 
-- (void)recordingFailedWithErrorCode:(NSInteger)_code desc:(NSString *)_desc {
+- (void)recordingFailedWithErrorCode:(NSInteger)code desc:(NSString *)desc {
     
 }
 
@@ -171,11 +163,11 @@
     IRGLRenderMode *fisheye = [[IRGLRenderMode3DFisheye alloc] init];
     IRGLRenderMode *fisheye4P = [[IRGLRenderModeMulti4P alloc] init];
     NSArray<IRGLRenderMode*>* modes = @[
-                                        fisheye2Pano,
-                                        fisheye,
-                                        fisheye4P,
-                                        normal
-                                        ];
+        fisheye2Pano,
+        fisheye,
+        fisheye4P,
+        normal
+    ];
     
     normal.shiftController.enabled = NO;
     

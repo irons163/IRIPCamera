@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface StaticLanguage : NSObject{
+@interface StaticLanguage : NSObject {
     NSString        *currentLanguage;
     NSBundle        *currentLanguageBundle;
 }

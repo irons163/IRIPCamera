@@ -10,7 +10,8 @@
 
 @interface HttpAPICommander(Private)
 
--(void) setUserName:(NSString *) _strUserName pwd:(NSString*) _password port:(MultiPort) _port scheme:(NSString*)_scheme;
+- (void)setUserName:(NSString *)_strUserName pwd:(NSString *)_password port:(MultiPort)_port scheme:(NSString *)_scheme;
+
 @end
 
 @implementation HttpAPICommander
@@ -22,8 +23,7 @@
 @synthesize m_blnIsAPPAndDUTUnderTheSameLAN;
 @synthesize m_deviceType;
 
--(id) initWithAddress:(NSString *) _strIP port:(MultiPort) _port user:(NSString *) _user pwd :(NSString *) _pwd scheme:(NSString*)_scheme
-{
+- (id)initWithAddress:(NSString *)_strIP port:(MultiPort)_port user:(NSString *)_user pwd:(NSString *)_pwd scheme:(NSString *)_scheme {
     self = [super init];
     
     if (self) {
@@ -38,51 +38,43 @@
     return self;
 }
 
--(void) updateUserName:(NSString*) _strUserName pwd:(NSString*) _strPwd
-{
+- (void)updateUserName:(NSString*)_strUserName pwd:(NSString*)_strPwd {
     [self setUserName:_strUserName pwd:_strPwd port:self.m_CommandPort scheme:self.m_scheme];
 }
 
--(void) startLoginToDeviceWithGetStringInfo:(BOOL)_blnGetStreamInfo IgnoreLoginCache:(BOOL)_blnIgnoreLoginCache
-{
+- (void) startLoginToDeviceWithGetStringInfo:(BOOL)_blnGetStreamInfo IgnoreLoginCache:(BOOL)_blnIgnoreLoginCache {
     self.m_blnGetRTSPInfo = _blnGetStreamInfo;
     self.m_blnIgnoreLoginCache = _blnIgnoreLoginCache;
 }
 
--(void) cancelLoginToDevice
-{
+- (void)cancelLoginToDevice {
     self.m_blnStopConnection = YES;
-
+    
     NSLog(@"cancel type=%d", (int)self.tag);
-    if(self.m_ASIHTTPSender)
-    {
-//        [self.m_ASIHTTPSender setDelegate:nil];
-//        [self.m_ASIHTTPSender cancel];
+    if (self.m_ASIHTTPSender) {
+        //        [self.m_ASIHTTPSender setDelegate:nil];
+        //        [self.m_ASIHTTPSender cancel];
     }
-
+    
 }
 
--(void) getVideoStreamURLByChannel:(NSInteger)_channel
-{
-
+- (void)getVideoStreamURLByChannel:(NSInteger)_channel {
+    
 }
 
--(NSInteger) getStreamsCodecInfo:(NSMutableArray *__strong*) _aryStreamCodecInfo
-{
+- (NSInteger)getStreamsCodecInfo:(NSMutableArray *__strong*)_aryStreamCodecInfo {
     NSInteger iRtn = -1;
     
     if(*_aryStreamCodecInfo)
-         *_aryStreamCodecInfo = nil;
+        *_aryStreamCodecInfo = nil;
     
     *_aryStreamCodecInfo = [[NSMutableArray alloc] init];
     
-    if(self.m_VideoStreamInfo)
-    {
+    if(self.m_VideoStreamInfo) {
         NSDictionary *tmpList = [self.m_VideoStreamInfo valueForKey:@"StreamSettings"];
         NSArray *Streams = [tmpList valueForKey:@"StreamSetting"];
         
-        for (int i = 0; i < [Streams count]; i++)
-        {
+        for (int i = 0; i < [Streams count]; i++) {
             NSDictionary *stream = [Streams objectAtIndex:i];
             if(stream)
             {
@@ -105,26 +97,24 @@
     return iRtn;
 }
 
--(void) getTwoWayAudioInfo
-{
-
-}
--(void) closeTwoWayAudio
-{
-
+- (void)getTwoWayAudioInfo {
+    
 }
 
--(void) setUserName:(NSString *)_strUserName pwd:(NSString *)_password port:(MultiPort)_port scheme:(NSString*)_scheme
-{
+- (void)closeTwoWayAudio {
+    
+}
+
+- (void)setUserName:(NSString *)_strUserName pwd:(NSString *)_password port:(MultiPort)_port scheme:(NSString*)_scheme {
     self.m_CommandPort = _port;
     self.m_strUserName = _strUserName;
     self.m_strPassword = _password;
     self.m_scheme = _scheme;
 }
 
--(void) checkDeviceOnline
-{
+- (void)checkDeviceOnline {
     
 }
+
 @end
 

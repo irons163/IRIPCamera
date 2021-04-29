@@ -5,10 +5,27 @@
 
 - IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS.
 
+## How it works?
+- Basically, it works by `IRPlayer` + `Live555` + iOS Native API.
+    - [IRPlayer](https://github.com/irons163/IRPlayer)
+    - [Live555](http://www.live555.com/)
+- `Live555` can make a connection with a rtsp server/streaming.
+- Decoding the frames by iOS VideoToolbox. The pixel format is NV12.
+- `IRPlayer` is the video player which can receive the frames and play it.
+    - If you are interested in this part, you can see how it works in `IRFFVideoInput`.
+- Playing the audio by iOS AudioToolbox.
+
 ## Features
 - Support Rtsp streaming.
 - Support for customize connection to your streaming device or IPCam.
-- Support demo mode.
+- Provide a demo that using `H264-RTSP-Server-iOS` as a RTSP IPCamera and `IRIPCamera` as a RTSP Player.
+    - See [H264-RTSP-Server-iOS](https://github.com/irons163/H264-RTSP-Server-iOS).
+
+## How the demo works?
+- Prepare 2 iPhones, connecting them in the same network.
+- Run [H264-RTSP-Server-iOS](https://github.com/irons163/H264-RTSP-Server-iOS) in an iPhone, it would show the local IP in the top of the screen.
+- Run this project in the other iPhone, type the RTSP Url into the setting page.
+- Enjoy your personal iPhoneCam : )
 
 ## Future
 - Support Multi viewer.
@@ -25,9 +42,10 @@
 
 ### Basic
 - Goto `Setting` Page, then type the URL in the textfield.
-- OR, you can type `demo` in the textfiled, if you want use demo rtsp url.
-  - Demo RTSP URL:rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
-- Press `Done` button, then the program will try to connect and play it.
+    - EX: `rtsp://192.168.2.218`
+- OR, you can simply just type `demo` in the textfiled, if you want to use the demo rtsp url.
+  - Full Demo RTSP URL: `rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov`
+- Pressing `Done` button, then the program will try to connect and play it.
 
 ### Advanced settings
 - Make your custom network connector.
@@ -56,3 +74,4 @@ See how the `IRCustomStreamConnector` + `IRCustomStreamConnectionRequest` + `IRS
 |Display|Setting|
 |---|---|
 |![Demo](./ScreenShots/demo1.png)|![Demo](./ScreenShots/demo2.png)|
+|![Demo](./ScreenShots/demo3.png)|![Demo](./ScreenShots/demo4.png)|

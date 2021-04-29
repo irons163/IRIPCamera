@@ -8,26 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import "RTSPReceiver.h"
 #import "StaticHttpRequest.h"
 #import "deviceConnector.h"
-//#import "KxMovieGLRenderMode.h"
-//#import "KxMovieGLView.h"
-//#import "MediaParameter.h"
 #import "IRStreamConnectionResponse.h"
 
 @import CoreMotion;
-
 @class DeviceClass;
 
 @protocol IRStreamConnectorDelegate <NSObject>
-//-(void) connectSuccessWithDeviceInfo:(StreamConnectionResponse *) response;
--(void) connectFailByType:(NSInteger) _iType errorDesc :(NSString *) _strErrorDesc;
--(void) startStreamingWithResponse:(IRStreamConnectionResponse *)response;
+
+- (void)connectFailByType:(NSInteger) _iType errorDesc :(NSString *) _strErrorDesc;
+- (void)startStreamingWithResponse:(IRStreamConnectionResponse *)response;
+
 @end
 
-@interface IRStreamConnector : NSObject<UIAlertViewDelegate, deviceConnectorDelegate>
-{
+@interface IRStreamConnector : NSObject <UIAlertViewDelegate, deviceConnectorDelegate> {
 @protected
     NSInteger videoRetry;
     IRStreamConnectionResponse *response;
@@ -37,8 +32,9 @@
 @property (weak) id<IRStreamConnectorDelegate> delegate;
 @property NSString *rtspURL;
 
--(void)startStreamConnection;
--(NSInteger) stopStreaming:(BOOL)_blnStopForever;
--(void) changeStream :(NSInteger) _stream;
--(int)getErrorCode;
+- (void)startStreamConnection;
+- (NSInteger)stopStreaming:(BOOL)_blnStopForever;
+- (void)changeStream :(NSInteger) _stream;
+- (int)getErrorCode;
+
 @end

@@ -49,14 +49,14 @@
         {
             if (_address.commandAddress.length > 0) {
                 self.m_CommandConnector = [[addressConnector alloc] initWithAddress:_address.commandAddress port:_commandPort.commandMultiPort
-                                                                                   user:_usr pwd:_pwd scheme:_scheme];
+                                                                               user:_usr pwd:_pwd scheme:_scheme];
                 self.m_CommandConnector.tag = HTTP_API_COMMAND;
                 self.m_CommandConnector.delegage = self;
                 m_ConnectorCounter++;
             }
             if (_address.dataAddress.length > 0 && ![_address.dataAddress isEqualToString:_address.commandAddress]) {
-                    self.m_AddressConnector = [[addressConnector alloc] initWithAddress:_address.dataAddress port:_commandPort.dataMultiPort
-                                                                                   user:_usr pwd:_pwd scheme:_scheme];
+                self.m_AddressConnector = [[addressConnector alloc] initWithAddress:_address.dataAddress port:_commandPort.dataMultiPort
+                                                                               user:_usr pwd:_pwd scheme:_scheme];
                 
                 self.m_AddressConnector.tag = HTTP_API_ADDRESS;
                 self.m_AddressConnector.delegage = self;
@@ -68,7 +68,7 @@
         {
             if (_address.commandAddress.length > 0) {
                 self.m_CommandConnector = [[addressConnector alloc] initWithAddress:_address.commandAddress port:_commandPort.commandMultiPort
-                                                                                   user:_usr pwd:_pwd scheme:_scheme];
+                                                                               user:_usr pwd:_pwd scheme:_scheme];
                 self.m_CommandConnector.tag = HTTP_API_COMMAND;
                 self.m_CommandConnector.delegage = self;
                 m_ConnectorCounter++;
@@ -249,12 +249,12 @@
             });
         }
     }
-//    else if (_resultCode == SYMMETRIC_NAT)
-//    {
-//        self.m_blnHasReported = YES;
-//        self.m_ConnectionFailCounter=0;
-//        [self.delegate didfinishLoginActionByResultType:-1 deviceInfo:_LoginInfo errorDesc:_resultMsg address:_strAddress port:_commandPort];
-//    }
+    //    else if (_resultCode == SYMMETRIC_NAT)
+    //    {
+    //        self.m_blnHasReported = YES;
+    //        self.m_ConnectionFailCounter=0;
+    //        [self.delegate didfinishLoginActionByResultType:-1 deviceInfo:_LoginInfo errorDesc:_resultMsg address:_strAddress port:_commandPort];
+    //    }
     else if (_resultCode != 0 && !self.m_blnHasReported)
     {
         //self.m_ConnectionFailCounter++;
@@ -298,7 +298,7 @@
             }
         }
     }
-
+    
 }
 
 -(void) didGetRTSPResponse:(NSInteger)_resultCode msg:(NSString *)_msg
@@ -345,13 +345,13 @@
     }else if(self.m_AddressConnector)
     {
         [self stopOthersConnectorByConnecedId:self.m_AddressConnector.tag];
-     
+        
         self.m_AddressConnector.m_blnIsAPPAndDUTUnderTheSameLAN = YES;
         self.m_AddressConnector.m_strAddress = [NSString stringWithFormat:@"%@", _strDeviceAddress];
         self.m_AddressConnector.m_CommandPort = _commandPort;
         self.m_AddressConnector.m_RetryTime = 0;
         [self.m_AddressConnector startLoginToDeviceWithGetStringInfo:m_blnGetRtspInfo IgnoreLoginCache:m_blnIgnoreLoginCache];
-
+        
     }
     else if(self.m_DDNSConnector)
     {
@@ -446,7 +446,7 @@
             }
         }
             break;
-            case DDNS_TYPE:
+        case DDNS_TYPE:
         {
             if(self.m_AddressConnector)
             {

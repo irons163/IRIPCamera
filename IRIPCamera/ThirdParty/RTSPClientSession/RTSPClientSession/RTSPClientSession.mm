@@ -11,35 +11,29 @@
 #include <BasicUsageEnvironment.hh>
 #include <GroupsockHelper.hh>
 
-
-
-
 @interface RTSPClientSession (PrivateMethod)
--(void) DESCRIBECallback:(RTSPClient* ) _rtspClient code:(int) _resultCode  result:(char*) _resultString;
--(void) setupNextSubsession:(RTSPClient* ) _rtspClient;
--(void) SETUPCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resoultCode result:(char*) _resultString;
--(void) PLAYCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resoultCode result:(char*) _resultString;
--(void) TEARDOWNCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resoultCode result:(char*) _resultString;
--(void) subsessionAfterPlaying:(void *) _clientData;
--(void) subsessionByeHandler:(void *) _clientData;
--(void) streamTimerHandler:(void *) _clientData;
--(void) shutdownStreamByRtspClient:(RTSPClient *) _rtspClient code:(int) _code;
+
+- (void)DESCRIBECallback:(RTSPClient *)_rtspClient code:(int)_resultCode result:(char *)_resultString;
+- (void)setupNextSubsession:(RTSPClient *)_rtspClient;
+- (void)SETUPCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resoultCode result:(char *)_resultString;
+- (void)PLAYCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resoultCode result:(char *)_resultString;
+- (void)TEARDOWNCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resoultCode result:(char *)_resultString;
+- (void)subsessionAfterPlaying:(void *)_clientData;
+- (void)subsessionByeHandler:(void *)_clientData;
+- (void)streamTimerHandler:(void *)_clientData;
+- (void)shutdownStreamByRtspClient:(RTSPClient *)_rtspClient code:(int)_code;
+
 @end
 
-
-class StreamClientState
-{
+class StreamClientState {
     public :
-    StreamClientState():iter(NULL), session(NULL), subsession(NULL), streamTimerTask(NULL), duration(0.0)
-    {
+    StreamClientState():iter(NULL), session(NULL), subsession(NULL), streamTimerTask(NULL), duration(0.0) {
         
     }
-    virtual ~StreamClientState()
-    {
+    virtual ~StreamClientState() {
         delete iter;
         
-        if(session != NULL)
-        {
+        if(session != NULL) {
             UsageEnvironment &env = session->envir();
             env.taskScheduler().unscheduleDelayedTask(streamTimerTask);
             Medium::close(session);
@@ -54,12 +48,10 @@ public:
     double duration;
 };
 
-class ourRTSPClient : public RTSPClient
-{
+class ourRTSPClient : public RTSPClient {
 public:
     static ourRTSPClient* createNew(UsageEnvironment &env, char const *_rstpURL, int verbosityLevel = 0
-                                    ,char const* applicationName = NULL, portNumBits tunnelOverHTTPPortNum = 0)
-    {
+                                    ,char const* applicationName = NULL, portNumBits tunnelOverHTTPPortNum = 0) {
         return new ourRTSPClient(env, _rstpURL, verbosityLevel, applicationName, tunnelOverHTTPPortNum);
     }
     
@@ -67,8 +59,7 @@ protected:
     ourRTSPClient(UsageEnvironment &env, char const *_rstpURL, int verbosityLevel
                   ,char const* applicationName, portNumBits tunnelOverHTTPPortNum)
     
-    :RTSPClient(env, _rstpURL, verbosityLevel, applicationName, tunnelOverHTTPPortNum ,-1)
-    {
+    :RTSPClient(env, _rstpURL, verbosityLevel, applicationName, tunnelOverHTTPPortNum ,-1) {
         
     }
     
@@ -78,76 +69,62 @@ public:
     Boolean m_blnStop;
 };
 
-static void DESCRIBECallback(RTSPClient* _rtspClient, int _resultCode, char* _resultString)
-{
-    [((ourRTSPClient*)_rtspClient)->m_myClientSession DESCRIBECallback:_rtspClient code:_resultCode result:_resultString];
+static void DESCRIBECallback(RTSPClient *_rtspClient, int _resultCode, char *_resultString) {
+    [((ourRTSPClient *)_rtspClient)->m_myClientSession DESCRIBECallback:_rtspClient code:_resultCode result:_resultString];
 }
 
-static void setupNextSubsession(RTSPClient*  _rtspClient)
-{
-    [((ourRTSPClient*)_rtspClient)->m_myClientSession setupNextSubsession:_rtspClient];
+static void setupNextSubsession(RTSPClient *_rtspClient) {
+    [((ourRTSPClient *)_rtspClient)->m_myClientSession setupNextSubsession:_rtspClient];
 }
 
-static void SETUPCallbackByRtspClient(RTSPClient * _rtspClient, int _resoultCode, char* _resultString)
-{
-    [((ourRTSPClient*)_rtspClient)->m_myClientSession SETUPCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
+static void SETUPCallbackByRtspClient(RTSPClient *_rtspClient, int _resoultCode, char *_resultString) {
+    [((ourRTSPClient *)_rtspClient)->m_myClientSession SETUPCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
 }
 
-static void PLAYCallbackByRtspClient(RTSPClient * _rtspClient, int _resoultCode, char* _resultString)
-{
-    [((ourRTSPClient*)_rtspClient)->m_myClientSession PLAYCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
+static void PLAYCallbackByRtspClient(RTSPClient *_rtspClient, int _resoultCode, char *_resultString) {
+    [((ourRTSPClient *)_rtspClient)->m_myClientSession PLAYCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
 }
 
-static void TEARDOWNCallbackByRtspClient(RTSPClient * _rtspClient, int _resoultCode, char* _resultString)
-{
-    [((ourRTSPClient*)_rtspClient)->m_myClientSession TEARDOWNCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
+static void TEARDOWNCallbackByRtspClient(RTSPClient *_rtspClient, int _resoultCode, char *_resultString) {
+    [((ourRTSPClient *)_rtspClient)->m_myClientSession TEARDOWNCallbackByRtspClient:_rtspClient code:_resoultCode result:_resultString];
 }
 
-static void subsessionAfterPlaying(void * _clientData)
-{
+static void subsessionAfterPlaying(void *_clientData) {
     MediaSubsession *subsession = (MediaSubsession *)_clientData;
-    ourRTSPClient *tmpClient = (ourRTSPClient*)(subsession->miscPtr);
+    ourRTSPClient *tmpClient = (ourRTSPClient *)(subsession->miscPtr);
     [tmpClient->m_myClientSession subsessionAfterPlaying:_clientData];
 }
 
-static void subsessionByeHandler(void * _clientData)
-{
+static void subsessionByeHandler(void *_clientData) {
     MediaSubsession *subsession = (MediaSubsession *)_clientData;
-    ourRTSPClient *tmpClient = (ourRTSPClient*)(subsession->miscPtr);
+    ourRTSPClient *tmpClient = (ourRTSPClient *)(subsession->miscPtr);
     [tmpClient->m_myClientSession subsessionByeHandler:_clientData];
 }
-static void streamTimerHandler(void *_clientData)
-{
+
+static void streamTimerHandler(void *_clientData) {
     MediaSubsession *subsession = (MediaSubsession *)_clientData;
-    ourRTSPClient *tmpClient = (ourRTSPClient*)(subsession->miscPtr);
+    ourRTSPClient *tmpClient = (ourRTSPClient *)(subsession->miscPtr);
     [tmpClient->m_myClientSession streamTimerHandler:_clientData];
 }
-static void shutdownStreamByRtspClient(RTSPClient * _rtspClient, int _resoultCode, char* _resultString)
-{
+
+static void shutdownStreamByRtspClient(RTSPClient *_rtspClient, int _resoultCode, char *_resultString) {
     [((ourRTSPClient *)_rtspClient)->m_myClientSession shutdownStreamByRtspClient:_rtspClient code:1];
 }
 
-
-class RTSPSubsessionMediaSink : public MediaSink
-{
+class RTSPSubsessionMediaSink : public MediaSink {
     
 public:
-    static RTSPSubsessionMediaSink* createNew(UsageEnvironment &env, MediaSubsession &subsession, char const* streamId=NULL)
-    {
+    static RTSPSubsessionMediaSink* createNew(UsageEnvironment &env, MediaSubsession &subsession, char const* streamId=NULL) {
         return new RTSPSubsessionMediaSink(env, subsession, streamId);
     }
     
-    
 private:
-    RTSPSubsessionMediaSink(UsageEnvironment &env, MediaSubsession &subsession, char const* streamId):MediaSink(env),fSubsession(&subsession)
-    {
+    RTSPSubsessionMediaSink(UsageEnvironment &env, MediaSubsession &subsession, char const* streamId):MediaSink(env),fSubsession(&subsession) {
         //        fSubsession = _subsession;
-        
         bufLen = 256000;
         //        bufLen = 512000;
         buf = new uint8_t[bufLen];
     }
-    
     
     virtual ~RTSPSubsessionMediaSink() {
         delete[] buf;
@@ -163,21 +140,17 @@ private:
         
         ourRTSPClient *tmpClient = (ourRTSPClient*)(fSubsession->miscPtr);
         
-        if (!tmpClient->m_blnStop)
-        {
-            //            NSLog(@"%02X%02X%02X%02X%02X%02X", buf[0], buf[1], buf[2], buf[3], buf[4], buf[5]);
+        if (!tmpClient->m_blnStop) {
             [tmpClient->m_myClientSession.delegate didReceiveFrame:buf
                                                    frameDataLength:frameSize
                                                   presentationTime:presentationTime
                                             durationInMicroseconds:durationInMicroseconds
                                                          codecName:[NSString stringWithCString:fSubsession->codecName() encoding:NSUTF8StringEncoding]];
             
-            if(!continuePlaying())
-            {
+            if (!continuePlaying()) {
                 NSLog(@"@@@@@@@@@@@@@@@@@@@@@@@ continuePlaying fail");
             }
         }
-        
     }
     
     static void afterGettingFrame1(void* clientData, unsigned frameSize,
@@ -194,9 +167,7 @@ private:
     }
     
     virtual Boolean continuePlaying() {
-        
-        if (fSource)
-        {
+        if (fSource) {
             fSource->getNextFrame(buf, bufLen, afterGettingFrame1, this, onSourceClosure, this);
             return True;
         }
@@ -210,13 +181,11 @@ private:
     uint8_t *buf;
     int bufLen;
     NSDate *receiveTime;
+    
 public:
     int channelId;
     RTSPReceiver *m_RTSPClient;
 };
-
-
-static void SubsessionAfterPlaying(void* clientData) {}
 
 struct RTSPSubsessionContext {
     MediaSubsession *subsession;
@@ -227,9 +196,7 @@ struct RTSPSubsessionContext {
 
 @synthesize delegate;
 
-
-
-- (id)initWithMediaSubsession:(MediaSubsession*)subsession environment:(UsageEnvironment*)env {
+- (id)initWithMediaSubsession:(MediaSubsession *)subsession environment:(UsageEnvironment *)env {
     if (self = [super init]) {
         context = new RTSPSubsessionContext;
         context->subsession = subsession;
@@ -243,30 +210,27 @@ struct RTSPSubsessionContext {
     delete context;
 }
 
-- (NSString*)getSessionId {
+- (NSString *)getSessionId {
     return [NSString stringWithCString:context->subsession->sessionId() encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)getMediumName {
+- (NSString *)getMediumName {
     return [NSString stringWithCString:context->subsession->mediumName() encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)getProtocolName {
+- (NSString *)getProtocolName {
     return [NSString stringWithCString:context->subsession->protocolName() encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)getCodecName {
+- (NSString *)getCodecName {
     return [NSString stringWithCString:context->subsession->codecName() encoding:NSUTF8StringEncoding];
-    
 }
 
 - (NSUInteger)getAudioSmapleRate {
     return context->subsession->rtpTimestampFrequency();
-    
 }
 
--(NSUInteger) getAudioChannel
-{
+- (NSUInteger)getAudioChannel {
     return context->subsession->numChannels();
 }
 - (NSUInteger)getServerPortNum {
@@ -281,17 +245,13 @@ struct RTSPSubsessionContext {
     return context->subsession->rtpSource()->RTPgs()->socketNum();
 }
 
-- (NSString*)getSDP_spropparametersets {
+- (NSString *)getSDP_spropparametersets {
     return [NSString stringWithCString:context->subsession->fmtp_spropparametersets() encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)getSDP_config {
+- (NSString *)getSDP_config {
     return [NSString stringWithCString:context->subsession->fmtp_config() encoding:NSUTF8StringEncoding];
 }
-
-//- (NSString*)getSDP_mode {
-//    return [NSString stringWithCString:context->subsession->fmtp_mode() encoding:NSUTF8StringEncoding];
-//}
 
 - (NSUInteger)getSDP_VideoWidth {
     return context->subsession->videoWidth();
@@ -314,46 +274,38 @@ struct RTSPSubsessionContext {
     return context->subsession->rtpSource()->hasBeenSynchronizedUsingRTCP();
 }
 
--(NSInteger) getChanelID
-{
-    return  ((RTSPSubsessionMediaSink*)context->subsession)->channelId;
+- (NSInteger)getChanelID {
+    return ((RTSPSubsessionMediaSink*)context->subsession)->channelId;
 }
-
 
 - (void)setDelegate:(id <RTSPSubsessionDelegate>)_delegate {
     delegate = _delegate;
 }
 
-- (MediaSubsession*)getMediaSubsession {
+- (MediaSubsession *)getMediaSubsession {
     return context->subsession;
 }
 
-- (int) getExtraData:(unsigned int *)i_extra extradata:(uint8_t **) p_extra
-{
+- (int)getExtraData:(unsigned int *)i_extra extradata:(uint8_t **) p_extra {
     int iRtn = 0;
     
-    if((*p_extra = parseGeneralConfigStr(context->subsession->fmtp_config(), *i_extra)))
-    {
+    if ((*p_extra = parseGeneralConfigStr(context->subsession->fmtp_config(), *i_extra))) {
         
     }
     return iRtn;
 }
 
-- (void) setReceiver:(RTSPReceiver *) _RTSPReceiver
-{
+- (void)setReceiver:(RTSPReceiver *)_RTSPReceiver {
     m_RTSPReceiver = _RTSPReceiver;
 }
 
--(void) setURL:(NSString *) _url
-{
+- (void)setURL:(NSString *)_url {
     m_url = _url;
 }
 
--(NSString*) getUrl
-{
+- (NSString *)getUrl {
     return m_url;
 }
-
 
 @end
 
@@ -364,21 +316,17 @@ struct RTSPClientSessionContext {
     MediaSession *session;
 };
 
-
-
 @implementation RTSPClientSession
 @synthesize url;
 @synthesize delegate;
 @synthesize m_blnUseTCP;
 
-- (id)initWithURL:(NSURL*)_url delegate:(id)_delegate
-{
+- (id)initWithURL:(NSURL *)_url delegate:(id)_delegate {
     delegate = _delegate;
     return [self initWithURL:_url username:nil password:nil];
 }
 
-- (id)initWithURL:(NSURL*)_url username:(NSString*)_username password:(NSString*)_password
-{
+- (id)initWithURL:(NSURL *)_url username:(NSString *)_username password:(NSString *)_password {
     self = [super init];
     if (self) {
         eventLoopWatchVariable = 0;
@@ -430,8 +378,7 @@ struct RTSPClientSessionContext {
     sdp = nil;
 }
 
-- (BOOL)setupWithTCP:(BOOL)_blnUseTCP
-{
+- (BOOL)setupWithTCP:(BOOL)_blnUseTCP {
     eventLoopWatchVariable = 0;
     m_blnDescribeDone = NO;
     m_blnSetupDone = NO;
@@ -439,126 +386,30 @@ struct RTSPClientSessionContext {
     
     self.m_blnUseTCP = _blnUseTCP;
     NSLog(@"url=%@", [url absoluteString]);
-    //    if (username && password)
-    //    {
-    //
-    //    }
-    //    else
-    {
-        ((ourRTSPClient*)context->client)->m_blnStop = False;
-        NSLog(@"0. sendDescribeCommand");
-        context->client->sendDescribeCommand(DESCRIBECallback);
-        context->env->taskScheduler().doEventLoop(&eventLoopWatchVariable);
-        Medium::close(context->client);
-        context->client = nil;
-        //        if(self.delegate)
-        //            [self.delegate tearDownCallback];
-    }
+
+    ((ourRTSPClient*)context->client)->m_blnStop = False;
+    NSLog(@"0. sendDescribeCommand");
+    context->client->sendDescribeCommand(DESCRIBECallback);
+    context->env->taskScheduler().doEventLoop(&eventLoopWatchVariable);
+    Medium::close(context->client);
+    context->client = nil;
+    //        if(self.delegate)
+    //            [self.delegate tearDownCallback];
     
     return YES;
 }
 
-- (BOOL) shutdownStream
-{
+- (BOOL)shutdownStream {
     ourRTSPClient *tmpClent = (ourRTSPClient *) context->client;
     [self shutdownStreamByRtspClient:tmpClent code:0];
-    
-    //////    signal(SIGPIPE, SIG_IGN);
-    //    if(m_blnPlayDone)
-    //    {
-    //
-    //        ourRTSPClient *tmpClent = (ourRTSPClient *) context->client;
-    //
-    //        tmpClent->m_blnStop = True;
-    //        //    UsageEnvironment &env = tmpClent->envir();
-    //        StreamClientState &scs = tmpClent->scs;
-    //
-    //        if(scs.session != NULL)
-    //        {
-    //            Boolean someSubsessionWereActive = False;
-    //            MediaSubsessionIterator iter(*scs.session);
-    //            MediaSubsession *subsession;
-    //
-    //            while ((subsession = iter.next()) != NULL)
-    //            {
-    //                if(subsession->sink != NULL)
-    //                {
-    //                    Medium::close(subsession->sink);
-    //                    subsession->sink = NULL;
-    //
-    //                    if(subsession->rtcpInstance() != NULL)
-    //                    {
-    //                        subsession->rtcpInstance()->setByeHandler(NULL, NULL);
-    //                    }
-    //
-    //                    someSubsessionWereActive = True;
-    //                }
-    //            }
-    //
-    //            if(someSubsessionWereActive)
-    //            {
-    //                tmpClent->sendTeardownCommand(*scs.session, TEARDOWNCallbackByRtspClient);
-    //            }
-    //        }
-    //    }
-    //
-    //
-    //
-    //    if(!m_blnPlayDone)
-    //    {
-    //        sleep(1);// waiting for live 555 to stop doeventloop,if rtsp streaming not open
-    //    }
-    
-    
-    //    ourRTSPClient *rtspClient = (ourRTSPClient *) context->client;
-    //    UsageEnvironment& env = rtspClient->envir(); // alias
-    //    StreamClientState& scs = ((ourRTSPClient*)rtspClient)->scs; // alias
-    //
-    //    // First, check whether any subsessions have still to be closed:
-    //    if (scs.session != NULL) {
-    //        Boolean someSubsessionsWereActive = False;
-    //        MediaSubsessionIterator iter(*scs.session);
-    //        MediaSubsession* subsession;
-    //
-    //        while ((subsession = iter.next()) != NULL) {
-    //            if (subsession->sink != NULL) {
-    //                Medium::close(subsession->sink);
-    //                subsession->sink = NULL;
-    //
-    //                if (subsession->rtcpInstance() != NULL) {
-    //                    subsession->rtcpInstance()->setByeHandler(NULL, NULL); // in case the server sends a RTCP "BYE" while handling "TEARDOWN"
-    //                }
-    //
-    //                someSubsessionsWereActive = True;
-    //            }
-    //        }
-    //
-    //        if (someSubsessionsWereActive) {
-    //            // Send a RTSP "TEARDOWN" command, to tell the server to shutdown the stream.
-    //            // Don't bother handling the response to the "TEARDOWN".
-    //            rtspClient->sendTeardownCommand(*scs.session, NULL);
-    //            eventLoopWatchVariable = 1;
-    //        }
-    //    }
-    
-    
-    //    Medium::close(rtspClient);
-    // Note that this will also cause this stream's "StreamClientState" structure to get reclaimed.
-    
-    //    if (--rtspClientCount == 0) {
-    //        // The final stream has ended, so exit the application now.
-    //        // (Of course, if you're embedding this code into your own application, you might want to comment this out,
-    //        // and replace it with "eventLoopWatchVariable = 1;", so that we leave the LIVE555 event loop, and continue running "main()".)
-    //        exit(exitCode);
-    //    }
-    
+
     eventLoopWatchVariable = 1;
     NSLog(@"Do shutdown event");
     
     return YES;
 }
 
-- (NSArray*)getSubsessions {
+- (NSArray *)getSubsessions {
     NSMutableArray *subsessions = [[NSMutableArray alloc] init];
     
     MediaSubsessionIterator iter(*context->session);
@@ -570,13 +421,16 @@ struct RTSPClientSessionContext {
     return subsessions;
 }
 
-- (NSString*)getLastErrorString {
+- (NSString *)getLastErrorString {
     return [NSString stringWithCString:context->env->getResultMsg() encoding:NSUTF8StringEncoding];
 }
 
-- (NSString*)getSDP {
+- (NSString *)getSDP {
     return sdp;
-    
+}
+
+- (NSData *)getBase64DecodeString:(NSString *)strEncoded {
+    return [[NSData alloc] initWithBase64EncodedString:strEncoded options:NSDataBase64DecodingIgnoreUnknownCharacters];
 }
 
 - (int)getSocket {
@@ -587,11 +441,9 @@ struct RTSPClientSessionContext {
 
 @implementation RTSPClientSession(PrivateMethod)
 
--(void) DESCRIBECallback:(RTSPClient* ) _rtspClient code:(int) _resultCode result:(char*) _resultString
-{
+- (void)DESCRIBECallback:(RTSPClient* )_rtspClient code:(int)_resultCode result:(char*)_resultString {
     NSLog(@"1. describe call back resuleCode=%d :%s",_resultCode ,_resultString);
-    do
-    {
+    do {
         m_blnDescribeDone = YES;
         UsageEnvironment &env = _rtspClient->envir();
         StreamClientState &scs = ((ourRTSPClient *) _rtspClient)->scs;
@@ -605,15 +457,7 @@ struct RTSPClientSessionContext {
         char* const sdpDescription = _resultString;
         
         sdp = [[NSString alloc] initWithCString:_resultString encoding:NSUTF8StringEncoding];
-        //        NSArray *aryTmp = [sdp componentsSeparatedByString:@"sprop-parameter-sets="];
-        //        NSString *tmpSdp = [aryTmp objectAtIndex:1];
-        //        aryTmp = [tmpSdp componentsSeparatedByString:@"a="];
-        
-        
-        //        NSArray *spsWithBase64 = [[aryTmp objectAtIndex:0] componentsSeparatedByString:@","];
-        //        NSLog(@"%@",[spsWithBase64 objectAtIndex:0]);
-        
-        //        NSLog(@"%@",[spsWithBase64 objectAtIndex:1]);
+
         scs.session = MediaSession::createNew(env, sdpDescription);
         delete[] sdpDescription;
         
@@ -629,58 +473,43 @@ struct RTSPClientSessionContext {
         scs.iter = new MediaSubsessionIterator(*scs.session);
         
         [self setupNextSubsession:_rtspClient];
-        
     } while (0);
-    
-    
 }
 
--(void) setupNextSubsession:(RTSPClient* ) _rtspClient
-{
+- (void)setupNextSubsession:(RTSPClient *)_rtspClient {
     StreamClientState &scs = ((ourRTSPClient *)_rtspClient)->scs;
     
     scs.subsession = scs.iter->next();
     
-    if(scs.subsession != NULL)
-    {
-        if(!scs.subsession->initiate())
-        {
+    if (scs.subsession != NULL) {
+        if (!scs.subsession->initiate()) {
             [self setupNextSubsession:_rtspClient];
-        }
-        else
-        {
+        } else {
             Boolean blnTCP = self.m_blnUseTCP ? True : False;
-            //            NSLog(@"useTCP = %@",blnTCP ? @"YES" : @"NO");
             NSLog(@"2. send setup command");
             _rtspClient->sendSetupCommand(*scs.subsession, SETUPCallbackByRtspClient, False, blnTCP, False);
-            
         }
         return;
     }
     
-    //    scs.duration = scs.subsession->playEndTime() - scs.subsession->playStartTime();
     NSLog(@"4. send play command");
     _rtspClient->sendPlayCommand(*scs.session, PLAYCallbackByRtspClient);
 }
 
--(void) SETUPCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resultCode result:(char*) _resultString
-{
+- (void)SETUPCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resultCode result:(char *)_resultString {
     NSLog(@"3. setup callback");
-    do
-    {
+    do {
         m_blnSetupDone = YES;
         UsageEnvironment &env = _rtspClient->envir();
         StreamClientState &scs = ((ourRTSPClient*)_rtspClient)->scs;
         RTSPClientSession *tmpClient =((ourRTSPClient*)_rtspClient)->m_myClientSession;
         
-        if(_resultCode != 0)
-        {
+        if (_resultCode != 0) {
             [((ourRTSPClient*) _rtspClient)->m_myClientSession.delegate rtspFailCallbackByErrorCode:_resultCode msg:[NSString stringWithFormat:@"%s",_resultString]];
             break;
         }
         
-        if(scs.subsession)
-        {
+        if (scs.subsession) {
             scs.subsession->sink = RTSPSubsessionMediaSink::createNew(env, *scs.subsession, _rtspClient->url());
             
             if(scs.subsession->sink == NULL)
@@ -724,28 +553,16 @@ struct RTSPClientSessionContext {
     setupNextSubsession(_rtspClient);
 }
 
--(void) PLAYCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resultCode result:(char*) _resultString
-{
+- (void)PLAYCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resultCode result:(char *) _resultString {
     NSLog(@"5. play call back");
     m_blnPlayDone = YES;
     do {
-        //        UsageEnvironment &env = _rtspClient->envir();
-        //        StreamClientState &scs = ((ourRTSPClient *) _rtspClient)->scs;
-        
-        if(_resultCode != 0)
-        {
+        if (_resultCode != 0) {
             [((ourRTSPClient*) _rtspClient)->m_myClientSession.delegate rtspFailCallbackByErrorCode:_resultCode msg:[NSString stringWithFormat:@"%s",_resultString]];
             
             break;
         }
-        
-        //        if(scs.duration > 0)
-        //        {
-        //            unsigned const delaySlop = 2;
-        //            scs.duration += delaySlop;
-        //            unsigned uSectoDelay = (unsigned)(scs.duration*1000000);
-        //            scs.streamTimerTask = env.taskScheduler().scheduleDelayedTask(uSectoDelay, (TaskFunc*)streamTimerHandler, _rtspClient);
-        //        }
+
         [((ourRTSPClient *) _rtspClient)->m_myClientSession.delegate startPlayCallback];
         
         return;
@@ -754,15 +571,13 @@ struct RTSPClientSessionContext {
     [self shutdownStreamByRtspClient:_rtspClient code:1];
 }
 
--(void) TEARDOWNCallbackByRtspClient:(RTSPClient *) _rtspClient code:(int) _resoultCode result:(char*) _resultString
-{
+- (void)TEARDOWNCallbackByRtspClient:(RTSPClient *)_rtspClient code:(int)_resoultCode result:(char *)_resultString {
     eventLoopWatchVariable = 1;
     NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~teardown finish");
     //    [self.delegate tearDownCallback];
 }
 
--(void) subsessionAfterPlaying:(void *) _clientData
-{
+- (void)subsessionAfterPlaying:(void *)_clientData {
     MediaSubsession *subsession = (MediaSubsession *)_clientData;
     ourRTSPClient *tmpClient = (ourRTSPClient*)(subsession->miscPtr);
     
@@ -779,74 +594,31 @@ struct RTSPClientSessionContext {
     }
     
     [self shutdownStreamByRtspClient:(RTSPClient*)tmpClient code:1];
-    
 }
 
--(void) subsessionByeHandler:(void *) _clientData
-{
+- (void)subsessionByeHandler:(void *)_clientData {
 }
 
--(void) streamTimerHandler:(void *) _clientData
-{
+- (void)streamTimerHandler:(void *)_clientData {
 }
 
--(void) shutdownStreamByRtspClient:(RTSPClient *) _rtspClient code:(int) _code
-{
-    //    //    UsageEnvironment &env = _rtspClient->envir();
-    //    StreamClientState &scs = ((ourRTSPClient *)_rtspClient)->scs;
-    //
-    //    if(scs.session != NULL)
-    //    {
-    //        Boolean someSubsessionwereActive = False;
-    //        MediaSubsessionIterator iter(*scs.session);
-    //        MediaSubsession *subsession;
-    //
-    //        while ((subsession = iter.next()) != NULL)
-    //        {
-    //            if(subsession->sink != NULL)
-    //            {
-    //                Medium::close(subsession->sink);
-    //                subsession->sink = NULL;
-    //
-    //                if(subsession->rtcpInstance() != NULL)
-    //                {
-    //                    subsession->rtcpInstance()->setByeHandler(NULL, NULL);
-    //                }
-    //
-    //                someSubsessionwereActive = True;
-    //            }
-    //        }
-    //
-    //        if (someSubsessionwereActive)
-    //        {
-    //            _rtspClient->sendTeardownCommand(*scs.subsession, TEARDOWNCallbackByRtspClient);
-    //        }
-    //
-    //    }
-    //
-    //    Medium::close(_rtspClient);
-    
+- (void)shutdownStreamByRtspClient:(RTSPClient *)_rtspClient code:(int)_code {
     ourRTSPClient *tmpClent = (ourRTSPClient *) context->client;
     
     tmpClent->m_blnStop = True;
-    //    UsageEnvironment &env = tmpClent->envir();
     StreamClientState &scs = tmpClent->scs;
     
-    if(scs.session != NULL)
-    {
+    if (scs.session != NULL) {
         Boolean someSubsessionWereActive = False;
         MediaSubsessionIterator iter(*scs.session);
         MediaSubsession *subsession;
         
-        while ((subsession = iter.next()) != NULL)
-        {
-            if(subsession->sink != NULL)
-            {
+        while ((subsession = iter.next()) != NULL) {
+            if (subsession->sink != NULL) {
                 Medium::close(subsession->sink);
                 subsession->sink = NULL;
                 
-                if(subsession->rtcpInstance() != NULL)
-                {
+                if (subsession->rtcpInstance() != NULL) {
                     subsession->rtcpInstance()->setByeHandler(NULL, NULL);
                 }
                 
@@ -854,8 +626,7 @@ struct RTSPClientSessionContext {
             }
         }
         
-        if(someSubsessionWereActive)
-        {
+        if (someSubsessionWereActive) {
             tmpClent->sendTeardownCommand(*scs.session, TEARDOWNCallbackByRtspClient);
         }
     }

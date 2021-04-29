@@ -17,26 +17,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class DeviceClass;
 
-@interface IRRTSPMediaView : UIView<IRStreamControllerDelegate>
-{
+@interface IRRTSPMediaView : UIView <IRStreamControllerDelegate> {
     UIImageView *imageView;
     BOOL m_blnStopStreaming;
-
 }
-@property (weak, nonatomic) IBOutlet UIView *m_titleBackground;
-@property (weak, nonatomic) IBOutlet UILabel *m_lblTitle;
-@property (weak, nonatomic) IBOutlet UIView *m_relayTimerBackground;
-@property (weak, nonatomic) IBOutlet UILabel *m_RelayTimerTitle;
-@property (weak, nonatomic) IBOutlet UIView *m_videoView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *m_LoadingActivity;
-@property (weak, nonatomic) IBOutlet UILabel *m_InfoLabel;
-//@property (weak, nonatomic) StreamController *streamController;
-@property (weak, nonatomic) IRPlayerImp *m_player;
-@property (nonatomic) double tagTime;
+
+@property (weak, nonatomic) IBOutlet UIView *titleBackground;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIView *videoView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivity;
+@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IRPlayerImp *player;
 @property (nonatomic) BOOL doubleTapEnable;
 
--(void) startStreamConnectionWithRequest:(IRStreamConnectionRequest*)request;
--(NSInteger) stopStreaming:(BOOL)_blnStopForever;
+- (void)startStreamConnectionWithRequest:(IRStreamConnectionRequest *)request;
+- (NSInteger)stopStreaming:(BOOL)stopForever;
+
 @end
 
 NS_ASSUME_NONNULL_END

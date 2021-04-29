@@ -13,7 +13,7 @@
     NSArray *modes;
 }
 
-@property (nonatomic, strong) IRPlayerImp * player;
+@property (nonatomic, strong) IRPlayerImp *player;
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet UILabel *stateLabel;
@@ -28,8 +28,7 @@
 
 @implementation PlayerViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     
@@ -53,6 +52,7 @@
         vrVideo = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"google-help-vr" ofType:@"mp4"]];
         fisheyeVideo = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"fisheye-demo" ofType:@"mp4"]];
     });
+    
     switch (self.demoType)
     {
         case DemoType_AVPlayer_Normal:
@@ -92,15 +92,17 @@
     }
 }
 
-- (void)viewDidLayoutSubviews
-{
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-//    self.player.view.frame = self.view.bounds;
+    
     [self.player updateGraphicsViewFrame:self.view.bounds];
 }
 
-+ (NSString *)displayNameForDemoType:(DemoType)demoType
-{
+- (void)dealloc {
+    [self.player removePlayerNotificationTarget:self];
+}
+
++ (NSString *)displayNameForDemoType:(DemoType)demoType {
     static NSArray * displayNames = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -118,39 +120,33 @@
     }
     return nil;
 }
-- (IBAction)back:(id)sender
-{
+
+- (IBAction)back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)modes:(id)sender
-{
+- (IBAction)modes:(id)sender {
     [self showRenderModeMenu];
 }
 
-- (IBAction)play:(id)sender
-{
+- (IBAction)play:(id)sender {
     [self.player play];
 }
 
-- (IBAction)pause:(id)sender
-{
+- (IBAction)pause:(id)sender {
     [self.player pause];
 }
 
-- (IBAction)progressTouchDown:(id)sender
-{
+- (IBAction)progressTouchDown:(id)sender {
     self.progressSilderTouching = YES;
 }
 
-- (IBAction)progressTouchUp:(id)sender
-{
+- (IBAction)progressTouchUp:(id)sender {
     self.progressSilderTouching = NO;
     [self.player seekToTime:self.player.duration * self.progressSilder.value];
 }
 
-- (void)stateAction:(NSNotification *)notification
-{
+- (void)stateAction:(NSNotification *)notification {
     IRState * state = [IRState stateFromUserInfo:notification.userInfo];
     
     NSString * text;
@@ -182,8 +178,7 @@
     self.stateLabel.text = text;
 }
 
-- (void)progressAction:(NSNotification *)notification
-{
+- (void)progressAction:(NSNotification *)notification {
     IRProgress * progress = [IRProgress progressFromUserInfo:notification.userInfo];
     if (!self.progressSilderTouching) {
         self.progressSilder.value = progress.percent;
@@ -191,25 +186,21 @@
     self.currentTimeLabel.text = [self timeStringFromSeconds:progress.current];
 }
 
-- (void)playableAction:(NSNotification *)notification
-{
+- (void)playableAction:(NSNotification *)notification {
     IRPlayable * playable = [IRPlayable playableFromUserInfo:notification.userInfo];
     NSLog(@"playable time : %f", playable.current);
 }
 
-- (void)errorAction:(NSNotification *)notification
-{
+- (void)errorAction:(NSNotification *)notification {
     IRError * error = [IRError errorFromUserInfo:notification.userInfo];
     NSLog(@"player did error : %@", error.error);
 }
 
-- (NSString *)timeStringFromSeconds:(CGFloat)seconds
-{
+- (NSString *)timeStringFromSeconds:(CGFloat)seconds {
     return [NSString stringWithFormat:@"%ld:%.2ld", (long)seconds / 60, (long)seconds % 60];
 }
 
--(void) showRenderModeMenu
-{
+- (void)showRenderModeMenu {
     NSArray *aryModes = modes;
     
     if ([aryModes count] > 0) {
@@ -237,43 +228,15 @@
             
             UIAlertAction *itemAction = [UIAlertAction actionWithTitle:renderModeStr style:UIAlertActionStyleDefault
                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                   IRGLRenderMode* tmpRenderMode = (IRGLRenderMode*)[aryModes objectAtIndex:i];
-                                                                   [self.player selectRenderMode:tmpRenderMode];
-                                                               }];
+                IRGLRenderMode* tmpRenderMode = (IRGLRenderMode*)[aryModes objectAtIndex:i];
+                [self.player selectRenderMode:tmpRenderMode];
+            }];
             
             [alertView addAction:itemAction];
         }
         
         [self presentViewController:alertView animated:YES completion:nil];
-        
-        //        alertView = [[LGAlertView alloc] initWithTitle:nil
-        //                                               message:nil
-        //                                                 style:LGAlertViewStyleActionSheet
-        //                                          buttonTitles:aryStreamsTitle
-        //                                     cancelButtonTitle:_(@"ButtonTextCancel")
-        //                                destructiveButtonTitle:nil
-        //                                         actionHandler:^(LGAlertView * _Nonnull alertView, NSUInteger index, NSString * _Nullable title) {
-        //                                             KxMovieGLRenderMode* tmpRenderMode = (KxMovieGLRenderMode*)[aryModes objectAtIndex:index];
-        //                                             NSString *renderModeStr = tmpRenderMode.name;
-        //                                             NSLog(@"Got %@",renderModeStr);
-        //                                             [tmpVideo setCurrentRenderMode:tmpRenderMode];
-        //                                         } cancelHandler:^(LGAlertView * _Nonnull alertView) {
-        //                                             NSLog(@"Got Cancel");
-        //                                         } destructiveHandler:nil];
-        //
-        //        alertView.buttonsAccessoryType = aryStreamsCheckMark;
-        //        alertView.buttonsBackgroundColorHighlighted = [UIColor groupTableViewBackgroundColor];
-        //        alertView.buttonsTitleColorHighlighted = alertView.buttonsTitleColor;
-        //        alertView.cancelButtonBackgroundColorHighlighted = [UIColor groupTableViewBackgroundColor];
-        //        alertView.cancelButtonTitleColorHighlighted = alertView.buttonsTitleColor;
-        //
-        //        [alertView showAnimated:YES completionHandler:nil];
     }
-}
-
-- (void)dealloc
-{
-    [self.player removePlayerNotificationTarget:self];
 }
 
 - (NSArray<IRGLRenderMode*> *)createFisheyeModesWithParameter:(nullable IRMediaParameter *)parameter {
@@ -282,11 +245,11 @@
     IRGLRenderMode *fisheye = [[IRGLRenderMode3DFisheye alloc] init];
     IRGLRenderMode *fisheye4P = [[IRGLRenderModeMulti4P alloc] init];
     NSArray<IRGLRenderMode*>* modes = @[
-                                        fisheye2Pano,
-                                        fisheye,
-                                        fisheye4P,
-                                        normal
-                                        ];
+        fisheye2Pano,
+        fisheye,
+        fisheye4P,
+        normal
+    ];
     
     normal.shiftController.enabled = NO;
     

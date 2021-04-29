@@ -10,32 +10,24 @@
 #include<AudioToolbox/AudioToolbox.h>
 #import <OpenAL/al.h>
 #import <OpenAL/alc.h>
-//#import "AudioOutput.h"
 #import "AudioPlayer.h"
-//#include "swresample.h"
-
-
-//#import <libswresample/swresample.h>
-//#import <libavcodec/avcodec.h>
 #import <IRPlayer/IRPlayer.h>
 #import <IRPlayer/IRFFTools.h>
 #import <libswresample/swresample.h>
 
 @protocol AudioDecoderDelegate
 
--(void) playAudio:(unsigned char*)data dataSize:(UInt32)dataSize;
+- (void)playAudio:(unsigned char *)data dataSize:(UInt32)dataSize;
+
 @end
 
-@interface AudioDecoder : NSObject
-{
+@interface AudioDecoder : NSObject {
     ALCdevice   *openALDevice;
     ALCcontext  *openALContext;
     ALuint      outputSource;
     ALuint      outputBuffer;
     NSFileHandle *myHandle;
-     NSString* filenameStr;
-    
-//    AudioOutput *mPlayer;
+    NSString* filenameStr;
     AudioPlayer *mPlayer;
     AVCodecContext *context;
     SwrContext       *pSwrCtx;
@@ -43,10 +35,7 @@
     NSInteger m_SampleRate;
     NSInteger m_Channels;
     NSInteger m_channelNO;
-    
     BOOL m_blnStopDecode;
-//    AudioOutput *mPlayer;
-    
     id <AudioDecoderDelegate> delegate;
 }
 
@@ -60,4 +49,5 @@
 -(void) setExtraData:(NSInteger) _iLen extraData:(uint8_t *) _extradata;
 -(void) stopDecode;
 -(void) startDecode;
+
 @end

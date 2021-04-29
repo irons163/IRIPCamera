@@ -7,21 +7,18 @@
 //
 
 #import "IRRTSPPlayer.h"
-//#import "KxMovieGLView.h"
-//#import "FisheyeParameter.h"
-//#import "KxMovieGLRenderModeFactory.h"
 #import <OpenGLES/gltypes.h>
 #import <UIKit/UIKit.h>
 #import "NSLayoutConstraint+Multiplier.h"
 #import "IRRTSPSettingsViewController.h"
 #import "IRStreamConnectionRequestFactory.h"
 
-@interface IRRTSPPlayer()<IRRTSPSettingsViewControllerDelegate>
+@interface IRRTSPPlayer () <IRRTSPSettingsViewControllerDelegate>
 
-@property (nonatomic, strong) IRPlayerImp * player;
-@property (nonatomic, strong) IRPlayerImp * player2;
-@property (nonatomic, strong) IRPlayerImp * player3;
-@property (nonatomic, strong) IRPlayerImp * player4;
+@property (nonatomic, strong) IRPlayerImp *player;
+@property (nonatomic, strong) IRPlayerImp *player2;
+@property (nonatomic, strong) IRPlayerImp *player3;
+@property (nonatomic, strong) IRPlayerImp *player4;
 
 @end
 
@@ -33,11 +30,11 @@
 
 @synthesize m_LoadingActivity;
 
--(void)dealloc{
+- (void)dealloc {
     [self stopAllStreams:YES];
 }
 
--(void)viewDidLoad{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     m_aryDevices = [NSMutableArray arrayWithArray:[IRStreamConnectionRequestFactory createStreamConnectionRequest]];
@@ -59,10 +56,10 @@
     
     self.player2 = [IRPlayerImp player];
     [self.player2 registerPlayerNotificationTarget:self
-                                      stateAction:@selector(stateAction:)
-                                   progressAction:@selector(progressAction:)
-                                   playableAction:@selector(playableAction:)
-                                      errorAction:@selector(errorAction:)];
+                                       stateAction:@selector(stateAction:)
+                                    progressAction:@selector(progressAction:)
+                                    playableAction:@selector(playableAction:)
+                                       errorAction:@selector(errorAction:)];
     [self.player2 setViewTapAction:^(IRPlayerImp * _Nonnull player, IRPLFView * _Nonnull view) {
         NSLog(@"player display view did click!");
     }];
@@ -72,10 +69,10 @@
     
     self.player3 = [IRPlayerImp player];
     [self.player3 registerPlayerNotificationTarget:self
-                                      stateAction:@selector(stateAction:)
-                                   progressAction:@selector(progressAction:)
-                                   playableAction:@selector(playableAction:)
-                                      errorAction:@selector(errorAction:)];
+                                       stateAction:@selector(stateAction:)
+                                    progressAction:@selector(progressAction:)
+                                    playableAction:@selector(playableAction:)
+                                       errorAction:@selector(errorAction:)];
     [self.player3 setViewTapAction:^(IRPlayerImp * _Nonnull player, IRPLFView * _Nonnull view) {
         NSLog(@"player display view did click!");
     }];
@@ -85,10 +82,10 @@
     
     self.player4 = [IRPlayerImp player];
     [self.player4 registerPlayerNotificationTarget:self
-                                      stateAction:@selector(stateAction:)
-                                   progressAction:@selector(progressAction:)
-                                   playableAction:@selector(playableAction:)
-                                      errorAction:@selector(errorAction:)];
+                                       stateAction:@selector(stateAction:)
+                                    progressAction:@selector(progressAction:)
+                                    playableAction:@selector(playableAction:)
+                                       errorAction:@selector(errorAction:)];
     [self.player4 setViewTapAction:^(IRPlayerImp * _Nonnull player, IRPLFView * _Nonnull view) {
         NSLog(@"player display view did click!");
     }];
@@ -100,17 +97,13 @@
     [self startStreamConnectionByDeviceIndex:0];
 }
 
--(void)startStreamConnectionByDeviceIndex:(NSInteger) _ch{
-    if([m_aryVideoView count] > _ch && [m_aryDevices count] > _ch)
-    {
+- (void)startStreamConnectionByDeviceIndex:(NSInteger)_ch {
+    if ([m_aryVideoView count] > _ch && [m_aryDevices count] > _ch) {
         UIView *tmpView = [m_aryVideoView objectAtIndex:_ch] ;
-        if(tmpView)
-        {
-            if([[tmpView subviews] count] > 0)
-            {
+        if (tmpView) {
+            if ([[tmpView subviews] count] > 0) {
                 IRRTSPMediaView *tmpVideo = [[tmpView subviews] objectAtIndex:0];
-                if(tmpVideo)
-                {
+                if (tmpVideo) {
                     [tmpVideo startStreamConnectionWithRequest:[m_aryDevices objectAtIndex:_ch]];
                 }
             }
@@ -118,27 +111,19 @@
     }
 }
 
-//stop all video streaming
--(void) stopAllStreams:(BOOL) _fromGoBack
-{
-    for (CGFloat i =0.0f ; i < 4.0f ; i++) {
+- (void)stopAllStreams:(BOOL)_fromGoBack {
+    for (CGFloat i = 0.0f ; i < 4.0f ; i++) {
         [self stopStreamByChannel:i fromgoback:_fromGoBack];
     }
 }
 
-//stop video strem by channel
--(void) stopStreamByChannel:(NSInteger) _ch fromgoback:(BOOL) _blnFromGoback
-{
-    if([m_aryVideoView count] > 0)
-    {
+- (void)stopStreamByChannel:(NSInteger)_ch fromgoback:(BOOL)_blnFromGoback {
+    if ([m_aryVideoView count] > 0) {
         UIView *tmpView = [m_aryVideoView objectAtIndex:_ch] ;
-        if(tmpView)
-        {
-            if([[tmpView subviews] count] > 0)
-            {
+        if (tmpView) {
+            if ([[tmpView subviews] count] > 0) {
                 IRRTSPMediaView *tmpVideo = [[tmpView subviews] objectAtIndex:0];
-                if(tmpVideo)
-                {
+                if (tmpVideo) {
                     [tmpVideo stopStreaming:YES];
                     [tmpVideo removeFromSuperview];
                     tmpVideo = nil;
@@ -148,8 +133,7 @@
     }
 }
 
--(void) initVideoView
-{
+- (void)initVideoView {
     [self addVideoViewToBlock];
     
     m_aryVideoView = [[NSMutableArray alloc] initWithCapacity:0];
@@ -162,11 +146,8 @@
     [self resizeViewBlock];
 }
 
-//show or hide video view block (usually when change display mode
--(void) setBlockShowOrHide:(BOOL)_blnFromViewDidLoad
-{
-    for (NSInteger index=0; index < [m_aryVideoView count]; index++)
-    {
+- (void)setBlockShowOrHide:(BOOL)_blnFromViewDidLoad {
+    for (NSInteger index=0; index < [m_aryVideoView count]; index++) {
         BOOL blnHide = NO;
         
         if(m_intDisplayMode == 1 && index != m_intCurrentCh)
@@ -179,22 +160,17 @@
     }
 }
 
-//add videoViewSingle to each block
--(void) addVideoViewToBlock
-{
+- (void)addVideoViewToBlock {
     for (NSInteger i = 0 ; i < 4; i++) {
         [self addVideoViewToBlockByCh:i];
     }
 }
 
-//add videoViewSingle to block by position
--(void) addVideoViewToBlockByCh:(NSInteger) _ch
-{
-    if(_ch == 0)
-    {
+- (void)addVideoViewToBlockByCh:(NSInteger)_ch {
+    if (_ch == 0) {
         m_firstVideoView = [[IRRTSPMediaView alloc] init];
-        m_firstVideoView.m_player = self.player;
-//        m_firstVideoView.m_videoView.tag = 1;
+        m_firstVideoView.player = self.player;
+        //        m_firstVideoView.m_videoView.tag = 1;
         m_firstVideoView.doubleTapEnable = YES;
         [m_firstView addSubview:m_firstVideoView];
         
@@ -207,12 +183,10 @@
         bottom.active = YES;
         left.active = YES;
         right.active = YES;
-    }
-    else if(_ch == 1)
-    {
+    } else if (_ch == 1) {
         m_secondVideoView = [[IRRTSPMediaView alloc] init];
-        m_secondVideoView.m_player = self.player2;
-//        m_secondVideoView.m_videoView.tag = 2;
+        m_secondVideoView.player = self.player2;
+        //        m_secondVideoView.m_videoView.tag = 2;
         m_secondVideoView.doubleTapEnable = YES;
         [m_secondView addSubview:m_secondVideoView];
         
@@ -225,13 +199,10 @@
         bottom.active = YES;
         left.active = YES;
         right.active = YES;
-        
-    }
-    else if(_ch == 2)
-    {
+    } else if (_ch == 2) {
         m_thirdVideoView = [[IRRTSPMediaView alloc] init];
-        m_thirdVideoView.m_player = self.player3;
-//        m_thirdVideoView.m_videoView.tag = 3;
+        m_thirdVideoView.player = self.player3;
+        //        m_thirdVideoView.m_videoView.tag = 3;
         m_thirdVideoView.doubleTapEnable = YES;
         [m_thirdView addSubview:m_thirdVideoView];
         
@@ -245,12 +216,10 @@
         left.active = YES;
         right.active = YES;
         
-    }
-    else if(_ch == 3)
-    {
+    } else if (_ch == 3) {
         m_fourthVideoView = [[IRRTSPMediaView alloc] init];
-        m_fourthVideoView.m_player = self.player4;
-//        m_fourthVideoView.m_videoView.tag = 4;
+        m_fourthVideoView.player = self.player4;
+        //        m_fourthVideoView.m_videoView.tag = 4;
         m_fourthVideoView.doubleTapEnable = YES;
         [m_fourthView addSubview:m_fourthVideoView];
         
@@ -266,11 +235,8 @@
     }
 }
 
-//resize view block (usually when change display mode, rotate screen)
--(void) resizeViewBlock
-{
-    if(m_intDisplayMode == 1)
-    {
+- (void)resizeViewBlock {
+    if (m_intDisplayMode == 1) {
         switch (m_intCurrentCh) {
             case 0:
                 m_firstViewConstraint = [m_firstViewConstraint updateMultiplier:1.0f];
@@ -287,9 +253,7 @@
             default:
                 break;
         }
-    }
-    else
-    {
+    } else {
         m_firstViewConstraint = [m_firstViewConstraint updateMultiplier:0.5f];
         m_secondViewConstraint = [m_secondViewConstraint updateMultiplier:0.5f];
         m_thirdViewConstraint = [m_thirdViewConstraint updateMultiplier:0.5f];
@@ -297,23 +261,22 @@
     }
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     IRRTSPSettingsViewController *vc = [segue destinationViewController];
     vc.delegate = self;
 }
 
--(void)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC{
+- (void)unwindForSegue:(UIStoryboardSegue *)unwindSegue towardsViewController:(UIViewController *)subsequentVC {
     
 }
 
--(void)updatedSettings:(DeviceClass *)device{
+- (void)updatedSettings:(DeviceClass *)device {
     m_aryDevices = [NSMutableArray arrayWithArray:[IRStreamConnectionRequestFactory createStreamConnectionRequest]];
     
     [self startStreamConnectionByDeviceIndex:0];
 }
 
-- (void)stateAction:(NSNotification *)notification
-{
+- (void)stateAction:(NSNotification *)notification {
     IRState * state = [IRState stateFromUserInfo:notification.userInfo];
     
     NSString * text;
@@ -326,7 +289,6 @@
             break;
         case IRPlayerStateReadyToPlay:
             text = @"Prepare";
-//            self.totalTimeLabel.text = [self timeStringFromSeconds:self.player.duration];
             [self.player play];
             break;
         case IRPlayerStatePlaying:
@@ -342,32 +304,23 @@
             text = @"Error";
             break;
     }
-//    self.stateLabel.text = text;
 }
 
-- (void)progressAction:(NSNotification *)notification
-{
-//    IRProgress * progress = [IRProgress progressFromUserInfo:notification.userInfo];
-//    if (!self.progressSilderTouching) {
-//        self.progressSilder.value = progress.percent;
-//    }
-//    self.currentTimeLabel.text = [self timeStringFromSeconds:progress.current];
+- (void)progressAction:(NSNotification *)notification {
+    
 }
 
-- (void)playableAction:(NSNotification *)notification
-{
+- (void)playableAction:(NSNotification *)notification {
     IRPlayable * playable = [IRPlayable playableFromUserInfo:notification.userInfo];
     NSLog(@"playable time : %f", playable.current);
 }
 
-- (void)errorAction:(NSNotification *)notification
-{
+- (void)errorAction:(NSNotification *)notification {
     IRError * error = [IRError errorFromUserInfo:notification.userInfo];
     NSLog(@"player did error : %@", error.error);
 }
 
-- (NSString *)timeStringFromSeconds:(CGFloat)seconds
-{
+- (NSString *)timeStringFromSeconds:(CGFloat)seconds {
     return [NSString stringWithFormat:@"%ld:%.2ld", (long)seconds / 60, (long)seconds % 60];
 }
 

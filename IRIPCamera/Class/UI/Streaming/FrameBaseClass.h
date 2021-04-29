@@ -16,16 +16,16 @@
 #define VIDEO_I_FRAME   0X100001
 #define VIDEO_P_FRAME   0X100002
 
-
-@interface FrameBaseClass : NSObject
-{
+@interface FrameBaseClass : NSObject {
     NSUInteger  m_uintFrameLength;
     NSInteger   m_intFrameType;
     uint8_t     *m_pRawData;
     BOOL        m_blnAvailable;
 }
+
 @property NSUInteger    m_uintFrameLenth;
 @property NSInteger     m_intFrameType;
 @property uint8_t       *m_pRawData;
 @property BOOL          m_blnAvailable;
+
 @end
