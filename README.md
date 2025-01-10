@@ -1,6 +1,9 @@
 ![Build Status](https://img.shields.io/badge/build-%20passing%20-brightgreen.svg)
 ![Platform](https://img.shields.io/badge/Platform-%20iOS%20-blue.svg)
 
+### Swift version in here: [IRIPCamera-swift](https://github.com/irons163/IRIPCamera-swift)
+### This objc project will soon be no longer maintaining.
+
 # IRIPCamera 
 
 - IRIPCamera is a powerful URL/Rtsp/IPCam player/viewer for iOS.
