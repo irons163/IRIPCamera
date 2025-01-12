@@ -16,6 +16,8 @@
 #import "IRPlayerNotification.h"
 #import "IRPlayerMacro.h"
 #import "IRPlayerImp+DisplayView.h"
+#import "IRFFTrack.h"
+#import "IRPlayerImp+Private.h"
 
 //@interface IRFFPlayer () <IRFFDecoderDelegate, IRFFDecoderAudioOutput, IRAudioManagerDelegate>
 @interface IRFFPlayer () <IRFFDecoderDelegate, IRFFDecoderAudioOutput>
@@ -52,7 +54,8 @@
     if (self = [super init]) {
         self.abstractPlayer = abstractPlayer;
         self.stateLock = [[NSLock alloc] init];
-        self.audioManager = [IRAudioManager manager];
+//        self.audioManager = [IRAudioManager manager];
+        self.audioManager = self.abstractPlayer.manager;
         [self.audioManager registerAudioSession];
     }
     return self;
@@ -221,6 +224,16 @@
     [self.decoder open];
     [self reloadVolume];
     [self reloadPlayableBufferInterval];
+    
+    if(self.decoder.hardwareDecoderEnable) {
+        if(self.abstractPlayer.displayView.pixelFormat != NV12_IRPixelFormat) {
+            [self.abstractPlayer.displayView setPixelFormat:NV12_IRPixelFormat];
+        }
+    } else {
+        if(self.abstractPlayer.displayView.pixelFormat != YUV_IRPixelFormat) {
+            [self.abstractPlayer.displayView setPixelFormat:YUV_IRPixelFormat];
+        }
+    }
 
     switch (self.abstractPlayer.videoType) {
         case IRVideoTypeNormal:
@@ -234,16 +247,6 @@
         case IRVideoTypeCustom:
             self.abstractPlayer.displayView.rendererType = IRDisplayRendererTypeFFmpegPexelBuffer;
             break;
-    }
-    
-    if(self.decoder.hardwareDecoderEnable) {
-        if(self.abstractPlayer.displayView.pixelFormat != NV12_IRPixelFormat) {
-            [self.abstractPlayer.displayView setPixelFormat:NV12_IRPixelFormat];
-        }
-    } else {
-        if(self.abstractPlayer.displayView.pixelFormat != YUV_IRPixelFormat) {
-            [self.abstractPlayer.displayView setPixelFormat:YUV_IRPixelFormat];
-        }
     }
 }
 

@@ -119,10 +119,19 @@
                     //                if (symmetric)
                     //                    latitude = Math.atan(yy * tvaperture);
                     //                else
-                    if (yy > y0)
-                        latitude = atan((yy - y0) * tlat2 / (1.0 - y0));
-                    else
-                        latitude = atan((yy - y0) * tlat1 / (-1.0 - y0));
+                    if (yy > y0) {
+                        if (1.0 - y0 == 0) {
+                            latitude = 0;
+                        } else {
+                            latitude = atan((yy - y0) * tlat2 / (1.0 - y0));
+                        }
+                    } else {
+                        if (-1.0 - y0 == 0) {
+                            latitude = 0;
+                        } else {
+                            latitude = atan((yy - y0) * tlat1 / (-1.0 - y0));
+                        }
+                    }
                     [self setPixelFactors:latitude :longitude :self.antialias*i+j :x :y :transX :transY :transZ :raperture];
                 }
             }
@@ -334,7 +343,7 @@ XYZ PRotateZ(XYZ p, float_t theta)
 }
 
 -(void)updateTextureWidth:(NSUInteger)w height:(NSUInteger)h{
-    //    if(self.textureWidth != w || self.textureHeight != h){
+    if(self.textureWidth != w || self.textureHeight != h){
     self.textureWidth = w;
     self.textureHeight = h;
     
@@ -342,12 +351,15 @@ XYZ PRotateZ(XYZ p, float_t theta)
     self.fishcentery = self.textureHeight / 2.0;
     self.fishradiush = self.textureWidth / 2.0;
     self.fishradiusv = self.textureHeight / 2.0;
+        
+    if(w == 0 || h == 0)
+        return;
     
     [self updateOutputWH];
     
     if(self.delegate)
         [self.delegate didUpdateOutputWH:self.outputWidth :self.outputHeight];
-    //    }
+    }
 }
 
 -(void)updateOutputWH{

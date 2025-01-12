@@ -18,6 +18,7 @@
 #import "IRSensor.h"
 #import "IRSmoothScrollController.h"
 #import "IRFFVideoInput+Private.h"
+#import "IRPlayerImp+Private.h"
 
 #if IRPLATFORM_TARGET_OS_IPHONE_OR_TV
 #import "IRAudioManager.h"
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) IRSmoothScrollController *scrollController;
 
 @property (nonatomic, assign) BOOL needAutoPlay;
+@property (nonatomic, assign) NSTimeInterval lastForegroundTimeInterval;
 
 @end
 
@@ -401,7 +403,7 @@
 {
     if (!_displayView) {
 //        _displayView = [IRGLView displayViewWithAbstractPlayer:self];
-        _displayView = [[IRGLView alloc] init];
+        _displayView = [self createGLView];
         
         _scrollController = [[IRSmoothScrollController alloc] initWithTargetView:_displayView];
         _scrollController.currentMode = [_displayView getCurrentRenderMode];
@@ -414,6 +416,10 @@
         _gestureControl.delegate = self;
     }
     return _displayView;
+}
+
+- (IRGLView *)createGLView {
+    return [[IRGLView alloc] init];
 }
 
 - (IRAVPlayer *)avPlayer
@@ -505,7 +511,8 @@
     
 #if IRPLATFORM_TARGET_OS_IPHONE_OR_TV
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[IRAudioManager manager] removeHandlerTarget:self];
+//    [[IRAudioManager manager] removeHandlerTarget:self];
+    [self.manager removeHandlerTarget:self];
 #endif
 }
 
@@ -518,15 +525,21 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     @weakify(self)
-    IRAudioManager * manager = [IRAudioManager manager];
-    [manager setHandlerTarget:self interruption:^(id handlerTarget, IRAudioManager *audioManager, IRAudioManagerInterruptionType type, IRAudioManagerInterruptionOption option) {
+//    IRAudioManager * manager = [IRAudioManager manager];
+//    [manager setHandlerTarget:self interruption:^(id handlerTarget, IRAudioManager *audioManager, IRAudioManagerInterruptionType type, IRAudioManagerInterruptionOption option) {
+    self.manager = [[IRAudioManager alloc] init];
+    [self.manager setHandlerTarget:self interruption:^(id handlerTarget, IRAudioManager *audioManager, IRAudioManagerInterruptionType type, IRAudioManagerInterruptionOption option) {
         @strongify(self)
         if (type == IRAudioManagerInterruptionTypeBegin) {
             switch (self.state) {
                 case IRPlayerStatePlaying:
                 case IRPlayerStateBuffering:
                 {
-                    [self pause];
+                    // fix : maybe receive interruption notification when enter foreground.
+                    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+                    if (timeInterval - self.lastForegroundTimeInterval > 1.5) {
+                        [self pause];
+                    }
                 }
                     break;
                 default:
@@ -588,6 +601,7 @@
                     if (self.needAutoPlay) {
                         self.needAutoPlay = NO;
                         [self play];
+                        self.lastForegroundTimeInterval = [NSDate date].timeIntervalSince1970;
                     }
                 }
                     break;
